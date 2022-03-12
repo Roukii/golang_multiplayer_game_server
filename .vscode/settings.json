@@ -5,6 +5,7 @@
   },
   "gopls": {
     "formatting.gofumpt": true
-  }
+  },
+  "go.lintOnSave": "file"
 
 }

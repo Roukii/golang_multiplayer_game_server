@@ -3,6 +3,7 @@ package http
 import (
 	"net/http"
 
+	"github.com/Roukii/pock_multiplayer/internal/middleware"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/Roukii/pock_multiplayer/pkg/jwt"
 	"github.com/gin-gonic/gin"
@@ -13,7 +14,7 @@ type authRoutes struct {
 	l logger.Interface
 }
 
-func newAuthRoutes(handler *gin.Engine, l logger.Interface) {
+func newAuthRoutes(handler *gin.RouterGroup, l logger.Interface) {
 	r := &authRoutes{l}
 
 	h := handler.Group("/auth")
@@ -23,6 +24,13 @@ func newAuthRoutes(handler *gin.Engine, l logger.Interface) {
 		h.POST("/refresh", r.refresh)
 		h.POST("/reset_password", r.resetPassword)
 		h.POST("/register", r.register)
+	}
+
+	auth := h.Group("")
+	auth.Use(middleware.CheckTokenJWT)
+	{
+		auth.POST("/logout", r.logout)
+		auth.POST("/refresh", r.refresh)
 	}
 }
 
@@ -43,7 +51,7 @@ func (ar *authRoutes) login(c *gin.Context) {
      c.JSON(http.StatusUnauthorized, "Please provide valid login details")
      return
   }
-  token, err := CreateToken(u.UUID)
+  token, err := jwt.CreateToken(u.UUID, u.Username)
   if err != nil {
      c.JSON(http.StatusUnprocessableEntity, err.Error())
      return

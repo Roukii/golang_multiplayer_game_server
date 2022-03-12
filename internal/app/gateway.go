@@ -11,7 +11,7 @@ func RunGateway() {
 
 	// HTTP Server
 	r := gin.New()
-
+	
 	err := r.Run(viper.GetString("http.port"))
 	if err != nil {
 		l.Fatal("Couldn't start server : ", err.Error())

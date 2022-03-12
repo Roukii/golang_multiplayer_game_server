@@ -1,33 +1,22 @@
 package middleware
 
 import (
-	"time"
+	"net/http"
+	"strings"
 
-	"github.com/golang-jwt/jwt"
-	"github.com/spf13/viper"
+	"github.com/Roukii/pock_multiplayer/pkg/jwt"
+	"github.com/gin-gonic/gin"
 )
 
-type CustomerInfo struct {
-	UUID   string
-	Name   string
-	Device string
-}
+func CheckTokenJWT(c *gin.Context) {
+	token := strings.Split(c.Request.Header["Authorization"][0], " ")[1]
 
-type CustomClaims struct {
-	*jwt.StandardClaims
-	TokenType string
-	CustomerInfo
-}
-
-func CreateToken(uuid string, username string) (string, error) {
-	t := jwt.New(jwt.GetSigningMethod("HS512"))
-	t.Claims = &CustomClaims{
-		&jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
-		},
-		"level1",
-		CustomerInfo{uuid, username, "human"},
+	claims, err := jwt.VerifyToken(token)
+	if err !=nil {
+		c.AbortWithStatus(http.StatusUnauthorized)
 	}
-
-	return t.SignedString(viper.GetString("secrets.jwt"))
+	c.Set("uuid", claims.UUID)
+	c.Set("username", claims.Name)
+	c.Set("device", claims.Device)
+  c.Next()
 }
