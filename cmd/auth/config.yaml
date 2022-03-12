@@ -1,0 +1,12 @@
+app:
+  name: gateway
+  version: 1.0.0
+
+http:
+  port: 8001
+
+logger:
+  level: debug
+
+secrets:
+  jwt: xXx_qwerty69_xXx
