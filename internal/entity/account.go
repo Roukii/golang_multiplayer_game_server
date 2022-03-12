@@ -1,9 +1,13 @@
 package entity
 
-// Translation -.
+import (
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+)
+
 type Account struct {
-	Source      string `json:"source"       example:"auto"`
-	Destination string `json:"destination"  example:"en"`
-	Original    string `json:"original"     example:"текст для перевода"`
-	Translation string `json:"translation"  example:"text for translation"`
+	UUID      string    `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	Username  string    `json:"username"`
+	Password  string    `json:"password"`
+	CreatedAt timestamp `json:"createdAt"`
 }

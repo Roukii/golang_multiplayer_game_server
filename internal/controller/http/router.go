@@ -23,5 +23,7 @@ func NewRouter(handler *gin.Engine, l logger.Interface) {
 	h := handler.Group("/gateway")
 	{
 		newAuthRoutes(h, l)
+		newWorldRoutes(h, l)
+		
 	}
 }

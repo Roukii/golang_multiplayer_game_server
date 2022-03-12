@@ -2,31 +2,20 @@
 package postgres
 
 import (
-	"context"
-	"fmt"
-	"log"
-	"time"
-
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-const (
-	_defaultMaxPoolSize  = 1
-	_defaultConnAttempts = 10
-	_defaultConnTimeout  = time.Second
-)
-
-// Postgres -.
-
-// New -.
-func New(url string, opts ...Option) (*Postgres, error) {
+type PostgresOption struct {
+	hotst string
+	user string
+	password string
+	dbname string
+	port string
 	
 }
-
-// Close -.
-func (p *Postgres) Close() {
-	if p.Pool != nil {
-		p.Pool.Close()
-	}
+// New -.
+func New(PostgresOption) (*gorm.DB, error) {
+	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
+	return gorm.Open(postgres.Open(dsn), &gorm.Config{})
 }
