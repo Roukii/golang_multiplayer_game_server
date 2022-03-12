@@ -15,9 +15,8 @@ type User struct {
 	CreatedAt time.Time `json:"createdAt"`
 }
 
-
 func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
-  u.UUID = uuid.New().String()
+	u.UUID = uuid.New().String()
 	u.CreatedAt = time.Now()
 	return nil
 }
