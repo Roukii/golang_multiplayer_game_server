@@ -12,7 +12,8 @@ type PostgresOption struct {
 	password string
 	dbname string
 	port string
-	
+	sslmode string
+	timeZone string
 }
 // New -.
 func New(PostgresOption) (*gorm.DB, error) {
