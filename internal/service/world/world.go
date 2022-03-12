@@ -31,3 +31,11 @@ func (a *WorldService) GetUserWorlds(userId string) ([]entity.World, error) {
 	}
 	return worlds, err
 }
+
+func (a *WorldService) GetAvailableWorld(userId string) ([]entity.World, error) {
+	worlds, err := a.WorldDao.GetAll()
+	if err != nil {
+		return []entity.World{}, err
+	}
+	return worlds, err
+}

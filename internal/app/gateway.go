@@ -29,7 +29,7 @@ func RunGateway() {
 	services := service.New(db, l)
 
 	http.NewRouter(r, services)
-	err = r.Run(viper.GetString("http.port"))
+	err = r.Run(":" + viper.GetString("http.port"))
 	if err != nil {
 		l.Fatal("Couldn't start server : ", err.Error())
 	}

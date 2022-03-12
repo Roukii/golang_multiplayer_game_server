@@ -2,6 +2,9 @@ package entity
 
 import (
 	"time"
+
+	"github.com/google/uuid"
+	"gorm.io/gorm"
 )
 
 type User struct {
@@ -10,4 +13,11 @@ type User struct {
 	Password  []byte    `json:"password,omitempty"`
 	Worlds    []World   `gorm:"foreignKey:user_id"`
 	CreatedAt time.Time `json:"createdAt"`
+}
+
+
+func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
+  u.UUID = uuid.New().String()
+	u.CreatedAt = time.Now()
+	return nil
 }

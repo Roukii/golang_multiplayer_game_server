@@ -1,6 +1,8 @@
 package user
 
 import (
+	"fmt"
+
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/Roukii/pock_multiplayer/internal/dao"
@@ -28,11 +30,11 @@ func (a *UserService) GetById(userId string) (*entity.User, error) {
 
 func (a *UserService) Login(username string, password string) (*entity.User, error) {
 	passwordByte := []byte(password)
-	hashedPassword, err := bcrypt.GenerateFromPassword(passwordByte, bcrypt.DefaultCost)
+	user, err := a.userDao.GetByUsername(username)
 	if err != nil {
-			return nil, err
+		return nil, err
 	}
-	user, err := a.userDao.GetByUsernamePassword(username, hashedPassword)
+	err = bcrypt.CompareHashAndPassword(user.Password, passwordByte)
 	if err != nil {
 		return nil, err
 	}
@@ -40,8 +42,9 @@ func (a *UserService) Login(username string, password string) (*entity.User, err
 }
 
 func (a *UserService) Register(input UserInput) (*entity.User, error) {
+	fmt.Println("register pass : " + input.Password)
 	user := entity.User{}
-	user.Username = input.Name
+	user.Username = input.Username
 	passwordByte := []byte(input.Password)
 	hashedPassword, err := bcrypt.GenerateFromPassword(passwordByte, bcrypt.DefaultCost)
 	if err != nil {
