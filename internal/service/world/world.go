@@ -27,7 +27,7 @@ func (a *WorldService) getById(WorldId string) (entity.World, error) {
 func (a *WorldService) getUserWorlds(userId string) ([]entity.World, error) {
 	worlds, err := a.WorldDao.getUserWorlds(userId)
 	if err != nil {
-		return entity.World{}, err
+		return []entity.World{}, err
 	}
 	return worlds, err
 }

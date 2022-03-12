@@ -33,6 +33,7 @@ func (a *WorldDao) SaveOrUpdate(world *entity.World) error {
 }
 
 func (a *WorldDao) getUserWorlds(userId string) ([]entity.World, error) {
-	// TODO
-
+	// TODO join table user with user_world_aff
+	// db.Model(&User{}).Select("users.name, emails.email").Joins("left join emails on emails.user_id = users.id").Scan(&result{})
+	return []entity.World{}, nil
 }
