@@ -2,17 +2,16 @@ package http
 
 import (
 	"github.com/Roukii/pock_multiplayer/internal/middleware"
-	"github.com/Roukii/pock_multiplayer/pkg/logger"
+	"github.com/Roukii/pock_multiplayer/internal/service"
 	"github.com/gin-gonic/gin"
-
 )
 
 type worldRoutes struct {
-	l logger.Interface
+	services *service.Service
 }
 
-func newWorldRoutes(handler *gin.RouterGroup, l logger.Interface) {
-	r := &worldRoutes{l}
+func newWorldRoutes(handler *gin.RouterGroup, services *service.Service) {
+	r := &worldRoutes{services}
 
 	h := handler.Group("/world")
 	h.Use(middleware.CheckTokenJWT)

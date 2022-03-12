@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Configuration
-	err := config.LoadConfig("./config", "gateway_config")
+	err := config.LoadConfig("./", "config")
 	if err != nil {
 		log.Fatalf("Config error: %s", err)
 	}

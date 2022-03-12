@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/spf13/viper v1.10.1
+	golang.org/x/crypto v0.0.0-20220312131142-6068a2e6cfdc
 	gorm.io/driver/postgres v1.3.1
 	gorm.io/gorm v1.23.2
 )
@@ -37,7 +38,6 @@ require (
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/ugorji/go/codec v1.2.6 // indirect
-	golang.org/x/crypto v0.0.0-20211215165025-cf75a172585e // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 

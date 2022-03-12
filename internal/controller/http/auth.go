@@ -4,18 +4,17 @@ import (
 	"net/http"
 
 	"github.com/Roukii/pock_multiplayer/internal/middleware"
-	"github.com/Roukii/pock_multiplayer/pkg/logger"
+	"github.com/Roukii/pock_multiplayer/internal/service"
 	"github.com/Roukii/pock_multiplayer/pkg/jwt"
 	"github.com/gin-gonic/gin"
-
 )
 
 type authRoutes struct {
-	l logger.Interface
+	services *service.Service
 }
 
-func newAuthRoutes(handler *gin.RouterGroup, l logger.Interface) {
-	r := &authRoutes{l}
+func newAuthRoutes(handler *gin.RouterGroup,  services *service.Service) {
+	r := &authRoutes{services}
 
 	h := handler.Group("/auth")
 	{
@@ -46,7 +45,6 @@ func (ar *authRoutes) login(c *gin.Context) {
      c.JSON(http.StatusUnprocessableEntity, "Invalid json provided")
      return
   }
-
 	if u.Username != u.Username || u.Password != u.Password {
      c.JSON(http.StatusUnauthorized, "Please provide valid login details")
      return

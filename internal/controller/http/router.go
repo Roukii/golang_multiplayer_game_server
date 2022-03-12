@@ -3,12 +3,12 @@ package http
 import (
 	"net/http"
 
-	"github.com/Roukii/pock_multiplayer/pkg/logger"
+	"github.com/Roukii/pock_multiplayer/internal/service"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-func NewRouter(handler *gin.Engine, l logger.Interface) {
+func NewRouter(handler *gin.Engine, services *service.Service) {
 	// Options
 	handler.Use(gin.Logger())
 	handler.Use(gin.Recovery())
@@ -22,8 +22,8 @@ func NewRouter(handler *gin.Engine, l logger.Interface) {
 	// Routers
 	h := handler.Group("/gateway")
 	{
-		newAuthRoutes(h, l)
-		newWorldRoutes(h, l)
+		newAuthRoutes(h, services)
+		newWorldRoutes(h, services)
 		
 	}
 }

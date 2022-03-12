@@ -22,6 +22,12 @@ func (a UserDao) GetById(userId string) (entity.User, error) {
 	return user, result.Error
 }
 
+func (a UserDao) GetByUsernamePassword(username string, password []byte) (entity.User, error) {
+	var user entity.User
+	result := a.db.Where("username = ? AND password = ?", username, password).First(&user)
+	return user, result.Error
+}
+
 func (a UserDao) GetAll() ([]entity.User, error) {
 	var users []entity.User
 	result := a.db.Find(users)

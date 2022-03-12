@@ -16,7 +16,7 @@ func New(r *dao.WorldDao) *WorldService {
 	}
 }
 
-func (a *WorldService) getById(WorldId string) (entity.World, error) {
+func (a *WorldService) GetById(WorldId string) (entity.World, error) {
 	world, err := a.WorldDao.GetById(WorldId)
 	if err != nil {
 		return entity.World{}, err
@@ -24,8 +24,8 @@ func (a *WorldService) getById(WorldId string) (entity.World, error) {
 	return world, err
 }
 
-func (a *WorldService) getUserWorlds(userId string) ([]entity.World, error) {
-	worlds, err := a.WorldDao.getUserWorlds(userId)
+func (a *WorldService) GetUserWorlds(userId string) ([]entity.World, error) {
+	worlds, err := a.WorldDao.GetUserWorlds(userId)
 	if err != nil {
 		return []entity.World{}, err
 	}

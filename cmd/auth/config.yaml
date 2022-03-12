@@ -10,3 +10,12 @@ logger:
 
 secrets:
   jwt: xXx_qwerty69_xXx
+
+database:
+  host: localhost
+  user: User
+  password: postgres
+  dbname: dbname
+  port: 3500
+  sslmode: disable
+  timeZone: Europe/Paris
