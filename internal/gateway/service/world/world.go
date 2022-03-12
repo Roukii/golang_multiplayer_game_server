@@ -1,8 +1,8 @@
 package world
 
 import (
-	"github.com/Roukii/pock_multiplayer/internal/dao"
-	"github.com/Roukii/pock_multiplayer/internal/entity"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/dao"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/entity"
 )
 
 type WorldService struct {

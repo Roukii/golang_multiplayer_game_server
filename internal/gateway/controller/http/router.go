@@ -3,7 +3,7 @@ package http
 import (
 	"net/http"
 
-	"github.com/Roukii/pock_multiplayer/internal/service"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/service"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
@@ -24,6 +24,6 @@ func NewRouter(handler *gin.Engine, services *service.Service) {
 	{
 		newAuthRoutes(h, services)
 		newWorldRoutes(h, services)
-		
+
 	}
 }

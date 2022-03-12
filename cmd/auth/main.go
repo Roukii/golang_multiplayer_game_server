@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/Roukii/pock_multiplayer/config"
-	"github.com/Roukii/pock_multiplayer/internal/app"
+	"github.com/Roukii/pock_multiplayer/internal/gateway"
 )
 
 func main() {
@@ -15,5 +15,5 @@ func main() {
 	}
 
 	// Run
-	app.RunGateway()
+	gateway.RunGateway()
 }

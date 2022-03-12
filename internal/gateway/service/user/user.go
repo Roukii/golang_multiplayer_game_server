@@ -5,8 +5,8 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/Roukii/pock_multiplayer/internal/dao"
-	"github.com/Roukii/pock_multiplayer/internal/entity"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/dao"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/entity"
 )
 
 type UserService struct {
@@ -48,7 +48,7 @@ func (a *UserService) Register(input UserInput) (*entity.User, error) {
 	passwordByte := []byte(input.Password)
 	hashedPassword, err := bcrypt.GenerateFromPassword(passwordByte, bcrypt.DefaultCost)
 	if err != nil {
-			return nil, err
+		return nil, err
 	}
 	user.Password = hashedPassword
 

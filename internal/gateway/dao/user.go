@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"github.com/Roukii/pock_multiplayer/internal/entity"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/entity"
 	"gorm.io/gorm"
 )
 

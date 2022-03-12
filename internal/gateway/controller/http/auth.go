@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Roukii/pock_multiplayer/internal/middleware"
-	"github.com/Roukii/pock_multiplayer/internal/service"
-	"github.com/Roukii/pock_multiplayer/internal/service/user"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/middleware"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/service"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/service/user"
 	"github.com/Roukii/pock_multiplayer/pkg/jwt"
 	"github.com/gin-gonic/gin"
 )

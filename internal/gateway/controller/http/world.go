@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/Roukii/pock_multiplayer/internal/middleware"
-	"github.com/Roukii/pock_multiplayer/internal/service"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/middleware"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/service"
 	"github.com/gin-gonic/gin"
 )
 
@@ -24,17 +24,13 @@ func newWorldRoutes(handler *gin.RouterGroup, services *service.Service) {
 }
 
 func (wr *worldRoutes) userWorlds(c *gin.Context) {
-
 }
 
 func (wr *worldRoutes) worldList(c *gin.Context) {
-
 }
 
 func (wr *worldRoutes) joinWorld(c *gin.Context) {
-
 }
 
 func (wr *worldRoutes) deleteUserWorld(c *gin.Context) {
-
 }

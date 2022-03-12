@@ -1,8 +1,8 @@
-package app
+package gateway
 
 import (
-	"github.com/Roukii/pock_multiplayer/internal/controller/http"
-	"github.com/Roukii/pock_multiplayer/internal/service"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/controller/http"
+	"github.com/Roukii/pock_multiplayer/internal/gateway/service"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/Roukii/pock_multiplayer/pkg/postgres"
 	"github.com/gin-gonic/gin"
