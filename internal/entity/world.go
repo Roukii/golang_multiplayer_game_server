@@ -1,9 +1,9 @@
 package entity
 
+import "time"
+
 // Translation -.
 type World struct {
-	Source      string `json:"source"       example:"auto"`
-	Destination string `json:"destination"  example:"en"`
-	Original    string `json:"original"     example:"текст для перевода"`
-	Translation string `json:"translation"  example:"text for translation"`
+	UUID      string    `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	CreatedAt time.Time `json:"createdAt"`
 }

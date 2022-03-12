@@ -1,4 +1,3 @@
-// Package postgres implements postgres connection.
 package postgres
 
 import (
@@ -6,17 +5,21 @@ import (
 	"gorm.io/gorm"
 )
 
-type PostgresOption struct {
-	hotst string
-	user string
-	password string
-	dbname string
-	port string
-	sslmode string
-	timeZone string
+type PostgresAuth struct {
+	Host       string
+	User       string
+	Password   string
+	Dbname     string
+	Port       string
+	Sslmode    string
+	TimeZone   string
+	GormOption *gorm.Option
 }
+
 // New -.
-func New(PostgresOption) (*gorm.DB, error) {
-	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
-	return gorm.Open(postgres.Open(dsn), &gorm.Config{})
+func New(auth *PostgresAuth) (*gorm.DB, error) {
+	dsn := "host=" + auth.Host + "user=" + auth.User +
+		"password=" + auth.Password + "dbname=" + auth.Dbname +
+		"port=" + auth.Port + "sslmode=" + auth.Sslmode + " " + auth.TimeZone
+	return gorm.Open(postgres.Open(dsn), *auth.GormOption)
 }

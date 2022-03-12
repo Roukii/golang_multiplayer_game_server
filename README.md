@@ -34,8 +34,8 @@ NoSQL Database :
       - job
 
 SQL Database : 
-    - account
-    - account_world_aff
+    - user
+    - user_world_aff
     - connexion
     - device
     - world_list
