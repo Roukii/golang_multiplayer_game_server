@@ -16,6 +16,6 @@ database:
   user: postgres
   password: postgres
   dbname: postgres
-  port: 3500
+  port: 5432
   sslmode: disable
   timeZone: Europe/Paris
