@@ -1,0 +1,19 @@
+version: '3'
+volumes:
+  database_data: {}
+networks:
+  pock-multiplayer-network: {}
+services:
+  db:
+    restart: unless-stopped
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - '5433:5432'
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    networks:
+      - pock-multiplayer-network

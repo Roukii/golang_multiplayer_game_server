@@ -13,9 +13,9 @@ secrets:
 
 database:
   host: localhost
-  user: User
+  user: postgres
   password: postgres
-  dbname: dbname
+  dbname: postgres
   port: 3500
   sslmode: disable
   timeZone: Europe/Paris
