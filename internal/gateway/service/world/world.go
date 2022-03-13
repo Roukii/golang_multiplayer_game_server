@@ -10,7 +10,7 @@ type WorldService struct {
 }
 
 // New -.
-func New(r *dao.WorldDao) *WorldService {
+func NewWorld(r *dao.WorldDao) *WorldService {
 	return &WorldService{
 		WorldDao: r,
 	}
@@ -32,7 +32,7 @@ func (a *WorldService) GetUserWorlds(userId string) ([]entity.World, error) {
 	return worlds, err
 }
 
-func (a *WorldService) GetAvailableWorld(userId string) ([]entity.World, error) {
+func (a *WorldService) GetAvailableWorld() ([]entity.World, error) {
 	worlds, err := a.WorldDao.GetAll()
 	if err != nil {
 		return []entity.World{}, err

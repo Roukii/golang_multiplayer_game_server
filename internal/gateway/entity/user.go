@@ -8,13 +8,13 @@ import (
 )
 
 type User struct {
-	UUID      string      `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
-	Username  string      `gorm:"type:varchar(40);unique" json:"username"`
-	Password  []byte      `json:"password,omitempty"`
-	Worlds    []World     `gorm:"foreignKey:user_id"`
-	Connexion []Connexion `gorm:"foreignKey:user_id"`
-	CreatedAt time.Time   `json:"createdAt"`
-	UpdateAt  time.Time   `json:"UpdateAt"`
+	UUID      string         `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	Username  string         `gorm:"type:varchar(40);unique" json:"username"`
+	Password  []byte         `json:"password,omitempty"`
+	CreatedAt time.Time      `json:"createdAt"`
+	UpdateAt  time.Time      `json:"updateAt"`
+	Worlds    []UserWorldAff
+	Connexion []Connexion
 }
 
 func (u *User) BeforeCreate(tx *gorm.DB) (err error) {

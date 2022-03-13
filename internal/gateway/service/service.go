@@ -9,15 +9,17 @@ import (
 )
 
 type Service struct {
-	UserService  *user.UserService
-	WorldService *world.WorldService
-	Logger       logger.Interface
+	UserService          *user.UserService
+	WorldService         *world.WorldService
+	UserWorldAffdService *world.UserWorldAffService
+	Logger               logger.Interface
 }
 
 func New(pg *gorm.DB, l logger.Interface) *Service {
 	return &Service{
-		UserService:  user.New(dao.NewUserDao(pg)),
-		WorldService: world.New(dao.NewWorldDao(pg)),
-		Logger:       l,
+		UserService:          user.New(dao.NewUserDao(pg), dao.NewConnexionDao(pg)),
+		WorldService:         world.NewWorld(dao.NewWorldDao(pg)),
+		UserWorldAffdService: world.NewUserWorldAff(dao.NewUserWorldAffDao(pg)),
+		Logger:               l,
 	}
 }

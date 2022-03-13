@@ -5,15 +5,15 @@ pock for a multiplayer game
 Gateway/Gateway
 
 Route :
-  - login
-  - logout
-  - refresh
-  - reset_password
-  - register
-  - user_world
-  - world_list
-  - join_world
-  - delete_user_world
+  - /auth/login
+  - /auth/logout
+  - /auth/refresh
+  - /auth/reset_password
+  - /auth/register
+  - /world/user
+  - /world/list
+  - /world/join
+  - /world/delete_user
 
 
 NoSQL Database :
@@ -34,8 +34,10 @@ NoSQL Database :
       - job
 
 SQL Database : 
-    - user
-    - user_world_aff
-    - connexion
-    - device
-    - world_list
+    - users
+    - user_world_affs
+    - connexions
+    - worlds
+
+
+RPC Command

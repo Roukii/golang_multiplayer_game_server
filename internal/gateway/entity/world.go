@@ -8,15 +8,21 @@ import (
 )
 
 type World struct {
-	UUID      string `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
-	UserId    string
-	CreatedAt time.Time
-	UpdateAt  time.Time
+	UUID              string    `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	Name              string
+	PlayerCount       int       `json:"player_count"`
+	MaxPlayer         int       `json:"max_player"`
+	IsAcceptingPlayer bool      `json:"is_accepting_player"`
+	CreatedAt         time.Time `json:"createdAt"`
+	UpdateAt          time.Time `json:"updatedAt"`
 }
 
 func (u *World) BeforeCreate(tx *gorm.DB) (err error) {
-	u.UUID = uuid.New().String()
-	u.CreatedAt = time.Now()
+	if u.UUID == "" {
+		u.UUID = uuid.New().String()
+		u.CreatedAt = time.Now()
+		u.UpdateAt = time.Now()
+	}
 	return nil
 }
 

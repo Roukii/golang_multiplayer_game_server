@@ -1,22 +1,24 @@
 package user
 
 import (
-	"fmt"
-
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/Roukii/pock_multiplayer/internal/gateway/dao"
 	"github.com/Roukii/pock_multiplayer/internal/gateway/entity"
+	"github.com/gin-gonic/gin"
+
 )
 
 type UserService struct {
 	userDao *dao.UserDao
+	connexionDao *dao.ConnexionDao
 }
 
 // New -.
-func New(r *dao.UserDao) *UserService {
+func New(r *dao.UserDao, c *dao.ConnexionDao) *UserService {
 	return &UserService{
 		userDao: r,
+		connexionDao: c,
 	}
 }
 
@@ -28,7 +30,7 @@ func (a *UserService) GetById(userId string) (*entity.User, error) {
 	return &user, err
 }
 
-func (a *UserService) Login(username string, password string) (*entity.User, error) {
+func (a *UserService) Login(username string, password string, c *gin.Context) (*entity.User, error) {
 	passwordByte := []byte(password)
 	user, err := a.userDao.GetByUsername(username)
 	if err != nil {
@@ -38,11 +40,11 @@ func (a *UserService) Login(username string, password string) (*entity.User, err
 	if err != nil {
 		return nil, err
 	}
+	a.connexionDao.SaveOrUpdate(&entity.Connexion{UserId: user.UUID, Ip: c.ClientIP(), UserAgent: c.GetHeader("User-Agent")})
 	return &user, err
 }
 
 func (a *UserService) Register(input UserInput) (*entity.User, error) {
-	fmt.Println("register pass : " + input.Password)
 	user := entity.User{}
 	user.Username = input.Username
 	passwordByte := []byte(input.Password)

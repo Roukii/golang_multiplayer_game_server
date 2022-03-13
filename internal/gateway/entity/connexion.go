@@ -8,14 +8,12 @@ import (
 )
 
 type Connexion struct {
-	UUID      string `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
-	UserId    string
-	DeviceId  string
-	Ip        string
-	IpCountry string
-	UserAgent string
-	CreatedAt time.Time `json:"createdAt"`
-	UpdateAt  time.Time `json:"UpdateAt"`
+	UUID      string    `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	UserId    string    `json:"user_id"`
+	Ip        string    `json:"ip"`
+	UserAgent string    `json:"user_agent"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdateAt  time.Time `json:"updated_at"`
 }
 
 func (u *Connexion) BeforeCreate(tx *gorm.DB) (err error) {
