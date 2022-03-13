@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-func RunGateway() {
+func Run() {
 	l := logger.New("logger.level")
 
 	r := gin.New()

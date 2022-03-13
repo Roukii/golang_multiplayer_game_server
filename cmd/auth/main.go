@@ -15,5 +15,5 @@ func main() {
 	}
 
 	// Run
-	gateway.RunGateway()
+	gateway.Run()
 }

@@ -1,5 +1,4 @@
-package app
+package world
 
-func RunWorld() {
-	
+func Run() {
 }
