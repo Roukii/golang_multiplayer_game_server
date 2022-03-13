@@ -2,7 +2,7 @@ package entity
 
 import "google.golang.org/grpc"
 
-type Character int
+type Character string
 
 func (c *Character) Add(payload string, reply *string) error {
 	test := "gg"
