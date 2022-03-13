@@ -37,6 +37,9 @@ require (
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/ugorji/go/codec v1.2.6 // indirect
+	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
+	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.2.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
@@ -58,6 +61,7 @@ require (
 	github.com/subosito/gotenv v1.2.0 // indirect
 	golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
 	golang.org/x/text v0.3.7 // indirect
+	google.golang.org/grpc v1.45.0
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
