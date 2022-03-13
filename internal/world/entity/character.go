@@ -1,24 +1,20 @@
 package entity
 
-import "google.golang.org/grpc"
+import (
+	"context"
 
-type Character string
+	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+)
 
-func (c *Character) Add(payload string, reply *string) error {
-	test := "gg"
-	reply = &test
-	return nil
-}
+type (
+	Character string
+	Server    struct {
+		pb.UnimplementedWorldServer
+	}
+)
 
-var Greeter_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Character.add",
-	HandlerType: (*GreeterServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SayHello",
-			Handler:    _Greeter_SayHello_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "examples/helloworld/helloworld/helloworld.proto",
+func (c *Server) Add(ctx context.Context, request *pb.AddRequest) (*pb.AddReply, error) {
+	return &pb.AddReply{
+		Message: "gg",
+	}, nil
 }

@@ -44,3 +44,17 @@ RPC Command
 protoc --go_out=. --go_opt=paths=source_relative \
    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
    proto/world.proto
+
+
+Fonctionality:
+  - World Procedural Generation (Noise map)
+  - Interactable Entity Generation
+  - Enemy Entity Generation
+  - Enemy AI
+  - Player Movement
+  - Player Attack
+  - Inventory
+  - Equipment
+  - Skill
+  - Player Interaction With Interactable Entity
+  - Building Creation

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.14.0
-// source: internal/world/proto/world.proto
+// source: proto/world.proto
 
 package world
 
@@ -101,5 +101,5 @@ var World_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "internal/world/proto/world.proto",
+	Metadata: "proto/world.proto",
 }
