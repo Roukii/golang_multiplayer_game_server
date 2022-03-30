@@ -9,7 +9,7 @@ import (
 
 type User struct {
 	UUID      string         `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
-	Username  string         `gorm:"type:varchar(40);unique" json:"username"`
+	Email  string         `gorm:"type:varchar(40);unique" json:"email"`
 	Password  []byte         `json:"password,omitempty"`
 	CreatedAt time.Time      `json:"createdAt"`
 	UpdateAt  time.Time      `json:"updateAt"`

@@ -6,18 +6,17 @@ import (
 	"github.com/Roukii/pock_multiplayer/internal/gateway/dao"
 	"github.com/Roukii/pock_multiplayer/internal/gateway/entity"
 	"github.com/gin-gonic/gin"
-
 )
 
 type UserService struct {
-	userDao *dao.UserDao
+	userDao      *dao.UserDao
 	connexionDao *dao.ConnexionDao
 }
 
 // New -.
 func New(r *dao.UserDao, c *dao.ConnexionDao) *UserService {
 	return &UserService{
-		userDao: r,
+		userDao:      r,
 		connexionDao: c,
 	}
 }
@@ -32,7 +31,7 @@ func (a *UserService) GetById(userId string) (*entity.User, error) {
 
 func (a *UserService) Login(username string, password string, c *gin.Context) (*entity.User, error) {
 	passwordByte := []byte(password)
-	user, err := a.userDao.GetByUsername(username)
+	user, err := a.userDao.GetByEmail(username)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +45,7 @@ func (a *UserService) Login(username string, password string, c *gin.Context) (*
 
 func (a *UserService) Register(input UserInput) (*entity.User, error) {
 	user := entity.User{}
-	user.Username = input.Username
+	user.Email = input.Email
 	passwordByte := []byte(input.Password)
 	hashedPassword, err := bcrypt.GenerateFromPassword(passwordByte, bcrypt.DefaultCost)
 	if err != nil {

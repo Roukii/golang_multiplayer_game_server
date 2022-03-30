@@ -22,7 +22,7 @@ func (a UserDao) GetById(userId string) (entity.User, error) {
 	return user, result.Error
 }
 
-func (a UserDao) GetByUsername(username string) (entity.User, error) {
+func (a UserDao) GetByEmail(username string) (entity.User, error) {
 	var user entity.User
 	result := a.db.Where("username = ?", username).First(&user)
 	return user, result.Error

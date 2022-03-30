@@ -20,17 +20,33 @@ type CustomClaims struct {
 	CustomerInfo
 }
 
-func CreateToken(uuid string, username string) (string, error) {
-	t := jwt.New(jwt.GetSigningMethod("HS512"))
-	t.Claims = &CustomClaims{
+func CreateToken(uuid string, email string) (string, string, error) {
+	accessToken := jwt.New(jwt.GetSigningMethod("HS512"))
+	accessToken.Claims = &CustomClaims{
 		&jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Minute * 120).Unix(),
+			ExpiresAt: time.Now().Add(time.Minute * 60).Unix(),
 		},
-		"level1",
-		CustomerInfo{uuid, username, "test"},
+		"access_token",
+		CustomerInfo{uuid, email, "test"},
 	}
 
-	return t.SignedString([]byte(viper.GetString("secrets.jwt")))
+	refreshToken := jwt.New(jwt.GetSigningMethod("HS512"))
+	refreshToken.Claims = &CustomClaims{
+		&jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(time.Hour * 24 * 30).Unix(),
+		},
+		"refresh_token",
+		CustomerInfo{uuid, email, "test"},
+	}
+	accessTokenValue, err := accessToken.SignedString([]byte(viper.GetString("secrets.jwt")))
+	if err != nil {
+		return "", "", err
+	}
+	refreshTokenValue, err := refreshToken.SignedString([]byte(viper.GetString("secrets.jwt")))
+	if err != nil {
+		return "", "", err
+	}
+	return accessTokenValue, refreshTokenValue, err
 }
 
 func VerifyToken(tokenString string) (*CustomerInfo, error){
@@ -60,11 +76,11 @@ func RefreshToken(tokenString string) (string, error) {
 		return "", jwt.ErrInvalidKey
 	}
 
-	if time.Unix(claims.ExpiresAt, 0).Sub(time.Now()) > 5*time.Minute {
-		return "", errors.New("token still valid")
+	if claims.TokenType != "refresh_token" {
+		return "", errors.New("token not refreshToken")
 	}
 
-	expirationTime := time.Now().Add(120 * time.Minute)
+	expirationTime := time.Now().Add(time.Minute * 60)
 	claims.ExpiresAt = expirationTime.Unix()
 	token = jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err = token.SignedString([]byte(viper.GetString("secrets.jwt")))

@@ -1,6 +1,7 @@
 package http
 
 import (
+	"encoding/json"
 	"net/http"
 	"strings"
 
@@ -37,24 +38,34 @@ func (ar *authRoutes) login(c *gin.Context) {
 	var u user.UserInput
 	if err := c.ShouldBindJSON(&u); err != nil {
 		c.JSON(http.StatusUnprocessableEntity, "Invalid json provided")
-		ar.services.Logger.Error("Invalid json for login ", err.Error())
+		ar.services.Logger.Error("Invalid json for login " + err.Error())
 		return
 	}
-	user, err := ar.services.UserService.Login(u.Username, u.Password, c)
+	user, err := ar.services.UserService.Login(u.Email, u.Password, c)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, "Please provide valid login details")
-		ar.services.Logger.Error("Login failed for ", u.Username, " with error : ", err.Error())
+		ar.services.Logger.Error("Login failed for ", u.Email, " with error : ", err.Error())
 		return
 	}
 
-	token, err := jwt.CreateToken(user.UUID, user.Username)
+	accessToken, refreshToken, err := jwt.CreateToken(user.UUID, user.Email)
 	if err != nil {
 		c.JSON(http.StatusUnprocessableEntity, err.Error())
-		ar.services.Logger.Error("Couldn't create token for ", u.Username, " with error : ", err.Error())
+		ar.services.Logger.Error("Couldn't create token for ", u.Email, " with error : ", err.Error())
 		return
 	}
-	ar.services.Logger.Error("Login succesful for ", u.Username)
-	c.JSON(http.StatusOK, token)
+	ar.services.Logger.Error("Login succesful for ", u.Email)
+	returnData := map[string]interface{}{
+		"access_token":  accessToken,
+		"refresh_token": refreshToken,
+	}
+	res, err := json.Marshal(returnData)
+	if err != nil {
+		c.JSON(http.StatusUnprocessableEntity, err.Error())
+		ar.services.Logger.Error("Couldn't marshal token for ", u.Email, " with error : ", err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, res)
 }
 
 // TODO
@@ -72,10 +83,10 @@ func (ar *authRoutes) refresh(c *gin.Context) {
 	refreshedToken, err := jwt.RefreshToken(token)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, err.Error())
-		ar.services.Logger.Error("Couldn't refresh token for ", c.GetString("username"), " with error : ", err.Error())
+		ar.services.Logger.Error("Couldn't refresh token for ", c.GetString("Email"), " with error : ", err.Error())
 		return
 	}
-	ar.services.Logger.Error("Refresh token for ", c.GetString("username"))
+	ar.services.Logger.Error("Refresh token for ", c.GetString("Email"))
 	c.JSON(http.StatusOK, refreshedToken)
 }
 
@@ -94,9 +105,9 @@ func (ar *authRoutes) register(c *gin.Context) {
 	_, err := ar.services.UserService.Register(u)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, "Please provide valid register details")
-		ar.services.Logger.Error("Register failed for username ", u.Username, " with error : ", err.Error())
+		ar.services.Logger.Error("Register failed for Email ", u.Email, " with error : ", err.Error())
 		return
 	}
 	c.JSON(http.StatusOK, true)
-	ar.services.Logger.Error("Register succesful for ", u.Username)
+	ar.services.Logger.Error("Register succesful for ", u.Email)
 }
