@@ -1,7 +1,6 @@
 package http
 
 import (
-	"encoding/json"
 	"net/http"
 	"strings"
 
@@ -36,6 +35,8 @@ func newAuthRoutes(handler *gin.RouterGroup, services *service.Service) {
 
 func (ar *authRoutes) login(c *gin.Context) {
 	var u user.UserInput
+	var response user.LoginResponse
+
 	if err := c.ShouldBindJSON(&u); err != nil {
 		c.JSON(http.StatusUnprocessableEntity, "Invalid json provided")
 		ar.services.Logger.Error("Invalid json for login " + err.Error())
@@ -55,17 +56,9 @@ func (ar *authRoutes) login(c *gin.Context) {
 		return
 	}
 	ar.services.Logger.Error("Login succesful for ", u.Email)
-	returnData := map[string]interface{}{
-		"access_token":  accessToken,
-		"refresh_token": refreshToken,
-	}
-	res, err := json.Marshal(returnData)
-	if err != nil {
-		c.JSON(http.StatusUnprocessableEntity, err.Error())
-		ar.services.Logger.Error("Couldn't marshal token for ", u.Email, " with error : ", err.Error())
-		return
-	}
-	c.JSON(http.StatusOK, res)
+	response.AccessToken = accessToken
+	response.RefreshToken = refreshToken
+	c.JSON(http.StatusOK, response)
 }
 
 // TODO
