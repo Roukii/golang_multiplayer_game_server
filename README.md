@@ -16,7 +16,7 @@ Route :
   - /world/delete_user
 
 
-NoSQL Database :
+Cassandra Database :
   - id_world : 
     - id_user :
       - name
@@ -41,10 +41,11 @@ SQL Database :
 
 
 RPC Command
-protoc --go_out=. --go_opt=paths=source_relative \
+SERVER -> protoc --go_out=. --go_opt=paths=source_relative \
    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
    proto/world.proto
 
+CLIENT -> protoc --csharp_out=proto/ --grpc_out=proto/ --plugin=protoc-gen-grpc=proto/grpc_csharp_plugin proto/world.proto
 
 Fonctionality:
   - World Procedural Generation (Noise map)
@@ -58,3 +59,15 @@ Fonctionality:
   - Skill
   - Player Interaction With Interactable Entity
   - Building Creation
+
+## Cassandra
+  - connect to pock_multiplayer-DC1N1-1 docker container :
+    - cqlsh -u cassandra -p cassandra
+    - '''sql
+          CREATE KEYSPACE IF NOT EXISTS game
+        WITH REPLICATION = {
+        'class' : 'SimpleStrategy',
+        'replication_factor' : 1
+        };
+      '''
+  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable" -path migrations up
