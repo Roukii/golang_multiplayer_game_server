@@ -61,7 +61,7 @@ Fonctionality:
   - Building Creation
 
 ## Univers Generation
-# Type :
+# World :
 UUID string
 Name string
 Level smallint
@@ -79,6 +79,7 @@ createdAt timestamp
 PositionX int
 PositionY int
 Tiles []Tile
+Entity []Entity
 state    ChunkState
 
 # Chunk State :
@@ -87,7 +88,6 @@ state    ChunkState
 
 # Tile
 type TileType
-Entity Entity
 elevation smallint 
 updatedAt timestamp
 
