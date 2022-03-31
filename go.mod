@@ -21,8 +21,6 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
-	github.com/hashicorp/errwrap v1.0.0 // indirect
-	github.com/hashicorp/go-multierror v1.1.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
@@ -50,7 +48,6 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	github.com/ugorji/go/codec v1.2.6 // indirect
-	go.uber.org/atomic v1.7.0 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
@@ -60,7 +57,6 @@ require (
 
 require (
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
-	github.com/golang-migrate/migrate/v4 v4.15.1
 	github.com/jackc/pgconn v1.11.0 // indirect
 	github.com/jackc/pgtype v1.10.0 // indirect
 	golang.org/x/net v0.0.0-20220325170049-de3da57026de // indirect
