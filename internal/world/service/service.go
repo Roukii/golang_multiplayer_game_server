@@ -2,14 +2,14 @@ package service
 
 import (
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
-	"gorm.io/gorm"
+	"github.com/gocql/gocql"
 )
 
 type Service struct {
 	Logger logger.Interface
 }
 
-func New(pg *gorm.DB, l logger.Interface) *Service {
+func New(session *gocql.Session, l logger.Interface) *Service {
 	return &Service{
 		Logger: l,
 	}

@@ -94,15 +94,3 @@ services:
           nofile: 100000
       ports:
           - "9043:9042"
-  # A web based interface for managing your docker containers.
-  portainer:
-      image: portainer/portainer
-      networks:
-          - dc1ring
-      volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - cassandra_data:/var/lib/portainer
-      # Enable you to access potainers web interface from your host machine
-      # using http://localhost:10001
-      ports:
-          - "10001:9000"

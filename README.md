@@ -60,6 +60,72 @@ Fonctionality:
   - Player Interaction With Interactable Entity
   - Building Creation
 
+## Univers Generation
+# Type :
+UUID string
+Name string
+Level smallint
+Length smallint
+Width smallint
+Chunks []Chunk
+seed    string
+type    WorldType
+...
+
+# Chunk :
+UUID string
+updatedAt timestamp
+createdAt timestamp
+PositionX int
+PositionY int
+Tiles []Tile
+state    ChunkState
+
+# Chunk State :
+- Normal
+- Combat
+
+# Tile
+type TileType
+Entity Entity
+elevation smallint 
+updatedAt timestamp
+
+# Tile type:
+- dirt
+- grass
+- rock
+- forest
+- sand
+- snow
+
+# Entity
+positionX smallint
+positionY smallint
+Entity Entity
+type      EntityType
+Stats     Stats
+entryChunkUUID string
+updatedAt timestamp
+createdAt timestamp
+
+# Entity Type :
+- Empty
+- Creature
+- Player
+- Building
+- Chunk
+- Ressource
+- Item
+
+# Stats :
+Level smallint
+MaxHP int
+HP int
+MaxMP int
+MP int
+
+
 ## Cassandra
   - connect to pock_multiplayer-DC1N1-1 docker container :
     - cqlsh -u cassandra -p cassandra

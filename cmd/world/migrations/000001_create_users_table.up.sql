@@ -1,1 +1,0 @@
-create table game.tweet(timeline text, id UUID, text text, PRIMARY KEY(id));

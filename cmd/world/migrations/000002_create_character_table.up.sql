@@ -1,1 +1,0 @@
-create table character(uuid UUID, name text, PRIMARY KEY(uuid));
