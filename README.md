@@ -70,4 +70,6 @@ Fonctionality:
         'replication_factor' : 1
         };
       '''
+  - brew install golang-migrate
+  - create migration file : migrate create -ext sql -dir migrations -seq create_users_table
   - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable" -path migrations up
