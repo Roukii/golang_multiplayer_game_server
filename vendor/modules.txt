@@ -148,6 +148,7 @@ github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
 # github.com/pzsz/voronoi v0.0.0-20130609164533-4314be88c79f
 ## explicit
+github.com/pzsz/voronoi
 # github.com/relops/cqlr v0.0.0-20141111204017-0ac35893ea3f
 ## explicit
 github.com/relops/cqlr
