@@ -1,32 +1,73 @@
 syntax = "proto3";
 
-option go_package = "github.com/Roukii/pock_multiplayer/";
-import "google/protobuf/timestamp.proto";
+option go_package = "github.com/Roukii/pock_multiplayer/universe";
 import "google/protobuf/empty.proto";
-
-    
 
 package universe;
 
 // CHUNK SERVICE 
 service ChunkService {
+    rpc EnterChunk (EnterChunkRequest) returns (EnterChunkResponse) {}
+    rpc LoadChunk (LoadChunkRequest) returns (LoadChunkResponse) {}
     rpc Stream (ChunkStreamRequest) returns (stream ChunkStreamResponse) {}
 }
 
+
+message LoadChunkRequest {
+    int32 viewDistance = 1;
+}
+
+message LoadChunkResponse {
+    repeated Chunk chunks = 3;
+    repeated DynamicEntity dynamicEntity = 4;
+}
+
+message EnterChunkRequest {
+    string chunkUuid = 1;
+    int32 viewDistance = 2;
+}
+
+message EnterChunkResponse {
+    repeated Chunk chunks = 1;
+    repeated DynamicEntity dynamicEntity = 2;
+}
+
+
 message ChunkStreamRequest {
     oneof action {
-        bool somethings = 1;
+        InteractWithStaticEntity interactWithStaticEntity = 1;
+        PlaceStaticEntity placeStaticEntity = 2;
     }
 }
 
 message ChunkStreamResponse {
     oneof action {
-        bool somethings = 1;
-    }
-    oneof info {
-        bool otherthing = 2;
+        AddStaticEntity addStaticEntity = 1;
+        UpdateStaticEntity updateStaticEntity = 2;
+        RemoveStaticEntity removeStaticEntity = 3;
     }
 }
+
+message RemoveStaticEntity {
+    string entityUuid = 1;
+}
+
+message InteractWithStaticEntity {
+    string staticEntityUuid = 1;
+}
+
+message PlaceStaticEntity {
+    string staticEntityUuid = 1;
+}
+
+message AddStaticEntity {
+    StaticEntity entity = 1;
+}
+
+message UpdateStaticEntity {
+    StaticEntity entity = 1;
+}
+
 // END CHUNK SERVICE 
 
 
@@ -76,10 +117,15 @@ message World {
     int32 level = 2;
 }
 
+message Move {
+    Position position = 1;
+}
+
 message Chunk {
     string uuid = 1;
     Vector2 position = 2;
     repeated StaticEntity staticEntity = 3;
+    repeated Tile tiles = 4;
 }
 
 message Tile {
