@@ -1,4 +1,4 @@
-package entity
+package player
 
 import (
 	"time"
@@ -10,7 +10,7 @@ type Player struct {
 	UUID       string       `json:"uuid"`
 	Name       string       `json:"name"`
 	Level      int          `json:"level"`
-	CreatedAt  time.Time    `json:"createdAt"`
+	CreatedAt  time.Time    `json:"created_at"`
 	UpdatedAt  time.Time    `json:"updatedAt"`
 	Stats      entity.Stats `json:"stats"`
 	SpawnPoint SpawnPoint   `json:"spawnPoint"`

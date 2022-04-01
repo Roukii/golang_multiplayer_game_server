@@ -8,11 +8,11 @@ import (
 )
 
 type User struct {
-	UUID      string         `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
-	Email  string         `gorm:"type:varchar(40);unique" json:"email"`
-	Password  []byte         `json:"password,omitempty"`
-	CreatedAt time.Time      `json:"createdAt"`
-	UpdateAt  time.Time      `json:"updateAt"`
+	UUID      string    `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	Email     string    `gorm:"type:varchar(40);unique" json:"email"`
+	Password  []byte    `json:"password,omitempty"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdateAt  time.Time `json:"update_at"`
 	Worlds    []UserWorldAff
 	Connexion []Connexion
 }

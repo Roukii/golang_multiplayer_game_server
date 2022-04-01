@@ -11,7 +11,7 @@ type World struct {
 	Chunks    []Chunk   `json:"chunks"`
 	Seed      string    `json:"seed"`
 	Type      WorldType `json:"type"`
-	CreatedAt time.Time `json:"createdAt"`
+	CreatedAt time.Time `json:"created_at"`
 	UpdateAt  time.Time `json:"updatedAt"`
 }
 

@@ -148,6 +148,7 @@ github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
 # github.com/pzsz/voronoi v0.0.0-20130609164533-4314be88c79f
 ## explicit
+github.com/pzsz/voronoi
 # github.com/relops/cqlr v0.0.0-20141111204017-0ac35893ea3f
 ## explicit
 github.com/relops/cqlr
@@ -156,6 +157,14 @@ github.com/relops/cqlr
 github.com/rs/zerolog
 github.com/rs/zerolog/internal/cbor
 github.com/rs/zerolog/internal/json
+# github.com/scylladb/go-reflectx v1.0.1
+## explicit
+github.com/scylladb/go-reflectx
+# github.com/scylladb/gocqlx/v2 v2.7.0
+## explicit; go 1.17
+github.com/scylladb/gocqlx/v2
+github.com/scylladb/gocqlx/v2/qb
+github.com/scylladb/gocqlx/v2/table
 # github.com/spf13/afero v1.6.0
 ## explicit; go 1.13
 github.com/spf13/afero

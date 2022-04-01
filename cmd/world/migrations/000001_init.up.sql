@@ -94,5 +94,9 @@ create TABLE universe(
   name text,
   worlds set<frozen<world>>,
   players set<frozen<player>>,
+  created_at Timestamp, 
   PRIMARY KEY(uuid)
 );
+
+
+-- 

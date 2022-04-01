@@ -8,6 +8,6 @@ type Stats struct {
 	HP        int       `json:"hp"`
 	MaxMP     int       `json:"maxMp"`
 	MP        int       `json:"mp"`
-	CreatedAt time.Time `json:"createdAt"`
+	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updatedAt"`
 }

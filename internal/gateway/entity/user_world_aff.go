@@ -9,7 +9,7 @@ import (
 type UserWorldAff struct {
 	WorldUUID string    `gorm:"primaryKey" json:"world_uuid"`
 	UserUUID  string    `gorm:"primaryKey" json:"user_uuid"`
-	CreatedAt time.Time `json:"createdAt"`
+	CreatedAt time.Time `json:"created_at"`
 	UpdateAt  time.Time `json:"updatedAt"`
 }
 

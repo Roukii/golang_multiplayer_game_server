@@ -9,6 +9,7 @@ import (
 	"github.com/Roukii/pock_multiplayer/internal/world/service"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/gocql/gocql"
+	"github.com/scylladb/gocqlx/v2"
 	"google.golang.org/grpc"
 )
 
@@ -22,12 +23,15 @@ func Run() {
 	s := grpc.NewServer()
 	pb.RegisterWorldServer(s, &method.Server{})
 	cluster := gocql.NewCluster("127.0.0.1:9042")
-	cluster.Keyspace = "game"
-	session, err := cluster.CreateSession()
+	session, err := gocqlx.WrapSession(cluster.CreateSession())
 	if err != nil {
-		l.Fatal("failed to create session: %v", err)
+		l.Fatal("create session:", err)
 	}
-	service.New(session, l)
+	err = session.ExecStmt(`CREATE KEYSPACE IF NOT EXISTS game WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}`)
+	if err != nil {
+		l.Fatal("create keyspace:", err)
+	}
+	service.New(&session, l)
 	l.Info("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		l.Fatal("failed to serve: %v", err)

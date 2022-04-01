@@ -8,12 +8,12 @@ import (
 )
 
 type World struct {
-	UUID              string    `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
+	UUID              string `gorm:"column:uuid;primary_key;type:varchar(64)" json:"uuid"`
 	Name              string
 	PlayerCount       int       `json:"player_count"`
 	MaxPlayer         int       `json:"max_player"`
 	IsAcceptingPlayer bool      `json:"is_accepting_player"`
-	CreatedAt         time.Time `json:"createdAt"`
+	CreatedAt         time.Time `json:"created_at"`
 	UpdateAt          time.Time `json:"updatedAt"`
 }
 
