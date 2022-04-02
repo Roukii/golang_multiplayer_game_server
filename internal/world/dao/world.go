@@ -1,12 +1,12 @@
 package dao
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/gocql/gocql"
 	"github.com/scylladb/gocqlx/v2"
+	"github.com/scylladb/gocqlx/v2/qb"
 	"github.com/scylladb/gocqlx/v2/table"
 )
 
@@ -55,13 +55,9 @@ func (a WorldDao) Insert(world *universe.World) error {
 func (a WorldDao) GetAllWorlds() ([]universe.World, error) {
 	var worldsEntity []universe.World
 	var worlds []*World
-
-	query := a.WorldMetadata.SelectQuery(*a.session).BindStruct(&World{})
-	if err := query.Select(&worlds); err != nil {
-		fmt.Printf("err ", err)
-		return worldsEntity, err
+	if err := qb.Select(a.WorldMetadata.Name()).Query(*a.session).Select(&worlds); err != nil {
+		return nil, err
 	}
-	fmt.Printf("worlds length : ", len(worlds))
 	for _, w := range worlds {
 		worldsEntity = append(worldsEntity, universe.World{
 			UUID:      w.WorldUuid.String(),

@@ -11,15 +11,10 @@ import (
 )
 
 type (
-	worldGenerator struct {
+	WorldGenerator struct {
 		World             *universe.World
 		ElevationNoiseMap opensimplex.Noise
 		RainfallNoiseMap  opensimplex.Noise
-	}
-
-	WorldGenerator interface {
-		GenerateChunk(x int, y int) (universe.Chunk, error)
-		GenerateWorld()
 	}
 )
 
@@ -29,10 +24,10 @@ const (
 )
 
 func NewWorldGenerator(world *universe.World) WorldGenerator {
-	tmp := &worldGenerator{
+	tmp := WorldGenerator{
 		World: world,
 	}
-	tmp.GenerateWorld()
+	tmp.GenerateNoiseMap()
 	return tmp
 }
 
@@ -40,7 +35,7 @@ func generateSeed() string {
 	return random.RandStringRunes(seedSize)
 }
 
-func (wg *worldGenerator) GenerateChunk(positionX int, positionY int) (chunk universe.Chunk, err error) {
+func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk universe.Chunk, err error) {
 	elevationHeightMap := generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.ElevationNoiseMap)
 	rainfallHeightMap := generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.RainfallNoiseMap)
 
@@ -55,7 +50,7 @@ func (wg *worldGenerator) GenerateChunk(positionX int, positionY int) (chunk uni
 	return chunk, err
 }
 
-func (wg *worldGenerator) GenerateWorld() {
+func (wg *WorldGenerator) GenerateNoiseMap() {
 	if wg.World.Seed == "" {
 		wg.World.Seed = generateSeed()
 	}
@@ -76,21 +71,21 @@ func reverseString(s string) string {
 
 // TODO make a cleaner implementation of this shit
 func getTileType(elevation float64, rainfall float64) universe.TileType {
-	if elevation <= 0.1 {
+	if elevation <= -0.2 {
 		return universe.Water
-	} else if elevation <= 0.12 {
+	} else if elevation <= -0.24 {
 		return universe.Sand
-	} else if elevation >= 0.9 {
+	} else if elevation >= 0.5 {
 		return universe.Snow
 	}
-	if rainfall <= 0.2 {
-		if elevation <= 0.5 {
+	if rainfall <= -0.4 {
+		if elevation <= 0 {
 			return universe.Sand
 		} else {
 			return universe.Rock
 		}
-	} else if rainfall <= 0.5 {
-		if elevation <= 0.6 {
+	} else if rainfall <= 0 {
+		if elevation <= 0.2 {
 			return universe.Grass
 		} else {
 			return universe.Rock
@@ -102,12 +97,12 @@ func getTileType(elevation float64, rainfall float64) universe.TileType {
 
 func generateHeightmap(startingPositionX int, startingPositionY int, noise opensimplex.Noise) []float64 {
 	w, h := startingPositionX+chunkLength, startingPositionY+chunkLength
-	heightmap := make([]float64, w*h)
-	for y := startingPositionY; y < h; y++ {
-		for x := startingPositionX; x < w; x++ {
-			xFloat := float64(x) / float64(w)
-			yFloat := float64(y) / float64(h)
-			heightmap[(y*w)+x] = noise.Eval2(xFloat, yFloat)
+	heightmap := make([]float64, chunkLength*chunkLength)
+	for y := 0; y+startingPositionY < h; y++ {
+		for x := 0; x+startingPositionX < w; x++ {
+			xFloat := float64(x + startingPositionX)
+			yFloat := float64(y + startingPositionY)
+			heightmap[(y*chunkLength)+x] = noise.Eval2(xFloat, yFloat)
 		}
 	}
 	return heightmap
