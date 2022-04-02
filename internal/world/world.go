@@ -5,7 +5,6 @@ import (
 	"net"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/method"
-	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/gocql/gocql"
@@ -21,7 +20,6 @@ func Run() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterWorldServer(s, &method.Server{})
 	cluster := gocql.NewCluster("127.0.0.1:9042")
 	session, err := gocqlx.WrapSession(cluster.CreateSession())
 	if err != nil {
@@ -31,7 +29,8 @@ func Run() {
 	if err != nil {
 		l.Fatal("create keyspace:", err)
 	}
-	service.New(&session, l)
+	service := service.New(&session, l)
+	method.New(s, service.GameService)
 	l.Info("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		l.Fatal("failed to serve: %v", err)

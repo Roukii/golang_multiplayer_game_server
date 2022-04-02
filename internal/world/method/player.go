@@ -4,17 +4,37 @@ import (
 	"context"
 	"io"
 	"log"
+	"sync"
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
+	"github.com/google/uuid"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
-func (c *Server) GetPlayers(ctx context.Context, request bool) (*pb.GetPlayersReply, error) {
+type PlayerMethod struct {
+	pb.UnimplementedPlayerServiceServer
+	clients map[uuid.UUID]*client
+	game    *game.GameService
+	mu      sync.RWMutex
+}
+
+func (c *PlayerMethod) GetPlayers(ctx context.Context, request *emptypb.Empty) (*pb.GetPlayersReply, error) {
 	return &pb.GetPlayersReply{
 		Player: []*pb.Player{},
 	}, nil
 }
 
-func (c *Server) Connect(ctx context.Context, request *pb.ConnectRequest) (*pb.ConnectResponse, error) {
+func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlayerRequest) (*pb.CreatePlayerResponse, error) {
+	return &pb.CreatePlayerResponse{
+		Player:        &pb.Player{},
+		World:         &pb.World{},
+		Chunks:        []*pb.Chunk{},
+		DynamicEntity: []*pb.DynamicEntity{},
+	}, nil
+}
+
+func (c *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest) (*pb.ConnectResponse, error) {
 	request.GetPlayerUuid()
 	return &pb.ConnectResponse{
 		Player:        &pb.Player{},
@@ -24,10 +44,10 @@ func (c *Server) Connect(ctx context.Context, request *pb.ConnectRequest) (*pb.C
 	}, nil
 }
 
-func (c *Server) Stream(ctx context.Context, requestStream pb.PlayerService_StreamServer) error {
+func (c *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) error {
 	log.Println("start new server")
 	var max int32
-
+	ctx := requestStream.Context()
 	for {
 
 		// exit if context is done
