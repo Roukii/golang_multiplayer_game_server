@@ -1,13 +1,9 @@
-DROP TABLE universe;
+DROP TABLE dynamic_entity_by_chunk;
+DROP TABLE static_entity_by_chunk;
+DROP TABLE chunks_by_world;
+DROP TABLE players_by_user;
 
-DROP type world;
-
-DROP type chunk;
 
 DROP type tile;
-
-DROP type dynamicentity;
-
-DROP type staticentity;
-
-DROP  type stats;
+DROP type spawn_point;
+DROP type stats

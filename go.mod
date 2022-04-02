@@ -7,6 +7,7 @@ require (
 	github.com/ojrac/opensimplex-go v1.0.2
 	github.com/pzsz/voronoi v0.0.0-20130609164533-4314be88c79f
 	github.com/relops/cqlr v0.0.0-20141111204017-0ac35893ea3f
+	github.com/scylladb/gocqlx/v2 v2.7.0
 	github.com/spf13/viper v1.10.1
 	golang.org/x/crypto v0.0.0-20220312131142-6068a2e6cfdc
 	google.golang.org/protobuf v1.28.0
@@ -62,6 +63,7 @@ require (
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/jackc/pgconn v1.11.0 // indirect
 	github.com/jackc/pgtype v1.10.0 // indirect
+	github.com/scylladb/go-reflectx v1.0.1 // indirect
 	golang.org/x/net v0.0.0-20220325170049-de3da57026de // indirect
 )
 

@@ -7,11 +7,10 @@ import (
 type DynamicEntity struct {
 	UUID       string            `json:"uuid"`
 	Name       string            `json:"name"`
-	PositionX  int8              `json:"positionX"`
-	PositionY  int8              `json:"positionY"`
+	Coordinate Position          `json:"position"`
 	EntityType DynamicEntityType `json:"type"`
 	Stats      Stats             `json:"stats"`
-	CreatedAt  time.Time         `json:"createdAt"`
+	CreatedAt  time.Time         `json:"created_at"`
 	UpdatedAt  time.Time         `json:"updatedAt"`
 }
 

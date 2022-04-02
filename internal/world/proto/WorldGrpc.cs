@@ -7,10 +7,13 @@
 
 using grpc = global::Grpc.Core;
 
-namespace World {
-  public static partial class World
+namespace Universe {
+  /// <summary>
+  /// CHUNK SERVICE 
+  /// </summary>
+  public static partial class ChunkService
   {
-    static readonly string __ServiceName = "world.World";
+    static readonly string __ServiceName = "universe.ChunkService";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -46,98 +49,166 @@ namespace World {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::World.AddRequest> __Marshaller_world_AddRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::World.AddRequest.Parser));
+    static readonly grpc::Marshaller<global::Universe.EnterChunkRequest> __Marshaller_universe_EnterChunkRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.EnterChunkRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::World.AddReply> __Marshaller_world_AddReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::World.AddReply.Parser));
+    static readonly grpc::Marshaller<global::Universe.EnterChunkResponse> __Marshaller_universe_EnterChunkResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.EnterChunkResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.LoadChunkRequest> __Marshaller_universe_LoadChunkRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.LoadChunkRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.LoadChunkResponse> __Marshaller_universe_LoadChunkResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.LoadChunkResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.ChunkStreamRequest> __Marshaller_universe_ChunkStreamRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.ChunkStreamRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.ChunkStreamResponse> __Marshaller_universe_ChunkStreamResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.ChunkStreamResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::World.AddRequest, global::World.AddReply> __Method_Add = new grpc::Method<global::World.AddRequest, global::World.AddReply>(
+    static readonly grpc::Method<global::Universe.EnterChunkRequest, global::Universe.EnterChunkResponse> __Method_EnterChunk = new grpc::Method<global::Universe.EnterChunkRequest, global::Universe.EnterChunkResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Add",
-        __Marshaller_world_AddRequest,
-        __Marshaller_world_AddReply);
+        "EnterChunk",
+        __Marshaller_universe_EnterChunkRequest,
+        __Marshaller_universe_EnterChunkResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Universe.LoadChunkRequest, global::Universe.LoadChunkResponse> __Method_LoadChunk = new grpc::Method<global::Universe.LoadChunkRequest, global::Universe.LoadChunkResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "LoadChunk",
+        __Marshaller_universe_LoadChunkRequest,
+        __Marshaller_universe_LoadChunkResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Universe.ChunkStreamRequest, global::Universe.ChunkStreamResponse> __Method_Stream = new grpc::Method<global::Universe.ChunkStreamRequest, global::Universe.ChunkStreamResponse>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "Stream",
+        __Marshaller_universe_ChunkStreamRequest,
+        __Marshaller_universe_ChunkStreamResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::World.WorldReflection.Descriptor.Services[0]; }
+      get { return global::Universe.WorldReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of World</summary>
-    [grpc::BindServiceMethod(typeof(World), "BindService")]
-    public abstract partial class WorldBase
+    /// <summary>Base class for server-side implementations of ChunkService</summary>
+    [grpc::BindServiceMethod(typeof(ChunkService), "BindService")]
+    public abstract partial class ChunkServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::World.AddReply> Add(global::World.AddRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Universe.EnterChunkResponse> EnterChunk(global::Universe.EnterChunkRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Universe.LoadChunkResponse> LoadChunk(global::Universe.LoadChunkRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task Stream(global::Universe.ChunkStreamRequest request, grpc::IServerStreamWriter<global::Universe.ChunkStreamResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
-    /// <summary>Client for World</summary>
-    public partial class WorldClient : grpc::ClientBase<WorldClient>
+    /// <summary>Client for ChunkService</summary>
+    public partial class ChunkServiceClient : grpc::ClientBase<ChunkServiceClient>
     {
-      /// <summary>Creates a new client for World</summary>
+      /// <summary>Creates a new client for ChunkService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public WorldClient(grpc::ChannelBase channel) : base(channel)
+      public ChunkServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for World that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for ChunkService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public WorldClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public ChunkServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected WorldClient() : base()
+      protected ChunkServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected WorldClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected ChunkServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::World.AddReply Add(global::World.AddRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Universe.EnterChunkResponse EnterChunk(global::Universe.EnterChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return Add(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return EnterChunk(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::World.AddReply Add(global::World.AddRequest request, grpc::CallOptions options)
+      public virtual global::Universe.EnterChunkResponse EnterChunk(global::Universe.EnterChunkRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_Add, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_EnterChunk, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::World.AddReply> AddAsync(global::World.AddRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Universe.EnterChunkResponse> EnterChunkAsync(global::Universe.EnterChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return AddAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return EnterChunkAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::World.AddReply> AddAsync(global::World.AddRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Universe.EnterChunkResponse> EnterChunkAsync(global::Universe.EnterChunkRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_Add, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_EnterChunk, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.LoadChunkResponse LoadChunk(global::Universe.LoadChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return LoadChunk(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.LoadChunkResponse LoadChunk(global::Universe.LoadChunkRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_LoadChunk, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.LoadChunkResponse> LoadChunkAsync(global::Universe.LoadChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return LoadChunkAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.LoadChunkResponse> LoadChunkAsync(global::Universe.LoadChunkRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_LoadChunk, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::Universe.ChunkStreamResponse> Stream(global::Universe.ChunkStreamRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Stream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::Universe.ChunkStreamResponse> Stream(global::Universe.ChunkStreamRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_Stream, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected override WorldClient NewInstance(ClientBaseConfiguration configuration)
+      protected override ChunkServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new WorldClient(configuration);
+        return new ChunkServiceClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(WorldBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(ChunkServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Add, serviceImpl.Add).Build();
+          .AddMethod(__Method_EnterChunk, serviceImpl.EnterChunk)
+          .AddMethod(__Method_LoadChunk, serviceImpl.LoadChunk)
+          .AddMethod(__Method_Stream, serviceImpl.Stream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -145,9 +216,224 @@ namespace World {
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, WorldBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, ChunkServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Add, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::World.AddRequest, global::World.AddReply>(serviceImpl.Add));
+      serviceBinder.AddMethod(__Method_EnterChunk, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.EnterChunkRequest, global::Universe.EnterChunkResponse>(serviceImpl.EnterChunk));
+      serviceBinder.AddMethod(__Method_LoadChunk, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.LoadChunkRequest, global::Universe.LoadChunkResponse>(serviceImpl.LoadChunk));
+      serviceBinder.AddMethod(__Method_Stream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Universe.ChunkStreamRequest, global::Universe.ChunkStreamResponse>(serviceImpl.Stream));
+    }
+
+  }
+  public static partial class PlayerService
+  {
+    static readonly string __ServiceName = "universe.PlayerService";
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.GetPlayersReply> __Marshaller_universe_GetPlayersReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.GetPlayersReply.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.ConnectRequest> __Marshaller_universe_ConnectRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.ConnectRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.ConnectResponse> __Marshaller_universe_ConnectResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.ConnectResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.PlayerStreamRequest> __Marshaller_universe_PlayerStreamRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.PlayerStreamRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.PlayerStreamResponse> __Marshaller_universe_PlayerStreamResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.PlayerStreamResponse.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetPlayersReply> __Method_GetPlayers = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetPlayersReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetPlayers",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_universe_GetPlayersReply);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Universe.ConnectRequest, global::Universe.ConnectResponse> __Method_Connect = new grpc::Method<global::Universe.ConnectRequest, global::Universe.ConnectResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Connect",
+        __Marshaller_universe_ConnectRequest,
+        __Marshaller_universe_ConnectResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Universe.PlayerStreamRequest, global::Universe.PlayerStreamResponse> __Method_Stream = new grpc::Method<global::Universe.PlayerStreamRequest, global::Universe.PlayerStreamResponse>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "Stream",
+        __Marshaller_universe_PlayerStreamRequest,
+        __Marshaller_universe_PlayerStreamResponse);
+
+    /// <summary>Service descriptor</summary>
+    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+    {
+      get { return global::Universe.WorldReflection.Descriptor.Services[1]; }
+    }
+
+    /// <summary>Base class for server-side implementations of PlayerService</summary>
+    [grpc::BindServiceMethod(typeof(PlayerService), "BindService")]
+    public abstract partial class PlayerServiceBase
+    {
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Universe.GetPlayersReply> GetPlayers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Universe.ConnectResponse> Connect(global::Universe.ConnectRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task Stream(grpc::IAsyncStreamReader<global::Universe.PlayerStreamRequest> requestStream, grpc::IServerStreamWriter<global::Universe.PlayerStreamResponse> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+    }
+
+    /// <summary>Client for PlayerService</summary>
+    public partial class PlayerServiceClient : grpc::ClientBase<PlayerServiceClient>
+    {
+      /// <summary>Creates a new client for PlayerService</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public PlayerServiceClient(grpc::ChannelBase channel) : base(channel)
+      {
+      }
+      /// <summary>Creates a new client for PlayerService that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public PlayerServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      protected PlayerServiceClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      protected PlayerServiceClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.GetPlayersReply GetPlayers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPlayers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.GetPlayersReply GetPlayers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetPlayers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.GetPlayersReply> GetPlayersAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPlayersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.GetPlayersReply> GetPlayersAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetPlayers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.ConnectResponse Connect(global::Universe.ConnectRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Connect(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.ConnectResponse Connect(global::Universe.ConnectRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Connect, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.ConnectResponse> ConnectAsync(global::Universe.ConnectRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ConnectAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.ConnectResponse> ConnectAsync(global::Universe.ConnectRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Connect, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::Universe.PlayerStreamRequest, global::Universe.PlayerStreamResponse> Stream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Stream(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::Universe.PlayerStreamRequest, global::Universe.PlayerStreamResponse> Stream(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_Stream, null, options);
+      }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      protected override PlayerServiceClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new PlayerServiceClient(configuration);
+      }
+    }
+
+    /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    public static grpc::ServerServiceDefinition BindService(PlayerServiceBase serviceImpl)
+    {
+      return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_GetPlayers, serviceImpl.GetPlayers)
+          .AddMethod(__Method_Connect, serviceImpl.Connect)
+          .AddMethod(__Method_Stream, serviceImpl.Stream).Build();
+    }
+
+    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
+    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, PlayerServiceBase serviceImpl)
+    {
+      serviceBinder.AddMethod(__Method_GetPlayers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetPlayersReply>(serviceImpl.GetPlayers));
+      serviceBinder.AddMethod(__Method_Connect, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.ConnectRequest, global::Universe.ConnectResponse>(serviceImpl.Connect));
+      serviceBinder.AddMethod(__Method_Stream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Universe.PlayerStreamRequest, global::Universe.PlayerStreamResponse>(serviceImpl.Stream));
     }
 
   }

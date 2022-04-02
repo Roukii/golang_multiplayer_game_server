@@ -5,15 +5,15 @@ import (
 	"reflect"
 	"time"
 
-	entity "github.com/Roukii/pock_multiplayer/internal/world/entity/player"
+	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 )
 
 type Universe struct {
 	UUID      string          `json:"uuid"`
 	Name      string          `json:"name"`
 	Worlds    []World         `json:"worlds"`
-	Players   []entity.Player `json:"players"`
-	CreatedAt time.Time       `json:"createdAt"`
+	Players   []player.Player `json:"players"`
+	CreatedAt time.Time       `json:"created_at"`
 }
 
 func (a Universe) GetJsonFields() []string {

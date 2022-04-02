@@ -1,17 +1,194 @@
 syntax = "proto3";
 
-option go_package = "github.com/Roukii/pock_multiplayer/world";
+option go_package = "github.com/Roukii/pock_multiplayer/universe";
+import "google/protobuf/empty.proto";
 
-package world;
+package universe;
 
-service World {
-    rpc Add (AddRequest) returns (AddReply) {}
+// CHUNK SERVICE 
+service ChunkService {
+    rpc EnterChunk (EnterChunkRequest) returns (EnterChunkResponse) {}
+    rpc LoadChunk (LoadChunkRequest) returns (LoadChunkResponse) {}
+    rpc Stream (ChunkStreamRequest) returns (stream ChunkStreamResponse) {}
 }
 
-message AddRequest {
+
+message LoadChunkRequest {
+    int32 viewDistance = 1;
+}
+
+message LoadChunkResponse {
+    repeated Chunk chunks = 3;
+    repeated DynamicEntity dynamicEntity = 4;
+}
+
+message EnterChunkRequest {
+    string chunkUuid = 1;
+    int32 viewDistance = 2;
+}
+
+message EnterChunkResponse {
+    repeated Chunk chunks = 1;
+    repeated DynamicEntity dynamicEntity = 2;
+}
+
+
+message ChunkStreamRequest {
+    oneof action {
+        InteractWithStaticEntity interactWithStaticEntity = 1;
+        PlaceStaticEntity placeStaticEntity = 2;
+    }
+}
+
+message ChunkStreamResponse {
+    oneof action {
+        AddStaticEntity addStaticEntity = 1;
+        UpdateStaticEntity updateStaticEntity = 2;
+        RemoveStaticEntity removeStaticEntity = 3;
+    }
+}
+
+message RemoveStaticEntity {
+    string entityUuid = 1;
+}
+
+message InteractWithStaticEntity {
+    string staticEntityUuid = 1;
+}
+
+message PlaceStaticEntity {
+    string staticEntityUuid = 1;
+}
+
+message AddStaticEntity {
+    StaticEntity entity = 1;
+}
+
+message UpdateStaticEntity {
+    StaticEntity entity = 1;
+}
+
+// END CHUNK SERVICE 
+
+
+// PLAYER SERVICE 
+
+service PlayerService {
+    rpc GetPlayers(google.protobuf.Empty) returns (GetPlayersReply) {}
+    rpc Connect(ConnectRequest) returns (ConnectResponse) {}
+    rpc Stream (stream PlayerStreamRequest) returns (stream PlayerStreamResponse) {}
+}
+
+message GetPlayersReply {
+    repeated Player player = 1;
+}
+
+message PlayerStreamRequest {
+    oneof action {
+        Move move = 1;
+    }}
+
+message PlayerStreamResponse {
+    oneof action {
+        Move move = 1;
+    }
+}
+
+
+message ConnectRequest {
+    string playerUuid = 1;
+}
+
+message ConnectResponse {
+    Player player = 1;
+    World world = 2;
+    repeated Chunk chunks = 3;
+    repeated DynamicEntity dynamicEntity = 4;
+}
+
+message Player {
     string name = 1;
+    int32 level = 2;
+    Position position = 3;
 }
 
-message AddReply {
-    string message = 1;
+message World {
+    string name = 1;
+    int32 level = 2;
 }
+
+message Move {
+    Position position = 1;
+}
+
+message Chunk {
+    string uuid = 1;
+    Vector2 position = 2;
+    repeated StaticEntity staticEntity = 3;
+    repeated Tile tiles = 4;
+}
+
+message Tile {
+    TileType type = 1;
+    float elevation = 2;
+}
+
+enum TileType {
+    Dirt = 0;
+	Grass = 1;
+	Rock = 2;
+	Forest = 3;
+	Sand = 4;
+	Snow = 5;
+}
+
+// COORDINATE MESSAGES
+message Position {
+    optional Vector3 position = 1;
+    optional Vector3 angle = 2;
+}
+
+message Vector3 {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message Vector2 {
+    float x = 1;
+    float y = 2;
+}
+
+
+// DynamicEntity
+message DynamicEntity {
+    string uuid = 1;
+    string name = 2;
+    Position position = 3;
+    DynamicEntityType type = 4;
+    // Stats stats
+}
+
+enum DynamicEntityType {
+    PLAYER = 0;
+    CREATURE = 1;
+}
+//END DynamicEntity
+
+// StaticEntity
+message StaticEntity {
+    string uuid = 1;
+    string name = 2;
+    Position position = 3;
+    StaticEntityType type = 4;
+    // Stats stats
+}
+
+enum StaticEntityType {
+	Empty = 0;
+	Building = 1;
+	ChunkEntry = 2;
+	Ressource = 3;
+	Item = 4;
+}
+//END StaticEntity

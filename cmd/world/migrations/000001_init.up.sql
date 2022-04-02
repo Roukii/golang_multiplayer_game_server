@@ -8,91 +8,80 @@ create type stats(
   update_at Timestamp
 );
 
-create type static_entity(
-  uuid Uuid, 
-  name text, 
-  positionX int, 
-  positionY int, 
-  entity_type int, 
-  stats frozen<stats>, 
-  entry_to_chunk_uuid uuid, 
+create type spawn_point(
+  world_uuid Uuid, 
+  chunk_uuid Uuid, 
+  x float, 
+  y float, 
+  z float,
   created_at Timestamp, 
   update_at Timestamp
 );
 
-create type dynamic_entity(
-  uuid Uuid, 
-  name text, 
-  position_x int, 
-  position_y int, 
-  entity_type int, 
-  stats frozen<stats>,
+create TABLE players_by_user(
+  user_uuid Uuid,
+  player_uuid Uuid,
+  name text,
+  stats stats, 
+  spawn_point spawn_point, 
   created_at Timestamp, 
-  Update_at Timestamp);
+  update_at Timestamp,
+  PRIMARY KEY (user_uuid, player_uuid) 
+) WITH CLUSTERING ORDER BY (player_uuid DESC);
 
 create type tile(
   type int,
   elevation int,
-  created_at Timestamp, 
-  update_at Timestamp
 );
 
-
-create type chunk(
-  uuid Uuid, 
-  name text, 
-  positionX int,
-  positionY int, 
-  tiles list<frozen<tile>>, 
-  static_entities set<frozen<static_entity>>, 
-  dynamic_entities set<frozen<dynamic_entity>>, 
-  state int, 
-  created_at Timestamp, 
-  update_at Timestamp
-);
-
-
-
-create type world(
-  uuid Uuid, 
-  name text, 
-  level int, 
-  length int, 
-  width int, 
-  chunks set<frozen<chunk>>, 
-  seed text, 
-  type int, 
-  created_at Timestamp, 
-  update_at Timestamp
-);
-
-create type spawn_point(
-  world_uuid Uuid, 
+create TABLE chunks_by_world(
   chunk_uuid Uuid, 
-  position_x int, 
-  position_y int, 
-  created_at Timestamp, 
-  update_at Timestamp
-);
+  world_uuid uuid,
+  x float,
+  y float, 
+  created_at Timestamp,
+  tiles list<frozen<tile>>,
+  PRIMARY KEY (world_uuid, chunk_uuid) 
+) WITH CLUSTERING ORDER BY (chunk_uuid DESC);
 
 
-create type player(
-  uuid Uuid, 
+
+
+create TABLE static_entity_by_chunk(
+  static_entity_uuid Uuid, 
+  chunk_uuid Uuid, 
   name text, 
-  level int, 
-  stats frozen<stats>, 
-  spawn_point frozen<spawn_point>, 
-  type int, 
+  x float, 
+  y float,
+  z float,
+  entity_type int, 
+  stats stats, 
+  entry_to_chunk_uuid uuid, 
   created_at Timestamp, 
-  update_at Timestamp
-);
+  update_at Timestamp,  
+  PRIMARY KEY (chunk_uuid, static_entity_uuid)
+) WITH CLUSTERING ORDER BY (static_entity_uuid DESC);
 
+create TABLE dynamic_entity_by_chunk(
+  dynamic_entity_uuid Uuid, 
+  chunk_uuid Uuid, 
+  name text, 
+  x float, 
+  y float, 
+  z float,
+  entity_type int, 
+  stats stats, 
+  entry_to_chunk_uuid uuid, 
+  created_at Timestamp, 
+  update_at Timestamp,  
+  PRIMARY KEY (chunk_uuid, dynamic_entity_uuid)
+) WITH CLUSTERING ORDER BY (dynamic_entity_uuid DESC);
 
+CREATE INDEX  dynamic_entity_by_chunk_x_idx ON dynamic_entity_by_chunk (x);
+CREATE INDEX  dynamic_entity_by_chunk_y_idx ON dynamic_entity_by_chunk (y);
 
-create TABLE universe(
-  uuid Uuid,
-  name text,
-  worlds set<frozen<world>>,
-  players set<frozen<player>>,
-  PRIMARY KEY(uuid)
-);
+CREATE INDEX chunks_by_world_y_idx ON chunks_by_world (y);
+CREATE INDEX chunks_by_world_x_idx ON chunks_by_world (x);
+
+CREATE INDEX  static_entity_by_chunk_y_idx ON static_entity_by_chunk (y);
+CREATE INDEX static_entity_by_chunk_x_idx ON static_entity_by_chunk (x);

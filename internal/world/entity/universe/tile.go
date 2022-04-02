@@ -1,12 +1,8 @@
 package universe
 
-import "time"
-
 type Tile struct {
-	TileType  TileType  `json:"type"`
-	Elevation float64   `json:"elevation"`
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
+	TileType  TileType `json:"type"`
+	Elevation int8     `json:"elevation"`
 }
 
 type TileType int8
