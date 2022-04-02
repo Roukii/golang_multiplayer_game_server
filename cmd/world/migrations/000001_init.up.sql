@@ -18,6 +18,18 @@ create type spawn_point(
   update_at Timestamp
 );
 
+create TABLE world(
+  world_uuid Uuid,
+  max_player int,
+  name text,
+  width int,
+  length int,
+  seed text,
+  created_at Timestamp, 
+  PRIMARY KEY (world_uuid) 
+);
+
+
 create TABLE players_by_user(
   user_uuid Uuid,
   player_uuid Uuid,
@@ -31,21 +43,18 @@ create TABLE players_by_user(
 
 create type tile(
   type int,
-  elevation int,
+  elevation float,
 );
 
 create TABLE chunks_by_world(
   chunk_uuid Uuid, 
   world_uuid uuid,
-  x float,
-  y float, 
+  x int,
+  y int, 
   created_at Timestamp,
   tiles list<frozen<tile>>,
   PRIMARY KEY (world_uuid, chunk_uuid) 
 ) WITH CLUSTERING ORDER BY (chunk_uuid DESC);
-
-
-
 
 create TABLE static_entity_by_chunk(
   static_entity_uuid Uuid, 

@@ -74,9 +74,21 @@ message UpdateStaticEntity {
 // PLAYER SERVICE 
 
 service PlayerService {
+    rpc CreatePlayer(CreatePlayerRequest) returns (CreatePlayerResponse) {}
     rpc GetPlayers(google.protobuf.Empty) returns (GetPlayersReply) {}
     rpc Connect(ConnectRequest) returns (ConnectResponse) {}
     rpc Stream (stream PlayerStreamRequest) returns (stream PlayerStreamResponse) {}
+}
+
+message CreatePlayerRequest {
+    string name = 1;
+}
+
+message CreatePlayerResponse {
+    Player player = 1;
+    World world = 2;
+    repeated Chunk chunks = 3;
+    repeated DynamicEntity dynamicEntity = 4;
 }
 
 message GetPlayersReply {

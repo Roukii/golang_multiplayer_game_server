@@ -5,9 +5,10 @@ import "time"
 type World struct {
 	UUID      string    `json:"uuid"`
 	Name      string    `json:"name"`
-	Level     int32     `json:"level"`
-	Length    int64     `json:"length"`
-	Width     int64     `json:"width"`
+	MaxPlayer int       `json:"max_player"`
+	Level     int       `json:"level"`
+	Length    int       `json:"length"`
+	Width     int       `json:"width"`
 	Chunks    []Chunk   `json:"chunks"`
 	Seed      string    `json:"seed"`
 	Type      WorldType `json:"type"`

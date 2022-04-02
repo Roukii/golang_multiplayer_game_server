@@ -205,6 +205,7 @@ var ChunkService_ServiceDesc = grpc.ServiceDesc{
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PlayerServiceClient interface {
+	CreatePlayer(ctx context.Context, in *CreatePlayerRequest, opts ...grpc.CallOption) (*CreatePlayerResponse, error)
 	GetPlayers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetPlayersReply, error)
 	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
 	Stream(ctx context.Context, opts ...grpc.CallOption) (PlayerService_StreamClient, error)
@@ -216,6 +217,15 @@ type playerServiceClient struct {
 
 func NewPlayerServiceClient(cc grpc.ClientConnInterface) PlayerServiceClient {
 	return &playerServiceClient{cc}
+}
+
+func (c *playerServiceClient) CreatePlayer(ctx context.Context, in *CreatePlayerRequest, opts ...grpc.CallOption) (*CreatePlayerResponse, error) {
+	out := new(CreatePlayerResponse)
+	err := c.cc.Invoke(ctx, "/universe.PlayerService/CreatePlayer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *playerServiceClient) GetPlayers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetPlayersReply, error) {
@@ -271,6 +281,7 @@ func (x *playerServiceStreamClient) Recv() (*PlayerStreamResponse, error) {
 // All implementations must embed UnimplementedPlayerServiceServer
 // for forward compatibility
 type PlayerServiceServer interface {
+	CreatePlayer(context.Context, *CreatePlayerRequest) (*CreatePlayerResponse, error)
 	GetPlayers(context.Context, *emptypb.Empty) (*GetPlayersReply, error)
 	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
 	Stream(PlayerService_StreamServer) error
@@ -281,6 +292,9 @@ type PlayerServiceServer interface {
 type UnimplementedPlayerServiceServer struct {
 }
 
+func (UnimplementedPlayerServiceServer) CreatePlayer(context.Context, *CreatePlayerRequest) (*CreatePlayerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePlayer not implemented")
+}
 func (UnimplementedPlayerServiceServer) GetPlayers(context.Context, *emptypb.Empty) (*GetPlayersReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPlayers not implemented")
 }
@@ -301,6 +315,24 @@ type UnsafePlayerServiceServer interface {
 
 func RegisterPlayerServiceServer(s grpc.ServiceRegistrar, srv PlayerServiceServer) {
 	s.RegisterService(&PlayerService_ServiceDesc, srv)
+}
+
+func _PlayerService_CreatePlayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePlayerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerServiceServer).CreatePlayer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/universe.PlayerService/CreatePlayer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerServiceServer).CreatePlayer(ctx, req.(*CreatePlayerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _PlayerService_GetPlayers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -372,6 +404,10 @@ var PlayerService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "universe.PlayerService",
 	HandlerType: (*PlayerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreatePlayer",
+			Handler:    _PlayerService_CreatePlayer_Handler,
+		},
 		{
 			MethodName: "GetPlayers",
 			Handler:    _PlayerService_GetPlayers_Handler,

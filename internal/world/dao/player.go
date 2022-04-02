@@ -60,6 +60,7 @@ func (a PlayerDao) GetAllPlayersFromUserUUID(userUUID string) ([]*player.Player,
 	if err := query.Select(&playersByUser); err != nil {
 		return players, err
 	}
+
 	for _, p := range playersByUser {
 		players = append(players, &player.Player{
 			UUID:       p.PlayerUuid.String(),

@@ -262,6 +262,10 @@ namespace Universe {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.CreatePlayerRequest> __Marshaller_universe_CreatePlayerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.CreatePlayerRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.CreatePlayerResponse> __Marshaller_universe_CreatePlayerResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.CreatePlayerResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Universe.GetPlayersReply> __Marshaller_universe_GetPlayersReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.GetPlayersReply.Parser));
@@ -273,6 +277,14 @@ namespace Universe {
     static readonly grpc::Marshaller<global::Universe.PlayerStreamRequest> __Marshaller_universe_PlayerStreamRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.PlayerStreamRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Universe.PlayerStreamResponse> __Marshaller_universe_PlayerStreamResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.PlayerStreamResponse.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Universe.CreatePlayerRequest, global::Universe.CreatePlayerResponse> __Method_CreatePlayer = new grpc::Method<global::Universe.CreatePlayerRequest, global::Universe.CreatePlayerResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CreatePlayer",
+        __Marshaller_universe_CreatePlayerRequest,
+        __Marshaller_universe_CreatePlayerResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetPlayersReply> __Method_GetPlayers = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetPlayersReply>(
@@ -308,6 +320,12 @@ namespace Universe {
     [grpc::BindServiceMethod(typeof(PlayerService), "BindService")]
     public abstract partial class PlayerServiceBase
     {
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Universe.CreatePlayerResponse> CreatePlayer(global::Universe.CreatePlayerRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Universe.GetPlayersReply> GetPlayers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
       {
@@ -355,6 +373,26 @@ namespace Universe {
       {
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.CreatePlayerResponse CreatePlayer(global::Universe.CreatePlayerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CreatePlayer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.CreatePlayerResponse CreatePlayer(global::Universe.CreatePlayerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CreatePlayer, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.CreatePlayerResponse> CreatePlayerAsync(global::Universe.CreatePlayerRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CreatePlayerAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.CreatePlayerResponse> CreatePlayerAsync(global::Universe.CreatePlayerRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CreatePlayer, null, options, request);
+      }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Universe.GetPlayersReply GetPlayers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -419,6 +457,7 @@ namespace Universe {
     public static grpc::ServerServiceDefinition BindService(PlayerServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_CreatePlayer, serviceImpl.CreatePlayer)
           .AddMethod(__Method_GetPlayers, serviceImpl.GetPlayers)
           .AddMethod(__Method_Connect, serviceImpl.Connect)
           .AddMethod(__Method_Stream, serviceImpl.Stream).Build();
@@ -431,6 +470,7 @@ namespace Universe {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, PlayerServiceBase serviceImpl)
     {
+      serviceBinder.AddMethod(__Method_CreatePlayer, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.CreatePlayerRequest, global::Universe.CreatePlayerResponse>(serviceImpl.CreatePlayer));
       serviceBinder.AddMethod(__Method_GetPlayers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetPlayersReply>(serviceImpl.GetPlayers));
       serviceBinder.AddMethod(__Method_Connect, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.ConnectRequest, global::Universe.ConnectResponse>(serviceImpl.Connect));
       serviceBinder.AddMethod(__Method_Stream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Universe.PlayerStreamRequest, global::Universe.PlayerStreamResponse>(serviceImpl.Stream));
