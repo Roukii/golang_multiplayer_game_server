@@ -49,8 +49,8 @@ create TABLE chunks_by_world(
   y int, 
   created_at Timestamp,
   tiles list<frozen<tile>>,
-  PRIMARY KEY (world_uuid, chunk_uuid) 
-) WITH CLUSTERING ORDER BY (chunk_uuid DESC);
+  PRIMARY KEY (world_uuid) 
+);
 
 create TABLE static_entity_by_chunk(
   static_entity_uuid Uuid, 

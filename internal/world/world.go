@@ -30,6 +30,7 @@ func Run() {
 		l.Fatal("create keyspace:", err)
 	}
 	service := service.New(&session, l)
+	service.GameService.StartGame()
 	method.New(s, service.GameService)
 	l.Info("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {

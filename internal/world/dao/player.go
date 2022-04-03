@@ -164,10 +164,11 @@ func (a PlayerDao) GetPlayerFromUUID(userUUID string, playerUUID string) (*playe
 	}, nil
 }
 
+//TODO clean
 func mustParseUUID(s string) gocql.UUID {
 	u, err := gocql.ParseUUID(s)
 	if err != nil {
-		panic(err)
+		return gocql.TimeUUID()
 	}
 	return u
 }

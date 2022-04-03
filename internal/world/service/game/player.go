@@ -51,10 +51,8 @@ func (g *GameService) DisconnectPlayer(p *player.Player) (bool, error) {
 func (g *GameService) GenerateSpawnPoint(p *player.Player) (player.SpawnPoint, error) {
 	var worldUUID string
 	for _, world := range g.Universe.Worlds {
-		if world.Level == 1 {
-			worldUUID = world.UUID
-			break
-		}
+		worldUUID = world.UUID
+		break
 	}
 	spawnPoint := player.SpawnPoint{
 		WorldUUID: worldUUID,

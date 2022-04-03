@@ -44,6 +44,8 @@ func (g *GameService) StartGame() (err error) {
 	worlds, err := g.WorldDao.GetAllWorlds()
 	for _, world := range worlds {
 		g.Universe.Worlds[world.UUID] = world
+		generator := procedural_generation.NewWorldGenerator(&world)
+		g.WorldGenerators[world.UUID] = &generator
 	}
 	if err != nil {
 		fmt.Println("error : ", err)
@@ -56,10 +58,7 @@ func (g *GameService) StartGame() (err error) {
 			fmt.Println("error : ", err)
 		}
 		g.Universe.Worlds[world.UUID] = *world
-	}
-
-	for _, world := range g.Universe.Worlds {
-		generator := procedural_generation.NewWorldGenerator(&world)
+		generator := procedural_generation.NewWorldGenerator(world)
 		g.WorldGenerators[world.UUID] = &generator
 	}
 	return err

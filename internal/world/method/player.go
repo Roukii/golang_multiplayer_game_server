@@ -2,6 +2,7 @@ package method
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"log"
 	"sync"
@@ -11,6 +12,8 @@ import (
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 	"github.com/google/uuid"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
@@ -50,6 +53,7 @@ func (c *PlayerMethod) GetPlayers(ctx context.Context, request *emptypb.Empty) (
 
 func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlayerRequest) (*pb.CreatePlayerResponse, error) {
 	userInfo, err := getUserInfoFromRequest(ctx)
+	fmt.Println(userInfo)
 	if err != nil {
 		return nil, err
 	}
@@ -64,6 +68,11 @@ func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlaye
 		},
 	}
 	err = c.game.CreatePlayer(userInfo.UUID, &p)
+	if err != nil {
+		fmt.Println(err)
+		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
+
+	}
 	world, err := c.game.GetWorld(p.SpawnPoint.WorldUUID)
 	chunks, err := c.game.LoadChunksFromSpawnSpoint(p.SpawnPoint, 1)
 	var requestChunk []*pb.Chunk
