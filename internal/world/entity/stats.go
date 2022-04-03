@@ -1,13 +1,12 @@
 package entity
 
-import "time"
+import "github.com/scylladb/gocqlx/v2"
 
 type Stats struct {
-	Level     int       `json:"level"`
-	MaxHP     int       `json:"maxHp"`
-	HP        int       `json:"hp"`
-	MaxMP     int       `json:"maxMp"`
-	MP        int       `json:"mp"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updatedAt"`
+	gocqlx.UDT
+	Level int `json:"level"`
+	Maxhp int `json:"maxhp"`
+	Hp    int `json:"hp"`
+	Maxmp int `json:"maxmp"`
+	Mp    int `json:"mp"`
 }

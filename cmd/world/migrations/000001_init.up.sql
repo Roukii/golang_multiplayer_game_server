@@ -3,19 +3,15 @@ create type stats(
   maxHp Bigint, 
   hp Bigint, 
   maxMp Bigint, 
-  Mp Bigint, 
-  created_at Timestamp, 
-  update_at Timestamp
+  Mp Bigint,
 );
 
 create type spawn_point(
   world_uuid Uuid, 
-  chunk_uuid Uuid, 
   x float, 
   y float, 
   z float,
-  created_at Timestamp, 
-  update_at Timestamp
+  updated_at Timestamp
 );
 
 create TABLE world(
@@ -37,7 +33,7 @@ create TABLE players_by_user(
   stats stats, 
   spawn_point spawn_point, 
   created_at Timestamp, 
-  update_at Timestamp,
+  updated_at Timestamp,
   PRIMARY KEY (user_uuid, player_uuid) 
 ) WITH CLUSTERING ORDER BY (player_uuid DESC);
 
@@ -67,7 +63,7 @@ create TABLE static_entity_by_chunk(
   stats stats, 
   entry_to_chunk_uuid uuid, 
   created_at Timestamp, 
-  update_at Timestamp,  
+  updated_at Timestamp,  
   PRIMARY KEY (chunk_uuid, static_entity_uuid)
 ) WITH CLUSTERING ORDER BY (static_entity_uuid DESC);
 
@@ -82,7 +78,7 @@ create TABLE dynamic_entity_by_chunk(
   stats stats, 
   entry_to_chunk_uuid uuid, 
   created_at Timestamp, 
-  update_at Timestamp,  
+  updated_at Timestamp,  
   PRIMARY KEY (chunk_uuid, dynamic_entity_uuid)
 ) WITH CLUSTERING ORDER BY (dynamic_entity_uuid DESC);
 

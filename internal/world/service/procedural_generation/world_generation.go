@@ -31,7 +31,7 @@ func NewWorldGenerator(world *universe.World) WorldGenerator {
 	return tmp
 }
 
-func generateSeed() string {
+func GenerateSeed() string {
 	return random.RandStringRunes(seedSize)
 }
 
@@ -51,9 +51,6 @@ func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk uni
 }
 
 func (wg *WorldGenerator) GenerateNoiseMap() {
-	if wg.World.Seed == "" {
-		wg.World.Seed = generateSeed()
-	}
 	h := md5.New()
 	var elevationSeed uint64 = binary.BigEndian.Uint64(h.Sum([]byte(wg.World.Seed)))
 	var temperatureSeed uint64 = binary.BigEndian.Uint64(h.Sum([]byte(reverseString(wg.World.Seed))))
@@ -100,8 +97,8 @@ func generateHeightmap(startingPositionX int, startingPositionY int, noise opens
 	heightmap := make([]float64, chunkLength*chunkLength)
 	for y := 0; y+startingPositionY < h; y++ {
 		for x := 0; x+startingPositionX < w; x++ {
-			xFloat := float64(x + startingPositionX)
-			yFloat := float64(y + startingPositionY)
+			xFloat := float64(x+startingPositionX) / 1000
+			yFloat := float64(y+startingPositionY) / 1000
 			heightmap[(y*chunkLength)+x] = noise.Eval2(xFloat, yFloat)
 		}
 	}

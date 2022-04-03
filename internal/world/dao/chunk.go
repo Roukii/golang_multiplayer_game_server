@@ -29,8 +29,8 @@ type ChunksByWorld struct {
 func NewChunkDao(session *gocqlx.Session) *ChunkDao {
 	ChunksByWorldMetadata := table.New(table.Metadata{
 		Name:    "game.chunks_by_world",
-		Columns: []string{"chunk_uuid", "world_uuid", "x", "y", "tiles", "created_at"},
-		PartKey: []string{"chunk_uuid", "world_uuid"},
+		Columns: []string{"world_uuid", "chunk_uuid", "x", "y", "tiles", "created_at"},
+		PartKey: []string{"world_uuid", "chunk_uuid"},
 		SortKey: []string{"chunk_uuid"},
 	})
 
@@ -50,12 +50,14 @@ func (a ChunkDao) Insert(worldUuid string, chunk *universe.Chunk) error {
 	return query.ExecRelease()
 }
 
-func (a ChunkDao) LoadChunckBetweenCoordinate(minX int, maxX int, minY int, maxY int) ([]*universe.Chunk, error) {
+func (a ChunkDao)  LoadChunckBetweenCoordinate(worldUuid string, minX int, maxX int, minY int, maxY int) ([]*universe.Chunk, error) {
 	var chunks []*universe.Chunk
 	var chunksByWorld []*ChunksByWorld
 
 	if err := qb.Select(a.ChunksByWorldMetadata.Name()).Where(
-		qb.LtOrEqLit("x", string(rune(maxX))), qb.LtOrEqLit("y", string(rune(maxY))), qb.GtOrEqLit("x", string(rune(minX))), qb.GtOrEqLit("y", string(rune(minY))),
+		qb.EqLit("world_uuid", worldUuid), qb.LtOrEqLit("x", string(rune(maxX))),
+		qb.LtOrEqLit("y", string(rune(maxY))), qb.GtOrEqLit("x", string(rune(minX))),
+		qb.GtOrEqLit("y", string(rune(minY))),
 	).Query(*a.session).Select(&chunksByWorld); err != nil {
 		return nil, err
 	}

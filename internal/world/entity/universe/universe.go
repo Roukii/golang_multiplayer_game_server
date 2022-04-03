@@ -11,7 +11,7 @@ import (
 type Universe struct {
 	UUID      string          `json:"uuid"`
 	Name      string          `json:"name"`
-	Worlds    []World         `json:"worlds"`
+	Worlds    map[string]World         `json:"worlds"`
 	Players   []player.Player `json:"players"`
 	CreatedAt time.Time       `json:"created_at"`
 }

@@ -7,4 +7,4 @@ DROP TABLE world;
 
 DROP type tile;
 DROP type spawn_point;
-DROP type stats
+DROP type stats;

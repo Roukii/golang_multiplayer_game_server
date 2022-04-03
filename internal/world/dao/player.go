@@ -1,12 +1,14 @@
 package dao
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/gocql/gocql"
 	"github.com/scylladb/gocqlx/v2"
+	"github.com/scylladb/gocqlx/v2/qb"
 	"github.com/scylladb/gocqlx/v2/table"
 )
 
@@ -21,9 +23,18 @@ type PlayerByUser struct {
 	PlayerUuid gocql.UUID
 	Name       string
 	Stats      entity.Stats
-	SpawnPoint player.SpawnPoint
+	SpawnPoint SpawnPointType
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
+}
+
+type SpawnPointType struct {
+	gocqlx.UDT
+	WorldUUID string
+	X         float32
+	Y         float32
+	Z         float32
+	UpdatedAt time.Time
 }
 
 // New -.
@@ -31,7 +42,7 @@ func NewPlayerDao(session *gocqlx.Session) *PlayerDao {
 	PlayerByUserMetadata := table.New(table.Metadata{
 		Name:    "game.players_by_user",
 		Columns: []string{"user_uuid", "player_uuid", "name", "stats", "spawn_point", "created_at", "updated_at"},
-		PartKey: []string{"user_uuid"},
+		PartKey: []string{"user_uuid", "player_uuid"},
 		SortKey: []string{"player_uuid"},
 	})
 
@@ -39,56 +50,117 @@ func NewPlayerDao(session *gocqlx.Session) *PlayerDao {
 }
 
 func (a PlayerDao) Insert(userUuid string, p *player.Player) error {
+	fmt.Println(a.PlayerByUserMetadata.InsertQuery(*a.session).BindStruct(PlayerByUser{
+		UserUuid:   mustParseUUID(userUuid),
+		PlayerUuid: mustParseUUID(p.UUID),
+		Name:       p.Name,
+		Stats:      p.Stats,
+		SpawnPoint: SpawnPointType{
+			WorldUUID: p.SpawnPoint.WorldUUID,
+			X:         p.SpawnPoint.Coordinate.Position.X,
+			Y:         p.SpawnPoint.Coordinate.Position.Y,
+			Z:         p.SpawnPoint.Coordinate.Position.Z,
+			UpdatedAt: time.Now(),
+		},
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}).Statement())
 	return a.PlayerByUserMetadata.InsertQuery(*a.session).BindStruct(PlayerByUser{
 		UserUuid:   mustParseUUID(userUuid),
 		PlayerUuid: mustParseUUID(p.UUID),
 		Name:       p.Name,
 		Stats:      p.Stats,
-		SpawnPoint: p.SpawnPoint,
-		CreatedAt:  time.Now(),
-		UpdatedAt:  time.Now(),
+		SpawnPoint: SpawnPointType{
+			WorldUUID: p.SpawnPoint.WorldUUID,
+			X:         p.SpawnPoint.Coordinate.Position.X,
+			Y:         p.SpawnPoint.Coordinate.Position.Y,
+			Z:         p.SpawnPoint.Coordinate.Position.Z,
+			UpdatedAt: time.Now(),
+		},
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
 	}).ExecRelease()
+}
+
+func (a PlayerDao) Update(p *player.Player) error {
+	q := qb.Update(a.PlayerByUserMetadata.Name()).
+		Set("spawn_point", "stats", "updated_at").
+		Where(qb.Eq("player_uuid")).
+		Query(*a.session).
+		SerialConsistency(gocql.Serial).
+		BindStruct(PlayerByUser{
+			PlayerUuid: mustParseUUID(p.UUID),
+			Name:       p.Name,
+			Stats:      p.Stats,
+			SpawnPoint: SpawnPointType{
+				WorldUUID: p.SpawnPoint.WorldUUID,
+				X:         p.SpawnPoint.Coordinate.Position.X,
+				Y:         p.SpawnPoint.Coordinate.Position.Y,
+				Z:         p.SpawnPoint.Coordinate.Position.Z,
+				UpdatedAt: time.Now(),
+			},
+			CreatedAt: p.CreatedAt,
+			UpdatedAt: time.Now(),
+		})
+
+	return q.ExecRelease()
 }
 
 func (a PlayerDao) GetAllPlayersFromUserUUID(userUUID string) ([]*player.Player, error) {
 	var players []*player.Player
 	var playersByUser []*PlayerByUser
 
-	query := a.PlayerByUserMetadata.SelectQuery(*a.session).BindStruct(&PlayerByUser{
-		UserUuid: mustParseUUID(userUUID),
-	})
-	if err := query.Select(&playersByUser); err != nil {
-		return players, err
+	if err := qb.Select(a.PlayerByUserMetadata.Name()).Where(qb.EqLit("user_uuid", userUUID)).Query(*a.session).Select(&playersByUser); err != nil {
+		return nil, err
 	}
-
 	for _, p := range playersByUser {
 		players = append(players, &player.Player{
-			UUID:       p.PlayerUuid.String(),
-			Name:       p.Name,
-			CreatedAt:  p.CreatedAt,
-			UpdatedAt:  p.UpdatedAt,
-			Stats:      p.Stats,
-			SpawnPoint: p.SpawnPoint,
+			UUID:      p.PlayerUuid.String(),
+			Name:      p.Name,
+			CreatedAt: p.CreatedAt,
+			UpdatedAt: p.UpdatedAt,
+			Stats:     p.Stats,
+			SpawnPoint: player.SpawnPoint{
+				WorldUUID: p.SpawnPoint.WorldUUID,
+				Coordinate: entity.Position{
+					Position: entity.Vector3f{
+						X: p.SpawnPoint.X,
+						Y: p.SpawnPoint.Y,
+						Z: p.SpawnPoint.Z,
+					},
+				},
+				UpdatedAt: p.SpawnPoint.UpdatedAt,
+			},
 		})
 	}
 	return players, nil
 }
 
-func (a PlayerDao) GetPlayerFromUUID(playerUUID string) (*player.Player, error) {
-	var p *PlayerByUser
-	query := a.PlayerByUserMetadata.SelectQuery(*a.session).BindStruct(&PlayerByUser{
-		PlayerUuid: mustParseUUID(playerUUID),
-	})
-	if err := query.Select(&p); err != nil {
+func (a PlayerDao) GetPlayerFromUUID(userUUID string, playerUUID string) (*player.Player, error) {
+	var p PlayerByUser
+	q := qb.Select(a.PlayerByUserMetadata.Name()).Where(qb.EqLit("user_uuid", userUUID), qb.EqLit("player_uuid", playerUUID)).Query(*a.session)
+	fmt.Println(q.Statement())
+	if err := qb.Select(a.PlayerByUserMetadata.Name()).Where(qb.EqLit("user_uuid", userUUID), qb.EqLit("player_uuid", playerUUID)).Query(*a.session).Get(&p); err != nil {
 		return nil, err
 	}
+
 	return &player.Player{
-		UUID:       p.PlayerUuid.String(),
-		Name:       p.Name,
-		CreatedAt:  p.CreatedAt,
-		UpdatedAt:  p.UpdatedAt,
-		Stats:      p.Stats,
-		SpawnPoint: p.SpawnPoint,
+		UUID:      p.PlayerUuid.String(),
+		Name:      p.Name,
+		CreatedAt: p.CreatedAt,
+		UpdatedAt: p.UpdatedAt,
+		Stats:     p.Stats,
+		SpawnPoint: player.SpawnPoint{
+			WorldUUID: p.SpawnPoint.WorldUUID,
+			Coordinate: entity.Position{
+				Position: entity.Vector3f{
+					X: p.SpawnPoint.X,
+					Y: p.SpawnPoint.Y,
+					Z: p.SpawnPoint.Z,
+				},
+			},
+			UpdatedAt: p.SpawnPoint.UpdatedAt,
+		},
 	}, nil
 }
 

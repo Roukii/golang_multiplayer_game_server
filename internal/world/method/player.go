@@ -6,6 +6,8 @@ import (
 	"log"
 	"sync"
 
+	"github.com/Roukii/pock_multiplayer/internal/world/entity"
+	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 	"github.com/google/uuid"
@@ -20,16 +22,70 @@ type PlayerMethod struct {
 }
 
 func (c *PlayerMethod) GetPlayers(ctx context.Context, request *emptypb.Empty) (*pb.GetPlayersReply, error) {
+	userInfo, err := getUserInfoFromRequest(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	players, err := c.game.PlayerDao.GetAllPlayersFromUserUUID(userInfo.UUID)
+	var playerResponse []*pb.Player
+	for _, player := range players {
+		playerResponse = append(playerResponse, &pb.Player{
+			Name:  player.Name,
+			Level: int32(player.Stats.Level),
+			Position: &pb.Position{
+				Position: &pb.Vector3{
+					X: player.SpawnPoint.Coordinate.Position.X,
+					Y: player.SpawnPoint.Coordinate.Position.Y,
+					Z: player.SpawnPoint.Coordinate.Position.Z,
+				},
+				Angle: &pb.Vector3{},
+			},
+		})
+	}
 	return &pb.GetPlayersReply{
-		Player: []*pb.Player{},
+		Player: playerResponse,
 	}, nil
 }
 
 func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlayerRequest) (*pb.CreatePlayerResponse, error) {
+	userInfo, err := getUserInfoFromRequest(ctx)
+	if err != nil {
+		return nil, err
+	}
+	p := player.Player{
+		Name: request.GetName(),
+		Stats: entity.Stats{
+			Level: 1,
+			Maxhp: 10,
+			Hp:    10,
+			Maxmp: 10,
+			Mp:    10,
+		},
+	}
+	err = c.game.CreatePlayer(userInfo.UUID, &p)
+	world, err := c.game.GetWorld(p.SpawnPoint.WorldUUID)
+	chunks, err := c.game.LoadChunksFromSpawnSpoint(p.SpawnPoint, 1)
+	var requestChunk []*pb.Chunk
+	for _, chunk := range chunks {
+		var tiles []*pb.Tile
+		for _, tile := range chunk.Tiles {
+			tiles = append(tiles, &pb.Tile{
+				Type:      pb.TileType(tile.TileType),
+				Elevation: float32(tile.Elevation),
+			})
+		}
+		requestChunk = append(requestChunk, &pb.Chunk{
+			Uuid:         chunk.UUID,
+			Position:     &pb.Vector2{X: float32(chunk.PositionX), Y: float32(chunk.PositionY)},
+			StaticEntity: []*pb.StaticEntity{},
+			Tiles:        tiles,
+		})
+	}
 	return &pb.CreatePlayerResponse{
-		Player:        &pb.Player{},
-		World:         &pb.World{},
-		Chunks:        []*pb.Chunk{},
+		Player:        &pb.Player{Name: p.Name, Level: int32(p.Stats.Level), Position: &pb.Position{Position: &pb.Vector3{X: p.SpawnPoint.Coordinate.Position.X, Y: p.SpawnPoint.Coordinate.Position.Y, Z: p.SpawnPoint.Coordinate.Position.Z}, Angle: &pb.Vector3{}}},
+		World:         &pb.World{Name: world.Name, Level: int32(world.Level)},
+		Chunks:        requestChunk,
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
 }

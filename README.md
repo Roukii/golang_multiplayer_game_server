@@ -138,6 +138,7 @@ MP int
       '''
   - brew install golang-migrate
   - create migration file : migrate create -ext sql -dir migrations -seq create_users_table
-  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path migrations up
-  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path migrations down
-  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path migrations drop
+  -
+  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path cmd/world/migrations up
+  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path cmd/world/migrations down
+  - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path cmd/world/migrations drop
