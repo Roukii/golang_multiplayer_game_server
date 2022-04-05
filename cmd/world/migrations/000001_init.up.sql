@@ -38,8 +38,8 @@ create TABLE players_by_user(
 ) WITH CLUSTERING ORDER BY (player_uuid DESC);
 
 create type tile(
-  type int,
-  elevation float,
+  tile_type int,
+  elevation double,
 );
 
 create TABLE chunks_by_world(
@@ -49,7 +49,7 @@ create TABLE chunks_by_world(
   y int, 
   created_at Timestamp,
   tiles list<frozen<tile>>,
-  PRIMARY KEY (world_uuid) 
+  PRIMARY KEY (world_uuid, chunk_uuid) 
 );
 
 create TABLE static_entity_by_chunk(

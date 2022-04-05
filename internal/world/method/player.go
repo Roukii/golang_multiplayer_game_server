@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"sync"
+	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
@@ -52,6 +53,7 @@ func (c *PlayerMethod) GetPlayers(ctx context.Context, request *emptypb.Empty) (
 }
 
 func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlayerRequest) (*pb.CreatePlayerResponse, error) {
+	start := time.Now()
 	userInfo, err := getUserInfoFromRequest(ctx)
 	fmt.Println(userInfo)
 	if err != nil {
@@ -73,8 +75,19 @@ func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlaye
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 
 	}
+	elapsed := time.Since(start)
+	log.Printf("Load player took %s", elapsed)
+	start = time.Now()
+
 	world, err := c.game.GetWorld(p.SpawnPoint.WorldUUID)
-	chunks, err := c.game.LoadChunksFromSpawnSpoint(p.SpawnPoint, 1)
+	elapsed = time.Since(start)
+	log.Printf("Load world took %s", elapsed)
+	start = time.Now()
+	chunks, err := c.game.GetChunksFromSpawnSpoint(p.SpawnPoint, 1)
+	elapsed = time.Since(start)
+	log.Printf("Load chunks took %s", elapsed)
+	start = time.Now()
+
 	var requestChunk []*pb.Chunk
 	for _, chunk := range chunks {
 		var tiles []*pb.Tile
@@ -91,6 +104,9 @@ func (c *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlaye
 			Tiles:        tiles,
 		})
 	}
+	elapsed = time.Since(start)
+	log.Printf("Transfer chunk took %s", elapsed)
+
 	return &pb.CreatePlayerResponse{
 		Player:        &pb.Player{Name: p.Name, Level: int32(p.Stats.Level), Position: &pb.Position{Position: &pb.Vector3{X: p.SpawnPoint.Coordinate.Position.X, Y: p.SpawnPoint.Coordinate.Position.Y, Z: p.SpawnPoint.Coordinate.Position.Z}, Angle: &pb.Vector3{}}},
 		World:         &pb.World{Name: world.Name, Level: int32(world.Level)},

@@ -57,9 +57,10 @@ func (g *GameService) StartGame() (err error) {
 		if err != nil {
 			fmt.Println("error : ", err)
 		}
-		g.Universe.Worlds[world.UUID] = *world
-		generator := procedural_generation.NewWorldGenerator(world)
+		g.Universe.Worlds[world.UUID] = world
+		generator := procedural_generation.NewWorldGenerator(&world)
 		g.WorldGenerators[world.UUID] = &generator
+		fmt.Println("Chunks : ", g.Universe.Worlds[world.UUID])
 	}
 	return err
 }

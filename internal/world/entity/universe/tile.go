@@ -1,11 +1,14 @@
 package universe
 
+import "github.com/scylladb/gocqlx/v2"
+
 type Tile struct {
-	TileType  TileType `json:"type"`
+	gocqlx.UDT
+	TileType  int `json:"tile_type"`
 	Elevation float64  `json:"elevation"`
 }
 
-type TileType int8
+type TileType int
 
 const (
 	Dirt TileType = iota

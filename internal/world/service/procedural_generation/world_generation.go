@@ -35,14 +35,18 @@ func GenerateSeed() string {
 	return random.RandStringRunes(seedSize)
 }
 
-func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk universe.Chunk, err error) {
+func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk *universe.Chunk, err error) {
 	elevationHeightMap := generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.ElevationNoiseMap)
 	rainfallHeightMap := generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.RainfallNoiseMap)
 
+	chunk = &universe.Chunk{
+		PositionX:       positionX,
+		PositionY:       positionY,
+	}
 	tileNumber := len(elevationHeightMap)
 	for i := 0; i < tileNumber; i++ {
 		tile := universe.Tile{
-			TileType:  getTileType(elevationHeightMap[i], rainfallHeightMap[i]),
+			TileType:  int(getTileType(elevationHeightMap[i], rainfallHeightMap[i])),
 			Elevation: elevationHeightMap[i],
 		}
 		chunk.Tiles = append(chunk.Tiles, tile)

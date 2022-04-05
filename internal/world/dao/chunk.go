@@ -8,6 +8,7 @@ import (
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/gocql/gocql"
 	"github.com/scylladb/gocqlx/v2"
+	"github.com/scylladb/gocqlx/v2/qb"
 	"github.com/scylladb/gocqlx/v2/table"
 )
 
@@ -31,7 +32,7 @@ func NewChunkDao(session *gocqlx.Session) *ChunkDao {
 	ChunksByWorldMetadata := table.New(table.Metadata{
 		Name:    "game.chunks_by_world",
 		Columns: []string{"world_uuid", "chunk_uuid", "x", "y", "tiles", "created_at"},
-		PartKey: []string{"world_uuid"},
+		PartKey: []string{"world_uuid", "chunk_uuid"},
 		SortKey: []string{},
 	})
 
@@ -41,7 +42,7 @@ func NewChunkDao(session *gocqlx.Session) *ChunkDao {
 func (a ChunkDao) Insert(worldUuid string, chunk *universe.Chunk) error {
 	query := a.ChunksByWorldMetadata.InsertQuery(*a.session)
 	query.BindStruct(ChunksByWorld{
-		ChunkUuid: mustParseUUID(chunk.UUID),
+		ChunkUuid: gocql.TimeUUID(),
 		WorldUuid: mustParseUUID(worldUuid),
 		X:         chunk.PositionX,
 		Y:         chunk.PositionY,
@@ -63,6 +64,26 @@ func (a ChunkDao) LoadChunckBetweenCoordinate(worldUuid string, minX int, maxX i
 		return nil, err
 	}
 	fmt.Print()
+	for _, c := range chunksByWorld {
+		chunks = append(chunks, &universe.Chunk{
+			UUID:      c.ChunkUuid.String(),
+			CreatedAt: c.CreatedAt,
+			PositionX: c.X,
+			PositionY: c.Y,
+			Tiles:     c.Tiles,
+		})
+	}
+	return chunks, nil
+}
+
+func (a ChunkDao) LoadWorldChunk(worldUuid string) ([]*universe.Chunk, error) {
+	var chunks []*universe.Chunk
+	var chunksByWorld []*ChunksByWorld
+
+	if err := qb.Select(a.ChunksByWorldMetadata.Name()).Where(qb.EqLit("world_uuid", worldUuid)).Query(*a.session).Select(&chunksByWorld); err != nil {
+		return nil, err
+	}
+	fmt.Println(qb.Select(a.ChunksByWorldMetadata.Name()).Where(qb.EqLit("world_uuid", worldUuid)).Query(*a.session).Statement())
 	for _, c := range chunksByWorld {
 		chunks = append(chunks, &universe.Chunk{
 			UUID:      c.ChunkUuid.String(),
