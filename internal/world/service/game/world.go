@@ -29,7 +29,7 @@ func (g *GameService) CreateWorld(worldName string) (universe.World, error) {
 		return world, err
 	}
 	err = g.generateAndSaveWorldChunks(&world)
-	fmt.Println("Chunks : ", world.Chunks)
+	fmt.Println("Chunks : ", len(world.Chunks))
 	return world, err
 }
 

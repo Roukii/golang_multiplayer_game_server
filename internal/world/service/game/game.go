@@ -24,7 +24,7 @@ type GameService struct {
 func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
 	tmp := &GameService{
 		Universe: universe.Universe{
-			UUID: universeUUID,
+			UUID:   universeUUID,
 			Worlds: make(map[string]universe.World),
 		},
 		ChunkDao:        dao.NewChunkDao(session),
@@ -32,7 +32,7 @@ func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
 		WorldDao:        dao.NewWorldDao(session),
 		WorldGenerators: make(map[string]*procedural_generation.WorldGenerator),
 	}
-	err := tmp.StartGame()
+	err := tmp.startGame()
 	if err != nil {
 		fmt.Println("error : ", err)
 		return tmp
@@ -40,7 +40,7 @@ func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
 	return tmp
 }
 
-func (g *GameService) StartGame() (err error) {
+func (g *GameService) startGame() (err error) {
 	worlds, err := g.WorldDao.GetAllWorlds()
 	for _, world := range worlds {
 		g.Universe.Worlds[world.UUID] = world
@@ -57,10 +57,16 @@ func (g *GameService) StartGame() (err error) {
 		if err != nil {
 			fmt.Println("error : ", err)
 		}
+		fmt.Println("create world with uuid :", world.UUID)
 		g.Universe.Worlds[world.UUID] = world
-		generator := procedural_generation.NewWorldGenerator(&world)
-		g.WorldGenerators[world.UUID] = &generator
-		fmt.Println("Chunks : ", g.Universe.Worlds[world.UUID])
+	} else {
+		world, err := g.CreateWorld("tutorial")
+		if err != nil {
+			fmt.Println("error : ", err)
+		}
+		fmt.Println("world uuid :", world.UUID)
+		g.Universe.Worlds = make(map[string]universe.World)
+		g.Universe.Worlds[world.UUID] = world
 	}
 	return err
 }

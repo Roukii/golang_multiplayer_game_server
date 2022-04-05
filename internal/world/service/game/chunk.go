@@ -64,10 +64,6 @@ func (g *GameService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, vie
 	if !ok {
 		return nil, errors.New("world not found : " + spawnPoint.WorldUUID)
 	}
-	fmt.Println("chunks : ", world.Chunks)
-	if chunks, ok := world.Chunks[0]; ok {
-		fmt.Println(len(chunks))
-	}
 	if len(world.Chunks) == 0 {
 		err := g.loadWorldChunks(&world)
 		if err != nil {
@@ -79,7 +75,6 @@ func (g *GameService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, vie
 	for x := -viewDistance; x <= viewDistance; x++ {
 		for y := -viewDistance; y <= viewDistance; y++ {
 			if chunk, ok := world.Chunks[spawnChunkPosX+x][spawnChunkPosY+y]; ok {
-				fmt.Println("add chunk from struct : ", chunk.PositionX, "/", chunk.PositionY)
 				chunks = append(chunks, &chunk)
 			} else {
 				fmt.Println("Couldn't load chunk from pos : ", spawnChunkPosX+x, "/", spawnChunkPosY+y)
@@ -96,7 +91,6 @@ func (g *GameService) saveWorldChunks(world *universe.World) (err error) {
 			if err != nil {
 				fmt.Println("can't save chunk : ", err)
 			}
-			fmt.Println("insert chunk to db : ", chunk.PositionX, "/", chunk.PositionY)
 		}
 	}
 	return
