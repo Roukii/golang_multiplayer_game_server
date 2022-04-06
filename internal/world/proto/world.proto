@@ -119,9 +119,10 @@ message ConnectResponse {
 }
 
 message Player {
-    string name = 1;
-    int32 level = 2;
-    Position position = 3;
+  string name = 1;
+  string uuid = 2;
+  int32 level = 3;
+  Position position = 4;
 }
 
 message World {
@@ -129,8 +130,9 @@ message World {
     int32 level = 2;
     int32 length = 3;
     int32 width = 4;
-    int32 chunk_width = 5;
-    int32 population = 6;
+    string seed = 5;
+    int32 chunk_width = 6;
+    int32 population = 7;
 }
 
 message Move {
@@ -139,7 +141,7 @@ message Move {
 
 message Chunk {
     string uuid = 1;
-    Vector2 position = 2;
+    Vector2Int position = 2;
     repeated StaticEntity staticEntity = 3;
     repeated Tile tiles = 4;
 }
@@ -175,6 +177,10 @@ message Vector2 {
     float y = 2;
 }
 
+message Vector2Int {
+  int32 x = 1;
+  int32 y = 2;
+}
 
 // DynamicEntity
 message DynamicEntity {

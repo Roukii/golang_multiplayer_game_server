@@ -59,45 +59,46 @@ namespace Universe {
             "bm5lY3RSZXNwb25zZRIgCgZwbGF5ZXIYASABKAsyEC51bml2ZXJzZS5QbGF5",
             "ZXISHgoFd29ybGQYAiABKAsyDy51bml2ZXJzZS5Xb3JsZBIfCgZjaHVua3MY",
             "AyADKAsyDy51bml2ZXJzZS5DaHVuaxIuCg1keW5hbWljRW50aXR5GAQgAygL",
-            "MhcudW5pdmVyc2UuRHluYW1pY0VudGl0eSJLCgZQbGF5ZXISDAoEbmFtZRgB",
-            "IAEoCRINCgVsZXZlbBgCIAEoBRIkCghwb3NpdGlvbhgDIAEoCzISLnVuaXZl",
-            "cnNlLlBvc2l0aW9uImwKBVdvcmxkEgwKBG5hbWUYASABKAkSDQoFbGV2ZWwY",
-            "AiABKAUSDgoGbGVuZ3RoGAMgASgFEg0KBXdpZHRoGAQgASgFEhMKC2NodW5r",
-            "X3dpZHRoGAUgASgFEhIKCnBvcHVsYXRpb24YBiABKAUiLAoETW92ZRIkCghw",
-            "b3NpdGlvbhgBIAEoCzISLnVuaXZlcnNlLlBvc2l0aW9uIocBCgVDaHVuaxIM",
-            "CgR1dWlkGAEgASgJEiMKCHBvc2l0aW9uGAIgASgLMhEudW5pdmVyc2UuVmVj",
-            "dG9yMhIsCgxzdGF0aWNFbnRpdHkYAyADKAsyFi51bml2ZXJzZS5TdGF0aWNF",
-            "bnRpdHkSHQoFdGlsZXMYBCADKAsyDi51bml2ZXJzZS5UaWxlIjsKBFRpbGUS",
-            "IAoEdHlwZRgBIAEoDjISLnVuaXZlcnNlLlRpbGVUeXBlEhEKCWVsZXZhdGlv",
-            "bhgCIAEoAiJyCghQb3NpdGlvbhIoCghwb3NpdGlvbhgBIAEoCzIRLnVuaXZl",
-            "cnNlLlZlY3RvcjNIAIgBARIlCgVhbmdsZRgCIAEoCzIRLnVuaXZlcnNlLlZl",
-            "Y3RvcjNIAYgBAUILCglfcG9zaXRpb25CCAoGX2FuZ2xlIioKB1ZlY3RvcjMS",
-            "CQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiHwoHVmVjdG9yMhIJ",
-            "CgF4GAEgASgCEgkKAXkYAiABKAIifAoNRHluYW1pY0VudGl0eRIMCgR1dWlk",
-            "GAEgASgJEgwKBG5hbWUYAiABKAkSJAoIcG9zaXRpb24YAyABKAsyEi51bml2",
-            "ZXJzZS5Qb3NpdGlvbhIpCgR0eXBlGAQgASgOMhsudW5pdmVyc2UuRHluYW1p",
-            "Y0VudGl0eVR5cGUiegoMU3RhdGljRW50aXR5EgwKBHV1aWQYASABKAkSDAoE",
-            "bmFtZRgCIAEoCRIkCghwb3NpdGlvbhgDIAEoCzISLnVuaXZlcnNlLlBvc2l0",
-            "aW9uEigKBHR5cGUYBCABKA4yGi51bml2ZXJzZS5TdGF0aWNFbnRpdHlUeXBl",
-            "KkkKCFRpbGVUeXBlEggKBERpcnQQABIJCgVHcmFzcxABEggKBFJvY2sQAhIK",
-            "CgZGb3Jlc3QQAxIICgRTYW5kEAQSCAoEU25vdxAFKi0KEUR5bmFtaWNFbnRp",
-            "dHlUeXBlEgoKBlBMQVlFUhAAEgwKCENSRUFUVVJFEAEqVAoQU3RhdGljRW50",
-            "aXR5VHlwZRIJCgVFbXB0eRAAEgwKCEJ1aWxkaW5nEAESDgoKQ2h1bmtFbnRy",
-            "eRACEg0KCVJlc3NvdXJjZRADEggKBEl0ZW0QBDLsAQoMQ2h1bmtTZXJ2aWNl",
-            "EkkKCkVudGVyQ2h1bmsSGy51bml2ZXJzZS5FbnRlckNodW5rUmVxdWVzdBoc",
-            "LnVuaXZlcnNlLkVudGVyQ2h1bmtSZXNwb25zZSIAEkYKCUxvYWRDaHVuaxIa",
-            "LnVuaXZlcnNlLkxvYWRDaHVua1JlcXVlc3QaGy51bml2ZXJzZS5Mb2FkQ2h1",
-            "bmtSZXNwb25zZSIAEkkKBlN0cmVhbRIcLnVuaXZlcnNlLkNodW5rU3RyZWFt",
-            "UmVxdWVzdBodLnVuaXZlcnNlLkNodW5rU3RyZWFtUmVzcG9uc2UiADABMrQC",
-            "Cg1QbGF5ZXJTZXJ2aWNlEk8KDENyZWF0ZVBsYXllchIdLnVuaXZlcnNlLkNy",
-            "ZWF0ZVBsYXllclJlcXVlc3QaHi51bml2ZXJzZS5DcmVhdGVQbGF5ZXJSZXNw",
-            "b25zZSIAEkEKCkdldFBsYXllcnMSFi5nb29nbGUucHJvdG9idWYuRW1wdHka",
-            "GS51bml2ZXJzZS5HZXRQbGF5ZXJzUmVwbHkiABJACgdDb25uZWN0EhgudW5p",
-            "dmVyc2UuQ29ubmVjdFJlcXVlc3QaGS51bml2ZXJzZS5Db25uZWN0UmVzcG9u",
-            "c2UiABJNCgZTdHJlYW0SHS51bml2ZXJzZS5QbGF5ZXJTdHJlYW1SZXF1ZXN0",
-            "Gh4udW5pdmVyc2UuUGxheWVyU3RyZWFtUmVzcG9uc2UiACgBMAFCLVorZ2l0",
-            "aHViLmNvbS9Sb3VraWkvcG9ja19tdWx0aXBsYXllci91bml2ZXJzZWIGcHJv",
-            "dG8z"));
+            "MhcudW5pdmVyc2UuRHluYW1pY0VudGl0eSJZCgZQbGF5ZXISDAoEbmFtZRgB",
+            "IAEoCRIMCgR1dWlkGAIgASgJEg0KBWxldmVsGAMgASgFEiQKCHBvc2l0aW9u",
+            "GAQgASgLMhIudW5pdmVyc2UuUG9zaXRpb24iegoFV29ybGQSDAoEbmFtZRgB",
+            "IAEoCRINCgVsZXZlbBgCIAEoBRIOCgZsZW5ndGgYAyABKAUSDQoFd2lkdGgY",
+            "BCABKAUSDAoEc2VlZBgFIAEoCRITCgtjaHVua193aWR0aBgGIAEoBRISCgpw",
+            "b3B1bGF0aW9uGAcgASgFIiwKBE1vdmUSJAoIcG9zaXRpb24YASABKAsyEi51",
+            "bml2ZXJzZS5Qb3NpdGlvbiKKAQoFQ2h1bmsSDAoEdXVpZBgBIAEoCRImCghw",
+            "b3NpdGlvbhgCIAEoCzIULnVuaXZlcnNlLlZlY3RvcjJJbnQSLAoMc3RhdGlj",
+            "RW50aXR5GAMgAygLMhYudW5pdmVyc2UuU3RhdGljRW50aXR5Eh0KBXRpbGVz",
+            "GAQgAygLMg4udW5pdmVyc2UuVGlsZSI7CgRUaWxlEiAKBHR5cGUYASABKA4y",
+            "Ei51bml2ZXJzZS5UaWxlVHlwZRIRCgllbGV2YXRpb24YAiABKAIicgoIUG9z",
+            "aXRpb24SKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0b3IzSACI",
+            "AQESJQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGIAQFCCwoJ",
+            "X3Bvc2l0aW9uQggKBl9hbmdsZSIqCgdWZWN0b3IzEgkKAXgYASABKAISCQoB",
+            "eRgCIAEoAhIJCgF6GAMgASgCIh8KB1ZlY3RvcjISCQoBeBgBIAEoAhIJCgF5",
+            "GAIgASgCIiIKClZlY3RvcjJJbnQSCQoBeBgBIAEoBRIJCgF5GAIgASgFInwK",
+            "DUR5bmFtaWNFbnRpdHkSDAoEdXVpZBgBIAEoCRIMCgRuYW1lGAIgASgJEiQK",
+            "CHBvc2l0aW9uGAMgASgLMhIudW5pdmVyc2UuUG9zaXRpb24SKQoEdHlwZRgE",
+            "IAEoDjIbLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlUeXBlInoKDFN0YXRpY0Vu",
+            "dGl0eRIMCgR1dWlkGAEgASgJEgwKBG5hbWUYAiABKAkSJAoIcG9zaXRpb24Y",
+            "AyABKAsyEi51bml2ZXJzZS5Qb3NpdGlvbhIoCgR0eXBlGAQgASgOMhoudW5p",
+            "dmVyc2UuU3RhdGljRW50aXR5VHlwZSpJCghUaWxlVHlwZRIICgREaXJ0EAAS",
+            "CQoFR3Jhc3MQARIICgRSb2NrEAISCgoGRm9yZXN0EAMSCAoEU2FuZBAEEggK",
+            "BFNub3cQBSotChFEeW5hbWljRW50aXR5VHlwZRIKCgZQTEFZRVIQABIMCghD",
+            "UkVBVFVSRRABKlQKEFN0YXRpY0VudGl0eVR5cGUSCQoFRW1wdHkQABIMCghC",
+            "dWlsZGluZxABEg4KCkNodW5rRW50cnkQAhINCglSZXNzb3VyY2UQAxIICgRJ",
+            "dGVtEAQy7AEKDENodW5rU2VydmljZRJJCgpFbnRlckNodW5rEhsudW5pdmVy",
+            "c2UuRW50ZXJDaHVua1JlcXVlc3QaHC51bml2ZXJzZS5FbnRlckNodW5rUmVz",
+            "cG9uc2UiABJGCglMb2FkQ2h1bmsSGi51bml2ZXJzZS5Mb2FkQ2h1bmtSZXF1",
+            "ZXN0GhsudW5pdmVyc2UuTG9hZENodW5rUmVzcG9uc2UiABJJCgZTdHJlYW0S",
+            "HC51bml2ZXJzZS5DaHVua1N0cmVhbVJlcXVlc3QaHS51bml2ZXJzZS5DaHVu",
+            "a1N0cmVhbVJlc3BvbnNlIgAwATK0AgoNUGxheWVyU2VydmljZRJPCgxDcmVh",
+            "dGVQbGF5ZXISHS51bml2ZXJzZS5DcmVhdGVQbGF5ZXJSZXF1ZXN0Gh4udW5p",
+            "dmVyc2UuQ3JlYXRlUGxheWVyUmVzcG9uc2UiABJBCgpHZXRQbGF5ZXJzEhYu",
+            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5GhkudW5pdmVyc2UuR2V0UGxheWVyc1Jl",
+            "cGx5IgASQAoHQ29ubmVjdBIYLnVuaXZlcnNlLkNvbm5lY3RSZXF1ZXN0Ghku",
+            "dW5pdmVyc2UuQ29ubmVjdFJlc3BvbnNlIgASTQoGU3RyZWFtEh0udW5pdmVy",
+            "c2UuUGxheWVyU3RyZWFtUmVxdWVzdBoeLnVuaXZlcnNlLlBsYXllclN0cmVh",
+            "bVJlc3BvbnNlIgAoATABQi1aK2dpdGh1Yi5jb20vUm91a2lpL3BvY2tfbXVs",
+            "dGlwbGF5ZXIvdW5pdmVyc2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Universe.TileType), typeof(global::Universe.DynamicEntityType), typeof(global::Universe.StaticEntityType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -119,14 +120,15 @@ namespace Universe {
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamResponse), global::Universe.PlayerStreamResponse.Parser, new[]{ "Move" }, new[]{ "Action" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectRequest), global::Universe.ConnectRequest.Parser, new[]{ "PlayerUuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectResponse), global::Universe.ConnectResponse.Parser, new[]{ "Player", "World", "Chunks", "DynamicEntity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Player), global::Universe.Player.Parser, new[]{ "Name", "Level", "Position" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.World), global::Universe.World.Parser, new[]{ "Name", "Level", "Length", "Width", "ChunkWidth", "Population" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Player), global::Universe.Player.Parser, new[]{ "Name", "Uuid", "Level", "Position" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.World), global::Universe.World.Parser, new[]{ "Name", "Level", "Length", "Width", "Seed", "ChunkWidth", "Population" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Move), global::Universe.Move.Parser, new[]{ "Position" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Chunk), global::Universe.Chunk.Parser, new[]{ "Uuid", "Position", "StaticEntity", "Tiles" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Tile), global::Universe.Tile.Parser, new[]{ "Type", "Elevation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Position), global::Universe.Position.Parser, new[]{ "Position_", "Angle" }, new[]{ "Position", "Angle" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Vector3), global::Universe.Vector3.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Vector2), global::Universe.Vector2.Parser, new[]{ "X", "Y" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Vector2Int), global::Universe.Vector2Int.Parser, new[]{ "X", "Y" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.DynamicEntity), global::Universe.DynamicEntity.Parser, new[]{ "Uuid", "Name", "Position", "Type" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.StaticEntity), global::Universe.StaticEntity.Parser, new[]{ "Uuid", "Name", "Position", "Type" }, null, null, null, null)
           }));
@@ -3885,6 +3887,7 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Player(Player other) : this() {
       name_ = other.name_;
+      uuid_ = other.uuid_;
       level_ = other.level_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3906,8 +3909,19 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 2;
+    private string uuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "level" field.</summary>
-    public const int LevelFieldNumber = 2;
+    public const int LevelFieldNumber = 3;
     private int level_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Level {
@@ -3918,7 +3932,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "position" field.</summary>
-    public const int PositionFieldNumber = 3;
+    public const int PositionFieldNumber = 4;
     private global::Universe.Position position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Universe.Position Position {
@@ -3942,6 +3956,7 @@ namespace Universe {
         return true;
       }
       if (Name != other.Name) return false;
+      if (Uuid != other.Uuid) return false;
       if (Level != other.Level) return false;
       if (!object.Equals(Position, other.Position)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3951,6 +3966,7 @@ namespace Universe {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
       if (Level != 0) hash ^= Level.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
       if (_unknownFields != null) {
@@ -3973,12 +3989,16 @@ namespace Universe {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Uuid);
+      }
       if (Level != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteInt32(Level);
       }
       if (position_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Position);
       }
       if (_unknownFields != null) {
@@ -3994,12 +4014,16 @@ namespace Universe {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Uuid);
+      }
       if (Level != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteInt32(Level);
       }
       if (position_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Position);
       }
       if (_unknownFields != null) {
@@ -4013,6 +4037,9 @@ namespace Universe {
       int size = 0;
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
       }
       if (Level != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
@@ -4033,6 +4060,9 @@ namespace Universe {
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
+      }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
       }
       if (other.Level != 0) {
         Level = other.Level;
@@ -4061,11 +4091,15 @@ namespace Universe {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 18: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 24: {
             Level = input.ReadInt32();
             break;
           }
-          case 26: {
+          case 34: {
             if (position_ == null) {
               Position = new global::Universe.Position();
             }
@@ -4090,11 +4124,15 @@ namespace Universe {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 18: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 24: {
             Level = input.ReadInt32();
             break;
           }
-          case 26: {
+          case 34: {
             if (position_ == null) {
               Position = new global::Universe.Position();
             }
@@ -4141,6 +4179,7 @@ namespace Universe {
       level_ = other.level_;
       length_ = other.length_;
       width_ = other.width_;
+      seed_ = other.seed_;
       chunkWidth_ = other.chunkWidth_;
       population_ = other.population_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -4195,8 +4234,19 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "seed" field.</summary>
+    public const int SeedFieldNumber = 5;
+    private string seed_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Seed {
+      get { return seed_; }
+      set {
+        seed_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "chunk_width" field.</summary>
-    public const int ChunkWidthFieldNumber = 5;
+    public const int ChunkWidthFieldNumber = 6;
     private int chunkWidth_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int ChunkWidth {
@@ -4207,7 +4257,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "population" field.</summary>
-    public const int PopulationFieldNumber = 6;
+    public const int PopulationFieldNumber = 7;
     private int population_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Population {
@@ -4234,6 +4284,7 @@ namespace Universe {
       if (Level != other.Level) return false;
       if (Length != other.Length) return false;
       if (Width != other.Width) return false;
+      if (Seed != other.Seed) return false;
       if (ChunkWidth != other.ChunkWidth) return false;
       if (Population != other.Population) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -4246,6 +4297,7 @@ namespace Universe {
       if (Level != 0) hash ^= Level.GetHashCode();
       if (Length != 0) hash ^= Length.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
+      if (Seed.Length != 0) hash ^= Seed.GetHashCode();
       if (ChunkWidth != 0) hash ^= ChunkWidth.GetHashCode();
       if (Population != 0) hash ^= Population.GetHashCode();
       if (_unknownFields != null) {
@@ -4280,12 +4332,16 @@ namespace Universe {
         output.WriteRawTag(32);
         output.WriteInt32(Width);
       }
+      if (Seed.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Seed);
+      }
       if (ChunkWidth != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt32(ChunkWidth);
       }
       if (Population != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(Population);
       }
       if (_unknownFields != null) {
@@ -4313,12 +4369,16 @@ namespace Universe {
         output.WriteRawTag(32);
         output.WriteInt32(Width);
       }
+      if (Seed.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Seed);
+      }
       if (ChunkWidth != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt32(ChunkWidth);
       }
       if (Population != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(Population);
       }
       if (_unknownFields != null) {
@@ -4341,6 +4401,9 @@ namespace Universe {
       }
       if (Width != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
+      }
+      if (Seed.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Seed);
       }
       if (ChunkWidth != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ChunkWidth);
@@ -4370,6 +4433,9 @@ namespace Universe {
       }
       if (other.Width != 0) {
         Width = other.Width;
+      }
+      if (other.Seed.Length != 0) {
+        Seed = other.Seed;
       }
       if (other.ChunkWidth != 0) {
         ChunkWidth = other.ChunkWidth;
@@ -4407,11 +4473,15 @@ namespace Universe {
             Width = input.ReadInt32();
             break;
           }
-          case 40: {
-            ChunkWidth = input.ReadInt32();
+          case 42: {
+            Seed = input.ReadString();
             break;
           }
           case 48: {
+            ChunkWidth = input.ReadInt32();
+            break;
+          }
+          case 56: {
             Population = input.ReadInt32();
             break;
           }
@@ -4445,11 +4515,15 @@ namespace Universe {
             Width = input.ReadInt32();
             break;
           }
-          case 40: {
-            ChunkWidth = input.ReadInt32();
+          case 42: {
+            Seed = input.ReadString();
             break;
           }
           case 48: {
+            ChunkWidth = input.ReadInt32();
+            break;
+          }
+          case 56: {
             Population = input.ReadInt32();
             break;
           }
@@ -4695,9 +4769,9 @@ namespace Universe {
 
     /// <summary>Field number for the "position" field.</summary>
     public const int PositionFieldNumber = 2;
-    private global::Universe.Vector2 position_;
+    private global::Universe.Vector2Int position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Universe.Vector2 Position {
+    public global::Universe.Vector2Int Position {
       get { return position_; }
       set {
         position_ = value;
@@ -4829,7 +4903,7 @@ namespace Universe {
       }
       if (other.position_ != null) {
         if (position_ == null) {
-          Position = new global::Universe.Vector2();
+          Position = new global::Universe.Vector2Int();
         }
         Position.MergeFrom(other.Position);
       }
@@ -4855,7 +4929,7 @@ namespace Universe {
           }
           case 18: {
             if (position_ == null) {
-              Position = new global::Universe.Vector2();
+              Position = new global::Universe.Vector2Int();
             }
             input.ReadMessage(Position);
             break;
@@ -4888,7 +4962,7 @@ namespace Universe {
           }
           case 18: {
             if (position_ == null) {
-              Position = new global::Universe.Vector2();
+              Position = new global::Universe.Vector2Int();
             }
             input.ReadMessage(Position);
             break;
@@ -5797,6 +5871,214 @@ namespace Universe {
 
   }
 
+  public sealed partial class Vector2Int : pb::IMessage<Vector2Int>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Vector2Int> _parser = new pb::MessageParser<Vector2Int>(() => new Vector2Int());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Vector2Int> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[26]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Vector2Int() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Vector2Int(Vector2Int other) : this() {
+      x_ = other.x_;
+      y_ = other.y_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Vector2Int Clone() {
+      return new Vector2Int(this);
+    }
+
+    /// <summary>Field number for the "x" field.</summary>
+    public const int XFieldNumber = 1;
+    private int x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int X {
+      get { return x_; }
+      set {
+        x_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "y" field.</summary>
+    public const int YFieldNumber = 2;
+    private int y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Y {
+      get { return y_; }
+      set {
+        y_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Vector2Int);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Vector2Int other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (X != other.X) return false;
+      if (Y != other.Y) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (X != 0) hash ^= X.GetHashCode();
+      if (Y != 0) hash ^= Y.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (X != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(X);
+      }
+      if (Y != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Y);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (X != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(X);
+      }
+      if (Y != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Y);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (X != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(X);
+      }
+      if (Y != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Y);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Vector2Int other) {
+      if (other == null) {
+        return;
+      }
+      if (other.X != 0) {
+        X = other.X;
+      }
+      if (other.Y != 0) {
+        Y = other.Y;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            X = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Y = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            X = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Y = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   /// <summary>
   /// DynamicEntity
   /// </summary>
@@ -5812,7 +6094,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6107,7 +6389,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

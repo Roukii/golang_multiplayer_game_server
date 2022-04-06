@@ -15,6 +15,7 @@ func (g *GameService) CreatePlayer(userUuid string, p *player.Player) (err error
 	if err != nil {
 		return err
 	}
+	p.CurrentPosition = p.SpawnPoint.Coordinate
 	fmt.Println(p.SpawnPoint)
 	err = g.PlayerDao.Insert(userUuid, p)
 	if err != nil {
@@ -56,9 +57,9 @@ func (g *GameService) GenerateSpawnPoint(p *player.Player) (player.SpawnPoint, e
 		WorldUUID: worldUUID,
 		Coordinate: entity.Position{
 			Position: entity.Vector3f{
-				X: 10,
-				Y: 10,
-				Z: 10,
+				X: 100,
+				Y: 100,
+				Z: 100,
 			},
 		},
 		UpdatedAt: time.Time{},

@@ -17,6 +17,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
+	"github.com/Roukii/pock_multiplayer/pkg/helper"
+
 )
 
 const (
@@ -95,32 +97,14 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	pm.mu.Unlock()
 
 	return &pb.CreatePlayerResponse{
-		Player:        &pb.Player{Name: p.Name, Level: int32(p.Stats.Level), Position: &pb.Position{Position: &pb.Vector3{X: p.SpawnPoint.Coordinate.Position.X, Y: p.SpawnPoint.Coordinate.Position.Y, Z: p.SpawnPoint.Coordinate.Position.Z}, Angle: &pb.Vector3{}}},
-		World:         &pb.World{Name: world.Name, Level: int32(world.Level)},
-		Chunks:        getProtoChunk(chunks),
+		Player:        helper.PlayerTypeToProto(&p),
+		World:         helper.WorldTypeToProto(world),
+		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
 }
 
-func getProtoChunk(chunks []*universe.Chunk) []*pb.Chunk {
-	var requestChunks []*pb.Chunk
-	for _, chunk := range chunks {
-		var tiles []*pb.Tile
-		for _, tile := range chunk.Tiles {
-			tiles = append(tiles, &pb.Tile{
-				Type:      pb.TileType(tile.TileType),
-				Elevation: float32(tile.Elevation),
-			})
-		}
-		requestChunks = append(requestChunks, &pb.Chunk{
-			Uuid:         chunk.UUID,
-			Position:     &pb.Vector2{X: float32(chunk.PositionX), Y: float32(chunk.PositionY)},
-			StaticEntity: []*pb.StaticEntity{},
-			Tiles:        tiles,
-		})
-	}
-	return requestChunks
-}
+
 
 func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest) (*pb.ConnectResponse, error) {
 	userInfo, err := getUserInfoFromRequest(ctx)
@@ -150,9 +134,9 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 	pm.mu.Unlock()
 
 	return &pb.ConnectResponse{
-		Player:        &pb.Player{Name: p.Name, Level: int32(p.Stats.Level), Position: &pb.Position{Position: &pb.Vector3{X: p.SpawnPoint.Coordinate.Position.X, Y: p.SpawnPoint.Coordinate.Position.Y, Z: p.SpawnPoint.Coordinate.Position.Z}, Angle: &pb.Vector3{}}},
-		World:         &pb.World{Name: world.Name, Level: int32(world.Level)},
-		Chunks:        getProtoChunk(chunks),
+		Player:        helper.PlayerTypeToProto(p),
+		World:         helper.WorldTypeToProto(world),
+		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
 }
