@@ -7,10 +7,11 @@ import (
 )
 
 type Player struct {
-	UUID       string       `json:"player_uuid"`
-	Name       string       `json:"name"`
-	CreatedAt  time.Time    `json:"created_at"`
-	UpdatedAt  time.Time    `json:"updated_at"`
-	Stats      entity.Stats `json:"stats"`
-	SpawnPoint SpawnPoint   `json:"spawn_point"`
+	UUID            string          `json:"player_uuid"`
+	Name            string          `json:"name"`
+	CreatedAt       time.Time       `json:"created_at"`
+	UpdatedAt       time.Time       `json:"updated_at"`
+	Stats           entity.Stats    `json:"stats"`
+	SpawnPoint      SpawnPoint      `json:"spawn_point"`
+	CurrentPosition entity.Position `json:"current_position"`
 }

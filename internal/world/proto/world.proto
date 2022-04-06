@@ -127,10 +127,14 @@ message Player {
 message World {
     string name = 1;
     int32 level = 2;
+    int32 length = 3;
+    int32 width = 4;
+    int32 chunk_width = 5;
+    int32 population = 6;
 }
 
 message Move {
-    Position position = 1;
+  Position position = 1;
 }
 
 message Chunk {

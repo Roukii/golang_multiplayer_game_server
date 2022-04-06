@@ -46,7 +46,7 @@ func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk *un
 	tileNumber := len(elevationHeightMap)
 	for i := 0; i < tileNumber; i++ {
 		tile := universe.Tile{
-			TileType:  int(getTileType(elevationHeightMap[i], rainfallHeightMap[i])),
+			TileType:  getTileType(elevationHeightMap[i], rainfallHeightMap[i]),
 			Elevation: elevationHeightMap[i],
 		}
 		chunk.Tiles = append(chunk.Tiles, tile)
@@ -101,8 +101,8 @@ func generateHeightmap(startingPositionX int, startingPositionY int, noise opens
 	heightmap := make([]float64, chunkLength*chunkLength)
 	for y := 0; y+startingPositionY < h; y++ {
 		for x := 0; x+startingPositionX < w; x++ {
-			xFloat := float64(x+startingPositionX) / 1000
-			yFloat := float64(y+startingPositionY) / 1000
+			xFloat := float64(x+startingPositionX) * 0.3
+			yFloat := float64(y+startingPositionY) * 0.3
 			heightmap[(y*chunkLength)+x] = noise.Eval2(xFloat, yFloat)
 		}
 	}

@@ -7,13 +7,12 @@ import (
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
-	"github.com/google/uuid"
 )
 
 type ChunkMethod struct {
 	pb.UnimplementedChunkServiceServer
 	game    *game.GameService
-	clients map[uuid.UUID]*client
+	clients map[string]*client
 	mu      sync.RWMutex
 }
 

@@ -63,7 +63,6 @@ func (a ChunkDao) LoadChunckBetweenCoordinate(worldUuid string, minX int, maxX i
 		WithContext(ctx).Select(&chunksByWorld); err != nil {
 		return nil, err
 	}
-	fmt.Print()
 	for _, c := range chunksByWorld {
 		chunks = append(chunks, &universe.Chunk{
 			UUID:      c.ChunkUuid.String(),

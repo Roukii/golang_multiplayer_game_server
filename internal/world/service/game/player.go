@@ -20,31 +20,29 @@ func (g *GameService) CreatePlayer(userUuid string, p *player.Player) (err error
 	if err != nil {
 		return err
 	}
-	g.ConnectedPlayer = append(g.ConnectedPlayer, *p)
+	g.ConnectedPlayer[p.UUID] = *p
 	return nil
 }
 
 func (g *GameService) ConnectPlayer(userUUID string, playerUUID string) (*player.Player, error) {
-	player, err := g.PlayerDao.GetPlayerFromUUID(userUUID, playerUUID)
+	p, err := g.PlayerDao.GetPlayerFromUUID(userUUID, playerUUID)
 	if err != nil {
 		return nil, err
 	}
-	g.ConnectedPlayer = append(g.ConnectedPlayer, *player)
-	return player, err
+	g.ConnectedPlayer[p.UUID] = *p
+	return p, err
 }
 
-func (g *GameService) DisconnectPlayer(p *player.Player) (bool, error) {
-	err := g.PlayerDao.Update(p)
-	if err != nil {
-		return false, nil
-	}
-	for index, v := range g.ConnectedPlayer {
-		if v.UUID == p.UUID {
-			g.ConnectedPlayer = append(g.ConnectedPlayer[:index], g.ConnectedPlayer[index+1:]...)
-			return true, err
+func (g *GameService) DisconnectPlayer(playerUUID string) (bool, error) {
+	if p, ok := g.ConnectedPlayer[playerUUID]; ok {
+		delete(g.ConnectedPlayer, p.UUID)
+		err := g.PlayerDao.Update(&p)
+		if err != nil {
+			return false, err
 		}
+		return true, err
 	}
-	return false, err
+	return false, nil
 }
 
 // TODO choose a planet at random

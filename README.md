@@ -142,3 +142,7 @@ MP int
   - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path cmd/world/migrations up
   - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path cmd/world/migrations down
   - migrate -database "cassandra://127.0.0.1:9042/game?sslmode=disable&x-multi-statement=true" -path cmd/world/migrations drop
+
+INSERT INTO game.chunks_by_world (world_uuid,chunk_uuid,x,y,tiles,created_at) VALUES (e0a44f54-b4de-11ec-9e28-367dda4cfa8c, 813e3fac-b4de-11ec-be67-367dda4cfa8c, 1, 1, [{tile_type : 1,elevation:0}], '2018-02-07 14:07:00');
+  
+  SyntaxException: line 1:124 no viable alternative at input ',' (...y,tiles,created_at) VALUES (["e0a44f54-b4de-11ec-9e28-367dda4cfa8]c",...)

@@ -2,6 +2,7 @@ package game
 
 import (
 	"fmt"
+	"sync"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/dao"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
@@ -12,13 +13,16 @@ import (
 )
 
 type GameService struct {
-	Universe        universe.Universe
-	ConnectedPlayer []player.Player
-	ChunkDao        *dao.ChunkDao
-	PlayerDao       *dao.PlayerDao
-	WorldDao        *dao.WorldDao
-	Logger          *logger.Logger
-	WorldGenerators map[string]*procedural_generation.WorldGenerator
+	Universe            universe.Universe
+	ConnectedPlayer     map[string]player.Player
+	ChunkDao            *dao.ChunkDao
+	PlayerDao           *dao.PlayerDao
+	WorldDao            *dao.WorldDao
+	Logger              *logger.Logger
+	PlayerMu            sync.RWMutex
+	PlayerActionChannel chan PlayerAction
+	PlayerChangeChannel chan PlayerChange
+	WorldGenerators     map[string]*procedural_generation.WorldGenerator
 }
 
 func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
@@ -27,10 +31,13 @@ func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
 			UUID:   universeUUID,
 			Worlds: make(map[string]universe.World),
 		},
-		ChunkDao:        dao.NewChunkDao(session),
-		PlayerDao:       dao.NewPlayerDao(session),
-		WorldDao:        dao.NewWorldDao(session),
-		WorldGenerators: make(map[string]*procedural_generation.WorldGenerator),
+		ChunkDao:            dao.NewChunkDao(session),
+		PlayerDao:           dao.NewPlayerDao(session),
+		WorldDao:            dao.NewWorldDao(session),
+		WorldGenerators:     make(map[string]*procedural_generation.WorldGenerator),
+		PlayerChangeChannel: make(chan PlayerChange, 1),
+		PlayerActionChannel: make(chan PlayerAction, 1),
+		ConnectedPlayer:     make(map[string]player.Player),
 	}
 	err := tmp.startGame()
 	if err != nil {
@@ -59,14 +66,17 @@ func (g *GameService) startGame() (err error) {
 		}
 		fmt.Println("create world with uuid :", world.UUID)
 		g.Universe.Worlds[world.UUID] = world
-	} else {
-		world, err := g.CreateWorld("tutorial")
-		if err != nil {
-			fmt.Println("error : ", err)
-		}
-		fmt.Println("world uuid :", world.UUID)
-		g.Universe.Worlds = make(map[string]universe.World)
-		g.Universe.Worlds[world.UUID] = world
 	}
+
+	go g.watchPlayerActions()
 	return err
+}
+
+func (g *GameService) watchPlayerActions() {
+	for {
+		action := <-g.PlayerActionChannel
+		g.PlayerMu.Lock()
+		action.Perform(g)
+		g.PlayerMu.Unlock()
+	}
 }
