@@ -1,6 +1,7 @@
 package player_action
 
 import (
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
@@ -10,9 +11,9 @@ import (
 
 // TODO implement with skill
 type UseSkillAction struct {
-	Position   entity.Vector3f
-	Angle      entity.Vector3f
-	SkillId    string
+	Position entity.Vector3f
+	Angle    entity.Vector3f
+	SkillId  string
 	// Skill      pb.Skill
 	PlayerUUID string
 	Created    time.Time
@@ -20,7 +21,7 @@ type UseSkillAction struct {
 
 type UseSkillPlayerChange struct {
 	game.PlayerChange
-	PlayerUUID        string
+	PlayerUUID string
 	Position   entity.Vector3f
 	Angle      entity.Vector3f
 	SkillId    string
@@ -40,15 +41,16 @@ func SendUseSkillAction(req *pb.PlayerStreamRequest, game *game.GameService, pla
 
 // TODO check if player can hit target
 func (action UseSkillAction) Perform(game *game.GameService) {
+	log.Println("%s - use skill : %v", action.PlayerUUID, action)
 	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return
 	}
 	player.CurrentPosition.Rotation = action.Angle
 	game.SendPlayerChange(UseSkillPlayerChange{
-		PlayerUUID:   player.UUID,
-		Position:     action.Position,
-		Angle:        action.Angle,
-		SkillId:      action.SkillId,
+		PlayerUUID: player.UUID,
+		Position:   action.Position,
+		Angle:      action.Angle,
+		SkillId:    action.SkillId,
 	})
 }

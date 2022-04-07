@@ -23,7 +23,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ChunkServiceClient interface {
-	EnterChunk(ctx context.Context, in *EnterChunkRequest, opts ...grpc.CallOption) (*EnterChunkResponse, error)
+	GetWorlds(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetWorldsResponse, error)
+	EnterWorld(ctx context.Context, in *EnterWorldRequest, opts ...grpc.CallOption) (*EnterWorldResponse, error)
 	LoadChunk(ctx context.Context, in *LoadChunkRequest, opts ...grpc.CallOption) (*LoadChunkResponse, error)
 	Stream(ctx context.Context, in *ChunkStreamRequest, opts ...grpc.CallOption) (ChunkService_StreamClient, error)
 }
@@ -36,9 +37,18 @@ func NewChunkServiceClient(cc grpc.ClientConnInterface) ChunkServiceClient {
 	return &chunkServiceClient{cc}
 }
 
-func (c *chunkServiceClient) EnterChunk(ctx context.Context, in *EnterChunkRequest, opts ...grpc.CallOption) (*EnterChunkResponse, error) {
-	out := new(EnterChunkResponse)
-	err := c.cc.Invoke(ctx, "/universe.ChunkService/EnterChunk", in, out, opts...)
+func (c *chunkServiceClient) GetWorlds(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetWorldsResponse, error) {
+	out := new(GetWorldsResponse)
+	err := c.cc.Invoke(ctx, "/universe.ChunkService/GetWorlds", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chunkServiceClient) EnterWorld(ctx context.Context, in *EnterWorldRequest, opts ...grpc.CallOption) (*EnterWorldResponse, error) {
+	out := new(EnterWorldResponse)
+	err := c.cc.Invoke(ctx, "/universe.ChunkService/EnterWorld", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +100,8 @@ func (x *chunkServiceStreamClient) Recv() (*ChunkStreamResponse, error) {
 // All implementations must embed UnimplementedChunkServiceServer
 // for forward compatibility
 type ChunkServiceServer interface {
-	EnterChunk(context.Context, *EnterChunkRequest) (*EnterChunkResponse, error)
+	GetWorlds(context.Context, *emptypb.Empty) (*GetWorldsResponse, error)
+	EnterWorld(context.Context, *EnterWorldRequest) (*EnterWorldResponse, error)
 	LoadChunk(context.Context, *LoadChunkRequest) (*LoadChunkResponse, error)
 	Stream(*ChunkStreamRequest, ChunkService_StreamServer) error
 	mustEmbedUnimplementedChunkServiceServer()
@@ -100,8 +111,11 @@ type ChunkServiceServer interface {
 type UnimplementedChunkServiceServer struct {
 }
 
-func (UnimplementedChunkServiceServer) EnterChunk(context.Context, *EnterChunkRequest) (*EnterChunkResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EnterChunk not implemented")
+func (UnimplementedChunkServiceServer) GetWorlds(context.Context, *emptypb.Empty) (*GetWorldsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWorlds not implemented")
+}
+func (UnimplementedChunkServiceServer) EnterWorld(context.Context, *EnterWorldRequest) (*EnterWorldResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnterWorld not implemented")
 }
 func (UnimplementedChunkServiceServer) LoadChunk(context.Context, *LoadChunkRequest) (*LoadChunkResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoadChunk not implemented")
@@ -122,20 +136,38 @@ func RegisterChunkServiceServer(s grpc.ServiceRegistrar, srv ChunkServiceServer)
 	s.RegisterService(&ChunkService_ServiceDesc, srv)
 }
 
-func _ChunkService_EnterChunk_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EnterChunkRequest)
+func _ChunkService_GetWorlds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChunkServiceServer).EnterChunk(ctx, in)
+		return srv.(ChunkServiceServer).GetWorlds(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/universe.ChunkService/EnterChunk",
+		FullMethod: "/universe.ChunkService/GetWorlds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChunkServiceServer).EnterChunk(ctx, req.(*EnterChunkRequest))
+		return srv.(ChunkServiceServer).GetWorlds(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChunkService_EnterWorld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnterWorldRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChunkServiceServer).EnterWorld(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/universe.ChunkService/EnterWorld",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChunkServiceServer).EnterWorld(ctx, req.(*EnterWorldRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -187,8 +219,12 @@ var ChunkService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*ChunkServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "EnterChunk",
-			Handler:    _ChunkService_EnterChunk_Handler,
+			MethodName: "GetWorlds",
+			Handler:    _ChunkService_GetWorlds_Handler,
+		},
+		{
+			MethodName: "EnterWorld",
+			Handler:    _ChunkService_EnterWorld_Handler,
 		},
 		{
 			MethodName: "LoadChunk",

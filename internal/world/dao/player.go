@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"fmt"
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
@@ -30,11 +30,11 @@ type PlayerByUser struct {
 
 type SpawnPointType struct {
 	gocqlx.UDT
-	WorldUUID string
-	X         float32
-	Y         float32
-	Z         float32
-	UpdatedAt time.Time
+	WorldUUID string    `cql:"world_uuid"`
+	X         float32   `cql:"x"`
+	Y         float32   `cql:"y"`
+	Z         float32   `cql:"z"`
+	UpdatedAt time.Time `cql:"updated_at"`
 }
 
 // New -.
@@ -50,7 +50,7 @@ func NewPlayerDao(session *gocqlx.Session) *PlayerDao {
 }
 
 func (a PlayerDao) Insert(userUuid string, p *player.Player) error {
-	fmt.Println(a.PlayerByUserMetadata.InsertQuery(*a.session).BindStruct(PlayerByUser{
+	log.Println(a.PlayerByUserMetadata.InsertQuery(*a.session).BindStruct(PlayerByUser{
 		UserUuid:   mustParseUUID(userUuid),
 		PlayerUuid: mustParseUUID(p.UUID),
 		Name:       p.Name,
@@ -139,7 +139,7 @@ func (a PlayerDao) GetAllPlayersFromUserUUID(userUUID string) ([]*player.Player,
 func (a PlayerDao) GetPlayerFromUUID(userUUID string, playerUUID string) (*player.Player, error) {
 	var p PlayerByUser
 	q := qb.Select(a.PlayerByUserMetadata.Name()).Where(qb.EqLit("user_uuid", userUUID), qb.EqLit("player_uuid", playerUUID)).Query(*a.session)
-	fmt.Println(q.Statement())
+	log.Println(q.Statement())
 	if err := qb.Select(a.PlayerByUserMetadata.Name()).Where(qb.EqLit("user_uuid", userUUID), qb.EqLit("player_uuid", playerUUID)).Query(*a.session).Get(&p); err != nil {
 		return nil, err
 	}
@@ -164,7 +164,7 @@ func (a PlayerDao) GetPlayerFromUUID(userUUID string, playerUUID string) (*playe
 	}, nil
 }
 
-//TODO clean
+// TODO clean
 func mustParseUUID(s string) gocql.UUID {
 	u, err := gocql.ParseUUID(s)
 	if err != nil {

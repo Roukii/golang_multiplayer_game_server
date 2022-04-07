@@ -9,10 +9,11 @@ import (
 )
 
 type client struct {
-	streamChunkServer  pb.ChunkService_StreamServer
 	streamPlayerServer pb.PlayerService_StreamServer
+	streamChunkServer  pb.ChunkService_StreamServer
+	PlayerDone               chan error
+	ChunkDone               chan error
 	lastMessage        time.Time
-	Done               chan error
 	userUUID           string
 	playerUUID         string
 }
@@ -24,6 +25,11 @@ func (c *client) AddPlayerStream(stream pb.PlayerService_StreamServer) error {
 	c.streamPlayerServer = stream
 	log.Println("Start new player stream for : ", c.playerUUID)
 	return nil
+}
+
+
+func (c *client) RemovePlayerStream() {
+	c.streamPlayerServer = nil
 }
 
 func (c *client) AddChunkStream(stream pb.ChunkService_StreamServer) error {
@@ -38,4 +44,8 @@ func (c *client) AddChunkStream(stream pb.ChunkService_StreamServer) error {
 
 func (c *client) GetPlayerUUID() string {
 	return c.playerUUID
+}
+
+func (c *client) Update() {
+	c.lastMessage = time.Now()
 }

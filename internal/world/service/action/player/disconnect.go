@@ -1,6 +1,7 @@
 package player_action
 
 import (
+	"log"
 	"time"
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
@@ -30,13 +31,14 @@ func SendDisconnectAction(req *pb.PlayerStreamRequest, game *game.GameService, p
 
 // TODO check if player can hit target
 func (action DisconnectAction) Perform(game *game.GameService) {
+	log.Println("disconnect : ", action)
 	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return
 	}
 	game.PlayerService.DisconnectPlayer(action.PlayerUUID)
 	game.SendPlayerChange(DisconnectPlayerChange{
-		PlayerUUID:   player.UUID,
-		Message:      action.Message,
+		PlayerUUID: player.UUID,
+		Message:    action.Message,
 	})
 }

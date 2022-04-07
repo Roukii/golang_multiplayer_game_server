@@ -7,11 +7,25 @@ package universe;
 
 // CHUNK SERVICE 
 service ChunkService {
-    rpc EnterChunk (EnterChunkRequest) returns (EnterChunkResponse) {}
+    rpc GetWorlds (google.protobuf.Empty) returns (GetWorldsResponse) {}
+    rpc EnterWorld (EnterWorldRequest) returns (EnterWorldResponse) {}
     rpc LoadChunk (LoadChunkRequest) returns (LoadChunkResponse) {}
     rpc Stream (ChunkStreamRequest) returns (stream ChunkStreamResponse) {}
 }
 
+message GetWorldsResponse {
+  repeated World worlds = 1;
+}
+
+message EnterWorldRequest {
+  string worldUUID = 1;
+}
+
+message EnterWorldResponse {
+  World world = 1;
+  repeated Chunk chunks = 2;
+  repeated DynamicEntity dynamicEntity = 3;
+}
 
 message LoadChunkRequest {
     int32 viewDistance = 1;

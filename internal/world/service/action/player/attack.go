@@ -1,6 +1,7 @@
 package player_action
 
 import (
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
@@ -29,18 +30,19 @@ func SendAttackAction(req *pb.PlayerStreamRequest, game *game.GameService, playe
 	game.PlayerActionChannel <- AttackAction{
 		DynamicEntityUUID: attack.DynamicEntityUUID,
 		StaticEntityUUID:  attack.StaticEntityUUID,
-		Angle:             entity.Vector3f{
+		Angle: entity.Vector3f{
 			X: attack.Angle.X,
 			Y: attack.Angle.Y,
 			Z: attack.Angle.Z,
 		},
-		PlayerUUID:        playerUUID,
-		Created:           time.Now(),
+		PlayerUUID: playerUUID,
+		Created:    time.Now(),
 	}
 }
 
 // TODO check if player can hit target
 func (action AttackAction) Perform(game *game.GameService) {
+	log.Println("attack : ", action)
 	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return

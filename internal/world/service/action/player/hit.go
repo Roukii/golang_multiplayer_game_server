@@ -1,6 +1,7 @@
 package player_action
 
 import (
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
@@ -14,7 +15,7 @@ type HitAction struct {
 	Damage            int64
 	HpLeft            int64
 	Position          entity.Vector3f
-	SkillId						string
+	SkillId           string
 	PlayerUUID        string
 	Created           time.Time
 }
@@ -27,7 +28,7 @@ type HitPlayerChange struct {
 	Damage            int64
 	HpLeft            int64
 	Position          entity.Vector3f
-	SkillId						string	
+	SkillId           string
 }
 
 func SendHitAction(req *pb.PlayerStreamRequest, game *game.GameService, playerUUID string) {
@@ -46,6 +47,7 @@ func SendHitAction(req *pb.PlayerStreamRequest, game *game.GameService, playerUU
 
 // TODO check if player can hit target also have array of damage instead of just a single value
 func (action HitAction) Perform(game *game.GameService) {
+	log.Println("hit : ", action)
 	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return

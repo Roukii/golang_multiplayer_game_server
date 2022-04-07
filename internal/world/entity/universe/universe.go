@@ -1,7 +1,7 @@
 package universe
 
 import (
-	"fmt"
+	"log"
 	"reflect"
 	"time"
 
@@ -28,7 +28,7 @@ func (a Universe) GetJsonFields() []string {
 func (a Universe) GetValueByFieldName(name string) string {
 	val := reflect.ValueOf(a)
 	for i := 0; i < val.NumField(); i++ {
-		fmt.Print(val.Field(i).String() + "\n")
+		log.Print(val.Field(i).String() + "\n")
 		if val.Field(i).Type().Name() == name {
 			return val.Field(i).String()
 		}

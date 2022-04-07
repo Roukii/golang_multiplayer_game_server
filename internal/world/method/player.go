@@ -3,7 +3,6 @@ package method
 import (
 	"context"
 	"errors"
-	"fmt"
 	"log"
 	"sync"
 
@@ -40,6 +39,11 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	if err != nil {
 		return nil, err
 	}
+	client, ok := pm.clients.GetClient(userInfo.UUID)
+	if ok && client.GetPlayerUUID() != "" {
+		return nil, status.Errorf(codes.AlreadyExists, "already connect")
+	}
+
 	p := player.Player{
 		Name: request.GetName(),
 		Stats: entity.Stats{
@@ -56,9 +60,11 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 		worldUUID = world.UUID
 		break
 	}
+	log.Println("create player")
 	err = pm.game.PlayerService.CreatePlayer(userInfo.UUID, &p, worldUUID)
+	log.Println("finished create player")
 	if err != nil {
-		fmt.Println("failed to create player", err)
+		log.Println("failed to create player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
 	world, chunks, err := pm.game.UniverseService.LoadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
@@ -67,7 +73,6 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	}
 
 	pm.clients.AddClient(userInfo.UUID, &p)
-
 	return &pb.CreatePlayerResponse{
 		Player:        helper.PlayerTypeToProto(&p),
 		World:         helper.WorldTypeToProto(world),
@@ -81,10 +86,14 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 	if err != nil {
 		return nil, err
 	}
+	client, ok := pm.clients.GetClient(userInfo.UUID)
+	if ok && client.GetPlayerUUID() != "" {
+		return nil, status.Errorf(codes.AlreadyExists, "already connect")
+	}
 	player_uuid := request.GetPlayerUuid()
 	p, err := pm.game.PlayerService.ConnectPlayer(userInfo.UUID, player_uuid)
 	if err != nil {
-		fmt.Println("failed to connect player", err)
+		log.Println("failed to connect player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
 	world, chunks, err := pm.game.UniverseService.LoadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
@@ -93,7 +102,6 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 	}
 
 	pm.clients.AddClient(userInfo.UUID, p)
-
 	return &pb.ConnectResponse{
 		Player:        helper.PlayerTypeToProto(p),
 		World:         helper.WorldTypeToProto(world),
@@ -110,7 +118,7 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 	}
 	currentClient, ok := pm.clients.GetClient(userInfo.UUID)
 	if !ok {
-		fmt.Println("client no found")
+		log.Println("client not found")
 		return status.Errorf(codes.InvalidArgument, "user not recognized")
 	}
 
@@ -125,9 +133,10 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 			req, err := requestStream.Recv()
 			if err != nil {
 				log.Printf("receive error %v", err)
-				currentClient.Done <- errors.New("failed to receive request")
+				currentClient.PlayerDone <- errors.New("failed to receive request")
 				return
 			}
+			currentClient.Update()
 			action.SendPlayerAction(req, pm.game, currentClient.GetPlayerUUID())
 		}
 	}()
@@ -137,11 +146,10 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 	select {
 	case <-ctx.Done():
 		doneError = ctx.Err()
-	case doneError = <-currentClient.Done:
+	case doneError = <-currentClient.PlayerDone:
 	}
 	log.Printf(`stream done with error "%v"`, doneError)
-
-	pm.clients.DisconnectClient(currentClient, doneError.Error())
+	currentClient.RemovePlayerStream()
 
 	return doneError
 }

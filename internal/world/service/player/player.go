@@ -1,18 +1,16 @@
 package player_service
 
 import (
-	"fmt"
 	"sync"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/dao"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
+	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/gocql/gocql"
 	"github.com/scylladb/gocqlx/v2"
-	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
-
 )
 
 type PlayerService struct {
@@ -38,7 +36,6 @@ func (ps *PlayerService) CreatePlayer(userUuid string, p *player.Player, worldUU
 		return err
 	}
 	p.CurrentPosition = p.SpawnPoint.Coordinate
-	fmt.Println(p.SpawnPoint)
 	err = ps.playerDao.Insert(userUuid, p)
 	if err != nil {
 		return err

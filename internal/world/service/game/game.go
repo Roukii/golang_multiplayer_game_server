@@ -1,7 +1,7 @@
 package game
 
 import (
-	"fmt"
+	"log"
 
 	player_service "github.com/Roukii/pock_multiplayer/internal/world/service/player"
 	universe_service "github.com/Roukii/pock_multiplayer/internal/world/service/universe"
@@ -26,7 +26,7 @@ func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
 	}
 	err := tmp.startGame()
 	if err != nil {
-		fmt.Println("error : ", err)
+		log.Println("error : ", err)
 		return tmp
 	}
 	return tmp
@@ -35,7 +35,7 @@ func NewGameService(universeUUID string, session *gocqlx.Session) *GameService {
 func (g *GameService) startGame() (err error) {
 	err = g.UniverseService.LoadWorlds()
 	if err != nil {
-		fmt.Println("error : ", err)
+		log.Println("error : ", err)
 		return err
 	}
 
@@ -46,8 +46,6 @@ func (g *GameService) startGame() (err error) {
 func (g *GameService) watchPlayerActions() {
 	for {
 		action := <-g.PlayerActionChannel
-		g.PlayerService.Mu.Lock()
 		action.Perform(g)
-		g.PlayerService.Mu.Unlock()
 	}
 }

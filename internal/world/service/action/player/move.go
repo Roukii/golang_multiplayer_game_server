@@ -1,6 +1,7 @@
 package player_action
 
 import (
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
@@ -32,16 +33,16 @@ func SendMoveAction(req *pb.PlayerStreamRequest, game *game.GameService, playerU
 	}
 }
 
-
 func (action MoveAction) Perform(game *game.GameService) {
+	log.Println("move : ", action)
 	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return
 	}
 	player.CurrentPosition = action.Position
 	game.SendPlayerChange(MovePlayerChange{
-		PlayerUUID:   player.UUID,
-		Position:     action.Position,
-		Jump:         action.Jump,
+		PlayerUUID: player.UUID,
+		Position:   action.Position,
+		Jump:       action.Jump,
 	})
 }

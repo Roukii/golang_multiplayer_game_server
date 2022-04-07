@@ -2,7 +2,7 @@ package dao
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
@@ -58,7 +58,7 @@ func (a ChunkDao) LoadChunckBetweenCoordinate(worldUuid string, minX int, maxX i
 	var ctx context.Context
 	var arg []string
 	arg = append(arg, worldUuid)
-	fmt.Println(arg)
+	log.Println(arg)
 	if err := a.session.Query(`SELECT * FROM game.chunks_by_world WHERE world_uuid=33d34284-b2f0-11ec-911b-367dda4cfa8c AND x<=1 AND y<=1 AND x>=-1 AND y>=-1 ALLOW FILTERING`, arg).
 		WithContext(ctx).Select(&chunksByWorld); err != nil {
 		return nil, err
@@ -82,7 +82,7 @@ func (a ChunkDao) LoadWorldChunk(worldUuid string) ([]*universe.Chunk, error) {
 	if err := qb.Select(a.ChunksByWorldMetadata.Name()).Where(qb.EqLit("world_uuid", worldUuid)).Query(*a.session).Select(&chunksByWorld); err != nil {
 		return nil, err
 	}
-	fmt.Println(qb.Select(a.ChunksByWorldMetadata.Name()).Where(qb.EqLit("world_uuid", worldUuid)).Query(*a.session).Statement())
+	log.Println(qb.Select(a.ChunksByWorldMetadata.Name()).Where(qb.EqLit("world_uuid", worldUuid)).Query(*a.session).Statement())
 	for _, c := range chunksByWorld {
 		chunks = append(chunks, &universe.Chunk{
 			UUID:      c.ChunkUuid.String(),

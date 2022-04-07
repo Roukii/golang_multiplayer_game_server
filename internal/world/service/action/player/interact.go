@@ -1,6 +1,7 @@
 package player_action
 
 import (
+	"log"
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
@@ -32,21 +33,21 @@ func SendInteractAction(req *pb.PlayerStreamRequest, game *game.GameService, pla
 		EntityUUID:        interact.Uuid,
 		DynamicEntityType: nil,
 		StaticEntityType:  nil,
-
 	}
 	switch interact.GetInfo().(type) {
-		case *pb.Interact_DynamicEntity:
-			dynamicEntityType := entity.DynamicEntityType(interact.GetDynamicEntity())
-			interactAction.DynamicEntityType = &dynamicEntityType
-		case *pb.Interact_StaticEntity:
-			staticEntityType := entity.StaticEntityType(interact.GetStaticEntity())
-			interactAction.StaticEntityType = &staticEntityType
+	case *pb.Interact_DynamicEntity:
+		dynamicEntityType := entity.DynamicEntityType(interact.GetDynamicEntity())
+		interactAction.DynamicEntityType = &dynamicEntityType
+	case *pb.Interact_StaticEntity:
+		staticEntityType := entity.StaticEntityType(interact.GetStaticEntity())
+		interactAction.StaticEntityType = &staticEntityType
 	}
 	game.PlayerActionChannel <- interactAction
 }
 
 // TODO check if player can interact with target
 func (action InteractAction) Perform(game *game.GameService) {
+	log.Println("interact : ", action)
 	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return

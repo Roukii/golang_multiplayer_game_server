@@ -49,9 +49,13 @@ namespace Universe {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Universe.EnterChunkRequest> __Marshaller_universe_EnterChunkRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.EnterChunkRequest.Parser));
+    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Universe.EnterChunkResponse> __Marshaller_universe_EnterChunkResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.EnterChunkResponse.Parser));
+    static readonly grpc::Marshaller<global::Universe.GetWorldsResponse> __Marshaller_universe_GetWorldsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.GetWorldsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.EnterWorldRequest> __Marshaller_universe_EnterWorldRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.EnterWorldRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Universe.EnterWorldResponse> __Marshaller_universe_EnterWorldResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.EnterWorldResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Universe.LoadChunkRequest> __Marshaller_universe_LoadChunkRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.LoadChunkRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -62,12 +66,20 @@ namespace Universe {
     static readonly grpc::Marshaller<global::Universe.ChunkStreamResponse> __Marshaller_universe_ChunkStreamResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Universe.ChunkStreamResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Universe.EnterChunkRequest, global::Universe.EnterChunkResponse> __Method_EnterChunk = new grpc::Method<global::Universe.EnterChunkRequest, global::Universe.EnterChunkResponse>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetWorldsResponse> __Method_GetWorlds = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetWorldsResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "EnterChunk",
-        __Marshaller_universe_EnterChunkRequest,
-        __Marshaller_universe_EnterChunkResponse);
+        "GetWorlds",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_universe_GetWorldsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Universe.EnterWorldRequest, global::Universe.EnterWorldResponse> __Method_EnterWorld = new grpc::Method<global::Universe.EnterWorldRequest, global::Universe.EnterWorldResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "EnterWorld",
+        __Marshaller_universe_EnterWorldRequest,
+        __Marshaller_universe_EnterWorldResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Universe.LoadChunkRequest, global::Universe.LoadChunkResponse> __Method_LoadChunk = new grpc::Method<global::Universe.LoadChunkRequest, global::Universe.LoadChunkResponse>(
@@ -96,7 +108,13 @@ namespace Universe {
     public abstract partial class ChunkServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Universe.EnterChunkResponse> EnterChunk(global::Universe.EnterChunkRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Universe.GetWorldsResponse> GetWorlds(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Universe.EnterWorldResponse> EnterWorld(global::Universe.EnterWorldRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -143,24 +161,44 @@ namespace Universe {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Universe.EnterChunkResponse EnterChunk(global::Universe.EnterChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Universe.GetWorldsResponse GetWorlds(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return EnterChunk(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetWorlds(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Universe.EnterChunkResponse EnterChunk(global::Universe.EnterChunkRequest request, grpc::CallOptions options)
+      public virtual global::Universe.GetWorldsResponse GetWorlds(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_EnterChunk, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_GetWorlds, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Universe.EnterChunkResponse> EnterChunkAsync(global::Universe.EnterChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Universe.GetWorldsResponse> GetWorldsAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return EnterChunkAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetWorldsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Universe.EnterChunkResponse> EnterChunkAsync(global::Universe.EnterChunkRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Universe.GetWorldsResponse> GetWorldsAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_EnterChunk, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_GetWorlds, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.EnterWorldResponse EnterWorld(global::Universe.EnterWorldRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return EnterWorld(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Universe.EnterWorldResponse EnterWorld(global::Universe.EnterWorldRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_EnterWorld, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.EnterWorldResponse> EnterWorldAsync(global::Universe.EnterWorldRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return EnterWorldAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Universe.EnterWorldResponse> EnterWorldAsync(global::Universe.EnterWorldRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_EnterWorld, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Universe.LoadChunkResponse LoadChunk(global::Universe.LoadChunkRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -206,7 +244,8 @@ namespace Universe {
     public static grpc::ServerServiceDefinition BindService(ChunkServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_EnterChunk, serviceImpl.EnterChunk)
+          .AddMethod(__Method_GetWorlds, serviceImpl.GetWorlds)
+          .AddMethod(__Method_EnterWorld, serviceImpl.EnterWorld)
           .AddMethod(__Method_LoadChunk, serviceImpl.LoadChunk)
           .AddMethod(__Method_Stream, serviceImpl.Stream).Build();
     }
@@ -218,7 +257,8 @@ namespace Universe {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ChunkServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_EnterChunk, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.EnterChunkRequest, global::Universe.EnterChunkResponse>(serviceImpl.EnterChunk));
+      serviceBinder.AddMethod(__Method_GetWorlds, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Universe.GetWorldsResponse>(serviceImpl.GetWorlds));
+      serviceBinder.AddMethod(__Method_EnterWorld, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.EnterWorldRequest, global::Universe.EnterWorldResponse>(serviceImpl.EnterWorld));
       serviceBinder.AddMethod(__Method_LoadChunk, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Universe.LoadChunkRequest, global::Universe.LoadChunkResponse>(serviceImpl.LoadChunk));
       serviceBinder.AddMethod(__Method_Stream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Universe.ChunkStreamRequest, global::Universe.ChunkStreamResponse>(serviceImpl.Stream));
     }

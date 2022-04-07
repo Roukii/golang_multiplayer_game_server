@@ -7,6 +7,8 @@ import (
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
+	"github.com/Roukii/pock_multiplayer/pkg/helper"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 type ChunkMethod struct {
@@ -15,7 +17,20 @@ type ChunkMethod struct {
 	clients *client.ClientService
 }
 
-func (c *ChunkMethod) EnterChunk(ctx context.Context, request *pb.EnterChunkRequest) (*pb.EnterChunkResponse, error) {
+func (c *ChunkMethod) GetWorlds(ctx context.Context, request *emptypb.Empty) (*pb.GetWorldsResponse, error) {
+	worlds := c.game.UniverseService.GetWorlds()
+	var pbWorlds []*pb.World
+	for _, world := range worlds {
+		pbWorlds = append(pbWorlds, helper.WorldTypeToProto(world))
+	}
+	return &pb.GetWorldsResponse{
+		Worlds: pbWorlds,
+	}, nil
+}
+
+func (c *ChunkMethod) EnterWorld(ctx context.Context, request *pb.EnterWorldRequest) (*pb.EnterWorldResponse, error) {
+	world, err := c.game.UniverseService.GetWorld(request.WorldUUID)
+	c.game.UniverseService.LoadWorldAndChunksFromSpawnPoint()
 	return &pb.EnterChunkResponse{
 		Chunks:        []*pb.Chunk{},
 		DynamicEntity: []*pb.DynamicEntity{},

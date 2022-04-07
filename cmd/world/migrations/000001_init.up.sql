@@ -21,7 +21,8 @@ create TABLE world(
   width int,
   length int,
   seed text,
-  created_at Timestamp, 
+  created_at Timestamp,
+  spawn_points list<frozen<spawn_point>>,
   PRIMARY KEY (world_uuid) 
 );
 
