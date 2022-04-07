@@ -2,11 +2,10 @@ package player_service
 
 import (
 	"sync"
-	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/dao"
-	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
+	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/gocql/gocql"
@@ -29,9 +28,9 @@ func NewPlayerService(session *gocqlx.Session) *PlayerService {
 	}
 }
 
-func (ps *PlayerService) CreatePlayer(userUuid string, p *player.Player, worldUUID string) (err error) {
+func (ps *PlayerService) CreatePlayer(userUuid string, p *player.Player, world *universe.World) (err error) {
 	p.UUID = gocql.TimeUUID().String()
-	p.SpawnPoint, err = ps.GenerateSpawnPoint(worldUUID)
+	p.SpawnPoint = world.SpawnPoints[0]
 	if err != nil {
 		return err
 	}
@@ -69,21 +68,6 @@ func (ps *PlayerService) DisconnectPlayer(playerUUID string) (bool, error) {
 		return true, err
 	}
 	return false, nil
-}
-
-func (ps *PlayerService) GenerateSpawnPoint(worldUUID string) (player.SpawnPoint, error) {
-	spawnPoint := player.SpawnPoint{
-		WorldUUID: worldUUID,
-		Coordinate: entity.Position{
-			Position: entity.Vector3f{
-				X: 100,
-				Y: 100,
-				Z: 100,
-			},
-		},
-		UpdatedAt: time.Time{},
-	}
-	return spawnPoint, nil
 }
 
 func (ps *PlayerService) GetPlayersFromUserUUID(userUUID string) (*pb.GetPlayersReply, error) {

@@ -3,11 +3,14 @@ package method
 import (
 	"context"
 	"io"
+	"log"
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 	"github.com/Roukii/pock_multiplayer/pkg/helper"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
@@ -30,9 +33,18 @@ func (c *ChunkMethod) GetWorlds(ctx context.Context, request *emptypb.Empty) (*p
 
 func (c *ChunkMethod) EnterWorld(ctx context.Context, request *pb.EnterWorldRequest) (*pb.EnterWorldResponse, error) {
 	world, err := c.game.UniverseService.GetWorld(request.WorldUUID)
-	c.game.UniverseService.LoadWorldAndChunksFromSpawnPoint()
-	return &pb.EnterChunkResponse{
-		Chunks:        []*pb.Chunk{},
+	if err != nil {
+		log.Println("couldn't find world : ", err)
+		return nil, status.Errorf(codes.InvalidArgument, "couldn't find world")
+	}
+	chunks, err := c.game.UniverseService.LoadChunksFromSpawnPoint(world.SpawnPoints[0])
+	if err != nil {
+		log.Println("couldn't load chunks : ", err)
+		return nil, status.Errorf(codes.InvalidArgument, "couldn't load chunks")
+	}
+	return &pb.EnterWorldResponse{
+		World:         helper.WorldTypeToProto(world),
+		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
 }

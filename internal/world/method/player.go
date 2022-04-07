@@ -7,6 +7,7 @@ import (
 	"sync"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
+	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/action"
@@ -55,19 +56,19 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 		},
 	}
 	// TODO need to transform this into spawn point
-	var worldUUID string
-	for _, world := range pm.game.UniverseService.Universe.Worlds {
-		worldUUID = world.UUID
+	var world universe.World
+	for _, w := range pm.game.UniverseService.Universe.Worlds {
+		world = w
 		break
 	}
 	log.Println("create player")
-	err = pm.game.PlayerService.CreatePlayer(userInfo.UUID, &p, worldUUID)
+	err = pm.game.PlayerService.CreatePlayer(userInfo.UUID, &p, &world)
 	log.Println("finished create player")
 	if err != nil {
 		log.Println("failed to create player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
-	world, chunks, err := pm.game.UniverseService.LoadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
+	chunks, err := pm.game.UniverseService.LoadChunksFromSpawnPoint(p.SpawnPoint)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +76,7 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	pm.clients.AddClient(userInfo.UUID, &p)
 	return &pb.CreatePlayerResponse{
 		Player:        helper.PlayerTypeToProto(&p),
-		World:         helper.WorldTypeToProto(world),
+		World:         helper.WorldTypeToProto(&world),
 		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
@@ -96,7 +97,8 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 		log.Println("failed to connect player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
-	world, chunks, err := pm.game.UniverseService.LoadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
+	world, err := pm.game.UniverseService.GetWorld(p.SpawnPoint.WorldUUID)
+	chunks, err := pm.game.UniverseService.LoadChunksFromSpawnPoint(p.SpawnPoint)
 	if err != nil {
 		return nil, err
 	}

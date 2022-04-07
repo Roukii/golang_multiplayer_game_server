@@ -50,21 +50,6 @@ func NewPlayerDao(session *gocqlx.Session) *PlayerDao {
 }
 
 func (a PlayerDao) Insert(userUuid string, p *player.Player) error {
-	log.Println(a.PlayerByUserMetadata.InsertQuery(*a.session).BindStruct(PlayerByUser{
-		UserUuid:   mustParseUUID(userUuid),
-		PlayerUuid: mustParseUUID(p.UUID),
-		Name:       p.Name,
-		Stats:      p.Stats,
-		SpawnPoint: SpawnPointType{
-			WorldUUID: p.SpawnPoint.WorldUUID,
-			X:         p.SpawnPoint.Coordinate.Position.X,
-			Y:         p.SpawnPoint.Coordinate.Position.Y,
-			Z:         p.SpawnPoint.Coordinate.Position.Z,
-			UpdatedAt: time.Now(),
-		},
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
-	}).Statement())
 	return a.PlayerByUserMetadata.InsertQuery(*a.session).BindStruct(PlayerByUser{
 		UserUuid:   mustParseUUID(userUuid),
 		PlayerUuid: mustParseUUID(p.UUID),

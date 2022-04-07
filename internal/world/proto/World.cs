@@ -95,47 +95,47 @@ namespace Universe {
             "dW5pdmVyc2UuQ2h1bmsSLgoNZHluYW1pY0VudGl0eRgEIAMoCzIXLnVuaXZl",
             "cnNlLkR5bmFtaWNFbnRpdHkiWQoGUGxheWVyEgwKBG5hbWUYASABKAkSDAoE",
             "dXVpZBgCIAEoCRINCgVsZXZlbBgDIAEoBRIkCghwb3NpdGlvbhgEIAEoCzIS",
-            "LnVuaXZlcnNlLlBvc2l0aW9uIqABCgVXb3JsZBIMCgRuYW1lGAEgASgJEg0K",
-            "BWxldmVsGAIgASgFEg4KBmxlbmd0aBgDIAEoBRINCgV3aWR0aBgEIAEoBRIP",
-            "CgdzY2FsZVhZGAUgASgFEhMKC3NjYWxlSGVpZ2h0GAYgASgFEgwKBHNlZWQY",
-            "ByABKAkSEwoLY2h1bmtfd2lkdGgYCCABKAUSEgoKcG9wdWxhdGlvbhgJIAEo",
-            "BSI6CgRNb3ZlEiQKCHBvc2l0aW9uGAIgASgLMhIudW5pdmVyc2UuUG9zaXRp",
-            "b24SDAoEanVtcBgDIAEoCCKKAQoFQ2h1bmsSDAoEdXVpZBgBIAEoCRImCghw",
-            "b3NpdGlvbhgCIAEoCzIULnVuaXZlcnNlLlZlY3RvcjJJbnQSLAoMc3RhdGlj",
-            "RW50aXR5GAMgAygLMhYudW5pdmVyc2UuU3RhdGljRW50aXR5Eh0KBXRpbGVz",
-            "GAQgAygLMg4udW5pdmVyc2UuVGlsZSI7CgRUaWxlEiAKBHR5cGUYASABKA4y",
-            "Ei51bml2ZXJzZS5UaWxlVHlwZRIRCgllbGV2YXRpb24YAiABKAIicgoIUG9z",
-            "aXRpb24SKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0b3IzSACI",
-            "AQESJQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGIAQFCCwoJ",
-            "X3Bvc2l0aW9uQggKBl9hbmdsZSIqCgdWZWN0b3IzEgkKAXgYASABKAISCQoB",
-            "eRgCIAEoAhIJCgF6GAMgASgCIh8KB1ZlY3RvcjISCQoBeBgBIAEoAhIJCgF5",
-            "GAIgASgCIiIKClZlY3RvcjJJbnQSCQoBeBgBIAEoBRIJCgF5GAIgASgFInwK",
-            "DUR5bmFtaWNFbnRpdHkSDAoEdXVpZBgBIAEoCRIMCgRuYW1lGAIgASgJEiQK",
-            "CHBvc2l0aW9uGAMgASgLMhIudW5pdmVyc2UuUG9zaXRpb24SKQoEdHlwZRgE",
-            "IAEoDjIbLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlUeXBlInoKDFN0YXRpY0Vu",
-            "dGl0eRIMCgR1dWlkGAEgASgJEgwKBG5hbWUYAiABKAkSJAoIcG9zaXRpb24Y",
-            "AyABKAsyEi51bml2ZXJzZS5Qb3NpdGlvbhIoCgR0eXBlGAQgASgOMhoudW5p",
-            "dmVyc2UuU3RhdGljRW50aXR5VHlwZSpJCghUaWxlVHlwZRIICgREaXJ0EAAS",
-            "CQoFR3Jhc3MQARIICgRSb2NrEAISCgoGRm9yZXN0EAMSCAoEU2FuZBAEEggK",
-            "BFNub3cQBSotChFEeW5hbWljRW50aXR5VHlwZRIKCgZQTEFZRVIQABIMCghD",
-            "UkVBVFVSRRABKlQKEFN0YXRpY0VudGl0eVR5cGUSCQoFRW1wdHkQABIMCghC",
-            "dWlsZGluZxABEg4KCkNodW5rRW50cnkQAhINCglSZXNzb3VyY2UQAxIICgRJ",
-            "dGVtEAQysAIKDENodW5rU2VydmljZRJCCglHZXRXb3JsZHMSFi5nb29nbGUu",
-            "cHJvdG9idWYuRW1wdHkaGy51bml2ZXJzZS5HZXRXb3JsZHNSZXNwb25zZSIA",
-            "EkkKCkVudGVyV29ybGQSGy51bml2ZXJzZS5FbnRlcldvcmxkUmVxdWVzdBoc",
-            "LnVuaXZlcnNlLkVudGVyV29ybGRSZXNwb25zZSIAEkYKCUxvYWRDaHVuaxIa",
-            "LnVuaXZlcnNlLkxvYWRDaHVua1JlcXVlc3QaGy51bml2ZXJzZS5Mb2FkQ2h1",
-            "bmtSZXNwb25zZSIAEkkKBlN0cmVhbRIcLnVuaXZlcnNlLkNodW5rU3RyZWFt",
-            "UmVxdWVzdBodLnVuaXZlcnNlLkNodW5rU3RyZWFtUmVzcG9uc2UiADABMrQC",
-            "Cg1QbGF5ZXJTZXJ2aWNlEk8KDENyZWF0ZVBsYXllchIdLnVuaXZlcnNlLkNy",
-            "ZWF0ZVBsYXllclJlcXVlc3QaHi51bml2ZXJzZS5DcmVhdGVQbGF5ZXJSZXNw",
-            "b25zZSIAEkEKCkdldFBsYXllcnMSFi5nb29nbGUucHJvdG9idWYuRW1wdHka",
-            "GS51bml2ZXJzZS5HZXRQbGF5ZXJzUmVwbHkiABJACgdDb25uZWN0EhgudW5p",
-            "dmVyc2UuQ29ubmVjdFJlcXVlc3QaGS51bml2ZXJzZS5Db25uZWN0UmVzcG9u",
-            "c2UiABJNCgZTdHJlYW0SHS51bml2ZXJzZS5QbGF5ZXJTdHJlYW1SZXF1ZXN0",
-            "Gh4udW5pdmVyc2UuUGxheWVyU3RyZWFtUmVzcG9uc2UiACgBMAFCLVorZ2l0",
-            "aHViLmNvbS9Sb3VraWkvcG9ja19tdWx0aXBsYXllci91bml2ZXJzZWIGcHJv",
-            "dG8z"));
+            "LnVuaXZlcnNlLlBvc2l0aW9uIq4BCgVXb3JsZBIMCgR1dWlkGAEgASgJEgwK",
+            "BG5hbWUYAiABKAkSDQoFbGV2ZWwYAyABKAUSDgoGbGVuZ3RoGAQgASgFEg0K",
+            "BXdpZHRoGAUgASgFEg8KB3NjYWxlWFkYBiABKAUSEwoLc2NhbGVIZWlnaHQY",
+            "ByABKAUSDAoEc2VlZBgIIAEoCRITCgtjaHVua193aWR0aBgJIAEoBRISCgpw",
+            "b3B1bGF0aW9uGAogASgFIjoKBE1vdmUSJAoIcG9zaXRpb24YAiABKAsyEi51",
+            "bml2ZXJzZS5Qb3NpdGlvbhIMCgRqdW1wGAMgASgIIooBCgVDaHVuaxIMCgR1",
+            "dWlkGAEgASgJEiYKCHBvc2l0aW9uGAIgASgLMhQudW5pdmVyc2UuVmVjdG9y",
+            "MkludBIsCgxzdGF0aWNFbnRpdHkYAyADKAsyFi51bml2ZXJzZS5TdGF0aWNF",
+            "bnRpdHkSHQoFdGlsZXMYBCADKAsyDi51bml2ZXJzZS5UaWxlIjsKBFRpbGUS",
+            "IAoEdHlwZRgBIAEoDjISLnVuaXZlcnNlLlRpbGVUeXBlEhEKCWVsZXZhdGlv",
+            "bhgCIAEoAiJyCghQb3NpdGlvbhIoCghwb3NpdGlvbhgBIAEoCzIRLnVuaXZl",
+            "cnNlLlZlY3RvcjNIAIgBARIlCgVhbmdsZRgCIAEoCzIRLnVuaXZlcnNlLlZl",
+            "Y3RvcjNIAYgBAUILCglfcG9zaXRpb25CCAoGX2FuZ2xlIioKB1ZlY3RvcjMS",
+            "CQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiHwoHVmVjdG9yMhIJ",
+            "CgF4GAEgASgCEgkKAXkYAiABKAIiIgoKVmVjdG9yMkludBIJCgF4GAEgASgF",
+            "EgkKAXkYAiABKAUifAoNRHluYW1pY0VudGl0eRIMCgR1dWlkGAEgASgJEgwK",
+            "BG5hbWUYAiABKAkSJAoIcG9zaXRpb24YAyABKAsyEi51bml2ZXJzZS5Qb3Np",
+            "dGlvbhIpCgR0eXBlGAQgASgOMhsudW5pdmVyc2UuRHluYW1pY0VudGl0eVR5",
+            "cGUiegoMU3RhdGljRW50aXR5EgwKBHV1aWQYASABKAkSDAoEbmFtZRgCIAEo",
+            "CRIkCghwb3NpdGlvbhgDIAEoCzISLnVuaXZlcnNlLlBvc2l0aW9uEigKBHR5",
+            "cGUYBCABKA4yGi51bml2ZXJzZS5TdGF0aWNFbnRpdHlUeXBlKkkKCFRpbGVU",
+            "eXBlEggKBERpcnQQABIJCgVHcmFzcxABEggKBFJvY2sQAhIKCgZGb3Jlc3QQ",
+            "AxIICgRTYW5kEAQSCAoEU25vdxAFKi0KEUR5bmFtaWNFbnRpdHlUeXBlEgoK",
+            "BlBMQVlFUhAAEgwKCENSRUFUVVJFEAEqVAoQU3RhdGljRW50aXR5VHlwZRIJ",
+            "CgVFbXB0eRAAEgwKCEJ1aWxkaW5nEAESDgoKQ2h1bmtFbnRyeRACEg0KCVJl",
+            "c3NvdXJjZRADEggKBEl0ZW0QBDKwAgoMQ2h1bmtTZXJ2aWNlEkIKCUdldFdv",
+            "cmxkcxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRobLnVuaXZlcnNlLkdldFdv",
+            "cmxkc1Jlc3BvbnNlIgASSQoKRW50ZXJXb3JsZBIbLnVuaXZlcnNlLkVudGVy",
+            "V29ybGRSZXF1ZXN0GhwudW5pdmVyc2UuRW50ZXJXb3JsZFJlc3BvbnNlIgAS",
+            "RgoJTG9hZENodW5rEhoudW5pdmVyc2UuTG9hZENodW5rUmVxdWVzdBobLnVu",
+            "aXZlcnNlLkxvYWRDaHVua1Jlc3BvbnNlIgASSQoGU3RyZWFtEhwudW5pdmVy",
+            "c2UuQ2h1bmtTdHJlYW1SZXF1ZXN0Gh0udW5pdmVyc2UuQ2h1bmtTdHJlYW1S",
+            "ZXNwb25zZSIAMAEytAIKDVBsYXllclNlcnZpY2USTwoMQ3JlYXRlUGxheWVy",
+            "Eh0udW5pdmVyc2UuQ3JlYXRlUGxheWVyUmVxdWVzdBoeLnVuaXZlcnNlLkNy",
+            "ZWF0ZVBsYXllclJlc3BvbnNlIgASQQoKR2V0UGxheWVycxIWLmdvb2dsZS5w",
+            "cm90b2J1Zi5FbXB0eRoZLnVuaXZlcnNlLkdldFBsYXllcnNSZXBseSIAEkAK",
+            "B0Nvbm5lY3QSGC51bml2ZXJzZS5Db25uZWN0UmVxdWVzdBoZLnVuaXZlcnNl",
+            "LkNvbm5lY3RSZXNwb25zZSIAEk0KBlN0cmVhbRIdLnVuaXZlcnNlLlBsYXll",
+            "clN0cmVhbVJlcXVlc3QaHi51bml2ZXJzZS5QbGF5ZXJTdHJlYW1SZXNwb25z",
+            "ZSIAKAEwAUItWitnaXRodWIuY29tL1JvdWtpaS9wb2NrX211bHRpcGxheWVy",
+            "L3VuaXZlcnNlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Universe.TileType), typeof(global::Universe.DynamicEntityType), typeof(global::Universe.StaticEntityType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -168,7 +168,7 @@ namespace Universe {
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectRequest), global::Universe.ConnectRequest.Parser, new[]{ "PlayerUuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectResponse), global::Universe.ConnectResponse.Parser, new[]{ "Player", "World", "Chunks", "DynamicEntity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Player), global::Universe.Player.Parser, new[]{ "Name", "Uuid", "Level", "Position" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.World), global::Universe.World.Parser, new[]{ "Name", "Level", "Length", "Width", "ScaleXY", "ScaleHeight", "Seed", "ChunkWidth", "Population" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.World), global::Universe.World.Parser, new[]{ "Uuid", "Name", "Level", "Length", "Width", "ScaleXY", "ScaleHeight", "Seed", "ChunkWidth", "Population" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Move), global::Universe.Move.Parser, new[]{ "Position", "Jump" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Chunk), global::Universe.Chunk.Parser, new[]{ "Uuid", "Position", "StaticEntity", "Tiles" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Tile), global::Universe.Tile.Parser, new[]{ "Type", "Elevation" }, null, null, null, null),
@@ -7273,6 +7273,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public World(World other) : this() {
+      uuid_ = other.uuid_;
       name_ = other.name_;
       level_ = other.level_;
       length_ = other.length_;
@@ -7290,8 +7291,19 @@ namespace Universe {
       return new World(this);
     }
 
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 1;
+    private string uuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
+    public const int NameFieldNumber = 2;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -7302,7 +7314,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "level" field.</summary>
-    public const int LevelFieldNumber = 2;
+    public const int LevelFieldNumber = 3;
     private int level_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Level {
@@ -7313,7 +7325,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "length" field.</summary>
-    public const int LengthFieldNumber = 3;
+    public const int LengthFieldNumber = 4;
     private int length_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Length {
@@ -7324,7 +7336,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "width" field.</summary>
-    public const int WidthFieldNumber = 4;
+    public const int WidthFieldNumber = 5;
     private int width_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Width {
@@ -7335,7 +7347,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "scaleXY" field.</summary>
-    public const int ScaleXYFieldNumber = 5;
+    public const int ScaleXYFieldNumber = 6;
     private int scaleXY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int ScaleXY {
@@ -7346,7 +7358,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "scaleHeight" field.</summary>
-    public const int ScaleHeightFieldNumber = 6;
+    public const int ScaleHeightFieldNumber = 7;
     private int scaleHeight_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int ScaleHeight {
@@ -7357,7 +7369,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "seed" field.</summary>
-    public const int SeedFieldNumber = 7;
+    public const int SeedFieldNumber = 8;
     private string seed_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Seed {
@@ -7368,7 +7380,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "chunk_width" field.</summary>
-    public const int ChunkWidthFieldNumber = 8;
+    public const int ChunkWidthFieldNumber = 9;
     private int chunkWidth_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int ChunkWidth {
@@ -7379,7 +7391,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "population" field.</summary>
-    public const int PopulationFieldNumber = 9;
+    public const int PopulationFieldNumber = 10;
     private int population_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Population {
@@ -7402,6 +7414,7 @@ namespace Universe {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Uuid != other.Uuid) return false;
       if (Name != other.Name) return false;
       if (Level != other.Level) return false;
       if (Length != other.Length) return false;
@@ -7417,6 +7430,7 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Level != 0) hash ^= Level.GetHashCode();
       if (Length != 0) hash ^= Length.GetHashCode();
@@ -7442,40 +7456,44 @@ namespace Universe {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (Uuid.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(Name);
       }
       if (Level != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteInt32(Level);
       }
       if (Length != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(32);
         output.WriteInt32(Length);
       }
       if (Width != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(40);
         output.WriteInt32(Width);
       }
       if (ScaleXY != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt32(ScaleXY);
       }
       if (ScaleHeight != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(ScaleHeight);
       }
       if (Seed.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(Seed);
       }
       if (ChunkWidth != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteInt32(ChunkWidth);
       }
       if (Population != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(80);
         output.WriteInt32(Population);
       }
       if (_unknownFields != null) {
@@ -7487,40 +7505,44 @@ namespace Universe {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (Uuid.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(Name);
       }
       if (Level != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteInt32(Level);
       }
       if (Length != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(32);
         output.WriteInt32(Length);
       }
       if (Width != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(40);
         output.WriteInt32(Width);
       }
       if (ScaleXY != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt32(ScaleXY);
       }
       if (ScaleHeight != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(ScaleHeight);
       }
       if (Seed.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(Seed);
       }
       if (ChunkWidth != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteInt32(ChunkWidth);
       }
       if (Population != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(80);
         output.WriteInt32(Population);
       }
       if (_unknownFields != null) {
@@ -7532,6 +7554,9 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+      }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
@@ -7569,6 +7594,9 @@ namespace Universe {
     public void MergeFrom(World other) {
       if (other == null) {
         return;
+      }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
@@ -7612,38 +7640,42 @@ namespace Universe {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 18: {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 24: {
             Level = input.ReadInt32();
             break;
           }
-          case 24: {
+          case 32: {
             Length = input.ReadInt32();
             break;
           }
-          case 32: {
+          case 40: {
             Width = input.ReadInt32();
             break;
           }
-          case 40: {
+          case 48: {
             ScaleXY = input.ReadInt32();
             break;
           }
-          case 48: {
+          case 56: {
             ScaleHeight = input.ReadInt32();
             break;
           }
-          case 58: {
+          case 66: {
             Seed = input.ReadString();
             break;
           }
-          case 64: {
+          case 72: {
             ChunkWidth = input.ReadInt32();
             break;
           }
-          case 72: {
+          case 80: {
             Population = input.ReadInt32();
             break;
           }
@@ -7662,38 +7694,42 @@ namespace Universe {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 18: {
             Name = input.ReadString();
             break;
           }
-          case 16: {
+          case 24: {
             Level = input.ReadInt32();
             break;
           }
-          case 24: {
+          case 32: {
             Length = input.ReadInt32();
             break;
           }
-          case 32: {
+          case 40: {
             Width = input.ReadInt32();
             break;
           }
-          case 40: {
+          case 48: {
             ScaleXY = input.ReadInt32();
             break;
           }
-          case 48: {
+          case 56: {
             ScaleHeight = input.ReadInt32();
             break;
           }
-          case 58: {
+          case 66: {
             Seed = input.ReadString();
             break;
           }
-          case 64: {
+          case 72: {
             ChunkWidth = input.ReadInt32();
             break;
           }
-          case 72: {
+          case 80: {
             Population = input.ReadInt32();
             break;
           }

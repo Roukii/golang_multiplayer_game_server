@@ -201,15 +201,16 @@ message Player {
 }
 
 message World {
-    string name = 1;
-    int32 level = 2;
-    int32 length = 3;
-    int32 width = 4;
-    int32 scaleXY = 5;
-    int32 scaleHeight = 6;
-    string seed = 7;
-    int32 chunk_width = 8;
-    int32 population = 9;
+    string uuid = 1;
+    string name = 2;
+    int32 level = 3;
+    int32 length = 4;
+    int32 width = 5;
+    int32 scaleXY = 6;
+    int32 scaleHeight = 7;
+    string seed = 8;
+    int32 chunk_width = 9;
+    int32 population = 10;
 }
 
 message Move {

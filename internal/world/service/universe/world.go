@@ -5,6 +5,7 @@ import (
 	"log"
 	"time"
 
+	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/procedural_generation"
@@ -38,16 +39,17 @@ func (us *UniverseService) LoadWorlds() error {
 
 func (us *UniverseService) CreateWorld(worldName string) (universe.World, error) {
 	world := universe.World{
-		UUID:      gocql.TimeUUID().String(),
-		Name:      worldName,
-		MaxPlayer: 20,
-		Level:     1,
-		Length:    10,
-		Width:     10,
-		Seed:      procedural_generation.GenerateSeed(),
-		Type:      0,
-		CreatedAt: time.Now(),
-		UpdateAt:  time.Now(),
+		UUID:        gocql.TimeUUID().String(),
+		Name:        worldName,
+		MaxPlayer:   20,
+		Level:       1,
+		Length:      10,
+		Width:       10,
+		SpawnPoints: []player.SpawnPoint{},
+		Seed:        procedural_generation.GenerateSeed(),
+		Type:        0,
+		CreatedAt:   time.Now(),
+		UpdateAt:    time.Now(),
 	}
 	err := us.worldDao.Insert(&world)
 	if err != nil {
@@ -55,8 +57,31 @@ func (us *UniverseService) CreateWorld(worldName string) (universe.World, error)
 		return world, err
 	}
 	err = us.generateAndSaveWorldChunks(&world)
+	us.generateSpawnPoints(&world)
 	log.Println("Chunks : ", len(world.Chunks))
 	return world, err
+}
+
+// TODO upgrade spawn point generation
+func (us *UniverseService) generateSpawnPoints(world *universe.World) {
+	var spawnPoints []player.SpawnPoint
+	spawnPoints = append(spawnPoints, player.SpawnPoint{
+		WorldUUID:  world.UUID,
+		Coordinate: entity.Position{
+			Position: entity.Vector3f{
+				X: 1,
+				Y: 1,
+				Z: 1,
+			},
+			Rotation: entity.Vector3f{
+				X: 1,
+				Y: 1,
+				Z: 1,
+			},
+		},
+		UpdatedAt:  time.Now(),
+	})
+	world.SpawnPoints = spawnPoints
 }
 
 func (us *UniverseService) GetWorld(WorldUUID string) (*universe.World, error) {
@@ -76,16 +101,11 @@ func (us *UniverseService) GetWorlds() []*universe.World {
 }
 
 // TODO lock write with mutex
-func (us *UniverseService) LoadWorldAndChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (world *universe.World, chunks []*universe.Chunk, err error) {
-	world, err = us.GetWorld(spawnPoint.WorldUUID)
-	if err != nil {
-		log.Println("failed to load world", err)
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load world")
-	}
+func (us *UniverseService) LoadChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (chunks []*universe.Chunk, err error) {
 	chunks, err = us.GetChunksFromSpawnSpoint(spawnPoint, 1)
 	if err != nil {
 		log.Println("failed to load chunks", err)
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
+		return nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
 	}
-	return world, chunks, nil
+	return chunks, nil
 }

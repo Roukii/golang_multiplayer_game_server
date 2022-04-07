@@ -10,6 +10,7 @@ import (
 // TODO update chunk width and population with real value
 func WorldTypeToProto(world *universe.World) *pb.World {
 	return &pb.World{
+		Uuid:        world.UUID,
 		Name:        world.Name,
 		Level:       int32(world.Level),
 		Length:      int32(world.Length),
