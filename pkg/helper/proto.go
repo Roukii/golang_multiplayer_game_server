@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
@@ -9,13 +10,15 @@ import (
 // TODO update chunk width and population with real value
 func WorldTypeToProto(world *universe.World) *pb.World {
 	return &pb.World{
-		Name:       world.Name,
-		Level:      int32(world.Level),
-		Length:     int32(world.Length),
-		Width:      int32(world.Width),
-		Seed:       world.Seed,
-		ChunkWidth: 25,
-		Population: int32(world.MaxPlayer),
+		Name:        world.Name,
+		Level:       int32(world.Level),
+		Length:      int32(world.Length),
+		Width:       int32(world.Width),
+		ScaleXY:     1,
+		ScaleHeight: 8,
+		Seed:        world.Seed,
+		ChunkWidth:  25,
+		Population:  int32(world.MaxPlayer),
 	}
 }
 
@@ -25,16 +28,8 @@ func PlayerTypeToProto(player *player.Player) *pb.Player {
 		Uuid:  player.UUID,
 		Level: int32(player.Stats.Level),
 		Position: &pb.Position{
-			Position: &pb.Vector3{
-				X: player.CurrentPosition.Position.X,
-				Y: player.CurrentPosition.Position.Y,
-				Z: player.CurrentPosition.Position.Z,
-			},
-			Angle: &pb.Vector3{
-				X: player.CurrentPosition.Rotation.X,
-				Y: player.CurrentPosition.Rotation.Y,
-				Z: player.CurrentPosition.Rotation.Z,
-			},
+			Position: vector3fToProto(player.CurrentPosition.Position),
+			Angle: vector3fToProto(player.CurrentPosition.Rotation),
 		},
 	}
 }
@@ -57,4 +52,12 @@ func ChunksTypeToProto(chunks []*universe.Chunk) []*pb.Chunk {
 		})
 	}
 	return pbChunks
+}
+
+func vector3fToProto(pos entity.Vector3f) *pb.Vector3 {
+	return &pb.Vector3{
+		X: pos.X,
+		Y: pos.Y,
+		Z: pos.Z,
+	}
 }

@@ -6,7 +6,7 @@ type PlayerAction interface {
 
 type PlayerChange interface{}
 
-func (game *GameService) SendChange(change PlayerChange) {
+func (game *GameService) SendPlayerChange(change PlayerChange) {
 	select {
 	case game.PlayerChangeChannel <- change:
 	default:

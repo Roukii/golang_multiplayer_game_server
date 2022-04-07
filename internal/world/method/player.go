@@ -6,14 +6,13 @@ import (
 	"fmt"
 	"log"
 	"sync"
-	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/action"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
-	player_action "github.com/Roukii/pock_multiplayer/internal/world/service/game/action/player"
 	"github.com/Roukii/pock_multiplayer/pkg/helper"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -129,11 +128,7 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 				currentClient.Done <- errors.New("failed to receive request")
 				return
 			}
-			action := req.GetAction()
-			switch action.(type) {
-			case *pb.PlayerStreamRequest_Move:
-				pm.handleMoveAction(req, currentClient.GetPlayerUUID())
-			}
+			action.SendPlayerAction(req, pm.game, currentClient.GetPlayerUUID())
 		}
 	}()
 
@@ -155,60 +150,7 @@ func (pm *PlayerMethod) watchChanges() {
 	go func() {
 		for {
 			change := <-pm.game.PlayerChangeChannel
-			switch change.(type) {
-			case player_action.MovePlayerChange:
-				change := change.(player_action.MovePlayerChange)
-				pm.handleMoveChange(change)
-			}
+			pm.clients.BroadcastPlayer(action.GetPlayerChangeToProto(change))
 		}
 	}()
-}
-
-func (pm *PlayerMethod) handleMoveAction(req *pb.PlayerStreamRequest, playerUUID string) {
-	move := req.GetMove()
-	pm.game.PlayerActionChannel <- player_action.MoveAction{
-		Position: entity.Position{
-			Position: entity.Vector3f{
-				X: move.Position.Position.X,
-				Y: move.Position.Position.Y,
-				Z: move.Position.Position.Z,
-			},
-			Rotation: entity.Vector3f{
-				X: 0,
-				Y: 0,
-				Z: 0,
-			},
-		},
-		PlayerUUID: playerUUID,
-		Created:    time.Now(),
-	}
-}
-
-func (pm *PlayerMethod) handleMoveChange(move player_action.MovePlayerChange) {
-	resp := pb.PlayerStreamResponse{
-		Action: &pb.PlayerStreamResponse_Move{
-			Move: &pb.Move{
-				Position: &pb.Position{
-					Position: &pb.Vector3{
-						X: move.Position.Position.X,
-						Y: move.Position.Position.Y,
-						Z: move.Position.Position.Z,
-					},
-					Angle: &pb.Vector3{
-						X: move.Position.Rotation.X,
-						Y: move.Position.Rotation.Y,
-						Z: move.Position.Rotation.Z,
-					},
-				},
-			},
-		},
-	}
-	pm.clients.BroadcastPlayer(&resp)
-}
-
-func handleMovePlayerChange(resp *pb.PlayerStreamRequest) pb.PlayerStreamResponse {
-	move := resp.GetMove()
-	return pb.PlayerStreamResponse{
-		Action: &pb.PlayerStreamResponse_Move{Move: &pb.Move{Position: &pb.Position{Position: &pb.Vector3{X: move.Position.Position.X, Y: move.Position.Position.Y, Z: move.Position.Position.Z}, Angle: &pb.Vector3{X: move.Position.Angle.X, Y: move.Position.Angle.Y, Z: move.Position.Angle.Z}}}},
-	}
 }

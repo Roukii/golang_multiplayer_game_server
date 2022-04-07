@@ -52,21 +52,23 @@ namespace Universe {
             "V29ybGQSHwoGY2h1bmtzGAMgAygLMg8udW5pdmVyc2UuQ2h1bmsSLgoNZHlu",
             "YW1pY0VudGl0eRgEIAMoCzIXLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHkiMwoP",
             "R2V0UGxheWVyc1JlcGx5EiAKBnBsYXllchgBIAMoCzIQLnVuaXZlcnNlLlBs",
-            "YXllciLOAQoTUGxheWVyU3RyZWFtUmVxdWVzdBIeCgRtb3ZlGAEgASgLMg4u",
+            "YXllciKAAgoTUGxheWVyU3RyZWFtUmVxdWVzdBIeCgRtb3ZlGAEgASgLMg4u",
             "dW5pdmVyc2UuTW92ZUgAEiIKBmF0dGFjaxgCIAEoCzIQLnVuaXZlcnNlLkF0",
             "dGFja0gAEiYKCGludGVyYWN0GAMgASgLMhIudW5pdmVyc2UuSW50ZXJhY3RI",
             "ABIjCgVza2lsbBgEIAEoCzISLnVuaXZlcnNlLlVzZVNraWxsSAASHAoDaGl0",
-            "GAUgASgLMg0udW5pdmVyc2UuSGl0SABCCAoGYWN0aW9uIssDChRQbGF5ZXJT",
-            "dHJlYW1SZXNwb25zZRIMCgR1dWlkGAEgASgJEjQKDWR5bmFtaWNFbnRpdHkY",
-            "AiABKA4yGy51bml2ZXJzZS5EeW5hbWljRW50aXR5VHlwZUgAEjIKDHN0YXRp",
-            "Y0VudGl0eRgDIAEoDjIaLnVuaXZlcnNlLlN0YXRpY0VudGl0eVR5cGVIABIe",
-            "CgRtb3ZlGAQgASgLMg4udW5pdmVyc2UuTW92ZUgBEiwKCWFkZEVudGl0eRgF",
-            "IAEoCzIXLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlIARIWCgxkZWxldGVFbnRp",
-            "dHkYBiABKAhIARIcCgNoaXQYByABKAsyDS51bml2ZXJzZS5IaXRIARIiCgZh",
-            "dHRhY2sYCCABKAsyEC51bml2ZXJzZS5BdHRhY2tIARIjCgVza2lsbBgJIAEo",
-            "CzISLnVuaXZlcnNlLlVzZVNraWxsSAESMAoKZGlzY29ubmVjdBgKIAEoCzIa",
-            "LnVuaXZlcnNlLlBsYXllckRpc2Nvbm5lY3RIARIqCgdjb25uZWN0GAsgASgL",
-            "MhcudW5pdmVyc2UuUGxheWVyQ29ubmVjdEgBQgYKBGluZm9CCAoGYWN0aW9u",
+            "GAUgASgLMg0udW5pdmVyc2UuSGl0SAASMAoKZGlzY29ubmVjdBgGIAEoCzIa",
+            "LnVuaXZlcnNlLlBsYXllckRpc2Nvbm5lY3RIAEIICgZhY3Rpb24i8wMKFFBs",
+            "YXllclN0cmVhbVJlc3BvbnNlEgwKBHV1aWQYASABKAkSNAoNZHluYW1pY0Vu",
+            "dGl0eRgCIAEoDjIbLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlUeXBlSAASMgoM",
+            "c3RhdGljRW50aXR5GAMgASgOMhoudW5pdmVyc2UuU3RhdGljRW50aXR5VHlw",
+            "ZUgAEh4KBG1vdmUYBCABKAsyDi51bml2ZXJzZS5Nb3ZlSAESLAoJYWRkRW50",
+            "aXR5GAUgASgLMhcudW5pdmVyc2UuRHluYW1pY0VudGl0eUgBEhYKDGRlbGV0",
+            "ZUVudGl0eRgGIAEoCEgBEhwKA2hpdBgHIAEoCzINLnVuaXZlcnNlLkhpdEgB",
+            "EiIKBmF0dGFjaxgIIAEoCzIQLnVuaXZlcnNlLkF0dGFja0gBEiMKBXNraWxs",
+            "GAkgASgLMhIudW5pdmVyc2UuVXNlU2tpbGxIARIwCgpkaXNjb25uZWN0GAog",
+            "ASgLMhoudW5pdmVyc2UuUGxheWVyRGlzY29ubmVjdEgBEioKB2Nvbm5lY3QY",
+            "CyABKAsyFy51bml2ZXJzZS5QbGF5ZXJDb25uZWN0SAESJgoIaW50ZXJhY3QY",
+            "DCABKAsyEi51bml2ZXJzZS5JbnRlcmFjdEgBQgYKBGluZm9CCAoGYWN0aW9u",
             "IiMKEFBsYXllckRpc2Nvbm5lY3QSDwoHbWVzc2FnZRgBIAEoCSIxCg1QbGF5",
             "ZXJDb25uZWN0EiAKBnBsYXllchgBIAEoCzIQLnVuaXZlcnNlLlBsYXllciKQ",
             "AQoDSGl0Eg4KBmRhbWFnZRgBIAEoAxIOCgZocExlZnQYAiABKAMSIwoIcG9z",
@@ -75,57 +77,58 @@ namespace Universe {
             "bGxJZBgGIAEoCSKKAQoISW50ZXJhY3QSDAoEdXVpZBgBIAEoCRI0Cg1keW5h",
             "bWljRW50aXR5GAIgASgOMhsudW5pdmVyc2UuRHluYW1pY0VudGl0eVR5cGVI",
             "ABIyCgxzdGF0aWNFbnRpdHkYAyABKA4yGi51bml2ZXJzZS5TdGF0aWNFbnRp",
-            "dHlUeXBlSABCBgoEaW5mbyI9CgZBdHRhY2sSGQoRZHluYW1pY0VudGl0eVVV",
-            "SUQYASADKAkSGAoQc3RhdGljRW50aXR5VVVJRBgCIAMoCSKeAQoIVXNlU2tp",
-            "bGwSKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0b3IzSACIAQES",
-            "JQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGIAQESHgoFc2tp",
-            "bGwYAyABKAsyDy51bml2ZXJzZS5Ta2lsbBIKCgJpZBgEIAEoCUILCglfcG9z",
-            "aXRpb25CCAoGX2FuZ2xlIhoKBVNraWxsEhEKCXNraWxsVXVpZBgBIAEoCSIk",
-            "Cg5Db25uZWN0UmVxdWVzdBISCgpwbGF5ZXJVdWlkGAEgASgJIqQBCg9Db25u",
-            "ZWN0UmVzcG9uc2USIAoGcGxheWVyGAEgASgLMhAudW5pdmVyc2UuUGxheWVy",
-            "Eh4KBXdvcmxkGAIgASgLMg8udW5pdmVyc2UuV29ybGQSHwoGY2h1bmtzGAMg",
-            "AygLMg8udW5pdmVyc2UuQ2h1bmsSLgoNZHluYW1pY0VudGl0eRgEIAMoCzIX",
-            "LnVuaXZlcnNlLkR5bmFtaWNFbnRpdHkiWQoGUGxheWVyEgwKBG5hbWUYASAB",
-            "KAkSDAoEdXVpZBgCIAEoCRINCgVsZXZlbBgDIAEoBRIkCghwb3NpdGlvbhgE",
-            "IAEoCzISLnVuaXZlcnNlLlBvc2l0aW9uIqABCgVXb3JsZBIMCgRuYW1lGAEg",
-            "ASgJEg0KBWxldmVsGAIgASgFEg4KBmxlbmd0aBgDIAEoBRINCgV3aWR0aBgE",
-            "IAEoBRIPCgdzY2FsZVhZGAUgASgFEhMKC3NjYWxlSGVpZ2h0GAYgASgFEgwK",
-            "BHNlZWQYByABKAkSEwoLY2h1bmtfd2lkdGgYCCABKAUSEgoKcG9wdWxhdGlv",
-            "bhgJIAEoBSI6CgRNb3ZlEiQKCHBvc2l0aW9uGAIgASgLMhIudW5pdmVyc2Uu",
-            "UG9zaXRpb24SDAoEanVtcBgDIAEoCCKKAQoFQ2h1bmsSDAoEdXVpZBgBIAEo",
-            "CRImCghwb3NpdGlvbhgCIAEoCzIULnVuaXZlcnNlLlZlY3RvcjJJbnQSLAoM",
-            "c3RhdGljRW50aXR5GAMgAygLMhYudW5pdmVyc2UuU3RhdGljRW50aXR5Eh0K",
-            "BXRpbGVzGAQgAygLMg4udW5pdmVyc2UuVGlsZSI7CgRUaWxlEiAKBHR5cGUY",
-            "ASABKA4yEi51bml2ZXJzZS5UaWxlVHlwZRIRCgllbGV2YXRpb24YAiABKAIi",
-            "cgoIUG9zaXRpb24SKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0",
-            "b3IzSACIAQESJQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGI",
-            "AQFCCwoJX3Bvc2l0aW9uQggKBl9hbmdsZSIqCgdWZWN0b3IzEgkKAXgYASAB",
-            "KAISCQoBeRgCIAEoAhIJCgF6GAMgASgCIh8KB1ZlY3RvcjISCQoBeBgBIAEo",
-            "AhIJCgF5GAIgASgCIiIKClZlY3RvcjJJbnQSCQoBeBgBIAEoBRIJCgF5GAIg",
-            "ASgFInwKDUR5bmFtaWNFbnRpdHkSDAoEdXVpZBgBIAEoCRIMCgRuYW1lGAIg",
-            "ASgJEiQKCHBvc2l0aW9uGAMgASgLMhIudW5pdmVyc2UuUG9zaXRpb24SKQoE",
-            "dHlwZRgEIAEoDjIbLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlUeXBlInoKDFN0",
-            "YXRpY0VudGl0eRIMCgR1dWlkGAEgASgJEgwKBG5hbWUYAiABKAkSJAoIcG9z",
-            "aXRpb24YAyABKAsyEi51bml2ZXJzZS5Qb3NpdGlvbhIoCgR0eXBlGAQgASgO",
-            "MhoudW5pdmVyc2UuU3RhdGljRW50aXR5VHlwZSpJCghUaWxlVHlwZRIICgRE",
-            "aXJ0EAASCQoFR3Jhc3MQARIICgRSb2NrEAISCgoGRm9yZXN0EAMSCAoEU2Fu",
-            "ZBAEEggKBFNub3cQBSotChFEeW5hbWljRW50aXR5VHlwZRIKCgZQTEFZRVIQ",
-            "ABIMCghDUkVBVFVSRRABKlQKEFN0YXRpY0VudGl0eVR5cGUSCQoFRW1wdHkQ",
-            "ABIMCghCdWlsZGluZxABEg4KCkNodW5rRW50cnkQAhINCglSZXNzb3VyY2UQ",
-            "AxIICgRJdGVtEAQy7AEKDENodW5rU2VydmljZRJJCgpFbnRlckNodW5rEhsu",
-            "dW5pdmVyc2UuRW50ZXJDaHVua1JlcXVlc3QaHC51bml2ZXJzZS5FbnRlckNo",
-            "dW5rUmVzcG9uc2UiABJGCglMb2FkQ2h1bmsSGi51bml2ZXJzZS5Mb2FkQ2h1",
-            "bmtSZXF1ZXN0GhsudW5pdmVyc2UuTG9hZENodW5rUmVzcG9uc2UiABJJCgZT",
-            "dHJlYW0SHC51bml2ZXJzZS5DaHVua1N0cmVhbVJlcXVlc3QaHS51bml2ZXJz",
-            "ZS5DaHVua1N0cmVhbVJlc3BvbnNlIgAwATK0AgoNUGxheWVyU2VydmljZRJP",
-            "CgxDcmVhdGVQbGF5ZXISHS51bml2ZXJzZS5DcmVhdGVQbGF5ZXJSZXF1ZXN0",
-            "Gh4udW5pdmVyc2UuQ3JlYXRlUGxheWVyUmVzcG9uc2UiABJBCgpHZXRQbGF5",
-            "ZXJzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhkudW5pdmVyc2UuR2V0UGxh",
-            "eWVyc1JlcGx5IgASQAoHQ29ubmVjdBIYLnVuaXZlcnNlLkNvbm5lY3RSZXF1",
-            "ZXN0GhkudW5pdmVyc2UuQ29ubmVjdFJlc3BvbnNlIgASTQoGU3RyZWFtEh0u",
-            "dW5pdmVyc2UuUGxheWVyU3RyZWFtUmVxdWVzdBoeLnVuaXZlcnNlLlBsYXll",
-            "clN0cmVhbVJlc3BvbnNlIgAoATABQi1aK2dpdGh1Yi5jb20vUm91a2lpL3Bv",
-            "Y2tfbXVsdGlwbGF5ZXIvdW5pdmVyc2ViBnByb3RvMw=="));
+            "dHlUeXBlSABCBgoEaW5mbyJfCgZBdHRhY2sSGQoRZHluYW1pY0VudGl0eVVV",
+            "SUQYASADKAkSGAoQc3RhdGljRW50aXR5VVVJRBgCIAMoCRIgCgVhbmdsZRgD",
+            "IAEoCzIRLnVuaXZlcnNlLlZlY3RvcjMingEKCFVzZVNraWxsEigKCHBvc2l0",
+            "aW9uGAEgASgLMhEudW5pdmVyc2UuVmVjdG9yM0gAiAEBEiUKBWFuZ2xlGAIg",
+            "ASgLMhEudW5pdmVyc2UuVmVjdG9yM0gBiAEBEh4KBXNraWxsGAMgASgLMg8u",
+            "dW5pdmVyc2UuU2tpbGwSCgoCaWQYBCABKAlCCwoJX3Bvc2l0aW9uQggKBl9h",
+            "bmdsZSIaCgVTa2lsbBIRCglza2lsbFV1aWQYASABKAkiJAoOQ29ubmVjdFJl",
+            "cXVlc3QSEgoKcGxheWVyVXVpZBgBIAEoCSKkAQoPQ29ubmVjdFJlc3BvbnNl",
+            "EiAKBnBsYXllchgBIAEoCzIQLnVuaXZlcnNlLlBsYXllchIeCgV3b3JsZBgC",
+            "IAEoCzIPLnVuaXZlcnNlLldvcmxkEh8KBmNodW5rcxgDIAMoCzIPLnVuaXZl",
+            "cnNlLkNodW5rEi4KDWR5bmFtaWNFbnRpdHkYBCADKAsyFy51bml2ZXJzZS5E",
+            "eW5hbWljRW50aXR5IlkKBlBsYXllchIMCgRuYW1lGAEgASgJEgwKBHV1aWQY",
+            "AiABKAkSDQoFbGV2ZWwYAyABKAUSJAoIcG9zaXRpb24YBCABKAsyEi51bml2",
+            "ZXJzZS5Qb3NpdGlvbiKgAQoFV29ybGQSDAoEbmFtZRgBIAEoCRINCgVsZXZl",
+            "bBgCIAEoBRIOCgZsZW5ndGgYAyABKAUSDQoFd2lkdGgYBCABKAUSDwoHc2Nh",
+            "bGVYWRgFIAEoBRITCgtzY2FsZUhlaWdodBgGIAEoBRIMCgRzZWVkGAcgASgJ",
+            "EhMKC2NodW5rX3dpZHRoGAggASgFEhIKCnBvcHVsYXRpb24YCSABKAUiOgoE",
+            "TW92ZRIkCghwb3NpdGlvbhgCIAEoCzISLnVuaXZlcnNlLlBvc2l0aW9uEgwK",
+            "BGp1bXAYAyABKAgiigEKBUNodW5rEgwKBHV1aWQYASABKAkSJgoIcG9zaXRp",
+            "b24YAiABKAsyFC51bml2ZXJzZS5WZWN0b3IySW50EiwKDHN0YXRpY0VudGl0",
+            "eRgDIAMoCzIWLnVuaXZlcnNlLlN0YXRpY0VudGl0eRIdCgV0aWxlcxgEIAMo",
+            "CzIOLnVuaXZlcnNlLlRpbGUiOwoEVGlsZRIgCgR0eXBlGAEgASgOMhIudW5p",
+            "dmVyc2UuVGlsZVR5cGUSEQoJZWxldmF0aW9uGAIgASgCInIKCFBvc2l0aW9u",
+            "EigKCHBvc2l0aW9uGAEgASgLMhEudW5pdmVyc2UuVmVjdG9yM0gAiAEBEiUK",
+            "BWFuZ2xlGAIgASgLMhEudW5pdmVyc2UuVmVjdG9yM0gBiAEBQgsKCV9wb3Np",
+            "dGlvbkIICgZfYW5nbGUiKgoHVmVjdG9yMxIJCgF4GAEgASgCEgkKAXkYAiAB",
+            "KAISCQoBehgDIAEoAiIfCgdWZWN0b3IyEgkKAXgYASABKAISCQoBeRgCIAEo",
+            "AiIiCgpWZWN0b3IySW50EgkKAXgYASABKAUSCQoBeRgCIAEoBSJ8Cg1EeW5h",
+            "bWljRW50aXR5EgwKBHV1aWQYASABKAkSDAoEbmFtZRgCIAEoCRIkCghwb3Np",
+            "dGlvbhgDIAEoCzISLnVuaXZlcnNlLlBvc2l0aW9uEikKBHR5cGUYBCABKA4y",
+            "Gy51bml2ZXJzZS5EeW5hbWljRW50aXR5VHlwZSJ6CgxTdGF0aWNFbnRpdHkS",
+            "DAoEdXVpZBgBIAEoCRIMCgRuYW1lGAIgASgJEiQKCHBvc2l0aW9uGAMgASgL",
+            "MhIudW5pdmVyc2UuUG9zaXRpb24SKAoEdHlwZRgEIAEoDjIaLnVuaXZlcnNl",
+            "LlN0YXRpY0VudGl0eVR5cGUqSQoIVGlsZVR5cGUSCAoERGlydBAAEgkKBUdy",
+            "YXNzEAESCAoEUm9jaxACEgoKBkZvcmVzdBADEggKBFNhbmQQBBIICgRTbm93",
+            "EAUqLQoRRHluYW1pY0VudGl0eVR5cGUSCgoGUExBWUVSEAASDAoIQ1JFQVRV",
+            "UkUQASpUChBTdGF0aWNFbnRpdHlUeXBlEgkKBUVtcHR5EAASDAoIQnVpbGRp",
+            "bmcQARIOCgpDaHVua0VudHJ5EAISDQoJUmVzc291cmNlEAMSCAoESXRlbRAE",
+            "MuwBCgxDaHVua1NlcnZpY2USSQoKRW50ZXJDaHVuaxIbLnVuaXZlcnNlLkVu",
+            "dGVyQ2h1bmtSZXF1ZXN0GhwudW5pdmVyc2UuRW50ZXJDaHVua1Jlc3BvbnNl",
+            "IgASRgoJTG9hZENodW5rEhoudW5pdmVyc2UuTG9hZENodW5rUmVxdWVzdBob",
+            "LnVuaXZlcnNlLkxvYWRDaHVua1Jlc3BvbnNlIgASSQoGU3RyZWFtEhwudW5p",
+            "dmVyc2UuQ2h1bmtTdHJlYW1SZXF1ZXN0Gh0udW5pdmVyc2UuQ2h1bmtTdHJl",
+            "YW1SZXNwb25zZSIAMAEytAIKDVBsYXllclNlcnZpY2USTwoMQ3JlYXRlUGxh",
+            "eWVyEh0udW5pdmVyc2UuQ3JlYXRlUGxheWVyUmVxdWVzdBoeLnVuaXZlcnNl",
+            "LkNyZWF0ZVBsYXllclJlc3BvbnNlIgASQQoKR2V0UGxheWVycxIWLmdvb2ds",
+            "ZS5wcm90b2J1Zi5FbXB0eRoZLnVuaXZlcnNlLkdldFBsYXllcnNSZXBseSIA",
+            "EkAKB0Nvbm5lY3QSGC51bml2ZXJzZS5Db25uZWN0UmVxdWVzdBoZLnVuaXZl",
+            "cnNlLkNvbm5lY3RSZXNwb25zZSIAEk0KBlN0cmVhbRIdLnVuaXZlcnNlLlBs",
+            "YXllclN0cmVhbVJlcXVlc3QaHi51bml2ZXJzZS5QbGF5ZXJTdHJlYW1SZXNw",
+            "b25zZSIAKAEwAUItWitnaXRodWIuY29tL1JvdWtpaS9wb2NrX211bHRpcGxh",
+            "eWVyL3VuaXZlcnNlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Universe.TileType), typeof(global::Universe.DynamicEntityType), typeof(global::Universe.StaticEntityType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -143,13 +146,13 @@ namespace Universe {
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.CreatePlayerRequest), global::Universe.CreatePlayerRequest.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.CreatePlayerResponse), global::Universe.CreatePlayerResponse.Parser, new[]{ "Player", "World", "Chunks", "DynamicEntity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.GetPlayersReply), global::Universe.GetPlayersReply.Parser, new[]{ "Player" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamRequest), global::Universe.PlayerStreamRequest.Parser, new[]{ "Move", "Attack", "Interact", "Skill", "Hit" }, new[]{ "Action" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamResponse), global::Universe.PlayerStreamResponse.Parser, new[]{ "Uuid", "DynamicEntity", "StaticEntity", "Move", "AddEntity", "DeleteEntity", "Hit", "Attack", "Skill", "Disconnect", "Connect" }, new[]{ "Info", "Action" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamRequest), global::Universe.PlayerStreamRequest.Parser, new[]{ "Move", "Attack", "Interact", "Skill", "Hit", "Disconnect" }, new[]{ "Action" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamResponse), global::Universe.PlayerStreamResponse.Parser, new[]{ "Uuid", "DynamicEntity", "StaticEntity", "Move", "AddEntity", "DeleteEntity", "Hit", "Attack", "Skill", "Disconnect", "Connect", "Interact" }, new[]{ "Info", "Action" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerDisconnect), global::Universe.PlayerDisconnect.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerConnect), global::Universe.PlayerConnect.Parser, new[]{ "Player" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Hit), global::Universe.Hit.Parser, new[]{ "Damage", "HpLeft", "Position", "DynamicEntityUUID", "StaticEntityUUID", "SkillId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Interact), global::Universe.Interact.Parser, new[]{ "Uuid", "DynamicEntity", "StaticEntity" }, new[]{ "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Attack), global::Universe.Attack.Parser, new[]{ "DynamicEntityUUID", "StaticEntityUUID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Attack), global::Universe.Attack.Parser, new[]{ "DynamicEntityUUID", "StaticEntityUUID", "Angle" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.UseSkill), global::Universe.UseSkill.Parser, new[]{ "Position", "Angle", "Skill", "Id" }, new[]{ "Position", "Angle" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Skill), global::Universe.Skill.Parser, new[]{ "SkillUuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectRequest), global::Universe.ConnectRequest.Parser, new[]{ "PlayerUuid" }, null, null, null, null),
@@ -3062,6 +3065,9 @@ namespace Universe {
         case ActionOneofCase.Hit:
           Hit = other.Hit.Clone();
           break;
+        case ActionOneofCase.Disconnect:
+          Disconnect = other.Disconnect.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3127,6 +3133,17 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "disconnect" field.</summary>
+    public const int DisconnectFieldNumber = 6;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.PlayerDisconnect Disconnect {
+      get { return actionCase_ == ActionOneofCase.Disconnect ? (global::Universe.PlayerDisconnect) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Disconnect;
+      }
+    }
+
     private object action_;
     /// <summary>Enum of possible cases for the "action" oneof.</summary>
     public enum ActionOneofCase {
@@ -3136,6 +3153,7 @@ namespace Universe {
       Interact = 3,
       Skill = 4,
       Hit = 5,
+      Disconnect = 6,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3167,6 +3185,7 @@ namespace Universe {
       if (!object.Equals(Interact, other.Interact)) return false;
       if (!object.Equals(Skill, other.Skill)) return false;
       if (!object.Equals(Hit, other.Hit)) return false;
+      if (!object.Equals(Disconnect, other.Disconnect)) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3179,6 +3198,7 @@ namespace Universe {
       if (actionCase_ == ActionOneofCase.Interact) hash ^= Interact.GetHashCode();
       if (actionCase_ == ActionOneofCase.Skill) hash ^= Skill.GetHashCode();
       if (actionCase_ == ActionOneofCase.Hit) hash ^= Hit.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Disconnect) hash ^= Disconnect.GetHashCode();
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3216,6 +3236,10 @@ namespace Universe {
         output.WriteRawTag(42);
         output.WriteMessage(Hit);
       }
+      if (actionCase_ == ActionOneofCase.Disconnect) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Disconnect);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3245,6 +3269,10 @@ namespace Universe {
         output.WriteRawTag(42);
         output.WriteMessage(Hit);
       }
+      if (actionCase_ == ActionOneofCase.Disconnect) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Disconnect);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3268,6 +3296,9 @@ namespace Universe {
       }
       if (actionCase_ == ActionOneofCase.Hit) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Hit);
+      }
+      if (actionCase_ == ActionOneofCase.Disconnect) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Disconnect);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3310,6 +3341,12 @@ namespace Universe {
             Hit = new global::Universe.Hit();
           }
           Hit.MergeFrom(other.Hit);
+          break;
+        case ActionOneofCase.Disconnect:
+          if (Disconnect == null) {
+            Disconnect = new global::Universe.PlayerDisconnect();
+          }
+          Disconnect.MergeFrom(other.Disconnect);
           break;
       }
 
@@ -3372,6 +3409,15 @@ namespace Universe {
             Hit = subBuilder;
             break;
           }
+          case 50: {
+            global::Universe.PlayerDisconnect subBuilder = new global::Universe.PlayerDisconnect();
+            if (actionCase_ == ActionOneofCase.Disconnect) {
+              subBuilder.MergeFrom(Disconnect);
+            }
+            input.ReadMessage(subBuilder);
+            Disconnect = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -3429,6 +3475,15 @@ namespace Universe {
             }
             input.ReadMessage(subBuilder);
             Hit = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Universe.PlayerDisconnect subBuilder = new global::Universe.PlayerDisconnect();
+            if (actionCase_ == ActionOneofCase.Disconnect) {
+              subBuilder.MergeFrom(Disconnect);
+            }
+            input.ReadMessage(subBuilder);
+            Disconnect = subBuilder;
             break;
           }
         }
@@ -3501,6 +3556,9 @@ namespace Universe {
           break;
         case ActionOneofCase.Connect:
           Connect = other.Connect.Clone();
+          break;
+        case ActionOneofCase.Interact:
+          Interact = other.Interact.Clone();
           break;
       }
 
@@ -3633,6 +3691,17 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "interact" field.</summary>
+    public const int InteractFieldNumber = 12;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Interact Interact {
+      get { return actionCase_ == ActionOneofCase.Interact ? (global::Universe.Interact) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Interact;
+      }
+    }
+
     private object info_;
     /// <summary>Enum of possible cases for the "info" oneof.</summary>
     public enum InfoOneofCase {
@@ -3664,6 +3733,7 @@ namespace Universe {
       Skill = 9,
       Disconnect = 10,
       Connect = 11,
+      Interact = 12,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3701,6 +3771,7 @@ namespace Universe {
       if (!object.Equals(Skill, other.Skill)) return false;
       if (!object.Equals(Disconnect, other.Disconnect)) return false;
       if (!object.Equals(Connect, other.Connect)) return false;
+      if (!object.Equals(Interact, other.Interact)) return false;
       if (InfoCase != other.InfoCase) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3720,6 +3791,7 @@ namespace Universe {
       if (actionCase_ == ActionOneofCase.Skill) hash ^= Skill.GetHashCode();
       if (actionCase_ == ActionOneofCase.Disconnect) hash ^= Disconnect.GetHashCode();
       if (actionCase_ == ActionOneofCase.Connect) hash ^= Connect.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Interact) hash ^= Interact.GetHashCode();
       hash ^= (int) infoCase_;
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
@@ -3782,6 +3854,10 @@ namespace Universe {
         output.WriteRawTag(90);
         output.WriteMessage(Connect);
       }
+      if (actionCase_ == ActionOneofCase.Interact) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Interact);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3835,6 +3911,10 @@ namespace Universe {
         output.WriteRawTag(90);
         output.WriteMessage(Connect);
       }
+      if (actionCase_ == ActionOneofCase.Interact) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Interact);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3876,6 +3956,9 @@ namespace Universe {
       }
       if (actionCase_ == ActionOneofCase.Connect) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Connect);
+      }
+      if (actionCase_ == ActionOneofCase.Interact) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Interact);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3945,6 +4028,12 @@ namespace Universe {
             Connect = new global::Universe.PlayerConnect();
           }
           Connect.MergeFrom(other.Connect);
+          break;
+        case ActionOneofCase.Interact:
+          if (Interact == null) {
+            Interact = new global::Universe.Interact();
+          }
+          Interact.MergeFrom(other.Interact);
           break;
       }
 
@@ -4043,6 +4132,15 @@ namespace Universe {
             Connect = subBuilder;
             break;
           }
+          case 98: {
+            global::Universe.Interact subBuilder = new global::Universe.Interact();
+            if (actionCase_ == ActionOneofCase.Interact) {
+              subBuilder.MergeFrom(Interact);
+            }
+            input.ReadMessage(subBuilder);
+            Interact = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -4136,6 +4234,15 @@ namespace Universe {
             }
             input.ReadMessage(subBuilder);
             Connect = subBuilder;
+            break;
+          }
+          case 98: {
+            global::Universe.Interact subBuilder = new global::Universe.Interact();
+            if (actionCase_ == ActionOneofCase.Interact) {
+              subBuilder.MergeFrom(Interact);
+            }
+            input.ReadMessage(subBuilder);
+            Interact = subBuilder;
             break;
           }
         }
@@ -5147,6 +5254,7 @@ namespace Universe {
     public Attack(Attack other) : this() {
       dynamicEntityUUID_ = other.dynamicEntityUUID_.Clone();
       staticEntityUUID_ = other.staticEntityUUID_.Clone();
+      angle_ = other.angle_ != null ? other.angle_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5175,6 +5283,17 @@ namespace Universe {
       get { return staticEntityUUID_; }
     }
 
+    /// <summary>Field number for the "angle" field.</summary>
+    public const int AngleFieldNumber = 3;
+    private global::Universe.Vector3 angle_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Vector3 Angle {
+      get { return angle_; }
+      set {
+        angle_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Attack);
@@ -5190,6 +5309,7 @@ namespace Universe {
       }
       if(!dynamicEntityUUID_.Equals(other.dynamicEntityUUID_)) return false;
       if(!staticEntityUUID_.Equals(other.staticEntityUUID_)) return false;
+      if (!object.Equals(Angle, other.Angle)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5198,6 +5318,7 @@ namespace Universe {
       int hash = 1;
       hash ^= dynamicEntityUUID_.GetHashCode();
       hash ^= staticEntityUUID_.GetHashCode();
+      if (angle_ != null) hash ^= Angle.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5216,6 +5337,10 @@ namespace Universe {
     #else
       dynamicEntityUUID_.WriteTo(output, _repeated_dynamicEntityUUID_codec);
       staticEntityUUID_.WriteTo(output, _repeated_staticEntityUUID_codec);
+      if (angle_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Angle);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5227,6 +5352,10 @@ namespace Universe {
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       dynamicEntityUUID_.WriteTo(ref output, _repeated_dynamicEntityUUID_codec);
       staticEntityUUID_.WriteTo(ref output, _repeated_staticEntityUUID_codec);
+      if (angle_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Angle);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5238,6 +5367,9 @@ namespace Universe {
       int size = 0;
       size += dynamicEntityUUID_.CalculateSize(_repeated_dynamicEntityUUID_codec);
       size += staticEntityUUID_.CalculateSize(_repeated_staticEntityUUID_codec);
+      if (angle_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Angle);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5251,6 +5383,12 @@ namespace Universe {
       }
       dynamicEntityUUID_.Add(other.dynamicEntityUUID_);
       staticEntityUUID_.Add(other.staticEntityUUID_);
+      if (other.angle_ != null) {
+        if (angle_ == null) {
+          Angle = new global::Universe.Vector3();
+        }
+        Angle.MergeFrom(other.Angle);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5273,6 +5411,13 @@ namespace Universe {
             staticEntityUUID_.AddEntriesFrom(input, _repeated_staticEntityUUID_codec);
             break;
           }
+          case 26: {
+            if (angle_ == null) {
+              Angle = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Angle);
+            break;
+          }
         }
       }
     #endif
@@ -5293,6 +5438,13 @@ namespace Universe {
           }
           case 18: {
             staticEntityUUID_.AddEntriesFrom(ref input, _repeated_staticEntityUUID_codec);
+            break;
+          }
+          case 26: {
+            if (angle_ == null) {
+              Angle = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Angle);
             break;
           }
         }
