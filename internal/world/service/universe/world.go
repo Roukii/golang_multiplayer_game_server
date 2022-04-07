@@ -12,6 +12,7 @@ import (
 	"github.com/gocql/gocql"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 )
 
 func (us *UniverseService) LoadWorlds() error {
@@ -102,10 +103,29 @@ func (us *UniverseService) GetWorlds() []*universe.World {
 
 // TODO lock write with mutex
 func (us *UniverseService) LoadChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (chunks []*universe.Chunk, err error) {
-	chunks, err = us.GetChunksFromSpawnSpoint(spawnPoint, 1)
+	chunks, err = us.getChunksFromSpawnSpoint(spawnPoint, 1)
 	if err != nil {
 		log.Println("failed to load chunks", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
+	}
+	return chunks, nil
+}
+
+// TODO lock write with mutex
+func (us *UniverseService) LoadSpecificChunks(world *universe.World, coordinates []*pb.Vector2Int) ([]*universe.Chunk, error) {
+	var chunks []*universe.Chunk
+	if len(world.Chunks) == 0 {
+		err := us.loadWorldChunks(world)
+		if err != nil {
+			return nil, errors.New("chunks not found for world : " + world.UUID)
+		}
+	}
+	for _, coordinate := range coordinates {
+		if chunk, ok := world.Chunks[int(coordinate.X)][int(coordinate.Y)]; ok {
+			chunks = append(chunks, &chunk)
+		} else {
+			log.Println("Couldn't load chunk from pos : ", coordinate.X, "/", coordinate.Y)
+		}
 	}
 	return chunks, nil
 }

@@ -29,6 +29,7 @@ message EnterWorldResponse {
 
 message LoadChunkRequest {
     int32 viewDistance = 1;
+    repeated Vector2Int chunkToLoad = 2;
 }
 
 message LoadChunkResponse {

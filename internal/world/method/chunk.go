@@ -50,8 +50,24 @@ func (c *ChunkMethod) EnterWorld(ctx context.Context, request *pb.EnterWorldRequ
 }
 
 func (c *ChunkMethod) LoadChunk(ctx context.Context, request *pb.LoadChunkRequest) (*pb.LoadChunkResponse, error) {
+	userInfo, err := getUserInfoFromRequest(ctx)
+	if err != nil {
+		return nil, err
+	}
+	client, ok := c.clients.GetClient(userInfo.UUID)
+	if ok && client.GetPlayerUUID() != "" {
+		return nil, status.Errorf(codes.AlreadyExists, "already connect")
+	}
+	world, err := c.game.UniverseService.GetWorld(client.GetPlayerUUID())
+	if err != nil {
+		return nil, err
+	}
+	chunks, err := c.game.UniverseService.LoadSpecificChunks(world, request.ChunkToLoad)
+	if err != nil {
+		return nil, err
+	}
 	return &pb.LoadChunkResponse{
-		Chunks:        []*pb.Chunk{},
+		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
 }

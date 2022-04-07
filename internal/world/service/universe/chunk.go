@@ -58,7 +58,7 @@ func (us *UniverseService) generateAndSaveWorldChunks(world *universe.World) (er
 	return nil
 }
 
-func (us *UniverseService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, viewDistance int) ([]*universe.Chunk, error) {
+func (us *UniverseService) getChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, viewDistance int) ([]*universe.Chunk, error) {
 	var chunks []*universe.Chunk
 	world, ok := us.Universe.Worlds[spawnPoint.WorldUUID]
 	if !ok {
