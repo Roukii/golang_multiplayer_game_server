@@ -10,7 +10,6 @@ import (
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
-	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
@@ -33,26 +32,8 @@ func (pm *PlayerMethod) GetPlayers(ctx context.Context, request *emptypb.Empty) 
 	if err != nil {
 		return nil, err
 	}
-
-	players, err := pm.game.PlayerService.PlayerDao.GetAllPlayersFromUserUUID(userInfo.UUID)
-	var playerResponse []*pb.Player
-	for _, player := range players {
-		playerResponse = append(playerResponse, &pb.Player{
-			Name:  player.Name,
-			Level: int32(player.Stats.Level),
-			Position: &pb.Position{
-				Position: &pb.Vector3{
-					X: player.SpawnPoint.Coordinate.Position.X,
-					Y: player.SpawnPoint.Coordinate.Position.Y,
-					Z: player.SpawnPoint.Coordinate.Position.Z,
-				},
-				Angle: &pb.Vector3{},
-			},
-		})
-	}
-	return &pb.GetPlayersReply{
-		Player: playerResponse,
-	}, nil
+	playersReply, err := pm.game.PlayerService.GetPlayersFromUserUUID(userInfo.UUID)
+	return playersReply, nil
 }
 
 func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlayerRequest) (*pb.CreatePlayerResponse, error) {
@@ -81,7 +62,7 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 		fmt.Println("failed to create player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
-	world, chunks, err := pm.loadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
+	world, chunks, err := pm.game.UniverseService.LoadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +88,7 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 		fmt.Println("failed to connect player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
-	world, chunks, err := pm.loadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
+	world, chunks, err := pm.game.UniverseService.LoadWorldAndChunksFromSpawnPoint(p.SpawnPoint)
 	if err != nil {
 		return nil, err
 	}
@@ -120,21 +101,6 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
-}
-
-// TODO lock write with mutex
-func (pm *PlayerMethod) loadWorldAndChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (world *universe.World, chunks []*universe.Chunk, err error) {
-	world, err = pm.game.UniverseService.GetWorld(spawnPoint.WorldUUID)
-	if err != nil {
-		fmt.Println("failed to load world", err)
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load world")
-	}
-	chunks, err = pm.game.UniverseService.GetChunksFromSpawnSpoint(spawnPoint, 1)
-	if err != nil {
-		fmt.Println("failed to load chunks", err)
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
-	}
-	return world, chunks, nil
 }
 
 func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) error {

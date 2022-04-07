@@ -5,13 +5,16 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/procedural_generation"
 	"github.com/gocql/gocql"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 func (us *UniverseService) LoadWorlds() error {
-	worlds, err := us.WorldDao.GetAllWorlds()
+	worlds, err := us.worldDao.GetAllWorlds()
 	if err != nil {
 		return err
 	}
@@ -46,7 +49,7 @@ func (us *UniverseService) CreateWorld(worldName string) (universe.World, error)
 		CreatedAt: time.Now(),
 		UpdateAt:  time.Now(),
 	}
-	err := us.WorldDao.Insert(&world)
+	err := us.worldDao.Insert(&world)
 	if err != nil {
 		fmt.Println("error : ", err)
 		return world, err
@@ -61,4 +64,19 @@ func (us *UniverseService) GetWorld(WorldUUID string) (*universe.World, error) {
 		return &world, nil
 	}
 	return nil, errors.New("Can't find world")
+}
+
+// TODO lock write with mutex
+func (us *UniverseService) LoadWorldAndChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (world *universe.World, chunks []*universe.Chunk, err error) {
+	world, err = us.GetWorld(spawnPoint.WorldUUID)
+	if err != nil {
+		fmt.Println("failed to load world", err)
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load world")
+	}
+	chunks, err = us.GetChunksFromSpawnSpoint(spawnPoint, 1)
+	if err != nil {
+		fmt.Println("failed to load chunks", err)
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
+	}
+	return world, chunks, nil
 }

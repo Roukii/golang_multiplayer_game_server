@@ -9,16 +9,18 @@ import (
 
 type UniverseService struct {
 	Universe        universe.Universe
-	ChunkDao        *dao.ChunkDao
+	chunkDao        *dao.ChunkDao
+	worldDao        *dao.WorldDao
 	WorldGenerators map[string]*procedural_generation.WorldGenerator
-	WorldDao        *dao.WorldDao
 }
 
 func NewUniverseService(session *gocqlx.Session) *UniverseService {
 	u := UniverseService{
-		Universe:        universe.Universe{},
-		ChunkDao:        dao.NewChunkDao(session),
-		WorldDao:        dao.NewWorldDao(session),
+		Universe:        universe.Universe{
+			Worlds:    make(map[string]universe.World),
+		},
+		chunkDao:        dao.NewChunkDao(session),
+		worldDao:        dao.NewWorldDao(session),
 		WorldGenerators: map[string]*procedural_generation.WorldGenerator{},
 	}
 	return &u

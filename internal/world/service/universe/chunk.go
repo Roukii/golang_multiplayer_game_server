@@ -13,7 +13,7 @@ import (
 )
 
 func (us *UniverseService) loadWorldChunks(world *universe.World) error {
-	chunks, err := us.ChunkDao.LoadWorldChunk(world.UUID)
+	chunks, err := us.chunkDao.LoadWorldChunk(world.UUID)
 	if err != nil {
 		fmt.Println("Couldn't load chunks : ", err)
 		return err
@@ -87,7 +87,7 @@ func (us *UniverseService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint
 func (us *UniverseService) saveWorldChunks(world *universe.World) (err error) {
 	for _, chunks := range world.Chunks {
 		for _, chunk := range chunks {
-			err = us.ChunkDao.Insert(world.UUID, &chunk)
+			err = us.chunkDao.Insert(world.UUID, &chunk)
 			if err != nil {
 				fmt.Println("can't save chunk : ", err)
 			}
@@ -104,6 +104,6 @@ func (us *UniverseService) generateChunk(world *universe.World, position entity.
 		return nil, err
 	}
 	chunk.UUID = gocql.TimeUUID().String()
-	us.ChunkDao.Insert(world.UUID, chunk)
+	us.chunkDao.Insert(world.UUID, chunk)
 	return chunk, nil
 }
