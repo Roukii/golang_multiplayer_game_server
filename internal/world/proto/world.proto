@@ -96,16 +96,73 @@ message GetPlayersReply {
 }
 
 message PlayerStreamRequest {
-    oneof action {
-        Move move = 1;
-    }}
-
-message PlayerStreamResponse {
-    oneof action {
-        Move move = 1;
-    }
+  oneof action {
+    Move move = 1;
+    Attack attack = 2;
+    Interact interact = 3;
+    UseSkill skill = 4;
+    Hit hit = 5;
+  }
 }
 
+message PlayerStreamResponse {
+  string uuid = 1;
+  oneof info {
+    DynamicEntityType dynamicEntity = 2;
+    StaticEntityType staticEntity = 3;
+  }
+  oneof action {
+    Move move = 4;
+    DynamicEntity addEntity = 5;
+    bool deleteEntity = 6;
+    Hit hit = 7;
+    Attack attack = 8;
+    UseSkill skill = 9;
+    PlayerDisconnect disconnect = 10;
+    PlayerConnect connect = 11;
+  }
+}
+
+message PlayerDisconnect {
+  string message = 1;
+}
+
+message PlayerConnect {
+  Player player = 1;
+}
+
+message Hit {
+  int64 damage = 1;
+  int64 hpLeft = 2;
+  Vector3 position = 3;
+  repeated string dynamicEntityUUID = 4;
+  repeated string staticEntityUUID = 5;
+  string skillId = 6;
+}
+
+message Interact {
+  string uuid = 1;
+  oneof info {
+    DynamicEntityType dynamicEntity = 2;
+    StaticEntityType staticEntity = 3;
+  }
+}
+
+message Attack {
+  repeated string dynamicEntityUUID = 1;
+  repeated string staticEntityUUID = 2;
+}
+
+message UseSkill {
+  optional Vector3 position = 1;
+  optional Vector3 angle = 2;
+  Skill skill = 3;
+  string id = 4;
+}
+
+message Skill {
+    string skillUuid = 1;
+}
 
 message ConnectRequest {
     string playerUuid = 1;
@@ -130,13 +187,16 @@ message World {
     int32 level = 2;
     int32 length = 3;
     int32 width = 4;
-    string seed = 5;
-    int32 chunk_width = 6;
-    int32 population = 7;
+    int32 scaleXY = 5;
+    int32 scaleHeight = 6;
+    string seed = 7;
+    int32 chunk_width = 8;
+    int32 population = 9;
 }
 
 message Move {
-  Position position = 1;
+  Position position = 2;
+  bool jump = 3;
 }
 
 message Chunk {
@@ -152,7 +212,7 @@ message Tile {
 }
 
 enum TileType {
-    Dirt = 0;
+  Dirt = 0;
 	Grass = 1;
 	Rock = 2;
 	Forest = 3;

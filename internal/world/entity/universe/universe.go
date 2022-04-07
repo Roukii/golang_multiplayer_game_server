@@ -9,11 +9,11 @@ import (
 )
 
 type Universe struct {
-	UUID      string          `json:"uuid"`
-	Name      string          `json:"name"`
-	Worlds    map[string]World         `json:"worlds"`
-	Players   []player.Player `json:"players"`
-	CreatedAt time.Time       `json:"created_at"`
+	UUID      string           `json:"uuid"`
+	Name      string           `json:"name"`
+	Worlds    map[string]World `json:"worlds"`
+	Players   []player.Player  `json:"players"`
+	CreatedAt time.Time        `json:"created_at"`
 }
 
 func (a Universe) GetJsonFields() []string {

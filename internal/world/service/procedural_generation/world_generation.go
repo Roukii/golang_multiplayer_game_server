@@ -101,8 +101,8 @@ func generateHeightmap(startingPositionX int, startingPositionY int, noise opens
 	heightmap := make([]float64, chunkLength*chunkLength)
 	for y := 0; y+startingPositionY < h; y++ {
 		for x := 0; x+startingPositionX < w; x++ {
-			xFloat := float64(x+startingPositionX) * 0.3
-			yFloat := float64(y+startingPositionY) * 0.3
+			xFloat := float64(x+startingPositionX) * 0.15
+			yFloat := float64(y+startingPositionY) * 0.15
 			heightmap[(y*chunkLength)+x] = noise.Eval2(xFloat, yFloat)
 		}
 	}

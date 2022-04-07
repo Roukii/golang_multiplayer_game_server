@@ -3,17 +3,16 @@ package method
 import (
 	"context"
 	"io"
-	"sync"
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
 type ChunkMethod struct {
 	pb.UnimplementedChunkServiceServer
 	game    *game.GameService
-	clients map[string]*client
-	mu      sync.RWMutex
+	clients *client.ClientService
 }
 
 func (c *ChunkMethod) EnterChunk(ctx context.Context, request *pb.EnterChunkRequest) (*pb.EnterChunkResponse, error) {

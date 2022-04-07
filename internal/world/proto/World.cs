@@ -52,53 +52,80 @@ namespace Universe {
             "V29ybGQSHwoGY2h1bmtzGAMgAygLMg8udW5pdmVyc2UuQ2h1bmsSLgoNZHlu",
             "YW1pY0VudGl0eRgEIAMoCzIXLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHkiMwoP",
             "R2V0UGxheWVyc1JlcGx5EiAKBnBsYXllchgBIAMoCzIQLnVuaXZlcnNlLlBs",
-            "YXllciI/ChNQbGF5ZXJTdHJlYW1SZXF1ZXN0Eh4KBG1vdmUYASABKAsyDi51",
-            "bml2ZXJzZS5Nb3ZlSABCCAoGYWN0aW9uIkAKFFBsYXllclN0cmVhbVJlc3Bv",
-            "bnNlEh4KBG1vdmUYASABKAsyDi51bml2ZXJzZS5Nb3ZlSABCCAoGYWN0aW9u",
-            "IiQKDkNvbm5lY3RSZXF1ZXN0EhIKCnBsYXllclV1aWQYASABKAkipAEKD0Nv",
-            "bm5lY3RSZXNwb25zZRIgCgZwbGF5ZXIYASABKAsyEC51bml2ZXJzZS5QbGF5",
-            "ZXISHgoFd29ybGQYAiABKAsyDy51bml2ZXJzZS5Xb3JsZBIfCgZjaHVua3MY",
-            "AyADKAsyDy51bml2ZXJzZS5DaHVuaxIuCg1keW5hbWljRW50aXR5GAQgAygL",
-            "MhcudW5pdmVyc2UuRHluYW1pY0VudGl0eSJZCgZQbGF5ZXISDAoEbmFtZRgB",
-            "IAEoCRIMCgR1dWlkGAIgASgJEg0KBWxldmVsGAMgASgFEiQKCHBvc2l0aW9u",
-            "GAQgASgLMhIudW5pdmVyc2UuUG9zaXRpb24iegoFV29ybGQSDAoEbmFtZRgB",
-            "IAEoCRINCgVsZXZlbBgCIAEoBRIOCgZsZW5ndGgYAyABKAUSDQoFd2lkdGgY",
-            "BCABKAUSDAoEc2VlZBgFIAEoCRITCgtjaHVua193aWR0aBgGIAEoBRISCgpw",
-            "b3B1bGF0aW9uGAcgASgFIiwKBE1vdmUSJAoIcG9zaXRpb24YASABKAsyEi51",
-            "bml2ZXJzZS5Qb3NpdGlvbiKKAQoFQ2h1bmsSDAoEdXVpZBgBIAEoCRImCghw",
-            "b3NpdGlvbhgCIAEoCzIULnVuaXZlcnNlLlZlY3RvcjJJbnQSLAoMc3RhdGlj",
-            "RW50aXR5GAMgAygLMhYudW5pdmVyc2UuU3RhdGljRW50aXR5Eh0KBXRpbGVz",
-            "GAQgAygLMg4udW5pdmVyc2UuVGlsZSI7CgRUaWxlEiAKBHR5cGUYASABKA4y",
-            "Ei51bml2ZXJzZS5UaWxlVHlwZRIRCgllbGV2YXRpb24YAiABKAIicgoIUG9z",
-            "aXRpb24SKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0b3IzSACI",
-            "AQESJQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGIAQFCCwoJ",
-            "X3Bvc2l0aW9uQggKBl9hbmdsZSIqCgdWZWN0b3IzEgkKAXgYASABKAISCQoB",
-            "eRgCIAEoAhIJCgF6GAMgASgCIh8KB1ZlY3RvcjISCQoBeBgBIAEoAhIJCgF5",
-            "GAIgASgCIiIKClZlY3RvcjJJbnQSCQoBeBgBIAEoBRIJCgF5GAIgASgFInwK",
-            "DUR5bmFtaWNFbnRpdHkSDAoEdXVpZBgBIAEoCRIMCgRuYW1lGAIgASgJEiQK",
-            "CHBvc2l0aW9uGAMgASgLMhIudW5pdmVyc2UuUG9zaXRpb24SKQoEdHlwZRgE",
-            "IAEoDjIbLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlUeXBlInoKDFN0YXRpY0Vu",
-            "dGl0eRIMCgR1dWlkGAEgASgJEgwKBG5hbWUYAiABKAkSJAoIcG9zaXRpb24Y",
-            "AyABKAsyEi51bml2ZXJzZS5Qb3NpdGlvbhIoCgR0eXBlGAQgASgOMhoudW5p",
-            "dmVyc2UuU3RhdGljRW50aXR5VHlwZSpJCghUaWxlVHlwZRIICgREaXJ0EAAS",
-            "CQoFR3Jhc3MQARIICgRSb2NrEAISCgoGRm9yZXN0EAMSCAoEU2FuZBAEEggK",
-            "BFNub3cQBSotChFEeW5hbWljRW50aXR5VHlwZRIKCgZQTEFZRVIQABIMCghD",
-            "UkVBVFVSRRABKlQKEFN0YXRpY0VudGl0eVR5cGUSCQoFRW1wdHkQABIMCghC",
-            "dWlsZGluZxABEg4KCkNodW5rRW50cnkQAhINCglSZXNzb3VyY2UQAxIICgRJ",
-            "dGVtEAQy7AEKDENodW5rU2VydmljZRJJCgpFbnRlckNodW5rEhsudW5pdmVy",
-            "c2UuRW50ZXJDaHVua1JlcXVlc3QaHC51bml2ZXJzZS5FbnRlckNodW5rUmVz",
-            "cG9uc2UiABJGCglMb2FkQ2h1bmsSGi51bml2ZXJzZS5Mb2FkQ2h1bmtSZXF1",
-            "ZXN0GhsudW5pdmVyc2UuTG9hZENodW5rUmVzcG9uc2UiABJJCgZTdHJlYW0S",
-            "HC51bml2ZXJzZS5DaHVua1N0cmVhbVJlcXVlc3QaHS51bml2ZXJzZS5DaHVu",
-            "a1N0cmVhbVJlc3BvbnNlIgAwATK0AgoNUGxheWVyU2VydmljZRJPCgxDcmVh",
-            "dGVQbGF5ZXISHS51bml2ZXJzZS5DcmVhdGVQbGF5ZXJSZXF1ZXN0Gh4udW5p",
-            "dmVyc2UuQ3JlYXRlUGxheWVyUmVzcG9uc2UiABJBCgpHZXRQbGF5ZXJzEhYu",
-            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5GhkudW5pdmVyc2UuR2V0UGxheWVyc1Jl",
-            "cGx5IgASQAoHQ29ubmVjdBIYLnVuaXZlcnNlLkNvbm5lY3RSZXF1ZXN0Ghku",
-            "dW5pdmVyc2UuQ29ubmVjdFJlc3BvbnNlIgASTQoGU3RyZWFtEh0udW5pdmVy",
-            "c2UuUGxheWVyU3RyZWFtUmVxdWVzdBoeLnVuaXZlcnNlLlBsYXllclN0cmVh",
-            "bVJlc3BvbnNlIgAoATABQi1aK2dpdGh1Yi5jb20vUm91a2lpL3BvY2tfbXVs",
-            "dGlwbGF5ZXIvdW5pdmVyc2ViBnByb3RvMw=="));
+            "YXllciLOAQoTUGxheWVyU3RyZWFtUmVxdWVzdBIeCgRtb3ZlGAEgASgLMg4u",
+            "dW5pdmVyc2UuTW92ZUgAEiIKBmF0dGFjaxgCIAEoCzIQLnVuaXZlcnNlLkF0",
+            "dGFja0gAEiYKCGludGVyYWN0GAMgASgLMhIudW5pdmVyc2UuSW50ZXJhY3RI",
+            "ABIjCgVza2lsbBgEIAEoCzISLnVuaXZlcnNlLlVzZVNraWxsSAASHAoDaGl0",
+            "GAUgASgLMg0udW5pdmVyc2UuSGl0SABCCAoGYWN0aW9uIssDChRQbGF5ZXJT",
+            "dHJlYW1SZXNwb25zZRIMCgR1dWlkGAEgASgJEjQKDWR5bmFtaWNFbnRpdHkY",
+            "AiABKA4yGy51bml2ZXJzZS5EeW5hbWljRW50aXR5VHlwZUgAEjIKDHN0YXRp",
+            "Y0VudGl0eRgDIAEoDjIaLnVuaXZlcnNlLlN0YXRpY0VudGl0eVR5cGVIABIe",
+            "CgRtb3ZlGAQgASgLMg4udW5pdmVyc2UuTW92ZUgBEiwKCWFkZEVudGl0eRgF",
+            "IAEoCzIXLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlIARIWCgxkZWxldGVFbnRp",
+            "dHkYBiABKAhIARIcCgNoaXQYByABKAsyDS51bml2ZXJzZS5IaXRIARIiCgZh",
+            "dHRhY2sYCCABKAsyEC51bml2ZXJzZS5BdHRhY2tIARIjCgVza2lsbBgJIAEo",
+            "CzISLnVuaXZlcnNlLlVzZVNraWxsSAESMAoKZGlzY29ubmVjdBgKIAEoCzIa",
+            "LnVuaXZlcnNlLlBsYXllckRpc2Nvbm5lY3RIARIqCgdjb25uZWN0GAsgASgL",
+            "MhcudW5pdmVyc2UuUGxheWVyQ29ubmVjdEgBQgYKBGluZm9CCAoGYWN0aW9u",
+            "IiMKEFBsYXllckRpc2Nvbm5lY3QSDwoHbWVzc2FnZRgBIAEoCSIxCg1QbGF5",
+            "ZXJDb25uZWN0EiAKBnBsYXllchgBIAEoCzIQLnVuaXZlcnNlLlBsYXllciKQ",
+            "AQoDSGl0Eg4KBmRhbWFnZRgBIAEoAxIOCgZocExlZnQYAiABKAMSIwoIcG9z",
+            "aXRpb24YAyABKAsyES51bml2ZXJzZS5WZWN0b3IzEhkKEWR5bmFtaWNFbnRp",
+            "dHlVVUlEGAQgAygJEhgKEHN0YXRpY0VudGl0eVVVSUQYBSADKAkSDwoHc2tp",
+            "bGxJZBgGIAEoCSKKAQoISW50ZXJhY3QSDAoEdXVpZBgBIAEoCRI0Cg1keW5h",
+            "bWljRW50aXR5GAIgASgOMhsudW5pdmVyc2UuRHluYW1pY0VudGl0eVR5cGVI",
+            "ABIyCgxzdGF0aWNFbnRpdHkYAyABKA4yGi51bml2ZXJzZS5TdGF0aWNFbnRp",
+            "dHlUeXBlSABCBgoEaW5mbyI9CgZBdHRhY2sSGQoRZHluYW1pY0VudGl0eVVV",
+            "SUQYASADKAkSGAoQc3RhdGljRW50aXR5VVVJRBgCIAMoCSKeAQoIVXNlU2tp",
+            "bGwSKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0b3IzSACIAQES",
+            "JQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGIAQESHgoFc2tp",
+            "bGwYAyABKAsyDy51bml2ZXJzZS5Ta2lsbBIKCgJpZBgEIAEoCUILCglfcG9z",
+            "aXRpb25CCAoGX2FuZ2xlIhoKBVNraWxsEhEKCXNraWxsVXVpZBgBIAEoCSIk",
+            "Cg5Db25uZWN0UmVxdWVzdBISCgpwbGF5ZXJVdWlkGAEgASgJIqQBCg9Db25u",
+            "ZWN0UmVzcG9uc2USIAoGcGxheWVyGAEgASgLMhAudW5pdmVyc2UuUGxheWVy",
+            "Eh4KBXdvcmxkGAIgASgLMg8udW5pdmVyc2UuV29ybGQSHwoGY2h1bmtzGAMg",
+            "AygLMg8udW5pdmVyc2UuQ2h1bmsSLgoNZHluYW1pY0VudGl0eRgEIAMoCzIX",
+            "LnVuaXZlcnNlLkR5bmFtaWNFbnRpdHkiWQoGUGxheWVyEgwKBG5hbWUYASAB",
+            "KAkSDAoEdXVpZBgCIAEoCRINCgVsZXZlbBgDIAEoBRIkCghwb3NpdGlvbhgE",
+            "IAEoCzISLnVuaXZlcnNlLlBvc2l0aW9uIqABCgVXb3JsZBIMCgRuYW1lGAEg",
+            "ASgJEg0KBWxldmVsGAIgASgFEg4KBmxlbmd0aBgDIAEoBRINCgV3aWR0aBgE",
+            "IAEoBRIPCgdzY2FsZVhZGAUgASgFEhMKC3NjYWxlSGVpZ2h0GAYgASgFEgwK",
+            "BHNlZWQYByABKAkSEwoLY2h1bmtfd2lkdGgYCCABKAUSEgoKcG9wdWxhdGlv",
+            "bhgJIAEoBSI6CgRNb3ZlEiQKCHBvc2l0aW9uGAIgASgLMhIudW5pdmVyc2Uu",
+            "UG9zaXRpb24SDAoEanVtcBgDIAEoCCKKAQoFQ2h1bmsSDAoEdXVpZBgBIAEo",
+            "CRImCghwb3NpdGlvbhgCIAEoCzIULnVuaXZlcnNlLlZlY3RvcjJJbnQSLAoM",
+            "c3RhdGljRW50aXR5GAMgAygLMhYudW5pdmVyc2UuU3RhdGljRW50aXR5Eh0K",
+            "BXRpbGVzGAQgAygLMg4udW5pdmVyc2UuVGlsZSI7CgRUaWxlEiAKBHR5cGUY",
+            "ASABKA4yEi51bml2ZXJzZS5UaWxlVHlwZRIRCgllbGV2YXRpb24YAiABKAIi",
+            "cgoIUG9zaXRpb24SKAoIcG9zaXRpb24YASABKAsyES51bml2ZXJzZS5WZWN0",
+            "b3IzSACIAQESJQoFYW5nbGUYAiABKAsyES51bml2ZXJzZS5WZWN0b3IzSAGI",
+            "AQFCCwoJX3Bvc2l0aW9uQggKBl9hbmdsZSIqCgdWZWN0b3IzEgkKAXgYASAB",
+            "KAISCQoBeRgCIAEoAhIJCgF6GAMgASgCIh8KB1ZlY3RvcjISCQoBeBgBIAEo",
+            "AhIJCgF5GAIgASgCIiIKClZlY3RvcjJJbnQSCQoBeBgBIAEoBRIJCgF5GAIg",
+            "ASgFInwKDUR5bmFtaWNFbnRpdHkSDAoEdXVpZBgBIAEoCRIMCgRuYW1lGAIg",
+            "ASgJEiQKCHBvc2l0aW9uGAMgASgLMhIudW5pdmVyc2UuUG9zaXRpb24SKQoE",
+            "dHlwZRgEIAEoDjIbLnVuaXZlcnNlLkR5bmFtaWNFbnRpdHlUeXBlInoKDFN0",
+            "YXRpY0VudGl0eRIMCgR1dWlkGAEgASgJEgwKBG5hbWUYAiABKAkSJAoIcG9z",
+            "aXRpb24YAyABKAsyEi51bml2ZXJzZS5Qb3NpdGlvbhIoCgR0eXBlGAQgASgO",
+            "MhoudW5pdmVyc2UuU3RhdGljRW50aXR5VHlwZSpJCghUaWxlVHlwZRIICgRE",
+            "aXJ0EAASCQoFR3Jhc3MQARIICgRSb2NrEAISCgoGRm9yZXN0EAMSCAoEU2Fu",
+            "ZBAEEggKBFNub3cQBSotChFEeW5hbWljRW50aXR5VHlwZRIKCgZQTEFZRVIQ",
+            "ABIMCghDUkVBVFVSRRABKlQKEFN0YXRpY0VudGl0eVR5cGUSCQoFRW1wdHkQ",
+            "ABIMCghCdWlsZGluZxABEg4KCkNodW5rRW50cnkQAhINCglSZXNzb3VyY2UQ",
+            "AxIICgRJdGVtEAQy7AEKDENodW5rU2VydmljZRJJCgpFbnRlckNodW5rEhsu",
+            "dW5pdmVyc2UuRW50ZXJDaHVua1JlcXVlc3QaHC51bml2ZXJzZS5FbnRlckNo",
+            "dW5rUmVzcG9uc2UiABJGCglMb2FkQ2h1bmsSGi51bml2ZXJzZS5Mb2FkQ2h1",
+            "bmtSZXF1ZXN0GhsudW5pdmVyc2UuTG9hZENodW5rUmVzcG9uc2UiABJJCgZT",
+            "dHJlYW0SHC51bml2ZXJzZS5DaHVua1N0cmVhbVJlcXVlc3QaHS51bml2ZXJz",
+            "ZS5DaHVua1N0cmVhbVJlc3BvbnNlIgAwATK0AgoNUGxheWVyU2VydmljZRJP",
+            "CgxDcmVhdGVQbGF5ZXISHS51bml2ZXJzZS5DcmVhdGVQbGF5ZXJSZXF1ZXN0",
+            "Gh4udW5pdmVyc2UuQ3JlYXRlUGxheWVyUmVzcG9uc2UiABJBCgpHZXRQbGF5",
+            "ZXJzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhkudW5pdmVyc2UuR2V0UGxh",
+            "eWVyc1JlcGx5IgASQAoHQ29ubmVjdBIYLnVuaXZlcnNlLkNvbm5lY3RSZXF1",
+            "ZXN0GhkudW5pdmVyc2UuQ29ubmVjdFJlc3BvbnNlIgASTQoGU3RyZWFtEh0u",
+            "dW5pdmVyc2UuUGxheWVyU3RyZWFtUmVxdWVzdBoeLnVuaXZlcnNlLlBsYXll",
+            "clN0cmVhbVJlc3BvbnNlIgAoATABQi1aK2dpdGh1Yi5jb20vUm91a2lpL3Bv",
+            "Y2tfbXVsdGlwbGF5ZXIvdW5pdmVyc2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Universe.TileType), typeof(global::Universe.DynamicEntityType), typeof(global::Universe.StaticEntityType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -116,13 +143,20 @@ namespace Universe {
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.CreatePlayerRequest), global::Universe.CreatePlayerRequest.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.CreatePlayerResponse), global::Universe.CreatePlayerResponse.Parser, new[]{ "Player", "World", "Chunks", "DynamicEntity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.GetPlayersReply), global::Universe.GetPlayersReply.Parser, new[]{ "Player" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamRequest), global::Universe.PlayerStreamRequest.Parser, new[]{ "Move" }, new[]{ "Action" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamResponse), global::Universe.PlayerStreamResponse.Parser, new[]{ "Move" }, new[]{ "Action" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamRequest), global::Universe.PlayerStreamRequest.Parser, new[]{ "Move", "Attack", "Interact", "Skill", "Hit" }, new[]{ "Action" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerStreamResponse), global::Universe.PlayerStreamResponse.Parser, new[]{ "Uuid", "DynamicEntity", "StaticEntity", "Move", "AddEntity", "DeleteEntity", "Hit", "Attack", "Skill", "Disconnect", "Connect" }, new[]{ "Info", "Action" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerDisconnect), global::Universe.PlayerDisconnect.Parser, new[]{ "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.PlayerConnect), global::Universe.PlayerConnect.Parser, new[]{ "Player" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Hit), global::Universe.Hit.Parser, new[]{ "Damage", "HpLeft", "Position", "DynamicEntityUUID", "StaticEntityUUID", "SkillId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Interact), global::Universe.Interact.Parser, new[]{ "Uuid", "DynamicEntity", "StaticEntity" }, new[]{ "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Attack), global::Universe.Attack.Parser, new[]{ "DynamicEntityUUID", "StaticEntityUUID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.UseSkill), global::Universe.UseSkill.Parser, new[]{ "Position", "Angle", "Skill", "Id" }, new[]{ "Position", "Angle" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Skill), global::Universe.Skill.Parser, new[]{ "SkillUuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectRequest), global::Universe.ConnectRequest.Parser, new[]{ "PlayerUuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.ConnectResponse), global::Universe.ConnectResponse.Parser, new[]{ "Player", "World", "Chunks", "DynamicEntity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Player), global::Universe.Player.Parser, new[]{ "Name", "Uuid", "Level", "Position" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.World), global::Universe.World.Parser, new[]{ "Name", "Level", "Length", "Width", "Seed", "ChunkWidth", "Population" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Move), global::Universe.Move.Parser, new[]{ "Position" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.World), global::Universe.World.Parser, new[]{ "Name", "Level", "Length", "Width", "ScaleXY", "ScaleHeight", "Seed", "ChunkWidth", "Population" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Move), global::Universe.Move.Parser, new[]{ "Position", "Jump" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Chunk), global::Universe.Chunk.Parser, new[]{ "Uuid", "Position", "StaticEntity", "Tiles" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Tile), global::Universe.Tile.Parser, new[]{ "Type", "Elevation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Universe.Position), global::Universe.Position.Parser, new[]{ "Position_", "Angle" }, new[]{ "Position", "Angle" }, null, null, null),
@@ -3016,6 +3050,18 @@ namespace Universe {
         case ActionOneofCase.Move:
           Move = other.Move.Clone();
           break;
+        case ActionOneofCase.Attack:
+          Attack = other.Attack.Clone();
+          break;
+        case ActionOneofCase.Interact:
+          Interact = other.Interact.Clone();
+          break;
+        case ActionOneofCase.Skill:
+          Skill = other.Skill.Clone();
+          break;
+        case ActionOneofCase.Hit:
+          Hit = other.Hit.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3037,11 +3083,59 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "attack" field.</summary>
+    public const int AttackFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Attack Attack {
+      get { return actionCase_ == ActionOneofCase.Attack ? (global::Universe.Attack) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Attack;
+      }
+    }
+
+    /// <summary>Field number for the "interact" field.</summary>
+    public const int InteractFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Interact Interact {
+      get { return actionCase_ == ActionOneofCase.Interact ? (global::Universe.Interact) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Interact;
+      }
+    }
+
+    /// <summary>Field number for the "skill" field.</summary>
+    public const int SkillFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.UseSkill Skill {
+      get { return actionCase_ == ActionOneofCase.Skill ? (global::Universe.UseSkill) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Skill;
+      }
+    }
+
+    /// <summary>Field number for the "hit" field.</summary>
+    public const int HitFieldNumber = 5;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Hit Hit {
+      get { return actionCase_ == ActionOneofCase.Hit ? (global::Universe.Hit) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Hit;
+      }
+    }
+
     private object action_;
     /// <summary>Enum of possible cases for the "action" oneof.</summary>
     public enum ActionOneofCase {
       None = 0,
       Move = 1,
+      Attack = 2,
+      Interact = 3,
+      Skill = 4,
+      Hit = 5,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3069,6 +3163,10 @@ namespace Universe {
         return true;
       }
       if (!object.Equals(Move, other.Move)) return false;
+      if (!object.Equals(Attack, other.Attack)) return false;
+      if (!object.Equals(Interact, other.Interact)) return false;
+      if (!object.Equals(Skill, other.Skill)) return false;
+      if (!object.Equals(Hit, other.Hit)) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3077,6 +3175,10 @@ namespace Universe {
     public override int GetHashCode() {
       int hash = 1;
       if (actionCase_ == ActionOneofCase.Move) hash ^= Move.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Attack) hash ^= Attack.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Interact) hash ^= Interact.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Skill) hash ^= Skill.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Hit) hash ^= Hit.GetHashCode();
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3098,6 +3200,22 @@ namespace Universe {
         output.WriteRawTag(10);
         output.WriteMessage(Move);
       }
+      if (actionCase_ == ActionOneofCase.Attack) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Attack);
+      }
+      if (actionCase_ == ActionOneofCase.Interact) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Interact);
+      }
+      if (actionCase_ == ActionOneofCase.Skill) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Skill);
+      }
+      if (actionCase_ == ActionOneofCase.Hit) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Hit);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3111,6 +3229,22 @@ namespace Universe {
         output.WriteRawTag(10);
         output.WriteMessage(Move);
       }
+      if (actionCase_ == ActionOneofCase.Attack) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Attack);
+      }
+      if (actionCase_ == ActionOneofCase.Interact) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Interact);
+      }
+      if (actionCase_ == ActionOneofCase.Skill) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Skill);
+      }
+      if (actionCase_ == ActionOneofCase.Hit) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Hit);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3122,6 +3256,18 @@ namespace Universe {
       int size = 0;
       if (actionCase_ == ActionOneofCase.Move) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Move);
+      }
+      if (actionCase_ == ActionOneofCase.Attack) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Attack);
+      }
+      if (actionCase_ == ActionOneofCase.Interact) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Interact);
+      }
+      if (actionCase_ == ActionOneofCase.Skill) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Skill);
+      }
+      if (actionCase_ == ActionOneofCase.Hit) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Hit);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3140,6 +3286,30 @@ namespace Universe {
             Move = new global::Universe.Move();
           }
           Move.MergeFrom(other.Move);
+          break;
+        case ActionOneofCase.Attack:
+          if (Attack == null) {
+            Attack = new global::Universe.Attack();
+          }
+          Attack.MergeFrom(other.Attack);
+          break;
+        case ActionOneofCase.Interact:
+          if (Interact == null) {
+            Interact = new global::Universe.Interact();
+          }
+          Interact.MergeFrom(other.Interact);
+          break;
+        case ActionOneofCase.Skill:
+          if (Skill == null) {
+            Skill = new global::Universe.UseSkill();
+          }
+          Skill.MergeFrom(other.Skill);
+          break;
+        case ActionOneofCase.Hit:
+          if (Hit == null) {
+            Hit = new global::Universe.Hit();
+          }
+          Hit.MergeFrom(other.Hit);
           break;
       }
 
@@ -3166,6 +3336,42 @@ namespace Universe {
             Move = subBuilder;
             break;
           }
+          case 18: {
+            global::Universe.Attack subBuilder = new global::Universe.Attack();
+            if (actionCase_ == ActionOneofCase.Attack) {
+              subBuilder.MergeFrom(Attack);
+            }
+            input.ReadMessage(subBuilder);
+            Attack = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Universe.Interact subBuilder = new global::Universe.Interact();
+            if (actionCase_ == ActionOneofCase.Interact) {
+              subBuilder.MergeFrom(Interact);
+            }
+            input.ReadMessage(subBuilder);
+            Interact = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Universe.UseSkill subBuilder = new global::Universe.UseSkill();
+            if (actionCase_ == ActionOneofCase.Skill) {
+              subBuilder.MergeFrom(Skill);
+            }
+            input.ReadMessage(subBuilder);
+            Skill = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Universe.Hit subBuilder = new global::Universe.Hit();
+            if (actionCase_ == ActionOneofCase.Hit) {
+              subBuilder.MergeFrom(Hit);
+            }
+            input.ReadMessage(subBuilder);
+            Hit = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -3187,6 +3393,42 @@ namespace Universe {
             }
             input.ReadMessage(subBuilder);
             Move = subBuilder;
+            break;
+          }
+          case 18: {
+            global::Universe.Attack subBuilder = new global::Universe.Attack();
+            if (actionCase_ == ActionOneofCase.Attack) {
+              subBuilder.MergeFrom(Attack);
+            }
+            input.ReadMessage(subBuilder);
+            Attack = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Universe.Interact subBuilder = new global::Universe.Interact();
+            if (actionCase_ == ActionOneofCase.Interact) {
+              subBuilder.MergeFrom(Interact);
+            }
+            input.ReadMessage(subBuilder);
+            Interact = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Universe.UseSkill subBuilder = new global::Universe.UseSkill();
+            if (actionCase_ == ActionOneofCase.Skill) {
+              subBuilder.MergeFrom(Skill);
+            }
+            input.ReadMessage(subBuilder);
+            Skill = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Universe.Hit subBuilder = new global::Universe.Hit();
+            if (actionCase_ == ActionOneofCase.Hit) {
+              subBuilder.MergeFrom(Hit);
+            }
+            input.ReadMessage(subBuilder);
+            Hit = subBuilder;
             break;
           }
         }
@@ -3225,9 +3467,40 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PlayerStreamResponse(PlayerStreamResponse other) : this() {
+      uuid_ = other.uuid_;
+      switch (other.InfoCase) {
+        case InfoOneofCase.DynamicEntity:
+          DynamicEntity = other.DynamicEntity;
+          break;
+        case InfoOneofCase.StaticEntity:
+          StaticEntity = other.StaticEntity;
+          break;
+      }
+
       switch (other.ActionCase) {
         case ActionOneofCase.Move:
           Move = other.Move.Clone();
+          break;
+        case ActionOneofCase.AddEntity:
+          AddEntity = other.AddEntity.Clone();
+          break;
+        case ActionOneofCase.DeleteEntity:
+          DeleteEntity = other.DeleteEntity;
+          break;
+        case ActionOneofCase.Hit:
+          Hit = other.Hit.Clone();
+          break;
+        case ActionOneofCase.Attack:
+          Attack = other.Attack.Clone();
+          break;
+        case ActionOneofCase.Skill:
+          Skill = other.Skill.Clone();
+          break;
+        case ActionOneofCase.Disconnect:
+          Disconnect = other.Disconnect.Clone();
+          break;
+        case ActionOneofCase.Connect:
+          Connect = other.Connect.Clone();
           break;
       }
 
@@ -3239,8 +3512,41 @@ namespace Universe {
       return new PlayerStreamResponse(this);
     }
 
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 1;
+    private string uuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "dynamicEntity" field.</summary>
+    public const int DynamicEntityFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.DynamicEntityType DynamicEntity {
+      get { return infoCase_ == InfoOneofCase.DynamicEntity ? (global::Universe.DynamicEntityType) info_ : global::Universe.DynamicEntityType.Player; }
+      set {
+        info_ = value;
+        infoCase_ = InfoOneofCase.DynamicEntity;
+      }
+    }
+
+    /// <summary>Field number for the "staticEntity" field.</summary>
+    public const int StaticEntityFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.StaticEntityType StaticEntity {
+      get { return infoCase_ == InfoOneofCase.StaticEntity ? (global::Universe.StaticEntityType) info_ : global::Universe.StaticEntityType.Empty; }
+      set {
+        info_ = value;
+        infoCase_ = InfoOneofCase.StaticEntity;
+      }
+    }
+
     /// <summary>Field number for the "move" field.</summary>
-    public const int MoveFieldNumber = 1;
+    public const int MoveFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Universe.Move Move {
       get { return actionCase_ == ActionOneofCase.Move ? (global::Universe.Move) action_ : null; }
@@ -3250,11 +3556,114 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "addEntity" field.</summary>
+    public const int AddEntityFieldNumber = 5;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.DynamicEntity AddEntity {
+      get { return actionCase_ == ActionOneofCase.AddEntity ? (global::Universe.DynamicEntity) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.AddEntity;
+      }
+    }
+
+    /// <summary>Field number for the "deleteEntity" field.</summary>
+    public const int DeleteEntityFieldNumber = 6;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool DeleteEntity {
+      get { return actionCase_ == ActionOneofCase.DeleteEntity ? (bool) action_ : false; }
+      set {
+        action_ = value;
+        actionCase_ = ActionOneofCase.DeleteEntity;
+      }
+    }
+
+    /// <summary>Field number for the "hit" field.</summary>
+    public const int HitFieldNumber = 7;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Hit Hit {
+      get { return actionCase_ == ActionOneofCase.Hit ? (global::Universe.Hit) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Hit;
+      }
+    }
+
+    /// <summary>Field number for the "attack" field.</summary>
+    public const int AttackFieldNumber = 8;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Attack Attack {
+      get { return actionCase_ == ActionOneofCase.Attack ? (global::Universe.Attack) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Attack;
+      }
+    }
+
+    /// <summary>Field number for the "skill" field.</summary>
+    public const int SkillFieldNumber = 9;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.UseSkill Skill {
+      get { return actionCase_ == ActionOneofCase.Skill ? (global::Universe.UseSkill) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Skill;
+      }
+    }
+
+    /// <summary>Field number for the "disconnect" field.</summary>
+    public const int DisconnectFieldNumber = 10;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.PlayerDisconnect Disconnect {
+      get { return actionCase_ == ActionOneofCase.Disconnect ? (global::Universe.PlayerDisconnect) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Disconnect;
+      }
+    }
+
+    /// <summary>Field number for the "connect" field.</summary>
+    public const int ConnectFieldNumber = 11;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.PlayerConnect Connect {
+      get { return actionCase_ == ActionOneofCase.Connect ? (global::Universe.PlayerConnect) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Connect;
+      }
+    }
+
+    private object info_;
+    /// <summary>Enum of possible cases for the "info" oneof.</summary>
+    public enum InfoOneofCase {
+      None = 0,
+      DynamicEntity = 2,
+      StaticEntity = 3,
+    }
+    private InfoOneofCase infoCase_ = InfoOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InfoOneofCase InfoCase {
+      get { return infoCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void ClearInfo() {
+      infoCase_ = InfoOneofCase.None;
+      info_ = null;
+    }
+
     private object action_;
     /// <summary>Enum of possible cases for the "action" oneof.</summary>
     public enum ActionOneofCase {
       None = 0,
-      Move = 1,
+      Move = 4,
+      AddEntity = 5,
+      DeleteEntity = 6,
+      Hit = 7,
+      Attack = 8,
+      Skill = 9,
+      Disconnect = 10,
+      Connect = 11,
     }
     private ActionOneofCase actionCase_ = ActionOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3281,7 +3690,18 @@ namespace Universe {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Uuid != other.Uuid) return false;
+      if (DynamicEntity != other.DynamicEntity) return false;
+      if (StaticEntity != other.StaticEntity) return false;
       if (!object.Equals(Move, other.Move)) return false;
+      if (!object.Equals(AddEntity, other.AddEntity)) return false;
+      if (DeleteEntity != other.DeleteEntity) return false;
+      if (!object.Equals(Hit, other.Hit)) return false;
+      if (!object.Equals(Attack, other.Attack)) return false;
+      if (!object.Equals(Skill, other.Skill)) return false;
+      if (!object.Equals(Disconnect, other.Disconnect)) return false;
+      if (!object.Equals(Connect, other.Connect)) return false;
+      if (InfoCase != other.InfoCase) return false;
       if (ActionCase != other.ActionCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3289,7 +3709,18 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+      if (infoCase_ == InfoOneofCase.DynamicEntity) hash ^= DynamicEntity.GetHashCode();
+      if (infoCase_ == InfoOneofCase.StaticEntity) hash ^= StaticEntity.GetHashCode();
       if (actionCase_ == ActionOneofCase.Move) hash ^= Move.GetHashCode();
+      if (actionCase_ == ActionOneofCase.AddEntity) hash ^= AddEntity.GetHashCode();
+      if (actionCase_ == ActionOneofCase.DeleteEntity) hash ^= DeleteEntity.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Hit) hash ^= Hit.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Attack) hash ^= Attack.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Skill) hash ^= Skill.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Disconnect) hash ^= Disconnect.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Connect) hash ^= Connect.GetHashCode();
+      hash ^= (int) infoCase_;
       hash ^= (int) actionCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3307,9 +3738,49 @@ namespace Universe {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (actionCase_ == ActionOneofCase.Move) {
+      if (Uuid.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (infoCase_ == InfoOneofCase.DynamicEntity) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) DynamicEntity);
+      }
+      if (infoCase_ == InfoOneofCase.StaticEntity) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) StaticEntity);
+      }
+      if (actionCase_ == ActionOneofCase.Move) {
+        output.WriteRawTag(34);
         output.WriteMessage(Move);
+      }
+      if (actionCase_ == ActionOneofCase.AddEntity) {
+        output.WriteRawTag(42);
+        output.WriteMessage(AddEntity);
+      }
+      if (actionCase_ == ActionOneofCase.DeleteEntity) {
+        output.WriteRawTag(48);
+        output.WriteBool(DeleteEntity);
+      }
+      if (actionCase_ == ActionOneofCase.Hit) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Hit);
+      }
+      if (actionCase_ == ActionOneofCase.Attack) {
+        output.WriteRawTag(66);
+        output.WriteMessage(Attack);
+      }
+      if (actionCase_ == ActionOneofCase.Skill) {
+        output.WriteRawTag(74);
+        output.WriteMessage(Skill);
+      }
+      if (actionCase_ == ActionOneofCase.Disconnect) {
+        output.WriteRawTag(82);
+        output.WriteMessage(Disconnect);
+      }
+      if (actionCase_ == ActionOneofCase.Connect) {
+        output.WriteRawTag(90);
+        output.WriteMessage(Connect);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3320,9 +3791,49 @@ namespace Universe {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (actionCase_ == ActionOneofCase.Move) {
+      if (Uuid.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (infoCase_ == InfoOneofCase.DynamicEntity) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) DynamicEntity);
+      }
+      if (infoCase_ == InfoOneofCase.StaticEntity) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) StaticEntity);
+      }
+      if (actionCase_ == ActionOneofCase.Move) {
+        output.WriteRawTag(34);
         output.WriteMessage(Move);
+      }
+      if (actionCase_ == ActionOneofCase.AddEntity) {
+        output.WriteRawTag(42);
+        output.WriteMessage(AddEntity);
+      }
+      if (actionCase_ == ActionOneofCase.DeleteEntity) {
+        output.WriteRawTag(48);
+        output.WriteBool(DeleteEntity);
+      }
+      if (actionCase_ == ActionOneofCase.Hit) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Hit);
+      }
+      if (actionCase_ == ActionOneofCase.Attack) {
+        output.WriteRawTag(66);
+        output.WriteMessage(Attack);
+      }
+      if (actionCase_ == ActionOneofCase.Skill) {
+        output.WriteRawTag(74);
+        output.WriteMessage(Skill);
+      }
+      if (actionCase_ == ActionOneofCase.Disconnect) {
+        output.WriteRawTag(82);
+        output.WriteMessage(Disconnect);
+      }
+      if (actionCase_ == ActionOneofCase.Connect) {
+        output.WriteRawTag(90);
+        output.WriteMessage(Connect);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3333,8 +3844,38 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+      }
+      if (infoCase_ == InfoOneofCase.DynamicEntity) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DynamicEntity);
+      }
+      if (infoCase_ == InfoOneofCase.StaticEntity) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) StaticEntity);
+      }
       if (actionCase_ == ActionOneofCase.Move) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Move);
+      }
+      if (actionCase_ == ActionOneofCase.AddEntity) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AddEntity);
+      }
+      if (actionCase_ == ActionOneofCase.DeleteEntity) {
+        size += 1 + 1;
+      }
+      if (actionCase_ == ActionOneofCase.Hit) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Hit);
+      }
+      if (actionCase_ == ActionOneofCase.Attack) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Attack);
+      }
+      if (actionCase_ == ActionOneofCase.Skill) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Skill);
+      }
+      if (actionCase_ == ActionOneofCase.Disconnect) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Disconnect);
+      }
+      if (actionCase_ == ActionOneofCase.Connect) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Connect);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3347,12 +3888,63 @@ namespace Universe {
       if (other == null) {
         return;
       }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
+      }
+      switch (other.InfoCase) {
+        case InfoOneofCase.DynamicEntity:
+          DynamicEntity = other.DynamicEntity;
+          break;
+        case InfoOneofCase.StaticEntity:
+          StaticEntity = other.StaticEntity;
+          break;
+      }
+
       switch (other.ActionCase) {
         case ActionOneofCase.Move:
           if (Move == null) {
             Move = new global::Universe.Move();
           }
           Move.MergeFrom(other.Move);
+          break;
+        case ActionOneofCase.AddEntity:
+          if (AddEntity == null) {
+            AddEntity = new global::Universe.DynamicEntity();
+          }
+          AddEntity.MergeFrom(other.AddEntity);
+          break;
+        case ActionOneofCase.DeleteEntity:
+          DeleteEntity = other.DeleteEntity;
+          break;
+        case ActionOneofCase.Hit:
+          if (Hit == null) {
+            Hit = new global::Universe.Hit();
+          }
+          Hit.MergeFrom(other.Hit);
+          break;
+        case ActionOneofCase.Attack:
+          if (Attack == null) {
+            Attack = new global::Universe.Attack();
+          }
+          Attack.MergeFrom(other.Attack);
+          break;
+        case ActionOneofCase.Skill:
+          if (Skill == null) {
+            Skill = new global::Universe.UseSkill();
+          }
+          Skill.MergeFrom(other.Skill);
+          break;
+        case ActionOneofCase.Disconnect:
+          if (Disconnect == null) {
+            Disconnect = new global::Universe.PlayerDisconnect();
+          }
+          Disconnect.MergeFrom(other.Disconnect);
+          break;
+        case ActionOneofCase.Connect:
+          if (Connect == null) {
+            Connect = new global::Universe.PlayerConnect();
+          }
+          Connect.MergeFrom(other.Connect);
           break;
       }
 
@@ -3371,12 +3963,84 @@ namespace Universe {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 16: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.DynamicEntity;
+            break;
+          }
+          case 24: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.StaticEntity;
+            break;
+          }
+          case 34: {
             global::Universe.Move subBuilder = new global::Universe.Move();
             if (actionCase_ == ActionOneofCase.Move) {
               subBuilder.MergeFrom(Move);
             }
             input.ReadMessage(subBuilder);
             Move = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Universe.DynamicEntity subBuilder = new global::Universe.DynamicEntity();
+            if (actionCase_ == ActionOneofCase.AddEntity) {
+              subBuilder.MergeFrom(AddEntity);
+            }
+            input.ReadMessage(subBuilder);
+            AddEntity = subBuilder;
+            break;
+          }
+          case 48: {
+            DeleteEntity = input.ReadBool();
+            break;
+          }
+          case 58: {
+            global::Universe.Hit subBuilder = new global::Universe.Hit();
+            if (actionCase_ == ActionOneofCase.Hit) {
+              subBuilder.MergeFrom(Hit);
+            }
+            input.ReadMessage(subBuilder);
+            Hit = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Universe.Attack subBuilder = new global::Universe.Attack();
+            if (actionCase_ == ActionOneofCase.Attack) {
+              subBuilder.MergeFrom(Attack);
+            }
+            input.ReadMessage(subBuilder);
+            Attack = subBuilder;
+            break;
+          }
+          case 74: {
+            global::Universe.UseSkill subBuilder = new global::Universe.UseSkill();
+            if (actionCase_ == ActionOneofCase.Skill) {
+              subBuilder.MergeFrom(Skill);
+            }
+            input.ReadMessage(subBuilder);
+            Skill = subBuilder;
+            break;
+          }
+          case 82: {
+            global::Universe.PlayerDisconnect subBuilder = new global::Universe.PlayerDisconnect();
+            if (actionCase_ == ActionOneofCase.Disconnect) {
+              subBuilder.MergeFrom(Disconnect);
+            }
+            input.ReadMessage(subBuilder);
+            Disconnect = subBuilder;
+            break;
+          }
+          case 90: {
+            global::Universe.PlayerConnect subBuilder = new global::Universe.PlayerConnect();
+            if (actionCase_ == ActionOneofCase.Connect) {
+              subBuilder.MergeFrom(Connect);
+            }
+            input.ReadMessage(subBuilder);
+            Connect = subBuilder;
             break;
           }
         }
@@ -3394,12 +4058,1720 @@ namespace Universe {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 16: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.DynamicEntity;
+            break;
+          }
+          case 24: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.StaticEntity;
+            break;
+          }
+          case 34: {
             global::Universe.Move subBuilder = new global::Universe.Move();
             if (actionCase_ == ActionOneofCase.Move) {
               subBuilder.MergeFrom(Move);
             }
             input.ReadMessage(subBuilder);
             Move = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Universe.DynamicEntity subBuilder = new global::Universe.DynamicEntity();
+            if (actionCase_ == ActionOneofCase.AddEntity) {
+              subBuilder.MergeFrom(AddEntity);
+            }
+            input.ReadMessage(subBuilder);
+            AddEntity = subBuilder;
+            break;
+          }
+          case 48: {
+            DeleteEntity = input.ReadBool();
+            break;
+          }
+          case 58: {
+            global::Universe.Hit subBuilder = new global::Universe.Hit();
+            if (actionCase_ == ActionOneofCase.Hit) {
+              subBuilder.MergeFrom(Hit);
+            }
+            input.ReadMessage(subBuilder);
+            Hit = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Universe.Attack subBuilder = new global::Universe.Attack();
+            if (actionCase_ == ActionOneofCase.Attack) {
+              subBuilder.MergeFrom(Attack);
+            }
+            input.ReadMessage(subBuilder);
+            Attack = subBuilder;
+            break;
+          }
+          case 74: {
+            global::Universe.UseSkill subBuilder = new global::Universe.UseSkill();
+            if (actionCase_ == ActionOneofCase.Skill) {
+              subBuilder.MergeFrom(Skill);
+            }
+            input.ReadMessage(subBuilder);
+            Skill = subBuilder;
+            break;
+          }
+          case 82: {
+            global::Universe.PlayerDisconnect subBuilder = new global::Universe.PlayerDisconnect();
+            if (actionCase_ == ActionOneofCase.Disconnect) {
+              subBuilder.MergeFrom(Disconnect);
+            }
+            input.ReadMessage(subBuilder);
+            Disconnect = subBuilder;
+            break;
+          }
+          case 90: {
+            global::Universe.PlayerConnect subBuilder = new global::Universe.PlayerConnect();
+            if (actionCase_ == ActionOneofCase.Connect) {
+              subBuilder.MergeFrom(Connect);
+            }
+            input.ReadMessage(subBuilder);
+            Connect = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class PlayerDisconnect : pb::IMessage<PlayerDisconnect>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PlayerDisconnect> _parser = new pb::MessageParser<PlayerDisconnect>(() => new PlayerDisconnect());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PlayerDisconnect> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerDisconnect() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerDisconnect(PlayerDisconnect other) : this() {
+      message_ = other.message_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerDisconnect Clone() {
+      return new PlayerDisconnect(this);
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 1;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PlayerDisconnect);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PlayerDisconnect other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Message != other.Message) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Message.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Message.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PlayerDisconnect other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class PlayerConnect : pb::IMessage<PlayerConnect>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PlayerConnect> _parser = new pb::MessageParser<PlayerConnect>(() => new PlayerConnect());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PlayerConnect> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerConnect() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerConnect(PlayerConnect other) : this() {
+      player_ = other.player_ != null ? other.player_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerConnect Clone() {
+      return new PlayerConnect(this);
+    }
+
+    /// <summary>Field number for the "player" field.</summary>
+    public const int PlayerFieldNumber = 1;
+    private global::Universe.Player player_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Player Player {
+      get { return player_; }
+      set {
+        player_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PlayerConnect);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PlayerConnect other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Player, other.Player)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (player_ != null) hash ^= Player.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (player_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Player);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (player_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Player);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (player_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Player);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PlayerConnect other) {
+      if (other == null) {
+        return;
+      }
+      if (other.player_ != null) {
+        if (player_ == null) {
+          Player = new global::Universe.Player();
+        }
+        Player.MergeFrom(other.Player);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (player_ == null) {
+              Player = new global::Universe.Player();
+            }
+            input.ReadMessage(Player);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (player_ == null) {
+              Player = new global::Universe.Player();
+            }
+            input.ReadMessage(Player);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Hit : pb::IMessage<Hit>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Hit> _parser = new pb::MessageParser<Hit>(() => new Hit());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Hit> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Hit() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Hit(Hit other) : this() {
+      damage_ = other.damage_;
+      hpLeft_ = other.hpLeft_;
+      position_ = other.position_ != null ? other.position_.Clone() : null;
+      dynamicEntityUUID_ = other.dynamicEntityUUID_.Clone();
+      staticEntityUUID_ = other.staticEntityUUID_.Clone();
+      skillId_ = other.skillId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Hit Clone() {
+      return new Hit(this);
+    }
+
+    /// <summary>Field number for the "damage" field.</summary>
+    public const int DamageFieldNumber = 1;
+    private long damage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Damage {
+      get { return damage_; }
+      set {
+        damage_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hpLeft" field.</summary>
+    public const int HpLeftFieldNumber = 2;
+    private long hpLeft_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long HpLeft {
+      get { return hpLeft_; }
+      set {
+        hpLeft_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "position" field.</summary>
+    public const int PositionFieldNumber = 3;
+    private global::Universe.Vector3 position_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Vector3 Position {
+      get { return position_; }
+      set {
+        position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dynamicEntityUUID" field.</summary>
+    public const int DynamicEntityUUIDFieldNumber = 4;
+    private static readonly pb::FieldCodec<string> _repeated_dynamicEntityUUID_codec
+        = pb::FieldCodec.ForString(34);
+    private readonly pbc::RepeatedField<string> dynamicEntityUUID_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> DynamicEntityUUID {
+      get { return dynamicEntityUUID_; }
+    }
+
+    /// <summary>Field number for the "staticEntityUUID" field.</summary>
+    public const int StaticEntityUUIDFieldNumber = 5;
+    private static readonly pb::FieldCodec<string> _repeated_staticEntityUUID_codec
+        = pb::FieldCodec.ForString(42);
+    private readonly pbc::RepeatedField<string> staticEntityUUID_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> StaticEntityUUID {
+      get { return staticEntityUUID_; }
+    }
+
+    /// <summary>Field number for the "skillId" field.</summary>
+    public const int SkillIdFieldNumber = 6;
+    private string skillId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SkillId {
+      get { return skillId_; }
+      set {
+        skillId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Hit);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Hit other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Damage != other.Damage) return false;
+      if (HpLeft != other.HpLeft) return false;
+      if (!object.Equals(Position, other.Position)) return false;
+      if(!dynamicEntityUUID_.Equals(other.dynamicEntityUUID_)) return false;
+      if(!staticEntityUUID_.Equals(other.staticEntityUUID_)) return false;
+      if (SkillId != other.SkillId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Damage != 0L) hash ^= Damage.GetHashCode();
+      if (HpLeft != 0L) hash ^= HpLeft.GetHashCode();
+      if (position_ != null) hash ^= Position.GetHashCode();
+      hash ^= dynamicEntityUUID_.GetHashCode();
+      hash ^= staticEntityUUID_.GetHashCode();
+      if (SkillId.Length != 0) hash ^= SkillId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Damage != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Damage);
+      }
+      if (HpLeft != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(HpLeft);
+      }
+      if (position_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Position);
+      }
+      dynamicEntityUUID_.WriteTo(output, _repeated_dynamicEntityUUID_codec);
+      staticEntityUUID_.WriteTo(output, _repeated_staticEntityUUID_codec);
+      if (SkillId.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(SkillId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Damage != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Damage);
+      }
+      if (HpLeft != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(HpLeft);
+      }
+      if (position_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Position);
+      }
+      dynamicEntityUUID_.WriteTo(ref output, _repeated_dynamicEntityUUID_codec);
+      staticEntityUUID_.WriteTo(ref output, _repeated_staticEntityUUID_codec);
+      if (SkillId.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(SkillId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Damage != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Damage);
+      }
+      if (HpLeft != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(HpLeft);
+      }
+      if (position_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      size += dynamicEntityUUID_.CalculateSize(_repeated_dynamicEntityUUID_codec);
+      size += staticEntityUUID_.CalculateSize(_repeated_staticEntityUUID_codec);
+      if (SkillId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SkillId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Hit other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Damage != 0L) {
+        Damage = other.Damage;
+      }
+      if (other.HpLeft != 0L) {
+        HpLeft = other.HpLeft;
+      }
+      if (other.position_ != null) {
+        if (position_ == null) {
+          Position = new global::Universe.Vector3();
+        }
+        Position.MergeFrom(other.Position);
+      }
+      dynamicEntityUUID_.Add(other.dynamicEntityUUID_);
+      staticEntityUUID_.Add(other.staticEntityUUID_);
+      if (other.SkillId.Length != 0) {
+        SkillId = other.SkillId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Damage = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            HpLeft = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            if (position_ == null) {
+              Position = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 34: {
+            dynamicEntityUUID_.AddEntriesFrom(input, _repeated_dynamicEntityUUID_codec);
+            break;
+          }
+          case 42: {
+            staticEntityUUID_.AddEntriesFrom(input, _repeated_staticEntityUUID_codec);
+            break;
+          }
+          case 50: {
+            SkillId = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Damage = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            HpLeft = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            if (position_ == null) {
+              Position = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 34: {
+            dynamicEntityUUID_.AddEntriesFrom(ref input, _repeated_dynamicEntityUUID_codec);
+            break;
+          }
+          case 42: {
+            staticEntityUUID_.AddEntriesFrom(ref input, _repeated_staticEntityUUID_codec);
+            break;
+          }
+          case 50: {
+            SkillId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Interact : pb::IMessage<Interact>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Interact> _parser = new pb::MessageParser<Interact>(() => new Interact());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Interact> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Interact() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Interact(Interact other) : this() {
+      uuid_ = other.uuid_;
+      switch (other.InfoCase) {
+        case InfoOneofCase.DynamicEntity:
+          DynamicEntity = other.DynamicEntity;
+          break;
+        case InfoOneofCase.StaticEntity:
+          StaticEntity = other.StaticEntity;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Interact Clone() {
+      return new Interact(this);
+    }
+
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 1;
+    private string uuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "dynamicEntity" field.</summary>
+    public const int DynamicEntityFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.DynamicEntityType DynamicEntity {
+      get { return infoCase_ == InfoOneofCase.DynamicEntity ? (global::Universe.DynamicEntityType) info_ : global::Universe.DynamicEntityType.Player; }
+      set {
+        info_ = value;
+        infoCase_ = InfoOneofCase.DynamicEntity;
+      }
+    }
+
+    /// <summary>Field number for the "staticEntity" field.</summary>
+    public const int StaticEntityFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.StaticEntityType StaticEntity {
+      get { return infoCase_ == InfoOneofCase.StaticEntity ? (global::Universe.StaticEntityType) info_ : global::Universe.StaticEntityType.Empty; }
+      set {
+        info_ = value;
+        infoCase_ = InfoOneofCase.StaticEntity;
+      }
+    }
+
+    private object info_;
+    /// <summary>Enum of possible cases for the "info" oneof.</summary>
+    public enum InfoOneofCase {
+      None = 0,
+      DynamicEntity = 2,
+      StaticEntity = 3,
+    }
+    private InfoOneofCase infoCase_ = InfoOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InfoOneofCase InfoCase {
+      get { return infoCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void ClearInfo() {
+      infoCase_ = InfoOneofCase.None;
+      info_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Interact);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Interact other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Uuid != other.Uuid) return false;
+      if (DynamicEntity != other.DynamicEntity) return false;
+      if (StaticEntity != other.StaticEntity) return false;
+      if (InfoCase != other.InfoCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+      if (infoCase_ == InfoOneofCase.DynamicEntity) hash ^= DynamicEntity.GetHashCode();
+      if (infoCase_ == InfoOneofCase.StaticEntity) hash ^= StaticEntity.GetHashCode();
+      hash ^= (int) infoCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (infoCase_ == InfoOneofCase.DynamicEntity) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) DynamicEntity);
+      }
+      if (infoCase_ == InfoOneofCase.StaticEntity) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) StaticEntity);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (infoCase_ == InfoOneofCase.DynamicEntity) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) DynamicEntity);
+      }
+      if (infoCase_ == InfoOneofCase.StaticEntity) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) StaticEntity);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+      }
+      if (infoCase_ == InfoOneofCase.DynamicEntity) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DynamicEntity);
+      }
+      if (infoCase_ == InfoOneofCase.StaticEntity) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) StaticEntity);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Interact other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
+      }
+      switch (other.InfoCase) {
+        case InfoOneofCase.DynamicEntity:
+          DynamicEntity = other.DynamicEntity;
+          break;
+        case InfoOneofCase.StaticEntity:
+          StaticEntity = other.StaticEntity;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 16: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.DynamicEntity;
+            break;
+          }
+          case 24: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.StaticEntity;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 16: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.DynamicEntity;
+            break;
+          }
+          case 24: {
+            info_ = input.ReadEnum();
+            infoCase_ = InfoOneofCase.StaticEntity;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Attack : pb::IMessage<Attack>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Attack> _parser = new pb::MessageParser<Attack>(() => new Attack());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Attack> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[20]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Attack() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Attack(Attack other) : this() {
+      dynamicEntityUUID_ = other.dynamicEntityUUID_.Clone();
+      staticEntityUUID_ = other.staticEntityUUID_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Attack Clone() {
+      return new Attack(this);
+    }
+
+    /// <summary>Field number for the "dynamicEntityUUID" field.</summary>
+    public const int DynamicEntityUUIDFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_dynamicEntityUUID_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> dynamicEntityUUID_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> DynamicEntityUUID {
+      get { return dynamicEntityUUID_; }
+    }
+
+    /// <summary>Field number for the "staticEntityUUID" field.</summary>
+    public const int StaticEntityUUIDFieldNumber = 2;
+    private static readonly pb::FieldCodec<string> _repeated_staticEntityUUID_codec
+        = pb::FieldCodec.ForString(18);
+    private readonly pbc::RepeatedField<string> staticEntityUUID_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> StaticEntityUUID {
+      get { return staticEntityUUID_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Attack);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Attack other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!dynamicEntityUUID_.Equals(other.dynamicEntityUUID_)) return false;
+      if(!staticEntityUUID_.Equals(other.staticEntityUUID_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= dynamicEntityUUID_.GetHashCode();
+      hash ^= staticEntityUUID_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      dynamicEntityUUID_.WriteTo(output, _repeated_dynamicEntityUUID_codec);
+      staticEntityUUID_.WriteTo(output, _repeated_staticEntityUUID_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      dynamicEntityUUID_.WriteTo(ref output, _repeated_dynamicEntityUUID_codec);
+      staticEntityUUID_.WriteTo(ref output, _repeated_staticEntityUUID_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += dynamicEntityUUID_.CalculateSize(_repeated_dynamicEntityUUID_codec);
+      size += staticEntityUUID_.CalculateSize(_repeated_staticEntityUUID_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Attack other) {
+      if (other == null) {
+        return;
+      }
+      dynamicEntityUUID_.Add(other.dynamicEntityUUID_);
+      staticEntityUUID_.Add(other.staticEntityUUID_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            dynamicEntityUUID_.AddEntriesFrom(input, _repeated_dynamicEntityUUID_codec);
+            break;
+          }
+          case 18: {
+            staticEntityUUID_.AddEntriesFrom(input, _repeated_staticEntityUUID_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            dynamicEntityUUID_.AddEntriesFrom(ref input, _repeated_dynamicEntityUUID_codec);
+            break;
+          }
+          case 18: {
+            staticEntityUUID_.AddEntriesFrom(ref input, _repeated_staticEntityUUID_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class UseSkill : pb::IMessage<UseSkill>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UseSkill> _parser = new pb::MessageParser<UseSkill>(() => new UseSkill());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UseSkill> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UseSkill() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UseSkill(UseSkill other) : this() {
+      position_ = other.position_ != null ? other.position_.Clone() : null;
+      angle_ = other.angle_ != null ? other.angle_.Clone() : null;
+      skill_ = other.skill_ != null ? other.skill_.Clone() : null;
+      id_ = other.id_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UseSkill Clone() {
+      return new UseSkill(this);
+    }
+
+    /// <summary>Field number for the "position" field.</summary>
+    public const int PositionFieldNumber = 1;
+    private global::Universe.Vector3 position_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Vector3 Position {
+      get { return position_; }
+      set {
+        position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "angle" field.</summary>
+    public const int AngleFieldNumber = 2;
+    private global::Universe.Vector3 angle_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Vector3 Angle {
+      get { return angle_; }
+      set {
+        angle_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skill" field.</summary>
+    public const int SkillFieldNumber = 3;
+    private global::Universe.Skill skill_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Universe.Skill Skill {
+      get { return skill_; }
+      set {
+        skill_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 4;
+    private string id_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Id {
+      get { return id_; }
+      set {
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UseSkill);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UseSkill other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Position, other.Position)) return false;
+      if (!object.Equals(Angle, other.Angle)) return false;
+      if (!object.Equals(Skill, other.Skill)) return false;
+      if (Id != other.Id) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (position_ != null) hash ^= Position.GetHashCode();
+      if (angle_ != null) hash ^= Angle.GetHashCode();
+      if (skill_ != null) hash ^= Skill.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (position_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Position);
+      }
+      if (angle_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Angle);
+      }
+      if (skill_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Skill);
+      }
+      if (Id.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Id);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (position_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Position);
+      }
+      if (angle_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Angle);
+      }
+      if (skill_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Skill);
+      }
+      if (Id.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Id);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (position_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (angle_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Angle);
+      }
+      if (skill_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Skill);
+      }
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UseSkill other) {
+      if (other == null) {
+        return;
+      }
+      if (other.position_ != null) {
+        if (position_ == null) {
+          Position = new global::Universe.Vector3();
+        }
+        Position.MergeFrom(other.Position);
+      }
+      if (other.angle_ != null) {
+        if (angle_ == null) {
+          Angle = new global::Universe.Vector3();
+        }
+        Angle.MergeFrom(other.Angle);
+      }
+      if (other.skill_ != null) {
+        if (skill_ == null) {
+          Skill = new global::Universe.Skill();
+        }
+        Skill.MergeFrom(other.Skill);
+      }
+      if (other.Id.Length != 0) {
+        Id = other.Id;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (position_ == null) {
+              Position = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 18: {
+            if (angle_ == null) {
+              Angle = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Angle);
+            break;
+          }
+          case 26: {
+            if (skill_ == null) {
+              Skill = new global::Universe.Skill();
+            }
+            input.ReadMessage(Skill);
+            break;
+          }
+          case 34: {
+            Id = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (position_ == null) {
+              Position = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 18: {
+            if (angle_ == null) {
+              Angle = new global::Universe.Vector3();
+            }
+            input.ReadMessage(Angle);
+            break;
+          }
+          case 26: {
+            if (skill_ == null) {
+              Skill = new global::Universe.Skill();
+            }
+            input.ReadMessage(Skill);
+            break;
+          }
+          case 34: {
+            Id = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Skill : pb::IMessage<Skill>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Skill> _parser = new pb::MessageParser<Skill>(() => new Skill());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Skill> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Skill() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Skill(Skill other) : this() {
+      skillUuid_ = other.skillUuid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Skill Clone() {
+      return new Skill(this);
+    }
+
+    /// <summary>Field number for the "skillUuid" field.</summary>
+    public const int SkillUuidFieldNumber = 1;
+    private string skillUuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SkillUuid {
+      get { return skillUuid_; }
+      set {
+        skillUuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Skill);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Skill other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SkillUuid != other.SkillUuid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SkillUuid.Length != 0) hash ^= SkillUuid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SkillUuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SkillUuid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SkillUuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SkillUuid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SkillUuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SkillUuid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Skill other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SkillUuid.Length != 0) {
+        SkillUuid = other.SkillUuid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            SkillUuid = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SkillUuid = input.ReadString();
             break;
           }
         }
@@ -3421,7 +5793,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3593,7 +5965,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3869,7 +6241,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4158,7 +6530,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4179,6 +6551,8 @@ namespace Universe {
       level_ = other.level_;
       length_ = other.length_;
       width_ = other.width_;
+      scaleXY_ = other.scaleXY_;
+      scaleHeight_ = other.scaleHeight_;
       seed_ = other.seed_;
       chunkWidth_ = other.chunkWidth_;
       population_ = other.population_;
@@ -4234,8 +6608,30 @@ namespace Universe {
       }
     }
 
+    /// <summary>Field number for the "scaleXY" field.</summary>
+    public const int ScaleXYFieldNumber = 5;
+    private int scaleXY_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ScaleXY {
+      get { return scaleXY_; }
+      set {
+        scaleXY_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "scaleHeight" field.</summary>
+    public const int ScaleHeightFieldNumber = 6;
+    private int scaleHeight_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ScaleHeight {
+      get { return scaleHeight_; }
+      set {
+        scaleHeight_ = value;
+      }
+    }
+
     /// <summary>Field number for the "seed" field.</summary>
-    public const int SeedFieldNumber = 5;
+    public const int SeedFieldNumber = 7;
     private string seed_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Seed {
@@ -4246,7 +6642,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "chunk_width" field.</summary>
-    public const int ChunkWidthFieldNumber = 6;
+    public const int ChunkWidthFieldNumber = 8;
     private int chunkWidth_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int ChunkWidth {
@@ -4257,7 +6653,7 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "population" field.</summary>
-    public const int PopulationFieldNumber = 7;
+    public const int PopulationFieldNumber = 9;
     private int population_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Population {
@@ -4284,6 +6680,8 @@ namespace Universe {
       if (Level != other.Level) return false;
       if (Length != other.Length) return false;
       if (Width != other.Width) return false;
+      if (ScaleXY != other.ScaleXY) return false;
+      if (ScaleHeight != other.ScaleHeight) return false;
       if (Seed != other.Seed) return false;
       if (ChunkWidth != other.ChunkWidth) return false;
       if (Population != other.Population) return false;
@@ -4297,6 +6695,8 @@ namespace Universe {
       if (Level != 0) hash ^= Level.GetHashCode();
       if (Length != 0) hash ^= Length.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
+      if (ScaleXY != 0) hash ^= ScaleXY.GetHashCode();
+      if (ScaleHeight != 0) hash ^= ScaleHeight.GetHashCode();
       if (Seed.Length != 0) hash ^= Seed.GetHashCode();
       if (ChunkWidth != 0) hash ^= ChunkWidth.GetHashCode();
       if (Population != 0) hash ^= Population.GetHashCode();
@@ -4332,16 +6732,24 @@ namespace Universe {
         output.WriteRawTag(32);
         output.WriteInt32(Width);
       }
+      if (ScaleXY != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ScaleXY);
+      }
+      if (ScaleHeight != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(ScaleHeight);
+      }
       if (Seed.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(58);
         output.WriteString(Seed);
       }
       if (ChunkWidth != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteInt32(ChunkWidth);
       }
       if (Population != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(72);
         output.WriteInt32(Population);
       }
       if (_unknownFields != null) {
@@ -4369,16 +6777,24 @@ namespace Universe {
         output.WriteRawTag(32);
         output.WriteInt32(Width);
       }
+      if (ScaleXY != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ScaleXY);
+      }
+      if (ScaleHeight != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(ScaleHeight);
+      }
       if (Seed.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(58);
         output.WriteString(Seed);
       }
       if (ChunkWidth != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteInt32(ChunkWidth);
       }
       if (Population != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(72);
         output.WriteInt32(Population);
       }
       if (_unknownFields != null) {
@@ -4401,6 +6817,12 @@ namespace Universe {
       }
       if (Width != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
+      }
+      if (ScaleXY != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ScaleXY);
+      }
+      if (ScaleHeight != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ScaleHeight);
       }
       if (Seed.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Seed);
@@ -4433,6 +6855,12 @@ namespace Universe {
       }
       if (other.Width != 0) {
         Width = other.Width;
+      }
+      if (other.ScaleXY != 0) {
+        ScaleXY = other.ScaleXY;
+      }
+      if (other.ScaleHeight != 0) {
+        ScaleHeight = other.ScaleHeight;
       }
       if (other.Seed.Length != 0) {
         Seed = other.Seed;
@@ -4473,15 +6901,23 @@ namespace Universe {
             Width = input.ReadInt32();
             break;
           }
-          case 42: {
-            Seed = input.ReadString();
+          case 40: {
+            ScaleXY = input.ReadInt32();
             break;
           }
           case 48: {
+            ScaleHeight = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            Seed = input.ReadString();
+            break;
+          }
+          case 64: {
             ChunkWidth = input.ReadInt32();
             break;
           }
-          case 56: {
+          case 72: {
             Population = input.ReadInt32();
             break;
           }
@@ -4515,15 +6951,23 @@ namespace Universe {
             Width = input.ReadInt32();
             break;
           }
-          case 42: {
-            Seed = input.ReadString();
+          case 40: {
+            ScaleXY = input.ReadInt32();
             break;
           }
           case 48: {
+            ScaleHeight = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            Seed = input.ReadString();
+            break;
+          }
+          case 64: {
             ChunkWidth = input.ReadInt32();
             break;
           }
-          case 56: {
+          case 72: {
             Population = input.ReadInt32();
             break;
           }
@@ -4546,7 +6990,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4564,6 +7008,7 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Move(Move other) : this() {
       position_ = other.position_ != null ? other.position_.Clone() : null;
+      jump_ = other.jump_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4573,13 +7018,24 @@ namespace Universe {
     }
 
     /// <summary>Field number for the "position" field.</summary>
-    public const int PositionFieldNumber = 1;
+    public const int PositionFieldNumber = 2;
     private global::Universe.Position position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Universe.Position Position {
       get { return position_; }
       set {
         position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "jump" field.</summary>
+    public const int JumpFieldNumber = 3;
+    private bool jump_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Jump {
+      get { return jump_; }
+      set {
+        jump_ = value;
       }
     }
 
@@ -4597,6 +7053,7 @@ namespace Universe {
         return true;
       }
       if (!object.Equals(Position, other.Position)) return false;
+      if (Jump != other.Jump) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4604,6 +7061,7 @@ namespace Universe {
     public override int GetHashCode() {
       int hash = 1;
       if (position_ != null) hash ^= Position.GetHashCode();
+      if (Jump != false) hash ^= Jump.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4621,8 +7079,12 @@ namespace Universe {
       output.WriteRawMessage(this);
     #else
       if (position_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(Position);
+      }
+      if (Jump != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Jump);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4634,8 +7096,12 @@ namespace Universe {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (position_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(Position);
+      }
+      if (Jump != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Jump);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4648,6 +7114,9 @@ namespace Universe {
       int size = 0;
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (Jump != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4666,6 +7135,9 @@ namespace Universe {
         }
         Position.MergeFrom(other.Position);
       }
+      if (other.Jump != false) {
+        Jump = other.Jump;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4680,11 +7152,15 @@ namespace Universe {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 18: {
             if (position_ == null) {
               Position = new global::Universe.Position();
             }
             input.ReadMessage(Position);
+            break;
+          }
+          case 24: {
+            Jump = input.ReadBool();
             break;
           }
         }
@@ -4701,11 +7177,15 @@ namespace Universe {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 18: {
             if (position_ == null) {
               Position = new global::Universe.Position();
             }
             input.ReadMessage(Position);
+            break;
+          }
+          case 24: {
+            Jump = input.ReadBool();
             break;
           }
         }
@@ -4727,7 +7207,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4994,7 +7474,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5205,7 +7685,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5431,7 +7911,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5675,7 +8155,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5883,7 +8363,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6094,7 +8574,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6389,7 +8869,7 @@ namespace Universe {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Universe.WorldReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

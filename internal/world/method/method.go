@@ -3,10 +3,9 @@ package method
 import (
 	"context"
 	"strings"
-	"sync"
-	"time"
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 	"github.com/Roukii/pock_multiplayer/pkg/jwt"
 	"google.golang.org/grpc"
@@ -15,25 +14,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-type client struct {
-	streamChunkServer  pb.ChunkService_StreamServer
-	streamPlayerServer pb.PlayerService_StreamServer
-	lastMessage        time.Time
-	done               chan error
-	userUUID           string
-	playerUUID         string
-}
-
 func New(s grpc.ServiceRegistrar, gameService *game.GameService) {
+	clientService := client.NewClientService(gameService)
 	chunkServer := ChunkMethod{
 		game:    gameService,
-		clients: map[string]*client{},
-		mu:      sync.RWMutex{},
+		clients: clientService,
 	}
 	playerServer := PlayerMethod{
-		clients: map[string]*client{},
 		game:    gameService,
-		mu:      sync.RWMutex{},
+		clients: clientService,
 	}
 
 	pb.RegisterChunkServiceServer(s, &chunkServer)
@@ -42,7 +31,6 @@ func New(s grpc.ServiceRegistrar, gameService *game.GameService) {
 }
 
 func getUserInfoFromRequest(ctx context.Context) (*jwt.CustomerInfo, error) {
-
 	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return nil, status.Errorf(codes.DataLoss, "failed to get metadata")
@@ -54,6 +42,7 @@ func getUserInfoFromRequest(ctx context.Context) (*jwt.CustomerInfo, error) {
 	if strings.Trim(token[0], " ") == "" {
 		return nil, status.Errorf(codes.InvalidArgument, "empty 'token' header")
 	}
+	// TODO for test
 	userInfo, err := jwt.VerifyToken(token[0])
 	if err != nil {
 		return &jwt.CustomerInfo{

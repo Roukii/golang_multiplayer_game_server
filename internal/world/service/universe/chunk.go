@@ -1,4 +1,4 @@
-package game
+package universe_service
 
 import (
 	"errors"
@@ -12,15 +12,15 @@ import (
 	"github.com/gocql/gocql"
 )
 
-func (g *GameService) loadWorldChunks(world *universe.World) error {
-	chunks, err := g.ChunkDao.LoadWorldChunk(world.UUID)
+func (us *UniverseService) loadWorldChunks(world *universe.World) error {
+	chunks, err := us.ChunkDao.LoadWorldChunk(world.UUID)
 	if err != nil {
 		fmt.Println("Couldn't load chunks : ", err)
 		return err
 	}
 	fmt.Println("chunks length : ", len(chunks))
 	if len(chunks) == 0 {
-		return g.generateAndSaveWorldChunks(world)
+		return us.generateAndSaveWorldChunks(world)
 	}
 	world.Chunks = make(map[int]map[int]universe.Chunk)
 	for _, chunk := range chunks {
@@ -32,16 +32,16 @@ func (g *GameService) loadWorldChunks(world *universe.World) error {
 	return err
 }
 
-func (g *GameService) generateAndSaveWorldChunks(world *universe.World) (err error) {
+func (us *UniverseService) generateAndSaveWorldChunks(world *universe.World) (err error) {
 	generator := procedural_generation.NewWorldGenerator(world)
-	g.WorldGenerators[world.UUID] = &generator
+	us.WorldGenerators[world.UUID] = &generator
 
 	fmt.Println("Start generate and save chunks")
 	world.Chunks = make(map[int]map[int]universe.Chunk)
 	for x := 0; x < world.Length; x++ {
 		world.Chunks[x] = make(map[int]universe.Chunk)
 		for y := 0; y < world.Width; y++ {
-			chunk, err := g.generateChunk(world, entity.Vector2{x, y})
+			chunk, err := us.generateChunk(world, entity.Vector2{x, y})
 			world.Chunks[x][y] = *chunk
 			if err != nil {
 				fmt.Println("Error generating chunk : ", x, "/", y, " with error : ", err)
@@ -50,7 +50,7 @@ func (g *GameService) generateAndSaveWorldChunks(world *universe.World) (err err
 		}
 	}
 	fmt.Println("Save chunks to database")
-	err = g.saveWorldChunks(world)
+	err = us.saveWorldChunks(world)
 	if err != nil {
 		fmt.Println("Error saving chunks : ", err)
 		return err
@@ -58,14 +58,14 @@ func (g *GameService) generateAndSaveWorldChunks(world *universe.World) (err err
 	return nil
 }
 
-func (g *GameService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, viewDistance int) ([]*universe.Chunk, error) {
+func (us *UniverseService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, viewDistance int) ([]*universe.Chunk, error) {
 	var chunks []*universe.Chunk
-	world, ok := g.Universe.Worlds[spawnPoint.WorldUUID]
+	world, ok := us.Universe.Worlds[spawnPoint.WorldUUID]
 	if !ok {
 		return nil, errors.New("world not found : " + spawnPoint.WorldUUID)
 	}
 	if len(world.Chunks) == 0 {
-		err := g.loadWorldChunks(&world)
+		err := us.loadWorldChunks(&world)
 		if err != nil {
 			return nil, errors.New("world not found : " + spawnPoint.WorldUUID)
 		}
@@ -84,10 +84,10 @@ func (g *GameService) GetChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, vie
 	return chunks, nil
 }
 
-func (g *GameService) saveWorldChunks(world *universe.World) (err error) {
+func (us *UniverseService) saveWorldChunks(world *universe.World) (err error) {
 	for _, chunks := range world.Chunks {
 		for _, chunk := range chunks {
-			err = g.ChunkDao.Insert(world.UUID, &chunk)
+			err = us.ChunkDao.Insert(world.UUID, &chunk)
 			if err != nil {
 				fmt.Println("can't save chunk : ", err)
 			}
@@ -96,14 +96,14 @@ func (g *GameService) saveWorldChunks(world *universe.World) (err error) {
 	return
 }
 
-func (g *GameService) generateChunk(world *universe.World, position entity.Vector2) (*universe.Chunk, error) {
-	generator := g.WorldGenerators[world.UUID]
+func (us *UniverseService) generateChunk(world *universe.World, position entity.Vector2) (*universe.Chunk, error) {
+	generator := us.WorldGenerators[world.UUID]
 	chunk, err := generator.GenerateChunk(position.X, position.Y)
 	if err != nil {
 		fmt.Println("error generating chunk : ", err)
 		return nil, err
 	}
 	chunk.UUID = gocql.TimeUUID().String()
-	g.ChunkDao.Insert(world.UUID, chunk)
+	us.ChunkDao.Insert(world.UUID, chunk)
 	return chunk, nil
 }

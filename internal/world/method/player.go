@@ -12,23 +12,18 @@ import (
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/client"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 	player_action "github.com/Roukii/pock_multiplayer/internal/world/service/game/action/player"
+	"github.com/Roukii/pock_multiplayer/pkg/helper"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	"github.com/Roukii/pock_multiplayer/pkg/helper"
-
-)
-
-const (
-	clientTimeout = 15
-	maxClients    = 8
 )
 
 type PlayerMethod struct {
 	pb.UnimplementedPlayerServiceServer
-	clients map[string]*client
+	clients *client.ClientService
 	game    *game.GameService
 	mu      sync.RWMutex
 }
@@ -39,7 +34,7 @@ func (pm *PlayerMethod) GetPlayers(ctx context.Context, request *emptypb.Empty) 
 		return nil, err
 	}
 
-	players, err := pm.game.PlayerDao.GetAllPlayersFromUserUUID(userInfo.UUID)
+	players, err := pm.game.PlayerService.PlayerDao.GetAllPlayersFromUserUUID(userInfo.UUID)
 	var playerResponse []*pb.Player
 	for _, player := range players {
 		playerResponse = append(playerResponse, &pb.Player{
@@ -75,9 +70,13 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 			Mp:    10,
 		},
 	}
-	pm.game.PlayerMu.Lock()
-	err = pm.game.CreatePlayer(userInfo.UUID, &p)
-	pm.game.PlayerMu.Unlock()
+	// TODO need to transform this into spawn point
+	var worldUUID string
+	for _, world := range pm.game.UniverseService.Universe.Worlds {
+		worldUUID = world.UUID
+		break
+	}
+	err = pm.game.PlayerService.CreatePlayer(userInfo.UUID, &p, worldUUID)
 	if err != nil {
 		fmt.Println("failed to create player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
@@ -87,14 +86,7 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 		return nil, err
 	}
 
-	pm.mu.Lock()
-	pm.clients[userInfo.UUID] = &client{
-		lastMessage: time.Now(),
-		done:        make(chan error),
-		playerUUID:  p.UUID,
-		userUUID:  userInfo.UUID,
-	}
-	pm.mu.Unlock()
+	pm.clients.AddClient(userInfo.UUID, &p)
 
 	return &pb.CreatePlayerResponse{
 		Player:        helper.PlayerTypeToProto(&p),
@@ -104,17 +96,13 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	}, nil
 }
 
-
-
 func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest) (*pb.ConnectResponse, error) {
 	userInfo, err := getUserInfoFromRequest(ctx)
 	if err != nil {
 		return nil, err
 	}
-	pm.game.PlayerMu.Lock()
 	player_uuid := request.GetPlayerUuid()
-	p, err := pm.game.ConnectPlayer(userInfo.UUID, player_uuid)
-	pm.game.PlayerMu.Unlock()
+	p, err := pm.game.PlayerService.ConnectPlayer(userInfo.UUID, player_uuid)
 	if err != nil {
 		fmt.Println("failed to connect player", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
@@ -124,14 +112,7 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 		return nil, err
 	}
 
-	pm.mu.Lock()
-	pm.clients[p.UUID] = &client{
-		lastMessage: time.Now(),
-		done:        make(chan error),
-		playerUUID:  p.UUID,
-		userUUID:  userInfo.UUID,
-	}
-	pm.mu.Unlock()
+	pm.clients.AddClient(userInfo.UUID, p)
 
 	return &pb.ConnectResponse{
 		Player:        helper.PlayerTypeToProto(p),
@@ -143,12 +124,12 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 
 // TODO lock write with mutex
 func (pm *PlayerMethod) loadWorldAndChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (world *universe.World, chunks []*universe.Chunk, err error) {
-	world, err = pm.game.GetWorld(spawnPoint.WorldUUID)
+	world, err = pm.game.UniverseService.GetWorld(spawnPoint.WorldUUID)
 	if err != nil {
 		fmt.Println("failed to load world", err)
 		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load world")
 	}
-	chunks, err = pm.game.GetChunksFromSpawnSpoint(spawnPoint, 1)
+	chunks, err = pm.game.UniverseService.GetChunksFromSpawnSpoint(spawnPoint, 1)
 	if err != nil {
 		fmt.Println("failed to load chunks", err)
 		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
@@ -162,29 +143,30 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 	if err != nil {
 		return err
 	}
-	currentClient, ok := pm.clients[userInfo.UUID]
+	currentClient, ok := pm.clients.GetClient(userInfo.UUID)
 	if !ok {
 		fmt.Println("client no found")
 		return status.Errorf(codes.InvalidArgument, "user not recognized")
 	}
-	if currentClient.streamPlayerServer != nil {
+
+	err = currentClient.AddPlayerStream(requestStream)
+	if err != nil {
 		return errors.New("stream already active")
 	}
-	currentClient.streamPlayerServer = requestStream
-	fmt.Println("Start new stream for : ", currentClient.playerUUID)
+
 	go func() {
 		for {
 			// receive data from stream
 			req, err := requestStream.Recv()
 			if err != nil {
 				log.Printf("receive error %v", err)
-				currentClient.done <- errors.New("failed to receive request")
+				currentClient.Done <- errors.New("failed to receive request")
 				return
 			}
 			action := req.GetAction()
 			switch action.(type) {
 			case *pb.PlayerStreamRequest_Move:
-				pm.handleMoveAction(req, currentClient)
+				pm.handleMoveAction(req, currentClient.GetPlayerUUID())
 			}
 		}
 	}()
@@ -194,52 +176,13 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 	select {
 	case <-ctx.Done():
 		doneError = ctx.Err()
-	case doneError = <-currentClient.done:
+	case doneError = <-currentClient.Done:
 	}
 	log.Printf(`stream done with error "%v"`, doneError)
 
-	log.Printf("%s - removing client", currentClient.playerUUID)
-	pm.removeClient(currentClient.userUUID)
-	pm.removePlayer(currentClient.playerUUID)
+	pm.clients.DisconnectClient(currentClient, doneError.Error())
 
 	return doneError
-}
-
-func (pm *PlayerMethod) removeClient(userUUID string) {
-	pm.mu.Lock()
-	delete(pm.clients, userUUID)
-	pm.mu.Unlock()
-}
-
-func (pm *PlayerMethod) removePlayer(playerUUID string) {
-	pm.game.PlayerMu.Lock()
-	pm.game.DisconnectPlayer(playerUUID)
-	pm.game.PlayerMu.Unlock()
-
-	// TODO broadcast disconnect
-	// resp := proto.Response{
-	// 	Action: &proto.Response_RemoveEntity{
-	// 		RemoveEntity: &proto.RemoveEntity{
-	// 			Id: playerID.String(),
-	// 		},
-	// 	},
-	// }
-	// s.broadcast(&resp)
-}
-
-func (pm *PlayerMethod) watchTimeout() {
-	timeoutTicker := time.NewTicker(1 * time.Minute)
-	go func() {
-		for {
-			for _, client := range pm.clients {
-				if time.Now().Sub(client.lastMessage).Minutes() > clientTimeout {
-					client.done <- errors.New("you have been timed out")
-					return
-				}
-			}
-			<-timeoutTicker.C
-		}
-	}()
 }
 
 func (pm *PlayerMethod) watchChanges() {
@@ -255,10 +198,10 @@ func (pm *PlayerMethod) watchChanges() {
 	}()
 }
 
-func (pm *PlayerMethod) handleMoveAction(req *pb.PlayerStreamRequest, currentClient *client) {
+func (pm *PlayerMethod) handleMoveAction(req *pb.PlayerStreamRequest, playerUUID string) {
 	move := req.GetMove()
 	pm.game.PlayerActionChannel <- player_action.MoveAction{
-		Position:   entity.Position{
+		Position: entity.Position{
 			Position: entity.Vector3f{
 				X: move.Position.Position.X,
 				Y: move.Position.Position.Y,
@@ -270,10 +213,11 @@ func (pm *PlayerMethod) handleMoveAction(req *pb.PlayerStreamRequest, currentCli
 				Z: 0,
 			},
 		},
-		PlayerUUID: currentClient.playerUUID,
+		PlayerUUID: playerUUID,
 		Created:    time.Now(),
 	}
 }
+
 func (pm *PlayerMethod) handleMoveChange(move player_action.MovePlayerChange) {
 	resp := pb.PlayerStreamResponse{
 		Action: &pb.PlayerStreamResponse_Move{
@@ -293,7 +237,7 @@ func (pm *PlayerMethod) handleMoveChange(move player_action.MovePlayerChange) {
 			},
 		},
 	}
-	pm.broadcast(&resp)
+	pm.clients.BroadcastPlayer(&resp)
 }
 
 func handleMovePlayerChange(resp *pb.PlayerStreamRequest) pb.PlayerStreamResponse {
@@ -301,20 +245,4 @@ func handleMovePlayerChange(resp *pb.PlayerStreamRequest) pb.PlayerStreamRespons
 	return pb.PlayerStreamResponse{
 		Action: &pb.PlayerStreamResponse_Move{Move: &pb.Move{Position: &pb.Position{Position: &pb.Vector3{X: move.Position.Position.X, Y: move.Position.Position.Y, Z: move.Position.Position.Z}, Angle: &pb.Vector3{X: move.Position.Angle.X, Y: move.Position.Angle.Y, Z: move.Position.Angle.Z}}}},
 	}
-}
-
-func (pm *PlayerMethod) broadcast(resp *pb.PlayerStreamResponse) {
-	pm.mu.Lock()
-	for id, currentClient := range pm.clients {
-		if currentClient.streamPlayerServer == nil {
-			continue
-		}
-		if err := currentClient.streamPlayerServer.Send(resp); err != nil {
-			log.Printf("%s - broadcast error %v", id, err)
-			currentClient.done <- errors.New("failed to broadcast message")
-			continue
-		}
-		log.Printf("%s - broadcasted %+v", resp, id)
-	}
-	pm.mu.Unlock()
 }

@@ -14,7 +14,7 @@ type MoveAction struct {
 }
 
 func (action MoveAction) Perform(game *game.GameService) {
-	player, ok := game.ConnectedPlayer[action.PlayerUUID]
+	player, ok := game.PlayerService.ConnectedPlayer[action.PlayerUUID]
 	if !ok {
 		return
 	}
