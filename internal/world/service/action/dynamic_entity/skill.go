@@ -1,4 +1,4 @@
-package player_action
+package dynamic_entity_action
 
 import (
 	"log"
@@ -6,6 +6,7 @@ import (
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
@@ -19,8 +20,8 @@ type UseSkillAction struct {
 	Created    time.Time
 }
 
-type UseSkillPlayerChange struct {
-	game.PlayerChange
+type UseSkillDynamicEntityChange struct {
+	dynamic_entity.DynamicEntityChange
 	PlayerUUID string
 	Position   entity.Vector3f
 	Angle      entity.Vector3f
@@ -46,8 +47,8 @@ func (action UseSkillAction) Perform(game *game.GameService) {
 	if !ok {
 		return
 	}
-	player.CurrentPosition.Rotation = action.Angle
-	game.SendPlayerChange(UseSkillPlayerChange{
+	player.Position.Rotation = action.Angle
+	game.SendDynamicEntityChange(UseSkillDynamicEntityChange{
 		PlayerUUID: player.UUID,
 		Position:   action.Position,
 		Angle:      action.Angle,

@@ -1,4 +1,4 @@
-package player_action
+package dynamic_entity_action
 
 import (
 	"log"
@@ -6,6 +6,7 @@ import (
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
@@ -16,8 +17,8 @@ type MoveAction struct {
 	Created    time.Time
 }
 
-type MovePlayerChange struct {
-	game.PlayerChange
+type MoveDynamicEntityChange struct {
+	dynamic_entity.DynamicEntityChange
 	PlayerUUID string
 	Position   entity.Position
 	Jump       bool
@@ -39,8 +40,8 @@ func (action MoveAction) Perform(game *game.GameService) {
 	if !ok {
 		return
 	}
-	player.CurrentPosition = action.Position
-	game.SendPlayerChange(MovePlayerChange{
+	player.Position = action.Position
+	game.SendDynamicEntityChange(MoveDynamicEntityChange{
 		PlayerUUID: player.UUID,
 		Position:   action.Position,
 		Jump:       action.Jump,

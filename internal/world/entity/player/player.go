@@ -1,17 +1,17 @@
 package player
 
 import (
-	"time"
+	"log"
 
 	entity "github.com/Roukii/pock_multiplayer/internal/world/entity"
 )
 
 type Player struct {
-	UUID            string          `json:"player_uuid"`
-	Name            string          `json:"name"`
-	CreatedAt       time.Time       `json:"created_at"`
-	UpdatedAt       time.Time       `json:"updated_at"`
-	Stats           entity.Stats    `json:"stats"`
-	SpawnPoint      SpawnPoint      `json:"spawn_point"`
-	CurrentPosition entity.Position `json:"current_position"`
+	entity.IDynamicEntity
+	SpawnPoint SpawnPoint `json:"spawn_point"`
+	CurrentWorldUUID string
+}
+
+func (p *Player) Update(elapstedTime int64) {
+	log.Println("update player : ", p.UUID)
 }

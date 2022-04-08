@@ -2,34 +2,34 @@ package action
 
 import (
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
-	player_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/player"
-	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
+	dynamic_entity_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/dynamic_entity"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/pkg/helper"
 )
 
-func GetPlayerChangeToProto(change game.PlayerChange) *pb.PlayerStreamResponse {
+func GetDynamicEntityChangeToProto(change dynamic_entity.DynamicEntityChange) *pb.PlayerStreamResponse {
 	var resp *pb.PlayerStreamResponse
 	switch change.(type) {
-	case player_action.MovePlayerChange:
-		change := change.(player_action.MovePlayerChange)
+	case dynamic_entity_action.MoveDynamicEntityChange:
+		change := change.(dynamic_entity_action.MoveDynamicEntityChange)
 		resp = helper.PlayerMoveChangeToProto(change)
-	case player_action.AttackPlayerChange:
-		change := change.(player_action.AttackPlayerChange)
+	case dynamic_entity_action.AttackDynamicEntityChange:
+		change := change.(dynamic_entity_action.AttackDynamicEntityChange)
 		resp = helper.PlayerAttackChangeToProto(change)
-	case player_action.ConnectPlayerChange:
-		change := change.(player_action.ConnectPlayerChange)
+	case dynamic_entity_action.ConnectDynamicEntityChange:
+		change := change.(dynamic_entity_action.ConnectDynamicEntityChange)
 		resp = helper.PlayerConnectChangeToProto(change)
-	case player_action.DisconnectPlayerChange:
-		change := change.(player_action.DisconnectPlayerChange)
+	case dynamic_entity_action.DisconnectDynamicEntityChange:
+		change := change.(dynamic_entity_action.DisconnectDynamicEntityChange)
 		resp = helper.PlayerDisconnectChangeToProto(change)
-	case player_action.HitPlayerChange:
-		change := change.(player_action.HitPlayerChange)
+	case dynamic_entity_action.HitDynamicEntityChange:
+		change := change.(dynamic_entity_action.HitDynamicEntityChange)
 		resp = helper.PlayerHitChangeToProto(change)
-	case player_action.InteractPlayerChange:
-		change := change.(player_action.InteractPlayerChange)
+	case dynamic_entity_action.InteractDynamicEntityChange:
+		change := change.(dynamic_entity_action.InteractDynamicEntityChange)
 		resp = helper.PlayerInteractChangeToProto(change)
-	case player_action.UseSkillPlayerChange:
-		change := change.(player_action.UseSkillPlayerChange)
+	case dynamic_entity_action.UseSkillDynamicEntityChange:
+		change := change.(dynamic_entity_action.UseSkillDynamicEntityChange)
 		resp = helper.PlayerUseSkillChangeToProto(change)
 	}
 	return resp

@@ -31,10 +31,11 @@ func NewPlayerService(session *gocqlx.Session) *PlayerService {
 func (ps *PlayerService) CreatePlayer(userUuid string, p *player.Player, world *universe.World) (err error) {
 	p.UUID = gocql.TimeUUID().String()
 	p.SpawnPoint = world.SpawnPoints[0]
+	p.CurrentWorldUUID = world.UUID
 	if err != nil {
 		return err
 	}
-	p.CurrentPosition = p.SpawnPoint.Coordinate
+	p.Position = p.SpawnPoint.Coordinate
 	err = ps.playerDao.Insert(userUuid, p)
 	if err != nil {
 		return err

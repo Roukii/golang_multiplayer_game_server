@@ -100,22 +100,16 @@ func (a PlayerDao) GetAllPlayersFromUserUUID(userUUID string) ([]*player.Player,
 	}
 	for _, p := range playersByUser {
 		players = append(players, &player.Player{
-			UUID:      p.PlayerUuid.String(),
-			Name:      p.Name,
-			CreatedAt: p.CreatedAt,
-			UpdatedAt: p.UpdatedAt,
-			Stats:     p.Stats,
-			SpawnPoint: player.SpawnPoint{
-				WorldUUID: p.SpawnPoint.WorldUUID,
-				Coordinate: entity.Position{
-					Position: entity.Vector3f{
-						X: p.SpawnPoint.X,
-						Y: p.SpawnPoint.Y,
-						Z: p.SpawnPoint.Z,
-					},
-				},
-				UpdatedAt: p.SpawnPoint.UpdatedAt,
+			IDynamicEntity: entity.IDynamicEntity{
+				UUID:       p.PlayerUuid.String(),
+				Name:       p.Name,
+				CreatedAt:  p.CreatedAt,
+				UpdatedAt:  p.UpdatedAt,
+				Stats:      p.Stats,
+				EntityType: entity.Player,
 			},
+			CurrentWorldUUID: p.SpawnPoint.WorldUUID,
+			SpawnPoint: player.SpawnPoint{WorldUUID: p.SpawnPoint.WorldUUID, Coordinate: entity.Position{Position: entity.Vector3f{X: p.SpawnPoint.X, Y: p.SpawnPoint.Y, Z: p.SpawnPoint.Z}}, UpdatedAt: p.SpawnPoint.UpdatedAt},
 		})
 	}
 	return players, nil
@@ -130,11 +124,15 @@ func (a PlayerDao) GetPlayerFromUUID(userUUID string, playerUUID string) (*playe
 	}
 
 	return &player.Player{
-		UUID:      p.PlayerUuid.String(),
-		Name:      p.Name,
-		CreatedAt: p.CreatedAt,
-		UpdatedAt: p.UpdatedAt,
-		Stats:     p.Stats,
+		IDynamicEntity: entity.IDynamicEntity{
+			UUID:       p.PlayerUuid.String(),
+			Name:       p.Name,
+			CreatedAt:  p.CreatedAt,
+			UpdatedAt:  p.UpdatedAt,
+			Stats:      p.Stats,
+			EntityType: entity.Player,
+		},
+		CurrentWorldUUID: p.SpawnPoint.WorldUUID,
 		SpawnPoint: player.SpawnPoint{
 			WorldUUID: p.SpawnPoint.WorldUUID,
 			Coordinate: entity.Position{

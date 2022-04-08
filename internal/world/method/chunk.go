@@ -31,19 +31,36 @@ func (c *ChunkMethod) GetWorlds(ctx context.Context, request *emptypb.Empty) (*p
 	}, nil
 }
 
+// TODO check if world can be entered
 func (c *ChunkMethod) EnterWorld(ctx context.Context, request *pb.EnterWorldRequest) (*pb.EnterWorldResponse, error) {
-	world, err := c.game.UniverseService.GetWorld(request.WorldUUID)
+	userInfo, err := getUserInfoFromRequest(ctx)
+	if err != nil {
+		return nil, err
+	}
+	client, ok := c.clients.GetClient(userInfo.UUID)
+	if ok && client.GetPlayerUUID() != "" {
+		return nil, status.Errorf(codes.AlreadyExists, "already connect")
+	}
+	player, ok := c.game.PlayerService.ConnectedPlayer[client.GetPlayerUUID()]
+	if !ok {
+		log.Println("player not found")
+		return nil, status.Errorf(codes.NotFound, "player not found")
+	}
+
+	world, err := c.game.UniverseService.GetWorldService(request.WorldUUID)
 	if err != nil {
 		log.Println("couldn't find world : ", err)
 		return nil, status.Errorf(codes.InvalidArgument, "couldn't find world")
 	}
-	chunks, err := c.game.UniverseService.LoadChunksFromSpawnPoint(world.SpawnPoints[0])
+	// TODO better handle of spawn point please
+	chunks, err := world.LoadChunksFromSpawnPoint(world.World.SpawnPoints[0])
 	if err != nil {
 		log.Println("couldn't load chunks : ", err)
 		return nil, status.Errorf(codes.InvalidArgument, "couldn't load chunks")
 	}
+	player.CurrentWorldUUID = world.World.UUID
 	return &pb.EnterWorldResponse{
-		World:         helper.WorldTypeToProto(world),
+		World:         helper.WorldTypeToProto(world.World),
 		Chunks:        helper.ChunksTypeToProto(chunks),
 		DynamicEntity: []*pb.DynamicEntity{},
 	}, nil
@@ -58,11 +75,16 @@ func (c *ChunkMethod) LoadChunk(ctx context.Context, request *pb.LoadChunkReques
 	if ok && client.GetPlayerUUID() != "" {
 		return nil, status.Errorf(codes.AlreadyExists, "already connect")
 	}
-	world, err := c.game.UniverseService.GetWorld(client.GetPlayerUUID())
+	player, ok := c.game.PlayerService.ConnectedPlayer[client.GetPlayerUUID()]
+	if !ok {
+		log.Println("player not found")
+		return nil, status.Errorf(codes.NotFound, "player not found")
+	}
+	worldService, err := c.game.UniverseService.GetWorldService(player.CurrentWorldUUID)
 	if err != nil {
 		return nil, err
 	}
-	chunks, err := c.game.UniverseService.LoadSpecificChunks(world, request.ChunkToLoad)
+	chunks, err := worldService.LoadSpecificChunks(request.ChunkToLoad)
 	if err != nil {
 		return nil, err
 	}

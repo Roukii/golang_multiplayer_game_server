@@ -8,12 +8,12 @@ import (
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
-	player_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/player"
+	dynamic_entity_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
 const (
-	clientTimeout = 15
+	clientTimeout  = 15
 	timeOutMessage = "timed out"
 )
 
@@ -50,7 +50,7 @@ func (c *ClientService) AddClient(userUUID string, p *player.Player) {
 	c.mu.Unlock()
 
 	// TODO restrain connect player info
-	c.game.PlayerChangeChannel <- player_action.ConnectPlayerChange{
+	c.game.DynamicEntityChangeChannel <- dynamic_entity_action.ConnectDynamicEntityChange{
 		Player: p,
 	}
 }
@@ -101,18 +101,18 @@ func (c *ClientService) DisconnectClient(client *client, message string) {
 func (c *ClientService) removePlayer(playerUUID string, message string) {
 	c.game.PlayerService.DisconnectPlayer(playerUUID)
 
-	c.game.SendPlayerChange(player_action.DisconnectPlayerChange{
+	c.game.SendDynamicEntityChange(dynamic_entity_action.DisconnectDynamicEntityChange{
 		PlayerUUID: playerUUID,
 		Message:    message,
 	})
 }
 
 func (c *ClientService) watchTimeout() {
-	timeoutTicker := time.NewTicker(1 * time.Second)
+	timeoutTicker := time.NewTicker(1 * time.Minute)
 	go func() {
 		for {
 			for _, client := range c.clients {
-				if time.Now().Sub(client.lastMessage).Seconds() > clientTimeout {
+				if time.Now().Sub(client.lastMessage).Minutes() > clientTimeout {
 					if client.streamPlayerServer != nil {
 						client.streamPlayerServer.Send(&pb.PlayerStreamResponse{
 							Uuid: client.playerUUID,

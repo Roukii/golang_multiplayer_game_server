@@ -14,5 +14,4 @@ type Chunk struct {
 	PositionY       int                    `json:"positionY"`
 	Tiles           []Tile                 `json:"tiles"`
 	StaticEntities  []entity.StaticEntity  `json:"staticEntities"`
-	DynamicEntities []entity.DynamicEntity `json:"dynamicEntities"`
 }

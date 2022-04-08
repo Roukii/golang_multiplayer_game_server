@@ -1,4 +1,4 @@
-package player_action
+package dynamic_entity_action
 
 import (
 	"log"
@@ -6,6 +6,7 @@ import (
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
@@ -20,8 +21,8 @@ type HitAction struct {
 	Created           time.Time
 }
 
-type HitPlayerChange struct {
-	game.PlayerChange
+type HitDynamicEntityChange struct {
+	dynamic_entity.DynamicEntityChange
 	PlayerUUID        string
 	DynamicEntityUUID []string
 	StaticEntityUUID  []string
@@ -52,7 +53,7 @@ func (action HitAction) Perform(game *game.GameService) {
 	if !ok {
 		return
 	}
-	game.SendPlayerChange(HitPlayerChange{
+	game.SendDynamicEntityChange(HitDynamicEntityChange{
 		PlayerUUID:        player.UUID,
 		DynamicEntityUUID: []string{},
 		StaticEntityUUID:  []string{},

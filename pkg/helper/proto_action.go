@@ -2,12 +2,12 @@ package helper
 
 import (
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
-	player_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/player"
+	dynamic_entity_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/dynamic_entity"
 )
 
 // TODO modify these query to allow creatures instead of only players
 
-func PlayerMoveChangeToProto(move player_action.MovePlayerChange) *pb.PlayerStreamResponse {
+func PlayerMoveChangeToProto(move dynamic_entity_action.MoveDynamicEntityChange) *pb.PlayerStreamResponse {
 	resp := pb.PlayerStreamResponse{
 		Uuid: move.PlayerUUID,
 		Info: &pb.PlayerStreamResponse_DynamicEntity{
@@ -18,7 +18,7 @@ func PlayerMoveChangeToProto(move player_action.MovePlayerChange) *pb.PlayerStre
 	return &resp
 }
 
-func PlayerAttackChangeToProto(attack player_action.AttackPlayerChange) *pb.PlayerStreamResponse {
+func PlayerAttackChangeToProto(attack dynamic_entity_action.AttackDynamicEntityChange) *pb.PlayerStreamResponse {
 	resp := pb.PlayerStreamResponse{
 		Uuid: attack.PlayerUUID,
 		Info: &pb.PlayerStreamResponse_DynamicEntity{
@@ -29,7 +29,7 @@ func PlayerAttackChangeToProto(attack player_action.AttackPlayerChange) *pb.Play
 	return &resp
 }
 
-func PlayerHitChangeToProto(hit player_action.HitPlayerChange) *pb.PlayerStreamResponse {
+func PlayerHitChangeToProto(hit dynamic_entity_action.HitDynamicEntityChange) *pb.PlayerStreamResponse {
 	resp := pb.PlayerStreamResponse{
 		Uuid: hit.PlayerUUID,
 		Info: &pb.PlayerStreamResponse_DynamicEntity{
@@ -40,7 +40,7 @@ func PlayerHitChangeToProto(hit player_action.HitPlayerChange) *pb.PlayerStreamR
 	return &resp
 }
 
-func PlayerConnectChangeToProto(connect player_action.ConnectPlayerChange) *pb.PlayerStreamResponse {
+func PlayerConnectChangeToProto(connect dynamic_entity_action.ConnectDynamicEntityChange) *pb.PlayerStreamResponse {
 	resp := pb.PlayerStreamResponse{
 		Uuid: connect.Player.UUID,
 		Info: &pb.PlayerStreamResponse_DynamicEntity{DynamicEntity: pb.DynamicEntityType_PLAYER},
@@ -51,8 +51,8 @@ func PlayerConnectChangeToProto(connect player_action.ConnectPlayerChange) *pb.P
 					Uuid:  connect.Player.UUID,
 					Level: int32(connect.Player.Stats.Level),
 					Position: &pb.Position{
-						Position: vector3fToProto(connect.Player.CurrentPosition.Position),
-						Angle:    vector3fToProto(connect.Player.CurrentPosition.Rotation),
+						Position: vector3fToProto(connect.Player.Position.Position),
+						Angle:    vector3fToProto(connect.Player.Position.Rotation),
 					},
 				},
 			},
@@ -61,7 +61,7 @@ func PlayerConnectChangeToProto(connect player_action.ConnectPlayerChange) *pb.P
 	return &resp
 }
 
-func PlayerDisconnectChangeToProto(disconnect player_action.DisconnectPlayerChange) *pb.PlayerStreamResponse {
+func PlayerDisconnectChangeToProto(disconnect dynamic_entity_action.DisconnectDynamicEntityChange) *pb.PlayerStreamResponse {
 	resp := pb.PlayerStreamResponse{
 		Uuid: disconnect.PlayerUUID,
 		Info: &pb.PlayerStreamResponse_DynamicEntity{DynamicEntity: pb.DynamicEntityType_PLAYER},
@@ -74,7 +74,7 @@ func PlayerDisconnectChangeToProto(disconnect player_action.DisconnectPlayerChan
 	return &resp
 }
 
-func PlayerInteractChangeToProto(interact player_action.InteractPlayerChange) *pb.PlayerStreamResponse {
+func PlayerInteractChangeToProto(interact dynamic_entity_action.InteractDynamicEntityChange) *pb.PlayerStreamResponse {
 	var pbInteract pb.Interact
 	if interact.DynamicEntityType != nil {
 		pbInteract = pb.Interact{
@@ -102,18 +102,18 @@ func PlayerInteractChangeToProto(interact player_action.InteractPlayerChange) *p
 }
 
 // TODO send skill info
-func PlayerUseSkillChangeToProto(skill player_action.UseSkillPlayerChange) *pb.PlayerStreamResponse {
+func PlayerUseSkillChangeToProto(skill dynamic_entity_action.UseSkillDynamicEntityChange) *pb.PlayerStreamResponse {
 	resp := pb.PlayerStreamResponse{
-		Uuid:   skill.PlayerUUID,
-		Info:   &pb.PlayerStreamResponse_DynamicEntity{DynamicEntity: pb.DynamicEntityType_PLAYER},
+		Uuid: skill.PlayerUUID,
+		Info: &pb.PlayerStreamResponse_DynamicEntity{DynamicEntity: pb.DynamicEntityType_PLAYER},
 		Action: &pb.PlayerStreamResponse_Skill{
 			Skill: &pb.UseSkill{
 				Position: vector3fToProto(skill.Position),
 				Angle:    vector3fToProto(skill.Angle),
-				Skill:    &pb.Skill{
+				Skill: &pb.Skill{
 					SkillUuid: skill.SkillId,
 				},
-				Id:       skill.SkillId,
+				Id: skill.SkillId,
 			},
 		},
 	}

@@ -1,10 +1,11 @@
-package player_action
+package dynamic_entity_action
 
 import (
 	"log"
 	"time"
 
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
@@ -14,8 +15,8 @@ type DisconnectAction struct {
 	Created    time.Time
 }
 
-type DisconnectPlayerChange struct {
-	game.PlayerChange
+type DisconnectDynamicEntityChange struct {
+	dynamic_entity.DynamicEntityChange
 	PlayerUUID string
 	Message    string
 }
@@ -37,7 +38,7 @@ func (action DisconnectAction) Perform(game *game.GameService) {
 		return
 	}
 	game.PlayerService.DisconnectPlayer(action.PlayerUUID)
-	game.SendPlayerChange(DisconnectPlayerChange{
+	game.SendDynamicEntityChange(DisconnectDynamicEntityChange{
 		PlayerUUID: player.UUID,
 		Message:    action.Message,
 	})

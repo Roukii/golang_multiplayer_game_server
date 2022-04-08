@@ -1,4 +1,4 @@
-package player_action
+package dynamic_entity_action
 
 import (
 	"log"
@@ -6,6 +6,7 @@ import (
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/internal/world/service/dynamic_entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/game"
 )
 
@@ -17,8 +18,8 @@ type InteractAction struct {
 	StaticEntityType  *entity.StaticEntityType
 }
 
-type InteractPlayerChange struct {
-	game.PlayerChange
+type InteractDynamicEntityChange struct {
+	dynamic_entity.DynamicEntityChange
 	PlayerUUID        string
 	EntityUUID        string
 	DynamicEntityType *entity.DynamicEntityType
@@ -52,7 +53,7 @@ func (action InteractAction) Perform(game *game.GameService) {
 	if !ok {
 		return
 	}
-	game.SendPlayerChange(InteractPlayerChange{
+	game.SendDynamicEntityChange(InteractDynamicEntityChange{
 		PlayerUUID:        player.UUID,
 		EntityUUID:        action.EntityUUID,
 		DynamicEntityType: action.DynamicEntityType,

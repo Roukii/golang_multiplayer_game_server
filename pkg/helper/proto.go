@@ -29,8 +29,8 @@ func PlayerTypeToProto(player *player.Player) *pb.Player {
 		Uuid:  player.UUID,
 		Level: int32(player.Stats.Level),
 		Position: &pb.Position{
-			Position: vector3fToProto(player.CurrentPosition.Position),
-			Angle: vector3fToProto(player.CurrentPosition.Rotation),
+			Position: vector3fToProto(player.Position.Position),
+			Angle:    vector3fToProto(player.Position.Rotation),
 		},
 	}
 }

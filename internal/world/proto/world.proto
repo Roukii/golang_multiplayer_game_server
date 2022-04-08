@@ -56,11 +56,9 @@ message ChunkStreamRequest {
 }
 
 message ChunkStreamResponse {
-    oneof action {
-        AddStaticEntity addStaticEntity = 1;
-        UpdateStaticEntity updateStaticEntity = 2;
-        RemoveStaticEntity removeStaticEntity = 3;
-    }
+    repeated  AddStaticEntity addStaticEntity = 1;
+    repeated  UpdateStaticEntity updateStaticEntity = 2;
+    repeated  RemoveStaticEntity removeStaticEntity = 3;
 }
 
 message RemoveStaticEntity {
