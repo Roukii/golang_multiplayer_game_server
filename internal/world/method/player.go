@@ -46,7 +46,7 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	}
 
 	p := player.Player{
-		IDynamicEntity: entity.IDynamicEntity{Name: request.GetName(), Stats: entity.Stats{Level: 1, Maxhp: 10, Hp: 10, Maxmp: 10, Mp: 10}},
+		IDynamicEntity: &entity.IDynamicEntity{Name: request.GetName(), Stats: entity.Stats{Level: 1, Maxhp: 10, Hp: 10, Maxmp: 10, Mp: 10}},
 	}
 	// TODO choose a world in another way
 	var world *universe.World
@@ -136,11 +136,15 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 			req, err := requestStream.Recv()
 			if err != nil {
 				log.Printf("receive error %v", err)
-				currentClient.PlayerDone <- errors.New("failed to receive request")
 				return
 			}
 			currentClient.Update()
-			action.SendPlayerAction(req, pm.game, currentClient.GetPlayerUUID())
+			shouldStopStream, err := action.SendPlayerAction(req, pm.game, currentClient.GetPlayerUUID())
+			if shouldStopStream {
+				currentClient.PlayerDone <- err
+				pm.clients.DisconnectClient(currentClient, "disconnect")
+				return
+			}
 		}
 	}()
 

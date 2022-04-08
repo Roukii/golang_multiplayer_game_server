@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/dao"
+	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/Roukii/pock_multiplayer/internal/world/service/procedural_generation"
@@ -96,4 +97,14 @@ func (us *UniverseService) GetWorlds() []*universe.World {
 		worlds = append(worlds, &value)
 	}
 	return worlds
+}
+
+func (us *UniverseService) AddPlayerToWorld(player *player.Player, world *world_service.WorldService) {
+	world.DynamicEntityService.AddDynamicEntity(player)
+	test := entity.ICreature{}
+	world.DynamicEntityService.AddDynamicEntity(test)
+}
+
+func (us *UniverseService) MovePlayerToAnotherWorld() {
+
 }

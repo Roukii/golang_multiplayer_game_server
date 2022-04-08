@@ -4,19 +4,19 @@ import (
 	"time"
 )
 
-type DynamicEntitiy interface {
+type DynamicEntity interface {
 	GetUUID() string
 	GetName() string
 	Update(elapstedTime int64)
 	GetPosition() *Position
 	SetPosition(pos *Position) *Position
 	GetStats() *Stats
-	GetType() DynamicEntitiy
+	GetType() DynamicEntity
 	SetStats(stats *Stats)
 }
 
 type IDynamicEntity struct {
-	DynamicEntitiy
+	DynamicEntity
 	UUID       string            `json:"uuid"`
 	Name       string            `json:"name"`
 	Position   Position          `json:"position"`
@@ -42,8 +42,8 @@ func (ade *IDynamicEntity) GetName() string {
 	return ade.Name
 }
 
-func (ade *IDynamicEntity) GetPosition() Position {
-	return ade.Position
+func (ade *IDynamicEntity) GetPosition() *Position {
+	return &ade.Position
 }
 
 func (ade *IDynamicEntity) SetPosition(position *Position) {

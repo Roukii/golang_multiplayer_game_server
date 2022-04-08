@@ -10,7 +10,7 @@ import (
 type DynamicEntityChange interface{}
 
 type DynamicEntityService struct {
-	DynamicEntities     map[string]entity.IDynamicEntity
+	DynamicEntities     map[string]entity.DynamicEntity
 	frames              dynamicEntityLinkedList
 	maxSizeFrame        int
 	lastUpdate          time.Time
@@ -21,7 +21,7 @@ type DynamicEntityService struct {
 
 func NewDynamicEntityService() *DynamicEntityService {
 	des := &DynamicEntityService{
-		DynamicEntities: make(map[string]entity.IDynamicEntity),
+		DynamicEntities: make(map[string]entity.DynamicEntity),
 	}
 	des.maxSizeFrame = viper.GetInt("server.dynamic_entity.saved_frame_buffer_size")
 	return des
@@ -47,7 +47,7 @@ func (des *DynamicEntityService) UpdateService() {
 				}
 				for _, entity := range des.DynamicEntities {
 					entity.Update(elapsed.Milliseconds())
-					frame.Position[entity.GetUUID()] = entity.Position.Position
+					frame.Position[entity.GetUUID()] = entity.GetPosition().Position
 				}
 				des.frames.Push(frame)
 				if des.frames.count > des.maxSizeFrame {
@@ -59,8 +59,8 @@ func (des *DynamicEntityService) UpdateService() {
 	}()
 }
 
-func (des *DynamicEntityService) AddDynamicEntity(entity entity.IDynamicEntity) {
-	des.DynamicEntities[entity.GetUUID()] = entity
+func (des *DynamicEntityService) AddDynamicEntity(de entity.DynamicEntity) {
+	des.DynamicEntities[de.GetUUID()] = de
 }
 
 func (des *DynamicEntityService) RemoveDynamicEntity(uuid string) {

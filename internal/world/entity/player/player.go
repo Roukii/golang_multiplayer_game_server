@@ -7,11 +7,12 @@ import (
 )
 
 type Player struct {
-	entity.IDynamicEntity
+	*entity.IDynamicEntity
 	SpawnPoint SpawnPoint `json:"spawn_point"`
 	CurrentWorldUUID string
 }
 
+// Move this shit
 func (p *Player) Update(elapstedTime int64) {
 	log.Println("update player : ", p.UUID)
 }

@@ -3,6 +3,7 @@ package dao
 import (
 	"time"
 
+	"github.com/Roukii/pock_multiplayer/internal/world/entity"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	"github.com/gocql/gocql"
@@ -25,7 +26,7 @@ type World struct {
 	Width       int
 	MaxPlayer   int
 	CreatedAt   time.Time
-	SpawnPoints []player.SpawnPoint
+	SpawnPoints []SpawnPointType
 }
 
 // New -.
@@ -41,6 +42,16 @@ func NewWorldDao(session *gocqlx.Session) *WorldDao {
 }
 
 func (a WorldDao) Insert(world *universe.World) error {
+	var spawns []SpawnPointType
+	for _, spawn := range world.SpawnPoints {
+		spawns = append(spawns, SpawnPointType{
+			WorldUUID: spawn.WorldUUID,
+			X:         spawn.Coordinate.Position.X,
+			Y:         spawn.Coordinate.Position.Y,
+			Z:         spawn.Coordinate.Position.Z,
+			UpdatedAt: time.Now(),
+		})
+	}
 	query := a.WorldMetadata.InsertQuery(*a.session)
 	query.BindStruct(World{
 		WorldUuid:   mustParseUUID(world.UUID),
@@ -49,7 +60,7 @@ func (a WorldDao) Insert(world *universe.World) error {
 		Length:      world.Length,
 		Width:       world.Width,
 		MaxPlayer:   world.MaxPlayer,
-		SpawnPoints: world.SpawnPoints,
+		SpawnPoints: spawns,
 		CreatedAt:   time.Now(),
 	})
 	return query.ExecRelease()
@@ -61,16 +72,31 @@ func (a WorldDao) GetAllWorlds() ([]universe.World, error) {
 	if err := qb.Select(a.WorldMetadata.Name()).Query(*a.session).Select(&worlds); err != nil {
 		return nil, err
 	}
+
 	for _, w := range worlds {
+		var spawns []player.SpawnPoint
+		for _, spawn := range w.SpawnPoints {
+			spawns = append(spawns, player.SpawnPoint{
+				WorldUUID: spawn.WorldUUID,
+				Coordinate: entity.Position{
+					Position: entity.Vector3f{
+						X: spawn.X,
+						Y: spawn.Y,
+						Z: spawn.Z,
+					},
+				},
+				UpdatedAt: spawn.UpdatedAt,
+			})
+		}
 		worldsEntity = append(worldsEntity, universe.World{
-			UUID:      w.WorldUuid.String(),
-			Name:      w.Name,
-			Seed:      w.Seed,
-			Length:    w.Length,
-			Width:     w.Width,
-			MaxPlayer: w.MaxPlayer,
-			CreatedAt: w.CreatedAt,
-			SpawnPoints: w.SpawnPoints,
+			UUID:        w.WorldUuid.String(),
+			Name:        w.Name,
+			Seed:        w.Seed,
+			Length:      w.Length,
+			Width:       w.Width,
+			MaxPlayer:   w.MaxPlayer,
+			CreatedAt:   w.CreatedAt,
+			SpawnPoints: spawns,
 		})
 	}
 	return worldsEntity, nil
