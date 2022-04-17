@@ -36,8 +36,8 @@ func GenerateSeed() string {
 }
 
 func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk *universe.Chunk, err error) {
-	elevationHeightMap := generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.ElevationNoiseMap)
-	rainfallHeightMap := generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.RainfallNoiseMap)
+	elevationHeightMap := wg.generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.ElevationNoiseMap)
+	rainfallHeightMap := wg.generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.RainfallNoiseMap)
 
 	chunk = &universe.Chunk{
 		PositionX:       positionX,
@@ -96,7 +96,7 @@ func getTileType(elevation float64, rainfall float64) universe.TileType {
 	}
 }
 
-func generateHeightmap(startingPositionX int, startingPositionY int, noise opensimplex.Noise) []float64 {
+func (wg *WorldGenerator) generateHeightmap(startingPositionX int, startingPositionY int, noise opensimplex.Noise) []float64 {
 	w, h := startingPositionX+chunkLength, startingPositionY+chunkLength
 	heightmap := make([]float64, chunkLength*chunkLength)
 	for y := 0; y+startingPositionY < h; y++ {

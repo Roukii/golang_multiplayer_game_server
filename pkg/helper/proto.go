@@ -55,6 +55,22 @@ func ChunksTypeToProto(chunks []*universe.Chunk) []*pb.Chunk {
 	return pbChunks
 }
 
+func DynamicEntityToProto(dynamicEntities map[string]entity.DynamicEntity) []*pb.DynamicEntity {
+	var pbDynamicEntities []*pb.DynamicEntity
+	for _, de := range dynamicEntities {
+		pbDynamicEntities = append(pbDynamicEntities, &pb.DynamicEntity{
+			Uuid: de.GetUUID(),
+			Name: de.GetName(),
+			Position: &pb.Position{
+				Position: vector3fToProto(de.GetPosition().Position),
+				Angle:    vector3fToProto(de.GetPosition().Position),
+			},
+			Type: pb.DynamicEntityType(de.GetType()),
+		})
+	}
+	return pbDynamicEntities
+}
+
 func vector3fToProto(pos entity.Vector3f) *pb.Vector3 {
 	return &pb.Vector3{
 		X: pos.X,

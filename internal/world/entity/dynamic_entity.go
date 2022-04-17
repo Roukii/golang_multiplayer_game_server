@@ -9,10 +9,10 @@ type DynamicEntity interface {
 	GetName() string
 	Update(elapstedTime int64)
 	GetPosition() *Position
-	SetPosition(pos *Position) *Position
+	SetPosition(pos *Position)
 	GetStats() *Stats
-	GetType() DynamicEntity
 	SetStats(stats *Stats)
+	GetType() DynamicEntityType
 }
 
 type IDynamicEntity struct {
@@ -46,8 +46,8 @@ func (ade *IDynamicEntity) GetPosition() *Position {
 	return &ade.Position
 }
 
-func (ade *IDynamicEntity) SetPosition(position *Position) {
-	ade.Position = *position
+func (ade *IDynamicEntity) SetPosition(pos *Position) {
+	ade.Position = *pos
 }
 
 func (ade *IDynamicEntity) GetStats() *Stats {
@@ -56,4 +56,8 @@ func (ade *IDynamicEntity) GetStats() *Stats {
 
 func (ade *IDynamicEntity) SetStats(stats *Stats) {
 	ade.Stats = *stats
+}
+
+func (ade *IDynamicEntity) GetType() DynamicEntityType {
+	return ade.EntityType
 }

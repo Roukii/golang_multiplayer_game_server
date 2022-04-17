@@ -19,7 +19,7 @@ type ChunkMethod struct {
 	game    *game.GameService
 	clients *client.ClientService
 }
-
+ // TODO add token check everywhere
 func (c *ChunkMethod) GetWorlds(ctx context.Context, request *emptypb.Empty) (*pb.GetWorldsResponse, error) {
 	worlds := c.game.UniverseService.GetWorlds()
 	var pbWorlds []*pb.World
@@ -31,15 +31,15 @@ func (c *ChunkMethod) GetWorlds(ctx context.Context, request *emptypb.Empty) (*p
 	}, nil
 }
 
-// TODO check if world can be entered
+// TODO check if world can be entered and move player dynamic entity between world service
 func (c *ChunkMethod) EnterWorld(ctx context.Context, request *pb.EnterWorldRequest) (*pb.EnterWorldResponse, error) {
 	userInfo, err := getUserInfoFromRequest(ctx)
 	if err != nil {
 		return nil, err
 	}
 	client, ok := c.clients.GetClient(userInfo.UUID)
-	if ok && client.GetPlayerUUID() != "" {
-		return nil, status.Errorf(codes.AlreadyExists, "already connect")
+	if !ok {
+		return nil, status.Errorf(codes.PermissionDenied, "player not connected")
 	}
 	player, ok := c.game.PlayerService.ConnectedPlayer[client.GetPlayerUUID()]
 	if !ok {
@@ -72,8 +72,8 @@ func (c *ChunkMethod) LoadChunk(ctx context.Context, request *pb.LoadChunkReques
 		return nil, err
 	}
 	client, ok := c.clients.GetClient(userInfo.UUID)
-	if ok && client.GetPlayerUUID() != "" {
-		return nil, status.Errorf(codes.AlreadyExists, "already connect")
+	if !ok {
+		return nil, status.Errorf(codes.PermissionDenied, "player not connected")
 	}
 	player, ok := c.game.PlayerService.ConnectedPlayer[client.GetPlayerUUID()]
 	if !ok {

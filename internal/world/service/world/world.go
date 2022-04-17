@@ -17,7 +17,7 @@ type WorldService struct {
 	Generator            *procedural_generation.WorldGenerator
 	DynamicEntityService *dynamic_entity.DynamicEntityService
 	chunkDao             *dao.ChunkDao
-	playerCount          int
+	PlayerCount          int
 }
 
 func NewWorldService(world *universe.World, chunkDao *dao.ChunkDao, needGeneration bool) *WorldService {
@@ -28,7 +28,7 @@ func NewWorldService(world *universe.World, chunkDao *dao.ChunkDao, needGenerati
 		Generator:            &generator,
 		DynamicEntityService: dynamicEntityService,
 		chunkDao:             chunkDao,
-		playerCount:          0,
+		PlayerCount:          0,
 	}
 	if needGeneration {
 		worldService.generateSpawnPoints()

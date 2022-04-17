@@ -7,7 +7,7 @@ import (
 )
 
 type Player struct {
-	*entity.IDynamicEntity
+	entity.IDynamicEntity
 	SpawnPoint SpawnPoint `json:"spawn_point"`
 	CurrentWorldUUID string
 }
