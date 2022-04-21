@@ -3,7 +3,6 @@ package procedural_generation
 import (
 	"crypto/md5"
 	"encoding/binary"
-	"fmt"
 	"math"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
@@ -57,7 +56,6 @@ func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk *un
 		PositionY: positionY,
 	}
 	i := 0
-	fmt.Println("chunk pos : ", positionX, "/", positionY)
 	mapWidth := chunkLength * wg.World.Length
 	offsetPositionX := positionX * chunkLength
 	offsetPositionY := positionY * (mapWidth * chunkLength)
@@ -74,11 +72,8 @@ func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk *un
 			}
 			chunk.Tiles = append(chunk.Tiles, tile)
 			i++
-			fmt.Print(fmt.Sprintf("%.2f", elevation), " ")
 		}
-		fmt.Print("\n")
 	}
-	fmt.Print("\n\n\n")
 	return chunk, err
 }
 
@@ -125,7 +120,6 @@ func getTileType(elevation float64, rainfall float64) universe.TileType {
 }
 
 func (wg *WorldGenerator) generateHeightmap(startingPositionX int, startingPositionY int, noise opensimplex.Noise) []float64 {
-	fmt.Println("starting pos : ", startingPositionX, "/", startingPositionY)
 	w, h := startingPositionX+chunkLength, startingPositionY+chunkLength
 	heightmap := make([]float64, chunkLength*chunkLength)
 	minNoiseHeight, maxNoiseHeight := math.MaxFloat64, math.SmallestNonzeroFloat64
@@ -149,7 +143,7 @@ func (wg *WorldGenerator) generateHeightmap(startingPositionX int, startingPosit
 			} else if noiseHeight < minNoiseHeight {
 				minNoiseHeight = noiseHeight
 			}
-			heightmap[(y*chunkLength)+x] = noiseHeight
+			heightmap[(y*chunkLength)+x] = advmath.InverseLerpFloat64(0, 1, noiseHeight)
 		}
 		// for x := 0; x < chunkLength; x++ {
 		// 	// InverseLerp
