@@ -1,8 +1,9 @@
-package helper
+package proto_action
 
 import (
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
 	dynamic_entity_action "github.com/Roukii/pock_multiplayer/internal/world/service/action/dynamic_entity"
+	"github.com/Roukii/pock_multiplayer/pkg/helper"
 )
 
 // TODO modify these query to allow creatures instead of only players
@@ -24,7 +25,7 @@ func PlayerAttackChangeToProto(attack dynamic_entity_action.AttackDynamicEntityC
 		Info: &pb.PlayerStreamResponse_DynamicEntity{
 			DynamicEntity: pb.DynamicEntityType_PLAYER,
 		},
-		Action: &pb.PlayerStreamResponse_Attack{Attack: &pb.Attack{DynamicEntityUUID: attack.DynamicEntityUUID, StaticEntityUUID: attack.StaticEntityUUID, Angle: vector3fToProto(attack.Angle)}},
+		Action: &pb.PlayerStreamResponse_Attack{Attack: &pb.Attack{DynamicEntityUUID: attack.DynamicEntityUUID, StaticEntityUUID: attack.StaticEntityUUID, Angle: helper.Vector3fToProto(attack.Angle)}},
 	}
 	return &resp
 }
@@ -35,7 +36,7 @@ func PlayerHitChangeToProto(hit dynamic_entity_action.HitDynamicEntityChange) *p
 		Info: &pb.PlayerStreamResponse_DynamicEntity{
 			DynamicEntity: pb.DynamicEntityType_PLAYER,
 		},
-		Action: &pb.PlayerStreamResponse_Hit{Hit: &pb.Hit{Damage: hit.Damage, HpLeft: hit.HpLeft, Position: vector3fToProto(hit.Position), DynamicEntityUUID: hit.DynamicEntityUUID, StaticEntityUUID: hit.StaticEntityUUID, SkillId: hit.SkillId}},
+		Action: &pb.PlayerStreamResponse_Hit{Hit: &pb.Hit{Damage: hit.Damage, HpLeft: hit.HpLeft, Position: helper.Vector3fToProto(hit.Position), DynamicEntityUUID: hit.DynamicEntityUUID, StaticEntityUUID: hit.StaticEntityUUID, SkillId: hit.SkillId}},
 	}
 	return &resp
 }
@@ -46,15 +47,7 @@ func PlayerConnectChangeToProto(connect dynamic_entity_action.ConnectDynamicEnti
 		Info: &pb.PlayerStreamResponse_DynamicEntity{DynamicEntity: pb.DynamicEntityType_PLAYER},
 		Action: &pb.PlayerStreamResponse_Connect{
 			Connect: &pb.PlayerConnect{
-				Player: &pb.Player{
-					Name:  connect.Player.Name,
-					Uuid:  connect.Player.UUID,
-					Level: int32(connect.Player.Stats.Level),
-					Position: &pb.Position{
-						Position: vector3fToProto(connect.Player.Position.Position),
-						Angle:    vector3fToProto(connect.Player.Position.Rotation),
-					},
-				},
+				Player: helper.PlayerTypeToProto(connect.Player),
 			},
 		},
 	}
@@ -108,8 +101,8 @@ func PlayerUseSkillChangeToProto(skill dynamic_entity_action.UseSkillDynamicEnti
 		Info: &pb.PlayerStreamResponse_DynamicEntity{DynamicEntity: pb.DynamicEntityType_PLAYER},
 		Action: &pb.PlayerStreamResponse_Skill{
 			Skill: &pb.UseSkill{
-				Position: vector3fToProto(skill.Position),
-				Angle:    vector3fToProto(skill.Angle),
+				Position: helper.Vector3fToProto(skill.Position),
+				Angle:    helper.Vector3fToProto(skill.Angle),
 				Skill: &pb.Skill{
 					SkillUuid: skill.SkillId,
 				},

@@ -100,13 +100,10 @@ func (c *ChunkMethod) ChunkStream(stream pb.ChunkService_StreamServer) error {
 		err := stream.RecvMsg(lastRequest)
 		if err == io.EOF {
 			return stream.Send(&pb.ChunkStreamResponse{
-				Action: &pb.ChunkStreamResponse_AddStaticEntity{
-					AddStaticEntity: &pb.AddStaticEntity{},
-				},
+				AddStaticEntity:    []*pb.AddStaticEntity{},
+				UpdateStaticEntity: []*pb.UpdateStaticEntity{},
+				RemoveStaticEntity: []*pb.RemoveStaticEntity{},
 			})
-		}
-		if err != nil {
-			return err
 		}
 	}
 }

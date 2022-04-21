@@ -7,6 +7,7 @@ import (
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/player"
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
 	pb "github.com/Roukii/pock_multiplayer/internal/world/proto"
+	"github.com/Roukii/pock_multiplayer/pkg/helper"
 	"github.com/Roukii/pock_multiplayer/pkg/logger"
 	"github.com/gocql/gocql"
 	"github.com/scylladb/gocqlx/v2"
@@ -78,18 +79,7 @@ func (ps *PlayerService) GetPlayersFromUserUUID(userUUID string) (*pb.GetPlayers
 	}
 	var playerResponse []*pb.Player
 	for _, player := range players {
-		playerResponse = append(playerResponse, &pb.Player{
-			Name:  player.Name,
-			Level: int32(player.Stats.Level),
-			Position: &pb.Position{
-				Position: &pb.Vector3{
-					X: player.SpawnPoint.Coordinate.Position.X,
-					Y: player.SpawnPoint.Coordinate.Position.Y,
-					Z: player.SpawnPoint.Coordinate.Position.Z,
-				},
-				Angle: &pb.Vector3{},
-			},
-		})
+		playerResponse = append(playerResponse, helper.PlayerTypeToProto(player))
 	}
 	return &pb.GetPlayersReply{
 		Player: playerResponse,

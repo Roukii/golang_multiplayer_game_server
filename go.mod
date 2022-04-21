@@ -63,12 +63,14 @@ require (
 	github.com/jackc/pgtype v1.10.0 // indirect
 	github.com/pzsz/voronoi v0.0.0-20130609164533-4314be88c79f // indirect
 	github.com/relops/cqlr v0.0.0-20141111204017-0ac35893ea3f // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0 // indirect
 	github.com/scylladb/go-reflectx v1.0.1 // indirect
 	golang.org/x/net v0.0.0-20220325170049-de3da57026de // indirect
 )
 
 require (
-	github.com/fatih/structs v1.1.0
+	github.com/cznic/mathutil v0.0.0-20181122101859-297441e03548
+	github.com/fatih/structs v1.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.3.0

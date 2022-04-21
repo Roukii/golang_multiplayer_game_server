@@ -193,10 +193,7 @@ message ConnectResponse {
 }
 
 message Player {
-  string name = 1;
-  string uuid = 2;
-  int32 level = 3;
-  Position position = 4;
+  DynamicEntity dynamicEntity = 1;
 }
 
 message World {
@@ -266,7 +263,7 @@ message DynamicEntity {
     string name = 2;
     Position position = 3;
     DynamicEntityType type = 4;
-    // Stats stats
+    Stats stats = 5;
 }
 
 enum DynamicEntityType {
@@ -282,6 +279,14 @@ message StaticEntity {
     Position position = 3;
     StaticEntityType type = 4;
     // Stats stats
+}
+
+message Stats {
+  int64 level = 1;
+  int64 maxHP = 2;
+  int64 HP = 3;
+  int64 maxMP = 4;
+  int64 MP = 5;
 }
 
 enum StaticEntityType {

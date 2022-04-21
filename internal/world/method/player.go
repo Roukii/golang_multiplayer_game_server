@@ -46,13 +46,12 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 	}
 
 	p := player.Player{
-		IDynamicEntity: entity.IDynamicEntity{Name: request.GetName(), Stats: entity.Stats{Level: 1, Maxhp: 10, Hp: 10, Maxmp: 10, Mp: 10}},
+		IDynamicEntity:   entity.IDynamicEntity{Name: request.GetName(), Stats: entity.Stats{Level: 1, Maxhp: 10, Hp: 10, Maxmp: 10, Mp: 10}},
 	}
 	// TODO choose a world in another way
 	var world *universe.World
 	for _, w := range pm.game.UniverseService.WorldServices {
 		world = w.World
-		log.Println(w.World)
 		log.Println(w.World.SpawnPoints)
 		break
 	}
@@ -68,7 +67,7 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 		log.Println("can't load world : ", err)
 		return nil, err
 	}
-	chunks, err := worldService.LoadChunksFromSpawnPoint(p.SpawnPoint)
+	chunks, err := worldService.LoadAllChunks()
 	if err != nil {
 		log.Println("can´t load chunk : ", err)
 		return nil, err
@@ -80,7 +79,7 @@ func (pm *PlayerMethod) CreatePlayer(ctx context.Context, request *pb.CreatePlay
 		Player:        helper.PlayerTypeToProto(&p),
 		World:         helper.WorldTypeToProto(world),
 		Chunks:        helper.ChunksTypeToProto(chunks),
-		DynamicEntity: helper.DynamicEntityToProto(worldService.DynamicEntityService.DynamicEntities),
+		DynamicEntity: helper.DynamicEntitiesToProto(worldService.DynamicEntityService.DynamicEntities),
 	}, nil
 }
 
@@ -100,7 +99,7 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to create player")
 	}
 	worldService, err := pm.game.UniverseService.GetWorldService(p.SpawnPoint.WorldUUID)
-	chunks, err := worldService.LoadChunksFromSpawnPoint(p.SpawnPoint)
+	chunks, err := worldService.LoadAllChunks()
 	if err != nil {
 		return nil, err
 	}
@@ -111,7 +110,7 @@ func (pm *PlayerMethod) Connect(ctx context.Context, request *pb.ConnectRequest)
 		Player:        helper.PlayerTypeToProto(p),
 		World:         helper.WorldTypeToProto(worldService.World),
 		Chunks:        helper.ChunksTypeToProto(chunks),
-		DynamicEntity: helper.DynamicEntityToProto(worldService.DynamicEntityService.DynamicEntities),
+		DynamicEntity: helper.DynamicEntitiesToProto(worldService.DynamicEntityService.DynamicEntities),
 	}, nil
 }
 
@@ -159,8 +158,6 @@ func (pm *PlayerMethod) Stream(requestStream pb.PlayerService_StreamServer) erro
 	}
 	log.Printf(`stream done with error "%v"`, doneError)
 	currentClient.RemovePlayerStream()
-	// TODO remove this it's for testing purpose
-	pm.clients.DisconnectClient(currentClient, "test")
 	return doneError
 }
 

@@ -15,8 +15,8 @@ func WorldTypeToProto(world *universe.World) *pb.World {
 		Level:       int32(world.Level),
 		Length:      int32(world.Length),
 		Width:       int32(world.Width),
-		ScaleXY:     1,
-		ScaleHeight: 8,
+		ScaleXY:     int32(world.ScaleXY),
+		ScaleHeight: int32(world.ScaleHeight),
 		Seed:        world.Seed,
 		ChunkWidth:  25,
 		Population:  int32(world.MaxPlayer),
@@ -25,13 +25,7 @@ func WorldTypeToProto(world *universe.World) *pb.World {
 
 func PlayerTypeToProto(player *player.Player) *pb.Player {
 	return &pb.Player{
-		Name:  player.Name,
-		Uuid:  player.UUID,
-		Level: int32(player.Stats.Level),
-		Position: &pb.Position{
-			Position: vector3fToProto(player.Position.Position),
-			Angle:    vector3fToProto(player.Position.Rotation),
-		},
+		DynamicEntity: DynamicEntityToProto(&player.IDynamicEntity),
 	}
 }
 
@@ -55,23 +49,34 @@ func ChunksTypeToProto(chunks []*universe.Chunk) []*pb.Chunk {
 	return pbChunks
 }
 
-func DynamicEntityToProto(dynamicEntities map[string]entity.DynamicEntity) []*pb.DynamicEntity {
+func DynamicEntitiesToProto(dynamicEntities map[string]entity.DynamicEntity) []*pb.DynamicEntity {
 	var pbDynamicEntities []*pb.DynamicEntity
 	for _, de := range dynamicEntities {
-		pbDynamicEntities = append(pbDynamicEntities, &pb.DynamicEntity{
-			Uuid: de.GetUUID(),
-			Name: de.GetName(),
-			Position: &pb.Position{
-				Position: vector3fToProto(de.GetPosition().Position),
-				Angle:    vector3fToProto(de.GetPosition().Position),
-			},
-			Type: pb.DynamicEntityType(de.GetType()),
-		})
+		pbDynamicEntities = append(pbDynamicEntities, DynamicEntityToProto(de))
 	}
 	return pbDynamicEntities
 }
 
-func vector3fToProto(pos entity.Vector3f) *pb.Vector3 {
+func DynamicEntityToProto(de entity.DynamicEntity) *pb.DynamicEntity {
+	return &pb.DynamicEntity{
+		Uuid: de.GetUUID(),
+		Name: de.GetName(),
+		Position: &pb.Position{
+			Position: Vector3fToProto(de.GetPosition().Position),
+			Angle:    Vector3fToProto(de.GetPosition().Rotation),
+		},
+		Type: pb.DynamicEntityType(de.GetType()),
+		Stats: &pb.Stats{
+			Level: int64(de.GetStats().Level),
+			MaxHP: int64(de.GetStats().Maxhp),
+			HP:    int64(de.GetStats().Hp),
+			MaxMP: int64(de.GetStats().Maxmp),
+			MP:    int64(de.GetStats().Mp),
+		},
+	}
+}
+
+func Vector3fToProto(pos entity.Vector3f) *pb.Vector3 {
 	return &pb.Vector3{
 		X: pos.X,
 		Y: pos.Y,

@@ -20,6 +20,8 @@ create TABLE world(
   name text,
   width int,
   length int,
+  scale_xy float,
+  scale_height float,
   seed text,
   created_at Timestamp,
   spawn_points list<frozen<spawn_point>>,

@@ -3,8 +3,11 @@ package procedural_generation
 import (
 	"crypto/md5"
 	"encoding/binary"
+	"fmt"
+	"math"
 
 	"github.com/Roukii/pock_multiplayer/internal/world/entity/universe"
+	"github.com/Roukii/pock_multiplayer/pkg/advmath"
 	"github.com/Roukii/pock_multiplayer/pkg/random"
 	opensimplex "github.com/ojrac/opensimplex-go"
 	// "github.com/pzsz/voronoi"
@@ -15,19 +18,29 @@ type (
 		World             *universe.World
 		ElevationNoiseMap opensimplex.Noise
 		RainfallNoiseMap  opensimplex.Noise
+		FallOffMap        []float64
 	}
 )
 
+// TODO move scale somewhere else
 const (
-	seedSize    int = 16
-	chunkLength int = 25
+	seedSize     int     = 16
+	chunkLength  int     = 25
+	noiseScale   float64 = 0.15
+	fallOffStart float64 = 0.94
+	fallOffEnd   float64 = 1
 )
 
 func NewWorldGenerator(world *universe.World) WorldGenerator {
 	tmp := WorldGenerator{
 		World: world,
 	}
-	tmp.GenerateNoiseMap()
+	world.Persistance = 0.5
+	world.Lacunarity = 2
+	world.Octave = 4
+	world.UseFallOff = true
+	tmp.generateFallOffMap()
+	tmp.generateNoiseMap()
 	return tmp
 }
 
@@ -36,25 +49,40 @@ func GenerateSeed() string {
 }
 
 func (wg *WorldGenerator) GenerateChunk(positionX int, positionY int) (chunk *universe.Chunk, err error) {
-	elevationHeightMap := wg.generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.ElevationNoiseMap)
-	rainfallHeightMap := wg.generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.RainfallNoiseMap)
+	elevationHeightMap := wg.generateHeightmap(positionX*(chunkLength-1), positionY*(chunkLength-1), wg.ElevationNoiseMap)
+	//rainfallHeightMap := wg.generateHeightmap(positionX*chunkLength, positionY*chunkLength, wg.RainfallNoiseMap)
 
 	chunk = &universe.Chunk{
-		PositionX:       positionX,
-		PositionY:       positionY,
+		PositionX: positionX,
+		PositionY: positionY,
 	}
-	tileNumber := len(elevationHeightMap)
-	for i := 0; i < tileNumber; i++ {
-		tile := universe.Tile{
-			TileType:  getTileType(elevationHeightMap[i], rainfallHeightMap[i]),
-			Elevation: elevationHeightMap[i],
+	i := 0
+	fmt.Println("chunk pos : ", positionX, "/", positionY)
+	mapWidth := chunkLength * wg.World.Length
+	offsetPositionX := positionX * chunkLength
+	offsetPositionY := positionY * (mapWidth * chunkLength)
+	for y := 0; y < chunkLength; y++ {
+		for x := 0; x < chunkLength; x++ {
+			elevation := elevationHeightMap[i]
+			if wg.World.UseFallOff {
+				elevation = advmath.CircIn(advmath.ClampFloat64(elevation-wg.FallOffMap[(offsetPositionY+(y*mapWidth))+offsetPositionX+x], 0, 1)) * float64(wg.World.ScaleHeight)
+			}
+			tile := universe.Tile{
+				// TileType:  getTileType(elevationHeightMap[i], rainfallHeightMap[i]),
+				TileType:  universe.Dirt,
+				Elevation: elevation,
+			}
+			chunk.Tiles = append(chunk.Tiles, tile)
+			i++
+			fmt.Print(fmt.Sprintf("%.2f", elevation), " ")
 		}
-		chunk.Tiles = append(chunk.Tiles, tile)
+		fmt.Print("\n")
 	}
+	fmt.Print("\n\n\n")
 	return chunk, err
 }
 
-func (wg *WorldGenerator) GenerateNoiseMap() {
+func (wg *WorldGenerator) generateNoiseMap() {
 	h := md5.New()
 	var elevationSeed uint64 = binary.BigEndian.Uint64(h.Sum([]byte(wg.World.Seed)))
 	var temperatureSeed uint64 = binary.BigEndian.Uint64(h.Sum([]byte(reverseString(wg.World.Seed))))
@@ -97,16 +125,59 @@ func getTileType(elevation float64, rainfall float64) universe.TileType {
 }
 
 func (wg *WorldGenerator) generateHeightmap(startingPositionX int, startingPositionY int, noise opensimplex.Noise) []float64 {
+	fmt.Println("starting pos : ", startingPositionX, "/", startingPositionY)
 	w, h := startingPositionX+chunkLength, startingPositionY+chunkLength
 	heightmap := make([]float64, chunkLength*chunkLength)
+	minNoiseHeight, maxNoiseHeight := math.MaxFloat64, math.SmallestNonzeroFloat64
 	for y := 0; y+startingPositionY < h; y++ {
 		for x := 0; x+startingPositionX < w; x++ {
-			xFloat := float64(x+startingPositionX) * 0.15
-			yFloat := float64(y+startingPositionY) * 0.15
-			heightmap[(y*chunkLength)+x] = noise.Eval2(xFloat, yFloat)
+			amplitude := 1.0
+			frequency := 1.0
+			noiseHeight := 0.0
+			var noiseValue float64
+			for i := 0; i < int(wg.World.Octave); i++ {
+				xFloat := float64(x+startingPositionX) * noiseScale * frequency
+				yFloat := float64(y+startingPositionY) * noiseScale * frequency
+				noiseValue = noise.Eval2(xFloat, yFloat)
+				noiseHeight += noiseValue * amplitude
+
+				amplitude *= wg.World.Persistance
+				frequency *= wg.World.Lacunarity
+			}
+			if noiseHeight > maxNoiseHeight {
+				maxNoiseHeight = noiseHeight
+			} else if noiseHeight < minNoiseHeight {
+				minNoiseHeight = noiseHeight
+			}
+			heightmap[(y*chunkLength)+x] = noiseHeight
 		}
+		// for x := 0; x < chunkLength; x++ {
+		// 	// InverseLerp
+		// 	heightmap[(y*chunkLength)+x] = advmath.InverseLerpFloat64(minNoiseHeight, maxNoiseHeight, heightmap[(y*chunkLength)+x])
+		// }
 	}
 	return heightmap
+}
+
+// Taken from https://youtu.be/XpG3YqUkCTY?t=92
+func (wg *WorldGenerator) generateFallOffMap() {
+	mapWidth := chunkLength * wg.World.Length
+	wg.FallOffMap = make([]float64, mapWidth*mapWidth)
+	for i := 0; i < mapWidth; i++ {
+		for j := 0; j < mapWidth; j++ {
+			x := float64(i)/float64(mapWidth)*2 - 1
+			y := float64(j)/float64(mapWidth)*2 - 1
+
+			t := math.Max(math.Abs(float64(x)), math.Abs(float64(y)))
+			if t < fallOffStart {
+				wg.FallOffMap[i*mapWidth+j] = 0
+			} else if t > fallOffEnd {
+				wg.FallOffMap[i*mapWidth+j] = 1
+			} else {
+				wg.FallOffMap[i*mapWidth+j] = advmath.Smoothstep(0, 1, advmath.InverseLerpFloat64(fallOffStart, fallOffEnd, t))
+			}
+		}
+	}
 }
 
 // TODO upgrade world creation with voronoi diagram for smoother biome generation

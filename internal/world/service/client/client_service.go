@@ -89,12 +89,12 @@ func (c *ClientService) BroadcastChunk(resp *pb.ChunkStreamResponse) {
 
 // TODO change to disconnect only the stream to allow reconnect
 func (c *ClientService) DisconnectClient(client *client, message string) {
-	log.Println("removing client : ", client.userUUID)
+	log.Println("removing client : ", client.userUUID, " for ", message)
 	c.mu.Lock()
 	playerUUID := c.clients[client.userUUID].playerUUID
 	delete(c.clients, client.userUUID)
-	c.mu.Unlock()
 	c.removePlayer(playerUUID, message)
+	c.mu.Unlock()
 }
 
 // TODO check if there is not a double sending of disconnect

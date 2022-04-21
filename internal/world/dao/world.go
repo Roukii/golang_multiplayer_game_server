@@ -24,6 +24,8 @@ type World struct {
 	Seed        string
 	Length      int
 	Width       int
+	ScaleXY     float32 `cql:"scale_xy"`
+	ScaleHeight     float32 `cql:"scale_height"`
 	MaxPlayer   int
 	CreatedAt   time.Time
 	SpawnPoints []SpawnPointType
@@ -33,7 +35,7 @@ type World struct {
 func NewWorldDao(session *gocqlx.Session) *WorldDao {
 	world := table.New(table.Metadata{
 		Name:    "game.world",
-		Columns: []string{"world_uuid", "name", "seed", "length", "width", "max_player", "created_at", "spawn_points"},
+		Columns: []string{"world_uuid", "name", "seed", "length", "width", "scale_xy", "scale_height","max_player", "created_at", "spawn_points"},
 		PartKey: []string{"world_uuid"},
 		SortKey: []string{},
 	})
@@ -59,6 +61,7 @@ func (a WorldDao) Insert(world *universe.World) error {
 		Seed:        world.Seed,
 		Length:      world.Length,
 		Width:       world.Width,
+		ScaleXY:     world.ScaleXY,
 		MaxPlayer:   world.MaxPlayer,
 		SpawnPoints: spawns,
 		CreatedAt:   time.Now(),
@@ -94,6 +97,7 @@ func (a WorldDao) GetAllWorlds() ([]universe.World, error) {
 			Seed:        w.Seed,
 			Length:      w.Length,
 			Width:       w.Width,
+			ScaleXY:     w.ScaleXY,
 			MaxPlayer:   w.MaxPlayer,
 			CreatedAt:   w.CreatedAt,
 			SpawnPoints: spawns,

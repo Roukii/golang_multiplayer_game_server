@@ -36,14 +36,14 @@ func NewUniverseService(session *gocqlx.Session) *UniverseService {
 
 // TODO maybe remove univer.World
 func (us *UniverseService) LoadWorlds() error {
-	worlds, err := us.worldDao.GetAllWorlds()
-	if err != nil {
-		return err
-	}
-	for _, world := range worlds {
-		us.Universe.Worlds[world.UUID] = world
-		us.WorldServices[world.UUID] = world_service.NewWorldService(&world, us.chunkDao, false)
-	}
+	// worlds, err := us.worldDao.GetAllWorlds()
+	// if err != nil {
+	// 	return err
+	// }
+	// for _, world := range worlds {
+	// 	us.Universe.Worlds[world.UUID] = world
+	// 	us.WorldServices[world.UUID] = world_service.NewWorldService(&world, us.chunkDao, false)
+	// }
 	if len(us.Universe.Worlds) == 0 {
 		worldService, err := us.createWorld("tutorial")
 		if err != nil {
@@ -58,6 +58,7 @@ func (us *UniverseService) LoadWorlds() error {
 	return nil
 }
 
+// TODO add Octave, Persistance, Lacunarity to cassandra
 func (us *UniverseService) createWorld(worldName string) (*world_service.WorldService, error) {
 	world := universe.World{
 		UUID:        gocql.TimeUUID().String(),
@@ -66,9 +67,14 @@ func (us *UniverseService) createWorld(worldName string) (*world_service.WorldSe
 		Level:       1,
 		Length:      10,
 		Width:       10,
+		ScaleXY:     10,
+		ScaleHeight: 40,
 		SpawnPoints: []player.SpawnPoint{},
 		Seed:        procedural_generation.GenerateSeed(),
 		Type:        0,
+		Persistance: 0.5,
+		Lacunarity:  2,
+		Octave:      4,
 		CreatedAt:   time.Now(),
 		UpdateAt:    time.Now(),
 	}

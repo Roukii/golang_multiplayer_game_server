@@ -58,6 +58,24 @@ func (ws *WorldService) generateAndSaveWorldChunks() (err error) {
 	return nil
 }
 
+
+func (ws *WorldService) getAllChunks() ([]*universe.Chunk, error) {
+	var chunks []*universe.Chunk
+	world := ws.World
+	if len(world.Chunks) == 0 {
+		err := ws.loadWorldChunks()
+		if err != nil {
+			return nil, errors.New("world not found : " + ws.World.UUID)
+		}
+	}
+	for x := 0; x < world.Length; x++ {
+		for y := 0; y < world.Width; y++ {
+			chunk := world.Chunks[x][y]
+			chunks = append(chunks, &chunk)
+		}
+	}
+	return chunks, nil
+}
 func (ws *WorldService) getChunksFromSpawnSpoint(spawnPoint player.SpawnPoint, viewDistance int) ([]*universe.Chunk, error) {
 	var chunks []*universe.Chunk
 	world := ws.World
@@ -107,6 +125,16 @@ func (ws *WorldService) generateChunk(position entity.Vector2) (*universe.Chunk,
 // TODO lock write with mutex
 func (ws *WorldService) LoadChunksFromSpawnPoint(spawnPoint player.SpawnPoint) (chunks []*universe.Chunk, err error) {
 	chunks, err = ws.getChunksFromSpawnSpoint(spawnPoint, 1)
+	if err != nil {
+		log.Println("failed to load chunks", err)
+		return nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
+	}
+	return chunks, nil
+}
+
+// TODO lock write with mutex
+func (ws *WorldService) LoadAllChunks() (chunks []*universe.Chunk, err error) {
+	chunks, err = ws.getAllChunks()
 	if err != nil {
 		log.Println("failed to load chunks", err)
 		return nil, status.Errorf(codes.InvalidArgument, "failed to load chunks")
